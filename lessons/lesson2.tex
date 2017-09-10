@@ -225,7 +225,7 @@ $$ \left\{ X \left( t \right), \, t \geq 0 \right\}.$$
 
 \textit{Решение.} $ \varphi \sim U \left( \left[ 0, 2 \pi \right] \right) $.
 
-Траектория такого процесса изображена на рисунке \ref{24}.
+Траектория такого процесса изображена на рисунке \ref{fig:24}.
 
 \begin{figure}[h!]
  \centering
@@ -471,3 +471,104 @@ $$ \varphi_{X \left( \eta \right) } \left( \lambda \right) =
 
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
+
+\subsubsection*{2.12}
+
+\textit{Задание.}
+Пусть
+$$ \xi \left( t \right) =
+  Xt + a, \,
+  t \in \mathbb{R},$$
+где $X$ --- равномерно распределённая на отрезке $ \left( a, b \right) $ случайная величина.
+Запишите конечномерные распределения случайного процесса
+$ \left\{ \xi \left( t \right), \, t \in \mathbb{R} \right\} $.
+Найдите его математическое ожидание, дисперсию и ковариационную функцию.
+
+\textit{Решение.}
+$ \xi \left( t \right) = Xt + a, \, t \in \mathbb{R}$, где $X \sim U \left( a, b \right) $.
+
+Нужно найти $m \left( t \right), \, D \xi \left( t \right), \, K \left( t, s \right) $,
+конечномерные распределения.
+
+Найдём математическое ожидание в момент $t$
+$$m \left( t \right) =
+  M \xi \left( t \right) =
+  M \left( Xt + a \right) =
+  M \left( Xt \right) + Ma =
+  tMX + a =
+  t \cdot \frac{a + b}{2} + a.$$
+
+Траектории такого процесса изоражены на рисунке \ref{fig:212}: чем больше $X$,
+тем больше угол наклона прямой к оси $0t$.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=.5\textwidth]{./pictures/2_12.png}
+ \caption{Траектории случайного процесса}
+ \label{fig:212}
+\end{figure}
+
+$$D \xi \left( t \right) =
+  D \left( Xt + a \right) =
+  D \left( Xt \right) + Da =
+  t^2 DX =
+  t^2 \cdot \frac{ \left( b - a \right)^2}{12}.$$
+
+Ковариационная функция считается по определению
+$$K \left( t, s \right) =
+  M \left[ \xi \left( t \right) \xi \left( s \right) \right] -
+  M \xi \left( t \right) M \xi \left( s \right) =$$
+Подставляем выражение для случайного процесса, раскрываем скобки и вычисляем математическое ожидание
+\begin{equation*}
+  \begin{split}
+    = M \left[ \left( Xt + a \right) \left( Xs + a \right) \right] -
+    M \left( Xt + a \right) M \left( Xs + a \right) = \\
+    = M \left[ X^2 ts + Xa \left(t + s \right) + a^2 \right] -
+    \left( t \cdot \frac{a + b}{2} + a \right) \left( s \cdot \frac{a + b}{2} + a \right) = \\
+    = ts \cdot \frac{a^2 + ab + b^2}{3} + a \left( t + s \right) \cdot \frac{a + b}{2} + a^2 -
+    ts \cdot \frac{ \left( a + b \right)^2}{4} - ta \cdot \frac{a + b}{2} - a^2 - \\
+    - as \cdot \frac{a + b}{2} = \\
+    = ts \left( \frac{a^2 + ab + b^2}{3} - \frac{a^2 + 2ab + b^2}{4} \right) +
+    \left(t + s \right) a \cdot \frac{a + b}{2} - \frac{a + b}{2} \cdot a \left( t + s \right) = \\
+    = ts \cdot \frac{4a^2 + 4ab + 4b^2 - 3a^2 - 6ab - 3b^2}{12} =
+    ts \cdot \frac{a^2 - 2ab + b^2}{12} =
+    ts \cdot \frac{ \left( a - b \right)^2}{12}.
+  \end{split}
+\end{equation*}
+
+Считаем функцию распределения случайного вектора
+$ \left( \xi \left( t_1 \right), \dotsc, \xi \left( t_n \right) \right) $ --- рис. \ref{fig:2121}.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=.5\textwidth]{./pictures/2_12_1.png}
+ \caption{Выбираем точки, в которых ищем распределение случайного процесса}
+ \label{fig:2121}
+\end{figure}
+
+$F_{ \left( \xi \left( t_1 \right), \dotsc, \xi \left( t_n \right) \right) }
+  \left( \vec{x} \right) =
+  P \left\{ \xi \left( t_1 \right) \leq x_1, \dotsc, \xi \left( t_n \right) \leq x_n \right\} $.
+Вместо $ \xi $ напишем формулу
+$P \left\{ \xi \left( t_1 \right) \leq x_1, \dotsc, \xi \left( t_n \right) \leq x_n \right\} =
+  P \left( Xt_1 + a \leq x_1, \dotsc, Xt_n + a \leq x_n \right) $.
+Величины зависимы, потому что все они выражаются через $X$.
+Все неравенства решаем относительно $X$
+$$P \left( Xt_1 + a \leq x_1, \dotsc, Xt_n + a \leq x_n \right) =
+  P \left( Xt_1 \leq x_1 - a, \dotsc, Xt_n \leq x_n - a \right) =$$
+Делим на константы левые части неравенств
+$$= P \left( X \leq \frac{x_1 - a}{t_1}, \dotsc, X \leq \frac{x_n - a}{t_n} \right) =$$
+Перепишем через минимум
+$$= P \left\{
+    X \leq \min \left( \frac{x_1 - a}{t_1}, \dotsc, \frac{x_n - a}{t_n} \right)
+  \right\} =$$
+Обозначим минимум буквой $m$ для удобства
+$$= P \left( X \leq m \right) =
+  \int \limits_a^m \frac{1}{b - a} \cdot \mathbbm{1} \left\{ X \in \left( a, b \right) \right\} dX =
+  \frac{1}{b - a} \int \limits_a^m dX =
+  \frac{1}{b - a} \cdot \left. X \right|_a^m =$$
+Подставляем пределы интегрирования
+$$= \frac{1}{b - a} \cdot \left( m - a \right) =
+  \frac{1}{b - a} \cdot
+  \left[ \min \left( \frac{x_1 - a}{t_1}, \dotsc, \frac{x_n - a}{t_n} \right) - a \right] $$
+при $m \in \left( a, b \right) $, иначе --- ноль.
