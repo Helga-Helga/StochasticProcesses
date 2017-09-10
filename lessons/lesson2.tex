@@ -268,5 +268,78 @@ $$= \frac{1}{2} \cdot MA^2 \cdot \cos \left[ \lambda \left( t - s \right) \right
 Это стационарный процесс.
 Его характеристики не меняются при сдвиге.
 
+\subsubsection*{2.5}
+
+\textit{Задание.}
+Пусть $ \tau $ --- случайная величина,
+которая имеет равномерное распределение на отрезке $ \left[ 0, 1 \right] $,
+и пусть $ \left\{ X \left( t \right), \, t \in \left[ 0, 1 \right] \right\} $ --- процесс ожидания,
+связанный с этой случайной величиной, то есть
+$$X \left( t \right) =
+  \mathbbm{1} \left\{ t \geq \tau \right\}, \,
+  t \in \left[ 0, 1 \right].$$
+Запишите конечномерные распределения процесса
+$ \left\{ X \left( t \right), \, t \in \left[ 0, 1 \right] \right\} $,
+найдите его математическое ожидание и ковариационную функцию.
+
+\textit{Решение.}
+$ \tau $ --- случайная величина с распределением $U \left( \left[ 0 , 1 \right] \right) $.
+
+Сначала нарисуем траекторию такого процесса (рис. \ref{fig:25}).
+Случайное $ \tau $ выпало.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=.5\textwidth]{./pictures/2_5.png}
+ \caption{Траектория процесса}
+ \label{fig:25}
+\end{figure}
+
+$$m \left( t \right) =
+  MX \left( t \right) =
+  M \mathbbm{1} \left\{ t \geq \tau \right\} =
+  P \left( t \geq \tau \right) =
+  F_{ \tau } \left( t \right) =
+  \frac{t - a}{b - a} =
+  t.$$
+
+Ковариационная функция
+$K \left( t, s \right) =
+  M \left[ X \left( t \right) X \left( s \right) \right] -
+  MX \left( t \right) MX \left( s \right) $.
+Произведение индикаторов --- это индикатор пересечения
+$$M \left[ X \left( t \right) X \left( s \right) \right] -
+  MX \left( t \right) MX \left( s \right) =
+  P \left\{ \tau \leq \min \left( t, s \right) \right\} - ts =
+  \min \left( t, s \right) - t \cdot s.$$
+
+Конечномерные распределения ---
+распределение вектора $ \left( X \left( t_1 \right), \dotsc, X \left( t_n \right) \right) $.
+Каждый $X$ --- это 0 или 1.
+$$P \left\{
+    \left( X \left( t_1 \right), \dotsc, X \left( t_n \right) \right) = \left( 0, \dotsc, 0 \right)
+  \right\} =
+  P \left\{ \tau \in \left( t_n , 1 \right] \right\} =
+  1 - t_n.$$
+Точки $t_n$ изображены на рисунке \ref{fig:251}.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=.5\textwidth]{./pictures/2_5_1.png}
+ \caption{Временная ось}
+ \label{fig:251}
+\end{figure}
+
+У вектора получается $ \left( n + 1 \right) $-но значение
+$$ \left( X \left( t_1 \right), \dotsc, X \left( t_n \right) \right) =
+  \begin{cases}
+    \left( 0, \dotsc, 0 \right), \qquad 1 - t_n, \\
+    \left( 0, \dotsc, 0, 1 \right), \qquad t_n - t_{n - 1}, \\
+    \dotsc, \\
+    \left( 0, \dotsc, 0, 1, \dotsc, 1 \right), \qquad t_{k + 1} - t_k, \\
+    \dotsc, \\
+    \left( 1, \dotsc, 1 \right), \qquad t_1.
+  \end{cases}$$
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
