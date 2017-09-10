@@ -102,5 +102,115 @@ $$p_{ \xi \left( t \right) } \left( x \right) =
   \label{fig:22}
 \end{figure}
 
+\subsubsection*{2.3}
+
+\textit{Задание.}
+Пусть
+$$ \xi \left( t \right) =
+  e^{-Xt}, \,
+  t > 0,$$
+где $X$ --- случайная величина, которая имеет показательное распределение с параметром $ \lambda $.
+Запишите конечномерные распределения случайного процесса
+$ \left\{ \xi \left( t \right), \, t > 0 \right\} $.
+Найдите его математическое ожидание, дисперсию и ковариационную функцию.
+
+\textit{Решение.}
+$ \xi \left( t \right) = e^{-Xt}$, где $X \sim Exp \left( \lambda \right), \, t > 0$.
+
+Нужно найти $m \left( t \right), \, K \left( t, s \right) $, конечномерные распределения.
+
+Найдём математическое ожидание в момент $t$.
+По определению
+$$m \left( t \right) =
+  Me^{-Xt} =
+  \int \limits_0^{+ \infty } \lambda e^{- \lambda x} e^{-Xt} dX =
+  \frac{ \lambda }{ \lambda + t}.$$
+Траектории такого процесса изображены на рисунке \ref{fig:23}: чем больше $X$,
+тем быстрее эта функция убывает.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/2_3.png}
+  \caption{Траектория процесса}
+  \label{fig:23}
+\end{figure}
+
+Ковариационная функция считается по определению
+$$K \left( t, s \right) =
+  M \xi \left( t \right) \xi \left( s \right) - M \xi \left( t \right) M \xi \left( s \right) =
+  Me^{-Xt - Xs} - \frac{ \lambda }{ \lambda + t} \cdot \frac{ \lambda }{ \lambda + s}.$$
+Подставим найденное значение фунцкии математического ожидания
+$$Me^{-Xt - Xs} - \frac{ \lambda }{ \lambda + t} \cdot \frac{ \lambda }{ \lambda + s} =
+  \frac{ \lambda }{ \lambda + t + s} -
+  \frac{ \lambda^2}{ \left( \lambda + t \right) \left( \lambda + s \right) }.$$
+
+Считаем функцию распределения случайного вектора
+$ \left( \xi \left( t_1 \right), \dotsc, \xi \left( t_n \right) \right) $ --- рис. \ref{fig:231}.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/2_3_1.png}
+  \caption{Выбираем точки, в которых ищем распределение случайного процесса}
+  \label{fig:231}
+\end{figure}
+
+$F_{ \left( \xi \left( t_1 \right), \dotsc, \xi \left( t_n \right) \right) }
+  \left( \vec{x} \right) =
+  P \left\{ \xi \left( t_1 \right) \leq x_1, \dotsc, \xi \left( t_n \right) \leq x_n \right\} $.
+Вместо $ \xi $ напишем формулу
+$P \left\{ \xi \left( t_1 \right) \leq x_1, \dotsc, \xi \left( t_n \right) \leq x_n \right\} =
+  P \left( e^{-Xt_1} \leq x_1, \dotsc, e^{-Xt_n} \leq x_n \right) $.
+Величины зависимы, потому что все они выражаются через $X$.
+Все неравенства решаем относительно $X$
+$$P \left( e^{-Xt_1} \leq x_1, \dotsc, e^{-Xt_n} \leq x_n \right) =
+  P \left\{ X \geq -\frac{ln \, x_1}{t_1}, \dotsc, X \geq -\frac{ln \, x_n}{t_n} \right\}.$$
+Перепишем через максимум
+$$P \left\{ X \geq -\frac{ln \, x_1}{t_1}, \dotsc, X \geq -\frac{ln \, x_n}{t_n} \right\} =
+  P \left\{
+    X \geq \max \left( -\frac{ln \, x_1}{t_1}, \dotsc, -\frac{ln \, x_n}{t_n} \right) \right\}.$$
+Обозначим максимум буквой $m$
+$$P \left\{
+    x \geq \max \left( -\frac{ln \, x_1}{t_1}, \dotsc, -\frac{ln \, x_n}{t_n} \right) \right\} =
+  \int \limits_m^{+\infty } \lambda e^{-\lambda X} dX =
+  -\left. e^{-\lambda X} \right|_m^{+\infty}.$$
+На бесконечности получаем ноль
+$$-\left. e^{-\lambda X} \right|_m^{+\infty} =
+  e^{-\lambda m} =
+  e^{-\lambda \max \left( ln \, x_1^{-\frac{1}{t_1}}, \dotsc, ln \, x_n^{-\frac{1}{t_n}} \right) }.$$
+Выносим логарифм
+$$e^{-\lambda \max \left( ln \, x_1^{-\frac{1}{t_1}}, \dotsc, ln \, x_n^{-\frac{1}{t_n}} \right) } =
+e^{-\lambda ln \max \left( x_1^{-\frac{1}{t_1}}, \dotsc, x_n^{-\frac{1}{t_n}} \right) }.$$
+Экспонента и логарифм уничтожают друг друга
+$$e^{-\lambda ln \max \left( x_1^{-\frac{1}{t_1}}, \dotsc, x_n^{-\frac{1}{t_n}} \right) } =
+  \max \left( x_1^{-\frac{1}{t_1}}, \dotsc, x_n^{-\frac{1}{t_n}} \right)^{-\lambda } =
+  \min \left( x_1^{ \frac{ \lambda }{t_1}}, \dotsc, x_n^{ \frac{ \lambda }{t_n}} \right).$$
+
+Все выкладки были законные, только когда $0 < x_1, \dotsc, x_n < 1$.
+
+Плотности у такого векора $ \left( \xi \left( t_1 \right), \dotsc, \xi \left( t_n \right) \right) $
+быть не может, потому что
+$ \xi \left( t_1 \right)^{ \frac{1}{t_1}} =
+  e^{-X} =
+  \xi \left( t_2 \right)^{ \frac{1}{t_2}}$.
+Сейчас у нас только одна случайная величина.
+Это можно переписать как
+$ \xi \left( t_2 \right) = \xi \left( t_1 \right)^{ \frac{t_2}{t_1}}, \,
+  y = x^{ \frac{t_2}{t_1}}.$
+
+С вероятностью 1 $ \left( \xi \left( t_1 \right), \xi \left( t_2 \right) \right) \in L$ ---
+рис. \ref{fig:232}.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/2_3_2.png}
+  \caption{$y = x^{ \frac{t_2}{t_1}}$}
+  \label{fig:232}
+\end{figure}
+
+Значения вектора всегда попадают на такую линию.
+Площадь кривой --- ноль.
+
+Плотность --- производная от функции распределения, а минимум нельзя дифференцировать.
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
