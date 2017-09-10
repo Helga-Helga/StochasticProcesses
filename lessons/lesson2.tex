@@ -341,6 +341,95 @@ $$ \left( X \left( t_1 \right), \dotsc, X \left( t_n \right) \right) =
     \left( 1, \dotsc, 1 \right), \qquad t_1.
   \end{cases}$$
 
+\subsubsection*{2.6}
+
+\textit{Задание.}
+Пусть $ \xi_1, \xi_2, \dotsc, \xi_n$ ---
+независимые одинаково распределённые случайные величины с функцией распределения $F$, и пусть
+$$X \left( t \right) \equiv
+  F_n^* \left( t \right) =
+  \frac{1}{n} \sum \limits_{i = 1}^n \mathbbm{1} \left\{ \xi_i \leq t \right\}, \,
+  t \in \mathbb{R}.$$
+Запишите конечномерные распределения процесса
+$ \left\{ X \left( t \right), \, t \in \mathbb{R} \right\} $,
+найдите его математическое ожидание и ковариационную функцию.
+
+\textit{Решение.}
+$$X \left( t \right) =
+  \frac{1}{n} \sum \limits_{i = 1}^n \mathbbm{1} \left\{ \xi_i \leq t \right\} $$
+--- это эмпирическая функция распределения (рис. \ref{fig:26}).
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=.5\textwidth]{./pictures/2_6.png}
+ \caption{Эмпирическая функция распределения}
+ \label{fig:26}
+\end{figure}
+
+Эмпирическая функция распределения --- это несмещённая оценка функции распределения.
+
+$$cov \left( X \left( t \right), X \left( s \right) \right) =
+  cov \left(
+    \frac{1}{n} \sum \limits_{i = 1}^n \mathbbm{1} \left\{ \xi_i \leq t \right\}, \,
+    \frac{1}{n} \sum \limits_{i = 1}^n \mathbbm{1} \left\{ \xi_i \leq s \right\} \right) =$$
+Нужно вынести константы
+$$= \frac{1}{n^2}
+  \sum \limits_{i,j=1}^n
+    cov \left(
+      \mathbbm{1} \left\{ \xi_i \leq t, \, \mathbbm{1} \left\{ \xi_j \leq s \right\} \right\}
+    \right) =$$
+Случайные величины $ \xi_1, \dotsc, \xi_n$ --- независимые.
+Ковариация независимых величин --- ноль
+$$= \frac{1}{n^2}
+  \sum \limits_{i = 1}^n
+    \left(
+      \mathbbm{1} \left\{ \xi_i \leq t \right\}, \, \mathbbm{1} \left\{ \xi_i \leq s \right\}
+    \right).$$
+
+Посчитаем ковариацию двух индикаторов
+$$cov \left(
+    \mathbbm{1} \left\{ \xi_i \leq t \right\}, \, \mathbbm{1} \left\{ \xi_i \leq s \right\}
+  \right) =
+  M \mathbbm{1} \left\{ \xi_i \leq t \wedge s \right\} - F \left( t \right) F \left( s \right) =$$
+Математическое ожидание индикатора событие --- вероятность этого события,
+которая в данном случае по определению равна функции распределения
+$$= F \left( t \wedge s \right) - F \left( t \right) F \left( s \right),$$
+где $ \wedge $ означает минимум.
+
+Все слагаемые в сумме раны этому выражению
+$$K \left( t, s \right) =
+  \frac{1}{n} \left[ F \left( t \wedge s \right) - F \left( t \right) F \left( s \right) \right].$$
+
+Теперь нужно написать конечномерные распределения этого процесса.
+Фиксируем $t_1, t_2, \dotsc, t_m$ (рис. \ref{fig:261}).
+
+$$X \left( t \right) \in
+  \left\{ 0, \frac{1}{n}, \frac{2}{n}, \dotsc, 1 \right\}.$$
+
+По $t, \, X$ увеличивается.
+Эта функция монотонна.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=.5\textwidth]{./pictures/2_6_1.png}
+ \caption{Фиксируем моменты времени}
+ \label{fig:261}
+\end{figure}
+
+$0 \leq k_1 \leq k_2 \leq \dotsc \leq k_m \leq n$.
+
+Конечномерные распределения имеют вид
+$$P \left\{
+    X \left( t_1 \right) = \frac{k_1}{n}, \,
+    X \left( t_2 \right) = \frac{k_2}{n}, \dotsc, X \left( t_m \right) = \frac{k_m}{n} \right\} =$$
+$P$(для $k_1$ наблюдений $ \xi \leq t_1$, для $k_2 - k_1$ наблюдений $t_1 < \xi \leq t_2, \dotsc,$
+для $n - k_m$ наблюдений $ \xi > t_m$)
+Имеем мультиномиальное распределение
+$$= \frac{n!}{k_1! \left( k_2 - k_1 \right)! \dotsc \left( n - k_m \right)!} \cdot
+  F \left( t_1 \right)^{k_1} \cdot
+  \left[ F \left( t_2 \right) - F \left( t_1 \right) \right]^{k_2 - k_1} \cdot \dotsc,$$
+где первое слагаемое --- количество способов разбить $n$ величин на группы.
+
 \subsubsection*{2.7}
 
 \textit{Задание.}
