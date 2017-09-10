@@ -202,7 +202,7 @@ $ \xi \left( t_2 \right) = \xi \left( t_1 \right)^{ \frac{t_2}{t_1}}, \,
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=.4\textwidth]{./pictures/2_3_2.png}
+  \includegraphics[width=.5\textwidth]{./pictures/2_3_2.png}
   \caption{$y = x^{ \frac{t_2}{t_1}}$}
   \label{fig:232}
 \end{figure}
@@ -211,6 +211,62 @@ $ \xi \left( t_2 \right) = \xi \left( t_1 \right)^{ \frac{t_2}{t_1}}, \,
 Площадь кривой --- ноль.
 
 Плотность --- производная от функции распределения, а минимум нельзя дифференцировать.
+
+\subsubsection*{2.4}
+
+\textit{Задание.}
+Рассмотрим случайный процесс
+$$X \left( t \right) =
+  A \cos \left( \varphi + \lambda t \right),$$
+где $A$ и $ \varphi $ являются независимыми случайными величинами такими, что $MA^2 < \infty $,
+а $ \varphi $ имеет равномерное распределение на отрезке $ \left[ 0, 2 \pi \right] $.
+Найдите математическое ожидание и ковариационную функцию процесса
+$$ \left\{ X \left( t \right), \, t \geq 0 \right\}.$$
+
+\textit{Решение.} $ \varphi \sim U \left( \left[ 0, 2 \pi \right] \right) $.
+
+Траектория такого процесса изображена на рисунке \ref{24}.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=.5\textwidth]{./pictures/2_4.png}
+ \caption{Траектория процесса}
+ \label{fig:24}
+\end{figure}
+
+Тут случайная амплитуда и случайный сдвиг по фазе.
+
+$MX \left( t \right) =
+M \left[ A \cos \left( \varphi + \lambda t \right) \right] $.
+Случайные величины $A$ и $ \varphi $ --- независимые.
+$M \left[ A \cos \left( \varphi + \lambda t \right) \right] =
+  MAM \cos \left( \varphi + \lambda t \right) $.
+Математическое ожидание косинуса можем найти, потому что у $ \varphi $ известна плотность
+$$MAM \cos \left( \varphi + \lambda t \right) =
+  MA \cdot \int \limits_0^{2 \pi }
+    \cos \left( \varphi + \lambda t \right) \cdot \frac{1}{2 \pi } \cdot d \varphi.$$
+Интеграл косинуса по периоду --- ноль.
+
+Ковариационная функция
+$K \left( t, s \right) =
+  MX \left( t \right) X \left( s \right) - MX \left( t \right) MX \left( s \right) =$
+Произведение математических ожиданий мы знаем
+$$= MX \left( t \right) X \left( s \right) =
+  M \left[
+    A^2 \cos \left( \varphi + \lambda t \right) \cos \left( \varphi + \lambda s \right) \right] =$$
+Используем независимость
+$$= MA^2 \cdot
+  M \left[ \cos \left( \varphi + \lambda t \right) \left( \varphi + \lambda s \right) \right] =$$
+Применяем формулу для произведения косинусов
+$$= MA^2 \cdot M \left\{
+    \frac{1}{2} \cdot \cos \left[ 2 \varphi + \lambda \left( t + s \right) \right] +
+    \frac{1}{2} \cdot \cos \left[ \lambda \left( t - s \right) \right] \right\} =$$
+Математическое ожидание первого слагаемого --- ноль
+$$= \frac{1}{2} \cdot MA^2 \cdot \cos \left[ \lambda \left( t - s \right) \right].$$
+
+Двумерная характеристика процесса зависит только от расстояния между двумя точками.
+Это стационарный процесс.
+Его характеристики не меняются при сдвиге.
 
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
