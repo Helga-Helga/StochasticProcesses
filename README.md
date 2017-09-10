@@ -1,3 +1,1 @@
-# MathStatistics
-# StochasticProcesses
 # StochasticProcesses
