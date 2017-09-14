@@ -805,3 +805,32 @@ $$= \int \limits_{- \infty }^z \frac{1}{ \sqrt{2 \pi }} \cdot e^{- \frac{y^2}{2}
 где обозначено
 $$z =
   \min \limits_{i = \overline{1, n}} x_i t_i.$$
+
+\subsubsection*{2.17}
+
+\textit{Задание.}
+Найдите характеристическую функцию случайной величины $ \xi \left( \tau \right) $,
+где $ \left\{ \xi \left( t \right),\ , t \geq 0 \right\} $ --- процесс из предыдущей задачи,
+а $ \tau $ --- независимая от $ \xi $ случайная величина,
+которая принимает значения $+1$ и $-1$ с вероятностями $1 / 2$.
+
+\textit{Решение.}
+$$ \xi \left( t \right) =
+  \frac{ \eta + \zeta }{t}.$$
+
+Задана случайная величина
+$$ \tau =
+  \begin{cases}
+    1, \qquad \frac{1}{2}, \\
+    -1, \qquad \frac{1}{2}.
+  \end{cases}$$
+
+Интересует
+$$ \varphi_{ \xi \left( \tau \right) } \left( \lambda \right) =
+  Me^{i \xi \left( \tau \right) \lambda } =
+  Me^{i \cdot \frac{ \eta + \zeta }{ \tau } \cdot \lambda } =$$
+Как и в предыдущей задаче $ \eta + \zeta = X \sim N \left( 0, 1 \right) $.
+Получаем
+$$= Me^{i \cdot \frac{X}{ \tau } \cdot \lambda } =
+  Me^{-\frac{ \lambda ^2}{2 \tau^2}} =
+  e^{- \frac{ \lambda^2}{2}}.$$
