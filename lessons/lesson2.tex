@@ -630,7 +630,8 @@ $$= M \left[ \left( U \cos \theta t + V \sin \theta t \right) \cdot
   \begin{split}
     = M(
       U^2 \cos \theta t \cdot \cos \theta s + UV \cos \theta t \cdot \sin \theta s +
-      VU \sin \theta t \cdot \cos \theta s + \\
+      VU \sin \theta t \cdot \cos \theta
+       s + \\
       + V^2 \sin \theta t \cdot \sin \theta s) = \\
     = DU \cdot \cos \theta t \cdot \cos \theta s +
     MU \cdot MV \cdot \cos \theta t \cdot \sin \theta s +
@@ -643,3 +644,88 @@ $$= M \left[ \left( U \cos \theta t + V \sin \theta t \right) \cdot
     \sigma^2 \cos \left[ \theta \left( t - s \right) \right].
   \end{split}
 \end{equation*}
+
+\subsubsection*{2.14}
+
+\textit{Задание.}
+Определите математическое ожидание, дисперсию и ковариационную функцию процесса
+$$ \xi \left( t \right) =
+  2u \sin \nu t + 3vt^2 + 5, \,
+  t \in T,$$
+где $ \nu $ --- известный неслучайный параметр, а $u, v$ ---
+случайные величины с известными характеристиками:
+$$Mu = 1, \,
+  Mv = 2, \,
+  Du = 0.1, \,
+  Dv = 0.9, \,
+  cov \left( u, v \right) = -0.3.$$
+
+\textit{Решение.}
+Нужно найти $m \left( t \right), \, D \xi \left( t \right), \, K \left( t, s \right) $.
+
+Найдём математическое ожидание в момент $t$.
+По свойствам
+$$m \left( t \right) =
+  M \left( 2u \sin \nu t + 3vt^2 + 5 \right) =
+  2 \sin \nu t \cdot Mu + 3t^2 Mv + 5 =
+  2 \sin \nu t + 6t^2 + 5.$$
+
+Траектория такого процесса изображена на рисунке \ref{fig:214}.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=.5\textwidth]{./pictures/2_14.png}
+ \caption{Траектория процесса}
+ \label{fig:214}
+\end{figure}
+
+Ковариационная функция считается по определению
+$$K \left( t, s \right) =
+  M \xi \left( t \right) \xi \left( s \right) -
+    M \xi \left( t \right) \cdot M \xi \left( s \right) =$$
+Подставим выражения для случайного процесса и его математические ожидания
+\begin{equation*}
+  \begin{split}
+    = M \left[
+      \left( 2u \sin \nu t + 3vt^2 + 5 \right) \left( 2u \sin \nu s + 3vs^2 + 5 \right) \right] - \\
+    - \left( 2 \sin \nu t + 6t^2 + 5 \right) \left( 2 \sin \nu s + 6s^2 + 5 \right) = \\
+    = M(4u^2 \sin \nu t \cdot \sin \nu s + 6uv \sin \nu t \cdot s^2 + 10u \sin \nu t +
+      6vt^2 u \sin \nu s + 9v^2 t^2 s^2 + \\
+      + 15vt^2 + 10u \sin \nu s + 15vs^2 + 25) -
+    4 \sin \nu t \cdot \sin \nu s - 12 \sin \nu t \cdot s^2 - 10 \sin \nu t - \\
+    - 12t^2 \sin \nu s - 36t^2 s^2 - 30t^2 - 10 \sin \nu s - 30s^2 - 25 = \\
+    = 4 \sin \nu t \cdot Mu^2 + 6t^2 \sin \nu s \cdot M \left( uv \right) + 10 \sin \nu t \cdot Mu +
+    6t^2 \sin \nu s \cdot M \left( uv \right) + \\
+    + 9t^2 s^2 Mv^2 + 15t^2 Mv + 10 \sin \nu s \cdot Mu + 15s^2 \cdot Mv + 25 -
+    4 \sin \nu t \cdot \sin \nu s - \\
+    - 12 \sin \nu t \cdot s^2 - 10 \sin \nu t - 12t^2 \sin \nu s - 36t^2 s^2 - 30t^2 -
+    10 \sin \nu s - 30s^2 - 25 =
+  \end{split}
+\end{equation*}
+Вычислим вторые моменты
+$$Mu^2 = Du + \left( Mu \right)^2 = 0.1 + 1 = 1.1, \,
+  Mv^2 = Dv + \left( Mv \right)^2 = 0.9 + 4 = 4.9.$$
+По определению ковариации $cov \left( u, v \right) = M \left( uv \right) - Mu \cdot Mv$,
+откуда
+$$M \left( uv \right) =
+  cov \left( u, v \right) + Mu \cdot Mv =
+  -0.3 + 1 \cdot 2 =
+  2 - 0.3 =
+  1.7.$$
+Подставим полученные значения в функцию ковариации
+\begin{equation*}
+  \begin{split}
+    = 4 \sin \nu t \cdot \sin \nu s \cdot 1.1 + 6 \sin \nu t \cdot s^2 \cdot 1.7 + 10 \sin \nu t +
+    6t^2 \sin \nu s \cdot 1.7 + \\
+    + 9t^2 s^2 \cdot 4.9 + 15t^2 \cdot 2 + 10 \sin \nu s + 15s^2 \cdot 2 -
+    4 \sin \nu t \cdot \sin \nu s - 12 \sin \nu t \cdot s^2 - \\
+    - 10 \sin \nu t - 12t^2 \cdot \sin \nu s - 36t^2 s^2 - 30t^2 - 10 \sin \nu s - 30s^2 = \\
+    = 0.4 \sin \nu t \cdot \sin \nu s - 1.8 \sin \nu t \cdot s^2 - 1.8t^2 \sin \nu s + 8.1t^2 s^2.
+  \end{split}
+\end{equation*}
+
+Найдём дисперсию в момент $t$.
+Из формулы для ковариации
+$$D \xi \left( t \right) =
+  K \left( t, t \right) =
+  0.4 \sin^2 \nu t - 3.6 \sin \nu t \cdot t^2 + 8.1t^4.$$
