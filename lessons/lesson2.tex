@@ -729,3 +729,35 @@ $$M \left( uv \right) =
 $$D \xi \left( t \right) =
   K \left( t, t \right) =
   0.4 \sin^2 \nu t - 3.6 \sin \nu t \cdot t^2 + 8.1t^4.$$
+
+\subsubsection*{2.15}
+
+\textit{Задание.}
+Найдите ковариационную функцию процесса
+$$Y \left( t \right) =
+  \psi_1 \left( t \right) X_1 + \dotsc + \psi_n \left( t \right) X_n,$$
+где $ \psi_1, \dotsc, \psi_n$ --- произвольные числовые функции от $t$, а $X_1, \dotsc, X_n$ ---
+некоррелируемые случайные величины с дисперсиями $D_1, \dotsc, D_n$.
+
+\textit{Решение.}
+Нужно найти
+$$K \left( t, s \right) =
+  cov \left( \psi_1 \left( t \right) X_1 + \dotsc + \psi_n \left( t \right) X_n, \,
+    \psi_1 \left( s \right) X_1 + \dotsc + \psi_n \left( s \right) X_n \right) =$$
+Распишем по определению
+\begin{equation*}
+  \begin{split}
+    = M \left[
+      \left( \psi_1 \left( t \right) X_1 + \dotsc + \psi_n \left( t \right) X_n \right)
+      \left( \psi_1 \left( s \right) X_1 + \dotsc + \psi_n \left( s \right) X_n \right) \right] - \\
+    - M \left( \psi_1 \left( t \right) X_1 + \dotsc + \psi_n \left( t \right) X_n \right) \cdot
+    M \left( \psi_1 \left( s \right) X_1 + \dotsc + \psi_n \left( s \right) X_n \right) = \\
+    = \sum \limits_{i, j = 1}^n
+      \psi_i \left( t \right) \psi_j \left( s \right) M \left( X_i X_j \right) -
+    \sum \limits_{i, j = 1}^n \psi_i \left( t \right) \psi_j \left( s \right) MX_i \cdot MX_j = \\
+    = \psi_1 \left( t \right) \psi_1 \left( s \right) DX_1 + \dotsc +
+    \psi_n \left( t \right) \psi_n \left( s \right) DX_n= \\
+    = \psi_1 \left( t \right) \psi_1 \left( s \right) D_1 + \dotsc +
+    \psi_n \left( t \right) \psi_n \left( s \right) D_n.
+  \end{split}
+\end{equation*}
