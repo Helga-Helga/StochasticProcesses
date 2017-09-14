@@ -761,3 +761,47 @@ $$K \left( t, s \right) =
     \psi_n \left( t \right) \psi_n \left( s \right) D_n.
   \end{split}
 \end{equation*}
+
+\subsubsection*{2.16}
+
+\textit{Задание.}
+Пусть $ \eta $ и $ \zeta $ --- независимые нормально распределённые
+случайные величины с нулевым математическим ожиданием и дисперсиями $1 / 2$.
+Найдите конечномерные распределения случайного процесса
+$$ \xi \left( t \right) =
+  \frac{ \eta + \zeta }{t}, \,
+  t > 0.$$
+
+\textit{Решение.}
+Для произвольных натуральных $n \geq 1$,
+произвольных моментов времени $t_1, \dotsc, t_n \in T$ и произвольных действительных чисел
+$x_1, \dotsc, x_n$ находим
+$$F_{t_1, t_2, \dotsc, t_n} \left( x_1, x_2, \dotsc, x_n \right) =
+  P \left\{
+    \xi \left( t_1 \right) \leq x_1, \xi \left( t_2 \right) \leq x_2, \dotsc,
+    \xi \left( t_n \right) \leq x_n \right\} =$$
+Подставляем выражения для случайного процесса
+$$= P \left(
+    \frac{ \eta + \zeta }{t_1} \leq x_1, \frac{ \eta + \zeta }{t_2} \leq x_2, \dotsc,
+    \frac{ \eta + \zeta }{t_n} \leq x_n \right) =$$
+Переносим моменты времени вправо
+$$= P \left(
+    \eta + \zeta \leq x_1 t_1, \eta + \zeta \leq x_2 t_2, \dotsc, \eta + \zeta \leq x_n t_n
+  \right) =$$
+Независимые случайные величины $ \eta $ и $ \zeta $ имеют нормальное распределение с параметрами
+$a = 0$ и
+$$ \sigma^2 =
+  \frac{1}{2}.$$
+Их сумма имеет стандартное нормальное распределение.
+Пусть
+$$ \eta + \zeta =
+  X \sim
+  N \left( 0, 1 \right).$$
+Тогда
+$$= P \left( X \leq x_1 t_1, X \leq x_2 t_2, \dotsc, X \leq x_n t_n \right) =
+  P \left( X \leq \min \limits_{i = \overline{1, n}} x_i t_i \right) =$$
+Запишем через плотность
+$$= \int \limits_{- \infty }^z \frac{1}{ \sqrt{2 \pi }} \cdot e^{- \frac{y^2}{2}} dy,$$
+где обозначено
+$$z =
+  \min \limits_{i = \overline{1, n}} x_i t_i.$$
