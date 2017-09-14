@@ -572,3 +572,74 @@ $$= \frac{1}{b - a} \cdot \left( m - a \right) =
   \frac{1}{b - a} \cdot
   \left[ \min \left( \frac{x_1 - a}{t_1}, \dotsc, \frac{x_n - a}{t_n} \right) - a \right] $$
 при $m \in \left( a, b \right) $, иначе --- ноль.
+
+\subsubsection*{2.13}
+
+\textit{Задание.}
+Пусть
+$$ \xi \left( t \right) =
+  U \cos \theta t + V \sin \theta t, \,
+  t \in T,$$
+где $U, V$ --- независимые случайные величины с заданными характеристиками:
+$MU = MV = 0, \, DU = DV = \sigma^2, \, \theta $ --- неслучайная величина.
+Найдите математическое ожидание, дисперсию и ковариационную функцию случайного процесса
+$ \left\{ \xi \left( t \right), \, t \in T \right\} $.
+
+\textit{Решение.}
+Нужно найти $m \left( t \right), \, D \xi \left( t \right), \, K \left( t, s \right) $.
+
+Найдём математическое ожидание в момент $t$.
+По свойствам
+$$m \left( t \right) =
+  M \xi \left( t \right) =
+  M \left( U \cos \theta t + V \sin \theta t \right) =
+  \cos \theta t \cdot MU + \sin \theta t \cdot MV =
+  0.$$
+
+Можно сделать преобразование
+$U \cos \theta t + V \sin \theta t = C \sin \left( \theta t + \omega \right) $,
+где $C = \sqrt{U^2 + V^2}$.
+Траектории такого процесса изображены на рисунке \ref{fig:213}:
+график синуса сжимается к оси ординат, когда модули случайных величин $U$ и $V$ растут.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=.5\textwidth]{./pictures/2_13.png}
+ \caption{Траектория процесса}
+ \label{fig:213}
+\end{figure}
+
+Найдём дисперсию в момент $t$.
+По свойствам
+$$D \xi \left( t \right) =
+  D \left( U \cos \theta t + V \sin \theta t \right) =
+  \cos^2 \theta  t \cdot DU + \sin^2 \theta t \cdot DV =$$
+Подставим известные значения дисперсии
+$$= \cos^2 \theta t \cdot \sigma^2 + \sin^2 \theta t \cdot \sigma^2 =
+  \sigma^2 \left( \cos^2 \theta t + \sin^2 \theta t \right) =
+  \sigma^2.$$
+
+Ковариационная функция считается по определению
+$$K \left( t, s \right) =
+  M \xi \left( t \right) \xi \left( s \right) - M \xi \left( t \right) M \xi \left( s \right) =$$
+Подставим выражения для случайного процесса в первое слагаемое, а второе равно нулю
+$$= M \left[ \left( U \cos \theta t + V \sin \theta t \right) \cdot
+    \left( U \cos \theta s + V \sin \theta s \right) \right] =$$
+Раскроем скобки
+\begin{equation*}
+  \begin{split}
+    = M(
+      U^2 \cos \theta t \cdot \cos \theta s + UV \cos \theta t \cdot \sin \theta s +
+      VU \sin \theta t \cdot \cos \theta s + \\
+      + V^2 \sin \theta t \cdot \sin \theta s) = \\
+    = DU \cdot \cos \theta t \cdot \cos \theta s +
+    MU \cdot MV \cdot \cos \theta t \cdot \sin \theta s +
+    MV \cdot MU \cdot \sin \theta t \cdot \cos \theta s + \\
+    + DV \cdot \sin \theta t \cdot \sin \theta s =
+    \sigma^2 \cos \theta t \cdot \cos \theta s + \sigma^2 \sin \theta t \cdot \sin \theta s = \\
+    = \sigma^2 \cdot
+      \left( \cos \theta t \cdot \cos \theta s + \sin \theta t \cdot \sin \theta s \right) =
+    \sigma^2 \cos \left( \theta t - \theta s \right) =
+    \sigma^2 \cos \left[ \theta \left( t - s \right) \right].
+  \end{split}
+\end{equation*}
