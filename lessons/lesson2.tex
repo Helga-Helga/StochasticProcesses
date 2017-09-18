@@ -469,6 +469,102 @@ $$ \varphi_{X \left( \eta \right) } \left( \lambda \right) =
 
 То, что они независимы, тут не важно.
 
+\subsubsection*{2.8}
+
+\textit{Задание.}
+Значение случайного телеграфного сигнала
+$ \xi = \left\{ \xi \left( t \right) , \,
+  t \in \mathbb{R} \right\} $
+в произвольный момент времени с одинаковыми вероятностями равно 0 или 1.
+Прыжки происходят случайным и независимым образом.
+Вероятность $P \left( k, T \right) $ того, что в интервале времени длины $T$ произойдёт $k$ прыжков,
+задаётся распределением Пуассона, то есть:
+$$P \left( k, T \right) =
+  \frac{ \left( \lambda T \right)^k}{k!} \cdot e^{-\lambda T},$$
+где $ \lambda $ --- среднее количество прыжков за единицу времени.
+Найдите математическое ожидание и ковариационнуб функцию случайного процесса $ \xi $.
+
+\textit{Решение.}
+$$P \left\{ \xi \left( t \right) = 1 \right\} =
+  P \left\{ \xi \left( t \right) = 0 \right\} =
+  \frac{1}{2}.$$
+Одномерные распределения даны.
+Это распределение Бернулли.
+
+$P \left( k, T \right) $ --- это вероятность того,
+что на отрезке времени длины $T$ было $k$ прыжков,
+то есть траектория процесса выглядит как на рисунке \ref{fig:28}.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=.5\textwidth]{./pictures/2_8.png}
+ \caption{Траектория случайного процесса}
+ \label{fig:28}
+\end{figure}
+
+Математическое ожидание тут ищется просто
+$$M \xi \left( t \right) =
+  0 \cdot \frac{1}{2} + 1 \cdot \frac{1}{2} =
+  \frac{1}{2}.$$
+Теперь нужно ещё найти ковариационную функцию
+$$K \left( s, t \right) =
+  M \xi \left( s \right) \xi \left( t \right) - \frac{1}{4}.$$
+Нужно математическое ожидание совместного процесса.
+$ \xi \left( s \right) $ и $ \xi \left( t \right) $ зависимы.
+
+Попробуем найти математическое ожидание произведения.
+Произведение принимает значения 0 и 1.
+Получаем
+$$M \xi \left( t \right) \xi \left( s \right) =
+  0 \cdot P \left\{ \xi \left( t \right) \xi \left( s \right) = 0 \right\} +
+  1 \cdot P \left\{ \xi \left( t \right) \xi \left( s \right) = 1 \right\} =$$
+Слагаемое с нулём пропадает
+$$= P \left\{ \xi \left( s \right) = 1, \, \xi \left( t \right) = 1 \right\}.$$
+Значения в точках совпадаю, если между ними произошло чётное количество скачков
+$M \xi \left( t \right) \xi \left( s \right) = P \left\{ \xi \left( s \right) = 1 \right\} P$
+(на отрезке $ \left[ s, t \right] $ будет чётное количество прыжков).
+Мы знаем, с какой вероятностью происходит число прыжков.
+
+Подходят любые чётные прыжки, то есть это вероятность объединения.
+Число скачков обозначим буковокой $N$.
+Тогда $P$(на $ \left[ s, t \right] $ чётное число скачков)
+$= P$($N_{ \left[ s, t \right] }$ чётное)$=$
+$$ \sum \limits_{k = 0}^{ \infty } P \left( 2k = N_{ \left[ s, t \right] } \right) =
+  \sum \limits_{k = 0}^{ \infty } P \left( 2k, t - s \right) =
+  \sum \limits_{k = 0}^{ \infty }
+    \frac{ \left[ \lambda \left( t - s \right) \right]^{2k}}{ \left( 2k \right)!} \cdot
+    e^{-\lambda \left( t - s \right) } =$$
+Экспонента выносится за сумму.
+Остаётся
+$$ \sum \limits_{k = 0}^{ \infty } \frac{x^{2k}}{ \left( 2k \right)!}.$$
+Для того, чтобы это было экспонента, нужны ещё и нечётные степени
+$$ \sum \limits_{k = 0}^{ \infty } \frac{x^{2k}}{ \left( 2k \right)!} +
+  \sum \limits_{k = 0}^{ \infty } \frac{x^{2k + 1}}{ \left( 2k + 1 \right)!} =
+  e^x.$$
+Если мы вычтем вторую сумму, то получится
+$$ \sum \limits_{k = 0}^{ \infty } \frac{x^{2k}}{ \left( 2k \right)!} -
+  \sum \limits_{k = 0}^{ \infty } \frac{x^{2k + 1}}{ \left( 2k + 1 \right)!} =
+  e^{-x}.$$
+Теперь нужно сложить эти два выражения и поделить на 2, то есть
+$$ \sum \limits_{k = 0}^{ \infty } \frac{x^{2k}}{ \left( 2k \right)!} =
+  \frac{e^x + e^{-x}}{2}, \,
+  x = \lambda \left( t - s \right).$$
+Получили гиперболический косинус.
+$$= \frac{e^{ \lambda \left( t - s \right) } +
+  e^{-\lambda \left( t- s \right) }}{2} \cdot e^{-\lambda \left( t - s \right) } =$$
+Умножим один сомножитель на другой
+$$= \frac{1 + e^{-2 \lambda \left( t - s \right) }}{2}.$$
+Это вероятность чётного числа скачков.
+
+Выпишем, чему равна ковариационная функция
+$$K \left( t, s \right) =
+  \frac{1 + e^{-2 \lambda \left( t - s \right) }}{4} - \frac{1}{4} =
+  \frac{e^{-2 \lambda \left( t - s \right) }}{4}, \,
+  s < t.$$
+Окончательный ответ:
+$$K \left( t, s \right) =
+  \frac{1}{4} \cdot e^{-2 \lambda \left| t - s \right| }.$$
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
