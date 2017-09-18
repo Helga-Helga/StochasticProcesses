@@ -67,3 +67,44 @@ $M \left( W \left( t \right) - W \left( s \right) \right)^{2n + 1} = 0, \,
 $ \xi = W \left( t \right) - W \left( s \right) \overset{def}{=} W \left( t - s \right) $.
 Значит, $ \xi \sim N \left( 0, t - s \right) $, где $t - s = \sigma^2$.
 Знаем, что $M \xi^{2n + 1} = 0, \, M \xi^{2n} = \left( 2n + 1 \right)!! \sigma^{2n}$.
+
+\subsubsection*{5.3}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Вычислите:
+\begin{enumerate}[label=\alph*)]
+  \item $M \left[ \left( W \left( 5 \right) - 2W \left( 1 \right) + 2 \right)^3 \right] $;
+  \item характеристическую функцию случайной величины $W \left( 2 \right) + 2W \left( 1 \right) $;
+  \item $M \left[ \sin \left( 2W \left( 1 \right) + W \left( 2 \right) \right) \right] $;
+  \item $M \left[ \cos \left( 2W \left( 1 \right) + W \left( 2 \right) \right) \right] $.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item $W \left( 5 \right) - 2W \left( 1 \right) + 2 = \xi \sim N \left( 2, 5 \right) $.
+  Найдём дисперсию
+  $$D \xi =
+    cov \left( \xi, \xi \right) =
+    cov \left[ W \left( 5 \right) - 2W \left( 1 \right) + 2, \,
+      W \left( 5 \right) - 2W \left( 1 \right) + 2 \right] =$$
+  Воспользуемся линейностью
+  $$= K \left( 5, 5 \right) - 2K \left( 5, 1 \right) - 2K \left( 5, 1 \right) +
+    4K \left( 1, 1 \right) =
+    5 - 2 - 2 + 4 =
+    5.$$
+  Нужно $M \xi^3 = M \left[ \left( \xi - 2 \right) + 2 \right]^3 $.
+  Раскрываем скобки
+  $$M \xi^3 =
+    M \left( \xi - 2 \right)^3 + 6M \left( \xi - 2 \right)^3 + 12M \left( \xi - 2 \right) + 8.$$
+  По предыдущей задаче $M \xi^3 = 0 + 6 \cdot 5 + 12 \cdot 0 + 8 = 38$.
+
+  Величины $W \left( 5 \right) $ и $W \left( 1 \right) $ --- зависимы,
+  а приращения в винеровском процессе --- независимы
+  $$D \left[ W \left( 5 \right) - 2W \left( 1 \right) \right] =
+    D \left\{
+      \left[ W \left( 5 \right) - W \left( 1 \right) \right] + \left[ -W \left( 1 \right) \right]
+    \right\}.$$
+  Дисперсия первого слагаемого равна 4, а второго --- 1.
+  Слагаемые независимы $D \left[ W \left( 5 \right) - 2W \left( 1 \right) \right] = 5$.
+\end{enumerate}
