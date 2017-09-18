@@ -12,7 +12,7 @@ $ \left\{ w \left( t \right), \, t \geq 0 \right\} $ обладает рядом
   \item однородные приращения.
   Рассмотрим приращение винеровского процесса на $t$.
   Тогда
-  $w \left( s + t \right) - w \left( s \right) \overset{=}
+  $w \left( s + t \right) - w \left( s \right) \overset{def}{=}
     w \left( t \right) \sim
     N \left( 0, t \right) $;
   \item независимые приращения.
@@ -50,3 +50,20 @@ $$q \left( A^{-1} \vec{u} \right) =
 \subsubsection*{Запишите ковариационную функцию винеровского процесса.}
 
 $K \left( t, s \right) = \min \left( s, t \right) $.
+
+\addcontentsline{toc}{section}{Аудиторные задачи}
+\section*{Аудиторные задачи}
+
+\subsubsection*{5.2}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Докажите, что
+$M \left( W \left( t \right) - W \left( s \right) \right)^{2n + 1} = 0, \,
+  M \left( W \left( t \right) - W \left( s \right) \right)^{2n} =
+  \left( 2n - 1 \right)!! \left( t - s \right)^n$.
+
+\textit{Решение.}
+$ \xi = W \left( t \right) - W \left( s \right) \overset{def}{=} W \left( t - s \right) $.
+Значит, $ \xi \sim N \left( 0, t - s \right) $, где $t - s = \sigma^2$.
+Знаем, что $M \xi^{2n + 1} = 0, \, M \xi^{2n} = \left( 2n + 1 \right)!! \sigma^{2n}$.
