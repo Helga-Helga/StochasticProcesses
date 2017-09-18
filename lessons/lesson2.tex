@@ -1055,3 +1055,36 @@ $$ \varphi_{ \xi \left( \tau \right) } \left( \lambda \right) =
 $$= Me^{i \cdot \frac{X}{ \tau } \cdot \lambda } =
   Me^{-\frac{ \lambda ^2}{2 \tau^2}} =
   e^{- \frac{ \lambda^2}{2}}.$$
+
+\subsubsection*{2.18}
+
+\textit{Задание.}
+Пусть $ \xi $ и $ \eta $ --- случайные величины,
+причём $ \eta $ имеет симметричное относительно нуля распределение и
+$P \left( \eta = 0 \right) =
+  0$.
+Найдите вероятность того, что реализации случайного процесса
+$ \zeta \left( t \right) = \xi + t \left( \eta + t \right), \, t \geq 0$ возрастают.
+
+\textit{Решение.}
+Известно, что траектории процесса возрастают по $t$ при $t \geq 0$.
+
+Реализация такого процесса выглядит как парабола (рис. \ref{fig:218}) с вершиной в точке с координатами
+$$t_0 = -\frac{ \eta }{2 \xi }, \,
+  \zeta_0 = t_0^2 + \eta t_0 + \xi = \frac{ \eta^2}{4 \xi^2} - \frac{ \eta^2}{2 \xi }  + \xi.$$
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=.5\textwidth]{./pictures/2_18.png}
+ \caption{Траектория процесса}
+ \label{fig:218}
+\end{figure}
+
+Это случайная величина, так что
+$$P \left\{ \zeta \left( t \right) \geq 0, \, t \geq 0 \right\} =
+  P \left\{ \xi + t \left( \eta + t \right) \geq 0, \, t \geq 0 \right\} =$$
+$=P$(вершина параболы $ \zeta = t^2 + \eta t + \xi $ лежит слева от нуля)$=$
+$$= P \left( -\frac{ \eta }{2 \xi } \leq 0 \right) =
+  P \left( \eta \geq 0 \right) =$$
+Случайная величина $ \eta $ имеет симметричное распределение
+$$= \frac{1}{2}.$$
