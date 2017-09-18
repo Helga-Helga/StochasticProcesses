@@ -636,6 +636,60 @@ $$a_1 = \frac{1}{2}, \,
 Ответ к задаче: $a \in \left( - \infty, -1 \right) \cup \left( 1, + \infty \right) $,
 то есть $ \left| a \right| > 1$.
 
+\subsubsection*{2.10}
+
+\textit{Задание.}
+Пусть случайная величина $ \tau \in \left( 0, 1 \right) $ имеет непрерывное распределение и пусть
+$$ \xi \left( t \right) \equiv 0; \,
+  \eta \left( t \right) =
+  \begin{cases}
+    0, \qquad t \neq \tau, \\
+    1, \qquad t = \tau,
+  \end{cases} \,
+  t \in \left[ 0, 1 \right].$$
+Изобразите трактории этих процессов.
+Докажите, что эти процессы являются стохастически эквивалентными, то есть
+$ \forall t \in \left[ 0, 1 \right] \, : \,
+  P \left\{ \xi \left( t \right) \neq \eta \left( t \right) \right\} = 0$.
+
+\textit{Решение.}
+$ \tau $ --- это случайная величина с непрерывным распределением --- та,
+у которой функция распределения $F_{ \tau }$ --- непрерывна.
+
+Скачок фукнции распределения $ \Delta F_{ \tau } \left( x \right) = P \left( \tau = x \right) = 0$,
+где
+$$F_{ \tau } \left( x \right) = P \left( \tau \leq x \right),$$
+а $F_{ \tau } \left( -x \right) = P \left( \tau < x \right) $.
+В нашем случае нет скачков, то есть в фиксированный $x$ случайная величина $ \tau $ не попадёт.
+Рассматривается 2 процесса.
+Посмотрим, какие траектории у этих процесса.
+Процессы заданы на $t \in \left[ 0, 1 \right] $ (рис. \ref{fig:210}).
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=.5\textwidth]{./pictures/2_10.png}
+ \caption{Траектория случайных процессов}
+ \label{fig:210}
+\end{figure}
+
+С точки зрения анализа это разные функции.
+У $ \eta $ всегда есть скачок, у $ \xi $ никогда скачков нет.
+Помним, что $ \xi \left( t \right) \equiv 0$.
+Тем не менее, вероятность
+$P \left\{ \xi \left( t \right) \neq \eta \left( t \right) \right\} =
+  P \left\{ \eta \left( t \right) \neq 0 \right\} =
+  P \left( \tau = t \right) =
+  0$,
+а это значит, что в фиксированной точке процессы с вероятностью 1 совпадают.
+Если зафиксируем несколько точек $t_1, t_2, \dotsc, t_n$, то вероятность
+$$P \left\{
+    \left( \xi \left( t_1 \right), \dotsc, \xi \left( t_n \right) \right) =
+    \left( \eta \left( t_1 \right), \dotsc, \eta \left( t_n \right) \right) \right\} =
+  1.$$
+У этих процессов одинаковые конечномерные распределения.
+
+Конечномерные распределения не определяют траектории процесса.
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
