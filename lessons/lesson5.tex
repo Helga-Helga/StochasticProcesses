@@ -1,0 +1,52 @@
+\addcontentsline{toc}{chapter}{Занятие 5. Винеровский процесс}
+\chapter*{Занятие 5. Винеровский процесс}
+
+\addcontentsline{toc}{section}{Контрольные вопросы и задания}
+\section*{Контрольные вопросы и задания}
+
+\subsubsection*{Приведите определение винеровского процесса.}
+
+$ \left\{ w \left( t \right), \, t \geq 0 \right\} $ обладает рядом свойств:
+\begin{enumerate}
+  \item $w \left( 0 \right) = 0$;
+  \item однородные приращения.
+  Рассмотрим приращение винеровского процесса на $t$.
+  Тогда
+  $w \left( s + t \right) - w \left( s \right) \overset{=}
+    w \left( t \right) \sim
+    N \left( 0, t \right) $;
+  \item независимые приращения.
+  Выберем $0 < t_1 < t_2 < \dotsc < t_n$.
+  Тогда
+  $w \left( t_1 \right), \,
+    w \left( t_2 \right) - w \left( t_1 \right),
+    \dotsc,
+    w \left( t_n \right) - w \left( t_{n - 1} \right) $ ---
+  независимые в совокупности случайные величины.
+\end{enumerate}
+
+\subsubsection*{Запишите плотность винеровского процесса.}
+
+Напишем плотность распределения вектора
+$ \left( w \left( t_1 \right), \dotsc, w \left( t_n \right) \right) =
+  \vec{ \xi }$.
+
+Будем использовать матрицу
+$$A =
+  \begin{bmatrix}
+    1 & 0 & 0 & 0 & \dotsc & 0 \\
+    1 & 1 & 0 & 0 & \dotsc & 0 \\
+    1 & 1 & 1 & 0 & \dotsc & 0 \\
+    \dotsc \\
+    1 & 1 & 1 & 1 & \dotsc & 1
+  \end{bmatrix}.$$
+
+Таким образом $ \vec{ \xi }$ имеет плотность
+$$q \left( A^{-1} \vec{u} \right) =
+  \prod \limits_{j = 0}^{n - 1}
+    \frac{1}{ \sqrt{2 \pi \left( t_{j + 1} - t_j \right) }} \cdot e^{-\frac{u_{j + 1} - u_j}{2t_{j + 1} - t_j}}.$$
+В этой плотности считаем, что $t_0 = 0, \, u_0 = 0$.
+
+\subsubsection*{Запишите ковариационную функцию винеровского процесса.}
+
+$K \left( t, s \right) = \min \left( s, t \right) $.
