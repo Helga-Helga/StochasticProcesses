@@ -662,7 +662,7 @@ $$F_{ \tau } \left( x \right) = P \left( \tau \leq x \right),$$
 а $F_{ \tau } \left( -x \right) = P \left( \tau < x \right) $.
 В нашем случае нет скачков, то есть в фиксированный $x$ случайная величина $ \tau $ не попадёт.
 Рассматривается 2 процесса.
-Посмотрим, какие траектории у этих процесса.
+Посмотрим, какие траектории у этих процессов.
 Процессы заданы на $t \in \left[ 0, 1 \right] $ (рис. \ref{fig:210}).
 
 \begin{figure}[h!]
@@ -891,7 +891,7 @@ $$m \left( t \right) =
   2 \sin \nu t \cdot Mu + 3t^2 Mv + 5 =
   2 \sin \nu t + 6t^2 + 5.$$
 
-Траектория такого процесса изображена на рисунке \ref{fig:214}.
+Траектория такого процесса изображена на рисунке \ref{fig:214} при $ \nu = 1, \, u = 1, \, v = 2$.
 
 \begin{figure}[h!]
  \centering
@@ -1088,3 +1088,65 @@ $$= P \left( -\frac{ \eta }{2 \xi } \leq 0 \right) =
   P \left( \eta \geq 0 \right) =$$
 Случайная величина $ \eta $ имеет симметричное распределение
 $$= \frac{1}{2}.$$
+
+\subsubsection*{2.19}
+
+\textit{Задание.}
+Случайный эксперимент состоит в двухразовом подбрасывании монеты.
+Обозначим через $ \omega = \left( \omega_1, \omega_2 \right) $
+результат эксперимента и обозначим процессы $ \left\{ X \left( t \right), \, 0 \leq t < 2 \right\} $
+и $ \left\{ Y \left( t \right), \, 0 \leq t < 2 \right\} $ следующим образом:
+\begin{equation*}
+  \begin{split}
+    X \left( t \right) =
+    \mathbbm{1}_{ \left[ 0, 1 \right) } \left( t \right) \cdot
+    \mathbbm{1} \left\{ \omega_1 = P \right\} +
+    \mathbbm{1}_{ \left[ 1, 2 \right) } \left( t \right) \cdot
+    \mathbbm{1} \left\{ \omega_2 = P \right\}, \,
+    0 \leq t < 2, \, \\
+    Y \left( t \right) = 1 - X \left( t \right), \, 0 \leq t < 2.
+  \end{split}
+\end{equation*}
+Докажите, что процессы $X \left( t \right) $ и $Y \left( t \right) $
+имеют одинаковые конечномерные распределения, но не являются стохастически эквивалентными.
+
+\textit{Решение.}
+Рассматривается 2 процесса.
+Процессы заданы на $t \in \left[ 0, 2 \right) $.
+
+Это разные функции.
+Вероятность
+$$P \left\{ X \left( t \right) \neq Y \left( t \right) \right\} =
+  P \left\{ X \left( t \right) \neq 1 - X \left( t \right) \right\} =
+  1,$$
+а это значит, что процессы с вероятностью 1 не совпадают.
+Зафиксируем несколько точек $t_1, t_2, \dotsc, t_n$.
+Обозначим через $t_{i1}, t_{i2}, \dotsc, t_{ik}$ моменты $t$, которые лежат между 0 и 1,
+и $t_{j1}, t_{j2}, \dotsc, t_{j \left( n - k \right) }$ --- все остальные.
+Найдём вероятность
+\begin{equation*}
+  \begin{split}
+    P \left\{ X \left( t_1 \right) = x_1, \dotsc, X \left( t_n \right) = x_n \right\} = \\
+    = P \left\{X \left( t_{i1} \right) = x_{i1}, \dotsc, X \left( t_{ik} \right) = x_{ik},
+        X \left( t_{j1} \right) = x_{j1}, \dotsc, \right. \\
+        \left. X \left( t_{j \left( n - k \right) } \right) = x_{j \left( n - k \right) }
+      \right\} = \\
+    = P \left(
+      \mathbbm{1} \left\{ \omega_1 = P \right\} = x_{i1}, \dotsc,
+      \mathbbm{1} \left\{ \omega_1 = P \right\} = x_{ik}, \right. \\
+      \left. \mathbbm{1} \left\{ \omega_2 = P \right\} = x_{j1}, \dotsc,
+      \mathbbm{1} \left\{ \omega_2 = P \right\} = x_{j \left( n - k \right) } \right).
+  \end{split}
+\end{equation*}
+Рассматриваем только случай, когда $x_{i1}, \dotsc, x_{ik}$ одинаковые, и
+$$x_{j1}, \dotsc, x_{j \left( n - k \right)}$$
+одинаковые.
+$$P \left\{ X \left( t_1 \right) = x_1, \dotsc, X \left( t_n \right) = x_n \right\} =
+  \frac{1}{2} \cdot \frac{1}{2} =
+  \frac{1}{4}.$$
+
+Аналогично
+$$P \left\{ Y \left( t_1 \right) = x_1, \dotsc, Y \left( t_n \right) = x_n \right\} =
+  \frac{1}{4}.$$
+
+У этих процессов одинаковые конечномерные распределения.
