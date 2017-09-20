@@ -139,5 +139,22 @@ $$ \xi =
       \left[ W \left( 5 \right) - W \left( 1 \right) \right] + \left[ -W \left( 1 \right) \right]
     \right\}.$$
   Дисперсия первого слагаемого равна 4, а второго --- 1.
-  Слагаемые независимы $D \left[ W \left( 5 \right) - 2W \left( 1 \right) \right] = 5$.
+  Слагаемые независимы $D \left[ W \left( 5 \right) - 2W \left( 1 \right) \right] = 5$;
+  \item нужно найти характеристическую функцию $W \left( 2 \right) + 2W \left( 1 \right) $.
+
+  Математическое ожидание такой величины равно нулю, а дисперсия
+  $D \left[ W \left( 2 \right) + 2W \left( 1 \right) \right] =
+    D \left\{
+      \left[ W \left( 2 \right) - W \left( 1 \right) \right] + 3W \left( 1 \right)
+    \right\}$.
+  Это независимые величины, поэтому
+  $D \left\{
+      \left[ W \left( 2 \right) - W \left( 1 \right) \right] + 3W \left( 1 \right)
+    \right\} =
+    1 + 9 = 10$.
+  Значит, получается
+  $ \varphi_{W \left( 2 \right) + 2W \left( 1 \right) } \left( \lambda \right) =
+    \varphi_{N \left( 0, 10 \right) } \left( \lambda \right) =
+    e^{-\frac{10 \lambda^2}{2}}$.
+
 \end{enumerate}
