@@ -492,7 +492,7 @@ $$P \left\{ \xi \left( t \right) = 1 \right\} =
 Это распределение Бернулли.
 
 $P \left( k, T \right) $ --- это вероятность того,
-что на отрезке времени длины $T$ было $k$ прыжков,
+что на отрезке времени длины $T$ было $k$ прыжков (распределение Пуассона),
 то есть траектория процесса выглядит как на рисунке \ref{fig:28}.
 
 \begin{figure}[h!]
@@ -502,17 +502,23 @@ $P \left( k, T \right) $ --- это вероятность того,
  \label{fig:28}
 \end{figure}
 
+В каждой точке будет 0 или 1.
+
 Математическое ожидание тут ищется просто
 $$M \xi \left( t \right) =
   0 \cdot \frac{1}{2} + 1 \cdot \frac{1}{2} =
   \frac{1}{2}.$$
-Теперь нужно ещё найти ковариационную функцию
+Теперь нужно ещё найти ковариационную функцию такого процесса
 $$K \left( s, t \right) =
+  M \left[
+    \left( \xi \left( t \right) - M \xi \left( t \right) \right) \cdot
+    \left( \xi \left( s \right) - M \xi \left( s \right) \right) \right] =
   M \xi \left( s \right) \xi \left( t \right) - \frac{1}{4}.$$
 Нужно математическое ожидание совместного процесса.
 $ \xi \left( s \right) $ и $ \xi \left( t \right) $ зависимы.
 
 Попробуем найти математическое ожидание произведения.
+$ \xi \left( t \right) \xi \left( s \right) $ принимают значения 0 и 1.
 Произведение принимает значения 0 и 1.
 Получаем
 $$M \xi \left( t \right) \xi \left( s \right) =
@@ -522,7 +528,8 @@ $$M \xi \left( t \right) \xi \left( s \right) =
 $$= P \left\{ \xi \left( s \right) = 1, \, \xi \left( t \right) = 1 \right\}.$$
 Значения в точках совпадаю, если между ними произошло чётное количество скачков
 $M \xi \left( t \right) \xi \left( s \right) = P \left\{ \xi \left( s \right) = 1 \right\} P$
-(на отрезке $ \left[ s, t \right] $ будет чётное количество прыжков).
+(на отрезке $ \left[ s, t \right] $ будет чётное количество прыжков)
+$= \frac{1}{2} \cdot P$(на отрезке $ \left[ s, t \right] $ будет чётное число прыжков).
 Мы знаем, с какой вероятностью происходит число прыжков.
 
 Подходят любые чётные прыжки, то есть это вероятность объединения.
@@ -535,7 +542,7 @@ $$ \sum \limits_{k = 0}^{ \infty } P \left( 2k = N_{ \left[ s, t \right] } \righ
     \frac{ \left[ \lambda \left( t - s \right) \right]^{2k}}{ \left( 2k \right)!} \cdot
     e^{-\lambda \left( t - s \right) } =$$
 Экспонента выносится за сумму.
-Остаётся
+Остаётся сумма
 $$ \sum \limits_{k = 0}^{ \infty } \frac{x^{2k}}{ \left( 2k \right)!}.$$
 Для того, чтобы это было экспонента, нужны ещё и нечётные степени
 $$ \sum \limits_{k = 0}^{ \infty } \frac{x^{2k}}{ \left( 2k \right)!} +
@@ -544,6 +551,8 @@ $$ \sum \limits_{k = 0}^{ \infty } \frac{x^{2k}}{ \left( 2k \right)!} +
 Если мы вычтем вторую сумму, то получится
 $$ \sum \limits_{k = 0}^{ \infty } \frac{x^{2k}}{ \left( 2k \right)!} -
   \sum \limits_{k = 0}^{ \infty } \frac{x^{2k + 1}}{ \left( 2k + 1 \right)!} =
+  \sum \limits_{k = 0}^{ \infty } \frac{ \left( -x \right)^{2k}}{ \left( 2k \right)!} +
+  \sum \limits_{k = 0}^{ \infty } \frac{ \left( -x \right)^{2k + 1}}{ \left( 2k + 1 \right)!} =
   e^{-x}.$$
 Теперь нужно сложить эти два выражения и поделить на 2, то есть
 $$ \sum \limits_{k = 0}^{ \infty } \frac{x^{2k}}{ \left( 2k \right)!} =
@@ -552,11 +561,15 @@ $$ \sum \limits_{k = 0}^{ \infty } \frac{x^{2k}}{ \left( 2k \right)!} =
 Получили гиперболический косинус.
 $$= \frac{e^{ \lambda \left( t - s \right) } +
   e^{-\lambda \left( t- s \right) }}{2} \cdot e^{-\lambda \left( t - s \right) } =$$
-Умножим один сомножитель на другой
+Умножим один сомножитель на другой,
+$e^{ \lambda \left( t - s \right) } \cdot e^{-\lambda \left( t -s \right) }$ дают единицу.
+Получаем
 $$= \frac{1 + e^{-2 \lambda \left( t - s \right) }}{2}.$$
 Это вероятность чётного числа скачков.
 
-Выпишем, чему равна ковариационная функция
+Выпишем, чему равна ковариационная функция.
+Математическое ожидание произведения нужно умножить на $ \frac{1}{2}$ и отнять $ \frac{1}{4}$.
+Получится
 $$K \left( t, s \right) =
   \frac{1 + e^{-2 \lambda \left( t - s \right) }}{4} - \frac{1}{4} =
   \frac{e^{-2 \lambda \left( t - s \right) }}{4}, \,
