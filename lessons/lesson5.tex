@@ -6,7 +6,8 @@
 
 \subsubsection*{Приведите определение винеровского процесса.}
 
-$ \left\{ w \left( t \right), \, t \geq 0 \right\} $ обладает рядом свойств:
+$ \left\{ w \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс,
+если обладает рядом свойств:
 \begin{enumerate}
   \item $w \left( 0 \right) = 0$;
   \item однородные приращения.
@@ -14,8 +15,8 @@ $ \left\{ w \left( t \right), \, t \geq 0 \right\} $ обладает рядом
   Тогда
   $w \left( s + t \right) - w \left( s \right) \overset{def}{=}
     w \left( t \right) \sim
-    N \left( 0, t \right) $;
-  \item независимые приращения.
+    N \left( 0, t \right) $, то есть распределение процесса зависит только от длины отрезка;
+  \item независимые приращения на непересекающихся отрезках.
   Выберем $0 < t_1 < t_2 < \dotsc < t_n$.
   Тогда
   $w \left( t_1 \right), \,
@@ -49,6 +50,24 @@ $$q \left( A^{-1} \vec{u} \right) =
 
 \subsubsection*{Запишите ковариационную функцию винеровского процесса.}
 
+Произведение математических ожиданий --- это 0, потому
+$$K \left( t, s \right) =
+  Mw \left( s \right) w \left( t \right) =$$
+Используем независимость приращений
+$$= M \left\{
+    w \left( s \right) \cdot
+    \left[ w \left( s \right) + \left( w \left( t \right) - w \left( s \right) \right) \right]
+  \right\} =$$
+Раскрываем скобки
+$$= M \left\{
+    w^2 \left(s \right) + Mw \left( s \right) \left[ w \left( t \right) - w \left( s \right) \right]
+  \right\} =$$
+Первое слагаемое равно $s$, а второе --- нулю,
+так как это независимые центрированные случайные величины (математическое произведения ---
+это произведение математических ожиданий, а они равны нулю)
+$$= s, \,
+  s < t.$$
+
 $K \left( t, s \right) = \min \left( s, t \right) $.
 
 \addcontentsline{toc}{section}{Аудиторные задачи}
@@ -64,8 +83,13 @@ $M \left( W \left( t \right) - W \left( s \right) \right)^{2n + 1} = 0, \,
   \left( 2n - 1 \right)!! \left( t - s \right)^n$.
 
 \textit{Решение.}
-$ \xi = W \left( t \right) - W \left( s \right) \overset{def}{=} W \left( t - s \right) $.
+Приращение гауссовское.
+Обозначим
+$$ \xi =
+  W \left( t \right) - W \left( s \right) \overset{def}{=}
+  W \left( t - s \right).$$
 Значит, $ \xi \sim N \left( 0, t - s \right) $, где $t - s = \sigma^2$.
+Нужны формулы для моментов центрированной гауссовской случайной величины, то есть
 Знаем, что $M \xi^{2n + 1} = 0, \, M \xi^{2n} = \left( 2n + 1 \right)!! \sigma^{2n}$.
 
 \subsubsection*{5.3}
