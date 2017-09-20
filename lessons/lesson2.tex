@@ -712,14 +712,22 @@ $ \forall t \in \left[ 0, 1 \right] \, : \,
 $ \tau $ --- это случайная величина с непрерывным распределением --- та,
 у которой функция распределения $F_{ \tau }$ --- непрерывна.
 
-Скачок фукнции распределения $ \Delta F_{ \tau } \left( x \right) = P \left( \tau = x \right) = 0$,
+Скачок фукнции распределения в точке $x$ ---
+это $ \Delta F_{ \tau } \left( x \right) = P \left( \tau = x \right) = 0$,
 где
 $$F_{ \tau } \left( x \right) = P \left( \tau \leq x \right),$$
 а $F_{ \tau } \left( -x \right) = P \left( \tau < x \right) $.
 В нашем случае нет скачков, то есть в фиксированный $x$ случайная величина $ \tau $ не попадёт.
-Рассматривается 2 процесса.
-Посмотрим, какие траектории у этих процессов.
-Процессы заданы на $t \in \left[ 0, 1 \right] $ (рис. \ref{fig:210}).
+Рассматривается 2 процесса: один процесс --- это $ \xi \left( t \right) \equiv 0$,
+второй процесс --- это
+$$ \eta \left( t \right) =
+  \begin{cases}
+    0, \qquad t \neq \tau, \\
+    1, \qquad t = \tau.
+  \end{cases}$$
+Посмотрим, какие траектории у этих процессов (рис. \ref{fig:210}).
+Процессы заданы на
+$$t \in \left[ 0, 1 \right].$$
 
 \begin{figure}[h!]
  \centering
@@ -728,6 +736,11 @@ $$F_{ \tau } \left( x \right) = P \left( \tau \leq x \right),$$
  \label{fig:210}
 \end{figure}
 
+Стохастически эквивалентные означает, что если зафиксировать момент времени $t$, то в этот момент
+$P \left\{ \xi \left( t \right) =
+  \eta \left( t \right) \right\} =
+  P \left\{ \eta \left( t \right) = 0 \right\} =
+  P \left( \tau \neq t \right) = 1$.
 С точки зрения анализа это разные функции.
 У $ \eta $ всегда есть скачок, у $ \xi $ никогда скачков нет.
 Помним, что $ \xi \left( t \right) \equiv 0$.
@@ -742,7 +755,9 @@ $$P \left\{
     \left( \xi \left( t_1 \right), \dotsc, \xi \left( t_n \right) \right) =
     \left( \eta \left( t_1 \right), \dotsc, \eta \left( t_n \right) \right) \right\} =
   1.$$
-У этих процессов одинаковые конечномерные распределения.
+У этих процессов одинаковые конечномерные распределения
+$$ \mu_{t_1, \dotsc, t_n}^{ \xi } =
+  \mu_{t_1, \dotsc, t_n}^{ \eta }.$$
 
 Конечномерные распределения не определяют траектории процесса.
 
