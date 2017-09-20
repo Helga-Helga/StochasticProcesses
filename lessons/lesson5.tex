@@ -105,26 +105,35 @@ $$ \xi =
 \end{enumerate}
 
 \textit{Решение.}
+Есть винеровский процесс.
 \begin{enumerate}[label=\alph*)]
-  \item $W \left( 5 \right) - 2W \left( 1 \right) + 2 = \xi \sim N \left( 2, 5 \right) $.
-  Найдём дисперсию
+  \item $W \left( 5 \right) - 2W \left( 1 \right) + 2 = \xi \sim N \left( 2, 5 \right) $,
+  потому что это линейная комбинация элементов гауссовского вектора.
+  Найдём дисперсию.
+  Константа на неё не влияет
   $$D \xi =
-    cov \left( \xi, \xi \right) =
-    cov \left[ W \left( 5 \right) - 2W \left( 1 \right) + 2, \,
+    D \left[ W \left( s \right) - 2W \left( 1 \right) \right] =
+    cov \left( \xi, \xi \right) =$$
+  Подставим выражения для случайной величины
+  $$= cov \left[ W \left( 5 \right) - 2W \left( 1 \right) + 2, \,
       W \left( 5 \right) - 2W \left( 1 \right) + 2 \right] =$$
   Воспользуемся линейностью
   $$= K \left( 5, 5 \right) - 2K \left( 5, 1 \right) - 2K \left( 5, 1 \right) +
     4K \left( 1, 1 \right) =
     5 - 2 - 2 + 4 =
     5.$$
-  Нужно $M \xi^3 = M \left[ \left( \xi - 2 \right) + 2 \right]^3 $.
+  Нужно найти третий момент.
+  $ \xi $ не центрирована.
+  Нужно её центрировать $M \xi^3 = M \left[ \left( \xi - 2 \right) + 2 \right]^3 $.
   Раскрываем скобки
   $$M \xi^3 =
     M \left( \xi - 2 \right)^3 + 6M \left( \xi - 2 \right)^3 + 12M \left( \xi - 2 \right) + 8.$$
-  По предыдущей задаче $M \xi^3 = 0 + 6 \cdot 5 + 12 \cdot 0 + 8 = 38$.
+  По предыдущей задаче первое слагаемое --- 0, так как величина центрирована, второй момент --- 5,
+  так как это дисперсия, первый момент --- 0.
+  Тогда $M \xi^3 = 0 + 6 \cdot 5 + 12 \cdot 0 + 8 = 38$.
 
   Величины $W \left( 5 \right) $ и $W \left( 1 \right) $ --- зависимы,
-  а приращения в винеровском процессе --- независимы
+  а приращения в винеровском процессе --- независимы, потому имее сумму дисперсий
   $$D \left[ W \left( 5 \right) - 2W \left( 1 \right) \right] =
     D \left\{
       \left[ W \left( 5 \right) - W \left( 1 \right) \right] + \left[ -W \left( 1 \right) \right]
