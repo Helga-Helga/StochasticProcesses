@@ -133,7 +133,7 @@ $$ \xi =
   Тогда $M \xi^3 = 0 + 6 \cdot 5 + 12 \cdot 0 + 8 = 38$.
 
   Величины $W \left( 5 \right) $ и $W \left( 1 \right) $ --- зависимы,
-  а приращения в винеровском процессе --- независимы, потому имее сумму дисперсий
+  а приращения в винеровском процессе --- независимы, потому имеем сумму дисперсий
   $$D \left[ W \left( 5 \right) - 2W \left( 1 \right) \right] =
     D \left\{
       \left[ W \left( 5 \right) - W \left( 1 \right) \right] + \left[ -W \left( 1 \right) \right]
@@ -163,4 +163,48 @@ $$ \xi =
     M \cos \lambda \xi + iM \sin \lambda \xi, \,
     \lambda = 1;$$
   \item $M \left[ \cos \left( 2W \left( 1 \right) + W \left( 2 \right) \right) \right] = e^{-5}$.
+\end{enumerate}
+
+\addcontentsline{toc}{section}{Домашнее задание}
+\section*{Домашнее задание}
+
+\subsubsection*{5.12}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Вычислите:
+\begin{enumerate}[label=\alph*)]
+  \item $M \left[
+      \left( W \left( 4 \right) - 2W \left( 1 \right) + 2W \left( 2 \right) \right)^2 \right] $;
+  \item $M \left[ \left( W \left( 1 \right) + 2W \left( 2 \right) + 1 \right)^3 \right] $;
+  \item $M \left[ e^{W \left( 3 \right) - 2W \left( 2 \right) } \right] $;
+  \item характеристическую функцию случайной величины $W \left( 1 \right) + 2W \left( 2 \right) + 1$.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item $W \left( 4 \right) - 2W \left( 1 \right) + W \left( 2 \right) =
+    \xi \sim
+    N \left( 0, 6 \right) $,
+  потому что это линейная комбинация элементов гауссовского вектора.
+  Найдём дисперссию
+  $$D \xi =
+    D \left[ W \left( 4 \right) - 2W \left( 1 \right) + W \left( 2 \right) \right] =
+    cov \left( \xi, \xi \right) =$$
+  Подставим выражения для случайной величины
+  $$= cov \left[
+      W \left( 4 \right) - 2W \left( 1 \right) + W \left( 2 \right),
+      W \left( 4 \right) - 2W \left( 1 \right) + W \left( 2 \right) \right] =$$
+  Воспользуемся линейностью
+  \begin{gather*}
+    = K \left( 4, 4 \right) - 2K \left( 4, 1 \right) + K \left( 4, 2 \right) -
+    2K \left( 1, 4 \right) + 4K \left( 1, 1 \right) - 2K \left( 1, 2 \right) + \\
+    + K \left( 2, 4 \right) - 2K \left( 2, 1 \right) + K \left( 2, 2 \right) = \\
+    = 4 - 2 \cdot 1 + 2 - 2 \cdot 1 + 4 \cdot 1 - 2 \cdot 1 + 2 - 2 \cdot 1 + 2 =
+    4 + 4 - 2 =
+    6.
+  \end{gather*}
+
+  Нужно найти второй момент.
+  $ \xi $ центрирована $M \xi^2 = D \xi = 6$.
 \end{enumerate}
