@@ -112,7 +112,7 @@ $$ \xi =
   Найдём дисперсию.
   Константа на неё не влияет
   $$D \xi =
-    D \left[ W \left( s \right) - 2W \left( 1 \right) \right] =
+    D \left[ W \left( 5 \right) - 2W \left( 1 \right) \right] =
     cov \left( \xi, \xi \right) =$$
   Подставим выражения для случайной величины
   $$= cov \left[ W \left( 5 \right) - 2W \left( 1 \right) + 2, \,
@@ -206,5 +206,35 @@ $$ \xi =
   \end{gather*}
 
   Нужно найти второй момент.
-  $ \xi $ центрирована $M \xi^2 = D \xi = 6$.
+  $ \xi $ центрирована $M \xi^2 = D \xi = 6$;
+  \item $W \left( 1 \right) + 2W \left( 2 \right) + 1 =
+    \xi \sim
+    N \left( 1, 5 \right) $,
+  потому ято это линейная комбинация элементов гауссовского вектора.
+  Найдём дисперсию.
+  Константа на неё не влияет
+  $D \xi =
+    D \left[ W \left( 1 \right) - 2W \left( 2 \right) \right] =
+    cov \left( \xi, \xi \right) $.
+  Подставим выражения для случайной величины
+  $$cov \left( \xi, \xi \right) =
+    cov \left[
+      W \left( 1 \right) - 2W \left( 2 \right) + 1,
+      W \left( 1 \right) - 2W \left( 2 \right) + 1 \right] =$$
+  Воспользуемся линейностью
+  $$= \left( 1, 1 \right) - 2K \left( 1, 2 \right) - 2K \left( 2, 1 \right) +
+    4K \left( 2, 2 \right) =
+    1 - 2 - 2 + 8 =
+    5.$$
+
+  Нужно найти третий момент.
+  $ \xi $ не центрирована.
+  Нужно её центрировать $M \xi^3 = M \left[ \left( \xi - 1 \right) + 1 \right]^3$.
+  Раскрываем скобки
+  $$M \left[ \left( \xi - 1 \right) + 1 \right]^3 =
+    M \left( \xi - 1 \right)^3 + 3M \left( \xi - 1 \right) + 3M \left( \xi - 1 \right) + 1 =$$
+  По задаче 5.2 первое слагаемое --- 0, так как величина центрирована, второй момент --- 5,
+  так как это дисперсия, первый момент --- ноль.
+  Тогда
+  $$= 0 + 3 \cdot 5 + 3 \cdot 0 + 1 = 15 + 1 = 16.$$
 \end{enumerate}
