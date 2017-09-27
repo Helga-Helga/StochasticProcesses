@@ -537,6 +537,28 @@ $M \left[ \left. W \left( s \right) - W \left( t \right) \right| W \left( t \rig
   M \left[ \left. W \left( t \right) \right| W \left( t \right) \right] =
   W \left( t \right) $.
 
+\subsubsection*{5.10}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс,
+и пусть $ \tau $ --- независимая от процесса $W$ случайная величина,
+показательно распределённая с параметром $ \lambda $.
+Найдите характеристическую функцию случайной величины $W \left( \tau \right) $.
+
+\textit{Решение.}
+$ \varphi_{W \left( \tau \right) } \left( \lambda \right) =
+  Me^{i \lambda W \left( \tau \right) }$.
+В винеровский процесс подставляется случайное время.
+Похожая ситуация
+$$Me^{i \lambda \sum \limits_{k = 0}^{ \tau }} \xi_k =
+  \sum \limits_{k = 0}^{ \infty }
+    P \left( \tau = k \right) \cdot
+    M \left( \left. e^{i \lambda \sum \limits_{k = 0}^{ \tau } \xi_n} \right| \tau = k \right).$$
+Получаем
+$Me^{i \lambda W \left( \tau \right) } =
+  MM \left[ \left. e^{i \lambda W \left( \tau \right) } \right| \tau \right] =
+  Me^{-\frac{ \lambda^2}{2} \cdot \tau }$.
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
