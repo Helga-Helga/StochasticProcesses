@@ -425,6 +425,57 @@ $$= \frac{1}{8} \int \limits_0^{ \infty } e^{-\frac{1}{2t} \cdot r^2} \cdot \fra
 Интеграл равен единице
 $$= \frac{1}{8}$$
 
+\subsubsection*{5.7}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Найдите математическое ожидание и ковариационную функцию процессов:
+\begin{enumerate}[label=\alph*)]
+  \item $W^0 \left( t \right) = W \left( t \right) - tW \left( 1 \right), \, 0 \leq t \leq 1$
+  (броуновский мост);
+  \item $U \left( t \right) = e^{-\frac{t}{2}} W \left( e^t \right) $ (процесс Орнштейна-Уленбека).
+\end{enumerate}
+Выясните, какой из этих процессов является гауссовским.
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item $MW^0 \left( t \right) = 0$, потому что у винеровского процесса математическое ожидание 0.
+  Найдём ковариационную функцию
+  $$K \left( t, s \right) =
+    cov \left[
+      W \left( t \right) - tW \left( 1 \right), W \left( s \right) - sW \left( 1 \right) \right] =
+    \min \left( t, s \right) - ts - st + st =$$
+  Одинаковые слагаемые с разными знаками уничтожаются
+  $$= \min \left( t, s \right) - st.$$
+
+  Если возьмём вектор конечномерных распределений
+  $$ \left( W^0 \left( t_1 \right), \dotsc, W^0 \left( t_n \right) \right),$$
+  то этот вектор будет гауссовским.
+  Такой процесс называется броуновский мост (рис. \ref{fig:57});
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=.4\textwidth]{./pictures/5_7.png}
+    \caption{Броуновский мост}
+    \label{fig:57}
+  \end{figure}
+
+  \item $MU \left( t \right) = 0$, потому что винеровский.
+  Ковариационная функция
+  $$K \left( t, s \right) =
+    cov \left[
+      e^{-\frac{t}{2}} W \left( e^t \right), e^{-\frac{s}{2}} W \left( e^s \right) \right] =$$
+  Выносим экспоненты (множители)
+  $$= e^{-\frac{t}{2} - \frac{s}{2}} \min \left( e^t, e^s \right) =$$
+  Экспонента --- монотонная функция
+  $$= e^{-\frac{t}{2} - \frac{s}{2} + \min \left( t, s \right) } =
+    e^{-\frac{1}{2} \left[ t + s - 2 \min \left( s, t \right) \right] } =
+    e^{-\frac{1}{2} \cdot \left| t - s \right| }.$$
+  Значение процесса $U \left( t \right) $ ---
+  это линейное преобразование значений винеровского процесса, только в других точках.
+  Процесс гауссовский.
+\end{enumerate}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
