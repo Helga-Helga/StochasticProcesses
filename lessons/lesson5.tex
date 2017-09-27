@@ -277,6 +277,61 @@ $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- это винеровс
   Получилось.
 \end{enumerate}
 
+\subsubsection*{5.5}
+
+\textit{Задание.}
+Пусть $ \left\{ W^i \left( t \right), \, t \geq 0 \right\}_{i \geq 1}$ ---
+независимые винеровские процессы.
+Найдите константу $c_n$ так, чтобы процесс
+$$ \tilde{W} \left( t \right) =
+  c_n \sum \limits_{i = 1}^n W^i \left( t \right), \,
+  t \geq 0$$
+был винеровским.
+
+\textit{Решение.}
+Сложили $n$ независимых винеровским процессов так, чтобы процесс был винеровским.
+
+Скажем, что такой процесс гауссовский
+\begin{gather*}
+  \left( \tilde{W} \left( t_1 \right), \dotsc, \tilde{W} \left( t_n \right) \right) = \\
+  = \left(
+    c_n \left( W^1 \left( t_1 \right), \dotsc, W^n \left( t_n \right) \right), \dotsc,
+    c_n \left( W^1 \left( t_m \right), \dotsc, W^n \left( t_m \right) \right)
+  \right)
+\end{gather*}
+--- это линейное преобразование.
+
+$$ \begin{bmatrix}
+    W^1 \left( t_1 \right) \\
+    \dotsc \\
+    W^1 \left( t_m \right) \\
+    W^2 \left( t_1 \right) \\
+    \dotsc \\
+    W^2 \left( t_m \right)
+  \end{bmatrix}$$
+--- гауссовский вектор, где обе части --- независимые гауссовские вектора.
+
+Математическое ожидание такого процесса --- 0, так как математическое ожидание каждого процесса ---
+0.
+Посчитаем ковариацию и скажем, како должна быть $c_n.$
+Ковариация линейна по каждому аргументу.
+Это значит, что множители и суммы выносятся
+$$cov \left(
+    c_n \sum \limits_{i = 1}^n W^i \left( t \right), \,
+    c_n \sum \limits_{i = 1}^n W^i \left( s \right)
+  \right) =
+  c_n^2 \sum \limits_{i = 1}^n
+    \sum \limits_{j = 1}^n cov \left[ W^i \left( t \right), \, W^j \left( s \right) \right] =$$
+Когда индексы разные --- это0, когда одинаковые --- это минимум
+$$= c_n^2 \sum \limits_{i = 1}^n \min \left( t, s \right) =$$
+Имеем $n$ одинаковых слагаемых
+$$= c_n^2 \cdot n \cdot \min \left( t, s \right).$$
+
+Отсюда получаем
+$$c_n =
+  \frac{1}{ \sqrt{n}},$$
+тогда процесс винеровский.
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
