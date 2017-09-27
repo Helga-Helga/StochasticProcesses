@@ -165,6 +165,118 @@ $$ \xi =
   \item $M \left[ \cos \left( 2W \left( 1 \right) + W \left( 2 \right) \right) \right] = e^{-5}$.
 \end{enumerate}
 
+\subsubsection*{5.4}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Докажите, что процессы
+\begin{enumerate}[label=\alph*)]
+  \item $ \left\{ -W \left( t \right), \, t \geq 0 \right\} $;
+  \item $ \left\{ W \left( s + t \right) - W \left( s \right), \, t \geq 0 \right\} $;
+  \item $ \tilde{W} \left( t \right) =
+    tW \left( \frac{1}{t} \right) \cdot \mathbbm{1} \left\{ t > 0 \right\} $
+\end{enumerate}
+тоже являются винеровскими.
+
+\textit{Решение.}
+$ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- это винеровский процесс.
+Нужно проверить, что некоторые преобразования винеровского процесса оставляют его винеровским.
+
+\begin{enumerate}[label=\alph*)]
+  \item Если выберем моменты времени $t_1 < \dotsc < t_n$ и возьмём вектор
+  $$ \left( W \left( t_1 \right), \dotsc, W \left( t_n \right) \right) $$
+  --- гауссовский.
+  Нужно знать, что в каждой точке $MW \left( t \right) = 0$ и
+  $$K \left( t, s \right) =
+    \min \left( t, s \right).$$
+  Если процесс удовлетворит этим трём свойствам, то это винеровский процесс.
+
+  $M \left[ -W \left( t \right) \right] =
+    -MW \left( t \right) =
+    0$.
+
+  Найдём ковариационную функцию
+  $$K \left( t, s \right) =
+    M \left[ W \left( t \right) W \left( s \right) \right] =
+    \min \left( t, s \right).$$
+
+  Вектор значений этого процесса должен быть гауссовским.
+  Возьмём $ \left( -W \left( t_1 \right), \dotsc, -W \left( t_n \right) \right) $.
+  Нужно сказать, что это гауссовский вектор.
+  Почему?
+
+  Этот вектор --- это линейное преобразование вектора
+  $$ \left( W \left( t_1 \right), \dotsc, W \left( t_n \right) \right).$$
+  Линейные преобразования оставляют вектор гауссовским;
+  \item сначала нужно сказать, что у него гауссовские конечномерные распределения.
+
+  Берём $n$ значений этого процесса
+  $$ \left(
+      W \left( s + t_1 \right) - W \left( s \right), \dotsc,
+      W \left( s + t_n \right) - W \left( s \right)
+    \right) $$
+  --- гауссовский, так как этот вектор --- это линейное преобразование вектора
+  $ \left( W \left( t_1 + s \right), \dotsc, W \left( t_n + s \right), W \left( s \right) \right) $.
+  Что это будет за линейное преобразование?
+
+  $$ \begin{bmatrix}
+      1 & 0 & -1 \\
+      0 & 1 & -1
+    \end{bmatrix}
+    \begin{bmatrix}
+      W \left( s + t_1 \right) \\
+      W \left( s + t_2 \right) \\
+      W \left( s \right)
+    \end{bmatrix} =
+    \begin{bmatrix}
+      W \left( s + t_1 \right) - W \left( s \right) \\
+      W \left( s + t_2 \right) - W \left( s \right)
+    \end{bmatrix}.$$
+
+  Математическое ожидание --- 0.
+
+  Нужно посчитать ковариационную функцию.
+  Нужно проверить, что она равняется минимуму
+  $$K \left( t_1, t_2 \right) =
+    M \left\{
+      \left[ W \left( s + t_1 \right) - W \left( s \right) \right] \cdot
+      \left[ W \left( s + t_2 \right) - W \left( s \right) \right] \right\} =$$
+  Перемножим скобки
+  $$= M \left[
+      W \left( s + t_1 \right) W \left( s + t_2 \right) -
+      W \left( s + t_1 \right) W \left( s \right) - W \left( s \right) W \left( s + t_2 \right) +
+      W \left( s \right)^2 \right] =$$
+  Математическое ожидание первого слагаемого --- ковариация винеровского процесса.
+  Она равна минимуму.
+  Математическое ожидание последнего слагаемого --- ковариация в точке $ \left( s, s \right) $.
+  Получаем
+  $$= \min \left( s + t_1, s + t_2 \right) - s - s + s =
+    \min \left( s + t_1, s + t_2 \right) - s.$$
+  Можем вынести и сократить
+  $\min \left( s + t_1, s + t_2 \right) - s =
+    \min \left( t_1, t_2 \right) $.
+  Значит, ковариация такая, как надо.
+  Это винеровский процесс;
+  \item берём конечномерные распределения
+  $$ \left(
+      t_1 W \left( \frac{1}{t_1} \right), \dotsc, t_n W \left( \frac{1}{t_n} \right)
+    \right) $$
+  --- гауссовский, так как это линейное преобразование вектора винеровского процесса
+  $ \left( W \left( \frac{1}{t_1} \right), \dotsc, W \left( \frac{1}{t_n} \right) \right) $.
+
+  Математическое ожидание --- 0.
+  Осталось найти ковариационную функцию
+  $$K \left( t, s \right) =
+    M \left[ tW \left( \frac{1}{t} \right) sW \left( \frac{1}{s} \right) \right] =$$
+  Выносим $t$ и $s$.
+  Получаем
+  $$= ts \min \left( \frac{1}{t}, \frac{1}{s} \right) =$$
+  Множитель $ts$ --- положительный.
+  Он вносится
+  $$= \min \left( t, s \right).$$
+  Получилось.
+\end{enumerate}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
