@@ -476,6 +476,37 @@ $$= \frac{1}{8}$$
   Процесс гауссовский.
 \end{enumerate}
 
+\subsubsection*{5.8}
+
+\textit{Задание.}
+Докажите, что случайный процесс
+$$B \left( t \right) = \left( 1 - t \right) W \left( \frac{t}{1 - t} \right), \,
+  0 \leq t < 1; \,
+  B \left( 1 \right) = 0$$
+имеет то же распределение, что и броуновский мост.
+
+\textit{Решение.}
+Конечномерные распределения такого процесса
+$$ \left( B \left( t_1 \right), \dotsc, B \left( t_n \right) \right) $$
+--- гауссовские вектора,
+потому что это линейное преобразование винеровского процесса.
+
+$MB \left( t \right) = 0$.
+
+Найдём ковариацию
+$$cov \left[ B \left( t \right), B \left( s \right) \right] =
+  cov \left[
+    \left( 1 - t \right) W \left( \frac{t}{1 - t} \right),
+    \left( 1 - s \right) W \left( \frac{s}{1 - s} \right) \right] =$$
+Множители выносим
+$$= \left( 1 - t \right) \left( 1 - s \right)
+  \min \left( \frac{t}{1 - t}, \frac{s}{1 - s} \right) =$$
+Вносим положительный множитель в минимум
+$$= \min \left( t - ts, s - ts \right) =$$
+Общее выносим за минимум
+$$= \min \left( t, s \right) - ts,$$
+то есть ковариация такая же, как и у броуновского моста.
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
