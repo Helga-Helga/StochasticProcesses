@@ -507,6 +507,36 @@ $$= \min \left( t - ts, s - ts \right) =$$
 $$= \min \left( t, s \right) - ts,$$
 то есть ковариация такая же, как и у броуновского моста.
 
+\subsubsection*{5.9}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Вычислите условное математическое ожидание
+$M \left( \left. W \left( s \right) \right| W \left( t \right) \right) $ при $s > t$.
+
+\textit{Решение.}
+Есть формула
+$$ \frac{ \int \limits_{-\infty }^{+\infty } xp_{W \left( s \right), W \left( t \right) } \left( x, y \right) dx}{ \int \limits_{-\infty }^{+\infty } p_{W \left( s \right), W \left( t \right) } \left( x, y \right) dx}.$$
+
+Свойства условного математического ожидания:
+$M \left( \left. \xi \right| \mathcal{F} \right) = \xi $,
+если $ \xi $ измерима относительно $ \mathcal{F}$ и
+$M \left( \left. \xi \right| \mathcal{F} \right) = M \xi $,
+если $ \xi $ не зависит от $ \mathcal{F}$.
+
+Нужно, чтобы появилось приращение
+$$M \left[ \left. W \left( s \right) \right| W \left( t \right) \right] =
+  M \left[
+    \left. W \left( s \right) - W \left( t \right) + W \left( t \right) \right| W \left( t \right)
+  \right] =$$
+Распишем как 2 условных математических ожидания
+$$= M \left[ \left. W \left( s \right) - W \left( t \right) \right| W \left( t \right) \right] +
+  M \left[ \left. W \left( t \right) \right| W \left( t \right) \right].$$
+Первое слагаемое равно нулю, как как имеются независимые величины
+$M \left[ \left. W \left( s \right) - W \left( t \right) \right| W \left( t \right) \right] +
+  M \left[ \left. W \left( t \right) \right| W \left( t \right) \right] =
+  W \left( t \right) $.
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
