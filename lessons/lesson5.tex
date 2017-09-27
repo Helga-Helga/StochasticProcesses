@@ -332,6 +332,99 @@ $$c_n =
   \frac{1}{ \sqrt{n}},$$
 тогда процесс винеровский.
 
+\subsubsection*{5.6}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Для $0 < t \leq s$ вычислите вероятность
+$q_t =
+  P \left( W \left( s \right) > W \left( s - t \right) > W \left( s + t \right) \right) $.
+
+\textit{Решение.}
+Начнём с того, что нарисуем график винеровского процесса (рис. \ref{fig:56}).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/5_6.png}
+  \caption{График винеровского процесса}
+  \label{fig:56}
+\end{figure}
+
+Есть 3 случайные величины.
+
+У такого вектора есть плотность.
+Случайные величины независимы
+$$q_t =
+  \iiint \limits_{x > y > z}
+    p_{ \left( W \left( s \right), W \left( s - t \right), W \left( s + t \right) \right) }
+      \left( x, y, z \right) dxdydz.$$
+
+Вектор имеет нормальное распределение
+$$ \begin{bmatrix}
+    W \left( s \right) \\
+    W \left( s - t \right) \\
+    W \left( s + t \right)
+  \end{bmatrix} \sim
+  N \left(
+    \left( \begin{bmatrix}
+      0 \\
+      0 \\
+      0
+    \end{bmatrix} \right),
+    \left( \begin{bmatrix}
+      s & s - t & s \\
+      s - t & s - t & s - t \\
+      s & s - t & s + t
+    \end{bmatrix} \right) \right).$$
+
+Нужно использовать какие-то свойства винеровского процесса.
+Здесь нужно взять 2 приращения.
+Эти приращения будут независимыми величинами с известным распределением $N \left( 0, t \right) $.
+
+Вводим в рассмотрение приращения
+$$ \begin{cases}
+    X = W \left( s \right) - W \left( s - t \right), \\
+    Y = W \left( s + t \right) - W \left( s \right).
+  \end{cases}$$
+Выразим из первого уравнения $W \left( s - t \right) = W \left( s \right) - X$,
+а из второго --- $W \left( s + t \right) = W \left( s \right) + Y$.
+Отнимем два последние уравнения
+$$W \left( s + t \right) - W \left( s - t \right) =
+  X + Y.$$
+От всех частей неравенства в искомой вероятности вычтем $W \left( s - t \right) $
+и заменим полученные выражения на введённые приращения
+$$q_t =
+  P \left\{
+    W \left( s \right) - W \left( s - t \right) > 0 >
+    W \left( s + t \right) - W \left( s - t \right) \right\} =
+  P \left( X > 0 > X + Y \right).$$
+Плотность вектора --- это произведение плотностей
+$$P \left( X > 0 > X + Y \right) =
+  \int \limits_{0}^{ \infty } \int \limits_{- \infty }^{-x}
+    \frac{1}{2 \pi t} \cdot e^{-\frac{1}{2t} \left( x^2 + y^2 \right) } dydx =$$
+Перейдём в полярную систему координат
+$$x = r \cos \varphi, \,
+  y = r \sin \varphi, \,
+  dxdy = rdrd \varphi.$$
+Получим
+$$= \frac{1}{2 \pi t} \int \limits_0^{ \infty }
+  \int \limits_{-\frac{ \pi }{2}}^{ \frac{ \pi }{4}} re^{-\frac{1}{2t} \cdot r^2} d \varphi dr =$$
+Изобразим область интегрирования (рис. \ref{fig:561}).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/5_6_1.png}
+  \caption{Область интегрирования}
+  \label{fig:561}
+\end{figure}
+
+По $ \varphi $ можем сразу проинтегрировать.
+Интеграл по $ \varphi $ даст просто $ \frac{ \pi }{4}$.
+Получаем
+$$= \frac{1}{8} \int \limits_0^{ \infty } e^{-\frac{1}{2t} \cdot r^2} \cdot \frac{dr^2}{2t} =$$
+Интеграл равен единице
+$$= \frac{1}{8}$$
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
