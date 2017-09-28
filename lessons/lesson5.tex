@@ -902,3 +902,53 @@ $$= x^2 + x \mu s + \mu ts + \mu^2 ts + \sigma^2 \cdot \min \left( t, s \right) 
   \mu tx - \mu^2 ts =$$
 Сократим
 $$= \sigma^2 \cdot \min \left( t, s \right).$$
+
+\subsubsection*{5.16}
+
+\textit{Задание.}
+Докажите, что случайный процесс
+$$Z \left( t \right) = tW \left( \frac{1}{t} - 1 \right), \,
+  0 < t \leq 1; \,
+  Z \left( 0 \right) = 0$$
+имеет то же распределение, что и броуновский мост.
+
+\textit{Решение.}
+Конечномерные распределения такого процесса
+$$ \left( Z \left( t_1 \right), \dotsc, Z \left( t_n \right) \right) $$
+--- гауссовские вектора,
+потому что это линейное преобразование винеровского процесса.
+
+$MZ \left( t \right) =
+  0$.
+
+Найдём ковариацию
+$$cov \left[ Z \left( t \right), Z \left( s \right) \right] =
+  cov \left[ tW \left( \frac{1}{t} - 1 \right), sW \left( \frac{1}{s} - 1 \right) \right] =$$
+Множители выносим
+$$= ts \cdot \min \left( \frac{1}{t} - 1, \frac{1}{s} - 1 \right) =$$
+Вносим положительный множитель в минимум
+$$= \min \left( s - ts, t - ts \right) =$$
+Общее выносим за минимум
+$$= \min \left( t, s \right) - ts,$$
+то есть ковариация такая же, как и у броуновского моста.
+
+
+\subsubsection*{5.17}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Вычислите условное математическое ожидание
+$M \left( \left. W \left( s \right) \right| W \left( t \right) \right) $ при $s < t$.
+
+\textit{Решение.}
+\begin{gather*}
+  M \left[ W \left( s \right) \; \middle| \; W \left( t \right) \right] = \\
+  = MW \left( s \right) +
+  cov \left[ W \left( s \right), W \left( t \right) \right] \cdot
+  cov^{-1} \left[ W \left( t \right), W \left( t \right) \right] \cdot
+  \left[ W \left( t \right) - MW \left( t \right) \right]=
+\end{gather*}
+Математическое ожидание винеровского процесса равно нулю, а ковариация --- минимуму
+$$= \min \left( s, t \right) \cdot \frac{1}{t} \cdot W \left( t \right) =$$
+По условию $s < t$, потому
+$$= \frac{s}{t} \cdot W \left( t \right).$$
