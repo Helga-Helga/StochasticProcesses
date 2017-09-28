@@ -555,9 +555,45 @@ $$Me^{i \lambda \sum \limits_{k = 0}^{ \tau }} \xi_k =
     P \left( \tau = k \right) \cdot
     M \left( \left. e^{i \lambda \sum \limits_{k = 0}^{ \tau } \xi_n} \right| \tau = k \right).$$
 Получаем
-$Me^{i \lambda W \left( \tau \right) } =
+$$Me^{i \lambda W \left( \tau \right) } =
   MM \left[ \left. e^{i \lambda W \left( \tau \right) } \right| \tau \right] =
-  Me^{-\frac{ \lambda^2}{2} \cdot \tau }$.
+  Me^{-\frac{ \lambda^2}{2} \cdot \tau^2 } =
+  \int \limits_{ \mathbb{R}} e^{-\frac{ \lambda^2 \tau^2}{2}} p_{ \tau } \left( x \right) dx =$$
+Подставим выражение для плотности показательного распределения
+$$= \int \limits_0^{+\infty } e^{-\frac{ \lambda^2 x^2}{2}} \lambda e^{-\lambda x} dx =
+  \lambda \int \limits_0^{+\infty } e^{-\frac{ \lambda^2 x^2}{2} - \lambda x} dx.$$
+Выделим полный квадрат в степени экспоненты
+$$ \frac{ \lambda^2 x^2}{2} + \lambda x =
+  \frac{ \lambda^2 x^2}{ \left( \sqrt{2} \right)^2} +
+  2 \cdot \frac{1}{2} \cdot \frac{ \lambda x}{ \sqrt{2}} \cdot \sqrt{2} +
+  \left( \frac{ \sqrt{2}}{2} \right)^2 - \left( \frac{ \sqrt{2}}{2} \right)^2 =$$
+Первые 3 слагаемые образуют полный квадрат
+$$= \left( \frac{ \lambda x}{ \sqrt{2}} + \frac{1}{ \sqrt{2}} \right)^2 - \frac{1}{2}.$$
+Подставим полученное выражение в интеграл
+$$\lambda \int \limits_0^{+\infty } e^{-\frac{ \lambda^2 x^2}{2} - \lambda x} dx =
+  \lambda \int \limits_0^{+\infty }
+    e^{-\left( \frac{ \lambda x}{ \sqrt{2}} + \frac{1}{ \sqrt{2}} \right)^2 + \frac{1}{2}} dx =
+  \lambda e^{ \frac{1}{2}} \cdot
+  \int \limits_0^{+ \infty } e^{-\left( \frac{ \lambda x + 1}{ \sqrt{2}} \right)^2} dx =$$
+Внесём дробь из степени экспоненты под дифференциал
+$$= \frac{ \sqrt{2} \lambda e^{ \frac{1}{2}}}{ \lambda } \cdot
+  \int \limits_0^{+\infty }
+    e^{-\left( \frac{ \lambda x + 1}{ \sqrt{2}} \right)^2}
+  d \left( \frac{ \lambda x + 1}{ \sqrt{2}} \right).$$
+Сделаем замену
+$$ \frac{ \lambda x + 1}{ \sqrt{2}} =
+  y.$$
+Тогда нижний предел интегрированияпоменяется.
+При $x = 0$ будет
+$$y =
+  \frac{0 + 1}{ \sqrt{2}} =
+  \frac{1}{ \sqrt{2}}.$$
+Получим
+$$ \frac{ \sqrt{2} \lambda e^{ \frac{1}{2}}}{ \lambda } \cdot
+  \int \limits_0^{+\infty }
+    e^{-\left( \frac{ \lambda x + 1}{ \sqrt{2}} \right)^2}
+  d \left( \frac{ \lambda x + 1}{ \sqrt{2}} \right) =
+  \sqrt{2} e^{ \frac{1}{2}} \int \limits_{ \frac{1}{ \sqrt{2}}}^{+\infty } e^{-y^2} dy.$$
 
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
