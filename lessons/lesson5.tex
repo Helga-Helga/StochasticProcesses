@@ -852,3 +852,53 @@ $$M \left[ W^1 \left( t \right) \cdot W \left( t \right) \right] =
 $$= \rho MW^1 \left( t \right)^2 +
   \sqrt{1 - \rho^2} M \left[ W^1 \left( t \right) W^2 \left( t \right) \right] =
   \rho t.$$
+
+\subsubsection*{5.15}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Найдите математическое ожидание и ковариационную функцию процесса
+$$X \left( t \right) =
+  x + \mu t + \sigma W \left( t \right),$$
+который называется винеровским со сдвигом $ \mu \in \mathbb{R}$,
+коэффициентом диффузии $ \sigma > 0$, который стартует из точки $x \in \mathbb{R}$.
+
+\textit{Решение.}
+Из определения винеровского процесса следует, что случайная величина $W \left( t \right) $
+имеет нормальное распределение с нулевым математическим ожиданием и дисперсией $t$.
+Таким образом
+$$MX \left( t \right) =
+  M \left[ x + \mu t +  \sigma W \left( t \right) \right] =
+  Mx + M \left( \mu t \right) + \sigma MW \left( t \right) =
+  x + \mu t.$$
+
+Вычислим теперь $MX \left( t \right) X \left( s \right) $.
+Имеем
+$$MX \left( t \right) X \left( s \right) =
+  M \left\{
+    \left[ x + \mu t + \sigma W \left( t \right) \right] \cdot
+    \left[ x + \mu s + \sigma W \left( s \right) \right] \right\} =$$
+Перемножим скобки
+\begin{gather*}
+  = M[
+    x^2 + x \mu s + x \sigma W \left( s \right) + \mu tx + \mu^2 ts +
+    \mu t \sigma W \left( s \right) + \sigma W \left( t \right) x +
+    \sigma W \left( t \right) \mu s + \\
+    + \sigma^2 W \left( t \right) W \left( s \right) ] =
+\end{gather*}
+Математическое ожидание константы --- это сама константа,
+а математическое ожидание винеровского процесса равно нулю
+$$= x^2 + x \mu s + \mu tx + \mu^2 ts+ \sigma^2 \cdot \min \left( t, s \right).$$
+
+Тогда
+$$cov \left[ X \left( t \right), X \left( s \right) \right] =
+  M \left[ X \left( t \right) X \left( s \right) \right] -
+  MX \left( t \right) \cdot MX \left( s \right) =$$
+Подставим найденные выражения для математических ожиданий
+$$= x^2 + x \mu s + \mu tx + \mu^2 ts + \sigma^2 \cdot \min \left( t, s \right) -
+  \left( x + \mu t \right) \left( x + \mu s \right) =$$
+Перемножим скобки
+$$= x^2 + x \mu s + \mu ts + \mu^2 ts + \sigma^2 \cdot \min \left( t, s \right) - x^2 - x \mu s -
+  \mu tx - \mu^2 ts =$$
+Сократим
+$$= \sigma^2 \cdot \min \left( t, s \right).$$
