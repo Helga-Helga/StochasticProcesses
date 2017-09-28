@@ -712,3 +712,86 @@ $$ \frac{ \sqrt{2} \lambda e^{ \frac{1}{2}}}{ \lambda } \cdot
     \varphi_{N \left( 1, 13 \right) } \left( \lambda \right) =
     e^{i \lambda - \frac{13 \lambda^2}{2}}$.
 \end{enumerate}
+
+\subsubsection*{5.13}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Докажите, что процессы:
+\begin{enumerate}[label=\alph*)]
+  \item $ \left\{ W \left( T \right) - W \left( T - t \right), \, 0 \leq t \leq T \right\}, \,
+    T = const > 0$;
+  \item $ \left\{ \sqrt{c} W \left( \frac{t}{c} \right), \, t \geq 0 \right\}, \,
+    c = const > 0$
+\end{enumerate}
+тоже являются винеровскими.
+
+\textit{Решение.}
+$ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- это винеровский процесс.
+Нужно проверить, что некоторые преобразования винеровского процесса оставляют его винеровским.
+\begin{enumerate}[label=\alph*)]
+  \item Сначала нужно сказать, что у процесса гауссовские конечномерные распределения.
+
+  Берём $n$ значений этого процесса
+  $$ \left( W \left( T \right) - W \left( T - t_1 \right), \dotsc,
+    W \left( T \right) - W \left( T - t_n \right) \right) $$
+  --- гауссовский, так как этот вектор --- это линейное преобразование вектора
+  $ \left( W \left( T - t_1 \right), \dotsc, W \left( T - t_n \right), W \left( T \right) \right) $.
+
+  Что это будет за линейное преобразование?
+  $$ \begin{bmatrix}
+      -1 & 0 & 1 \\
+      0 & -1 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+      W \left( T - t_1 \right) \\
+      W \left( T - t_2 \right) \\
+      W \left( T \right)
+    \end{bmatrix} =
+    \begin{bmatrix}
+      W \left( T \right) - W \left( T - t_1 \right) \\
+      W \left( T \right) - W \left( T - t_2 \right)
+    \end{bmatrix}.$$
+
+  Математическое ожидание --- 0.
+
+  Нужно посчитать ковариационную функцию.
+  Нужно проверить, что она равняется минимуму
+  $$K \left( t, s \right) =
+    M \left\{
+      \left[ W \left( T \right) - W \left( T - t \right) \right] \cdot
+      \left[ W \left( T \right) - W \left( T - s \right) \right] \right\} =$$
+  Перемножим скобки
+  $$= M \left[
+      W \left( T \right)^2 - W \left( T \right) W \left( T - s \right) -
+      W \left( T - t \right) W \left( T \right) + W \left( T - t \right) W \left( T - s \right)
+    \right] =$$
+  Математическое ожидание трёх последних слагаемых --- ковариационные функции винеровского процесса.
+  Они равны минимуму.
+  Математическое ожидание первого слагаемого --- ковариация в точке $ \left( T, T \right) $.
+  Получаем
+  $$= T - T + s - T + t + \min \left( T - s, T - t \right) =
+    s + t - \max \left( s, t \right) =
+    \min \left( t, s \right).$$
+
+  Значит, ковариация такая, как надо.
+  Это винеровский процесс;
+  \item берём конечномерные распределения
+  $$ \left(
+      \sqrt{c} W \left( \frac{t_1}{c} \right), \dotsc, \sqrt{x} W \left( \frac{t_n}{c} \right)
+    \right) $$
+  --- гауссовский, так как это линейное преобразование вектора винеровского процесса
+  $$ \left( W \left( \frac{t_1}{c} \right), \dotsc, W \left( \frac{t_n}{c} \right) \right).$$
+
+  Математическое ожидание --- 0.
+  Осталось найти ковариационную функцию
+  $$K \left( t, s \right) =
+    M \left[ \sqrt{c} W \left( \frac{t}{c} \right) \sqrt{c} W \left( \frac{s}{c} \right) \right] =$$
+  Выносим $ \sqrt{c}$.
+  Получим
+  $$= cM \left[ W \left( \frac{t}{c} \right) W \left( \frac{s}{c} \right) \right] =
+  c \cdot \min \left( \frac{t}{c}, \frac{s}{c} \right) =$$
+  Множитель $c$ --- положительный.
+  Он вносится
+  $$= \min \left( t, s \right).$$
+\end{enumerate}
