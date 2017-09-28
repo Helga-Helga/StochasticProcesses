@@ -289,7 +289,7 @@ $$ \tilde{W} \left( t \right) =
 был винеровским.
 
 \textit{Решение.}
-Сложили $n$ независимых винеровским процессов так, чтобы процесс был винеровским.
+Сложили $n$ независимых винеровских процессов так, чтобы процесс был винеровским.
 
 Скажем, что такой процесс гауссовский
 \begin{gather*}
@@ -313,7 +313,7 @@ $$ \begin{bmatrix}
 
 Математическое ожидание такого процесса --- 0, так как математическое ожидание каждого процесса ---
 0.
-Посчитаем ковариацию и скажем, како должна быть $c_n.$
+Посчитаем ковариацию и скажем, какой должна быть $c_n.$
 Ковариация линейна по каждому аргументу.
 Это значит, что множители и суммы выносятся
 $$cov \left(
@@ -322,7 +322,7 @@ $$cov \left(
   \right) =
   c_n^2 \sum \limits_{i = 1}^n
     \sum \limits_{j = 1}^n cov \left[ W^i \left( t \right), \, W^j \left( s \right) \right] =$$
-Когда индексы разные --- это0, когда одинаковые --- это минимум
+Когда индексы разные --- это 0, когда одинаковые --- это минимум
 $$= c_n^2 \sum \limits_{i = 1}^n \min \left( t, s \right) =$$
 Имеем $n$ одинаковых слагаемых
 $$= c_n^2 \cdot n \cdot \min \left( t, s \right).$$
@@ -795,3 +795,60 @@ $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- это винеровс
   Он вносится
   $$= \min \left( t, s \right).$$
 \end{enumerate}
+
+\subsubsection*{5.14}
+
+\textit{Задание.}
+Для фиксированного $ \rho \in \left[ -1, 1 \right] $ положим
+$$W \left( t \right) = \rho W^1 \left( t \right) + \sqrt{1 - \rho^2} W^2 \left( t \right),$$
+где
+$ \left\{ W^1 \left( t \right), \, t \geq 0 \right\}, \,
+  \left\{ W^2 \left( t \right), \, t \geq 0 \right\} $
+--- независимые винеровские процессы.
+Докажите, что процесс $ \left\{ W \left( t \right), \, t \geq 0 \right\} $
+является винеровским и найдите математическое ожидание
+$M \left[ W^1 \left( t \right) \cdot W \left( t \right) \right] $.
+
+\textit{Решение.}
+Сложили 2 независимых винеровских процесса так, чтобы процесс был винеровским.
+
+Скажем, что такой процесс гауссовский
+\begin{gather*}
+  \left( W \left( t_1 \right), \dotsc, W \left( t_n \right) \right) = \\
+  = \left(
+    \rho W^1 \left( t_1 \right) + \sqrt{1 - \rho^2} W^2 \left( t_1 \right), \dotsc,
+    \rho W^1 \left( t_n \right) + \sqrt{1 - \rho^2} W^2 \left( t_n \right) \right)
+\end{gather*}
+--- это линейное преобразование
+$ \left( W^1 \left( t_1 \right), \dotsc, W^1 \left( t_n \right) \right) $ и
+$$ \left( W^2 \left( t_1 \right), \dotsc, W^2 \left( t_n \right) \right) $$
+--- гауссовские вектора.
+
+Математическое ожидание такого процесса --- 0, так как математическое ожидание каждого процесса ---
+0.
+Посчитаем ковариацию.
+Ковариация линейна по каждому аргументу
+\begin{gather*}
+  cov \left[
+    \rho W^1 \left( t \right) + \sqrt{1 - \rho^2} W^2 \left( t \right), \,
+    \rho W^1 \left( s \right) + \sqrt{1 - \rho^2} W^2 \left( s \right) \right] = \\
+  = \rho^2 \cdot cov \left[ W^1 \left( t \right), W^1 \left( s \right) \right] +
+  \rho \sqrt{1 - \rho^2} \cdot cov \left[ W^1 \left( t \right), W^2 \left( s \right) \right] + \\
+  + \sqrt{1 - \rho^2} \cdot \rho \cdot
+  cov \left[ W^2 \left( t \right), W^1 \left( s \right) \right] +
+  \left( 1 - \rho^2 \right) \cdot cov \left[ W^2 \left( t \right), W^2 \left( s \right) \right] =
+\end{gather*}
+Когда индексы разные --- это 0, когда одинаковые --- это минимум
+$$= \rho^2 \cdot \min \left( t, s \right) +
+  \left( 1 - \rho^2 \right) \cdot \min \left( t, s \right) =
+  \min \left( t, s \right),$$
+тогда процесс винеровский.
+
+$$M \left[ W^1 \left( t \right) \cdot W \left( t \right) \right] =
+  M \left\{
+    W^1 \left( t \right) \cdot
+    \left[ \rho W^1 \left( t \right) + \sqrt{1 - \rho^2} W^2 \left( t \right) \right] \right\} =$$
+Раскроем скобки
+$$= \rho MW^1 \left( t \right)^2 +
+  \sqrt{1 - \rho^2} M \left[ W^1 \left( t \right) W^2 \left( t \right) \right] =
+  \rho t.$$
