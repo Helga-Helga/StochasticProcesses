@@ -101,3 +101,30 @@ MBin \left( k, \frac{s}{t} \right) =
 k \cdot \frac{s}{t}.$$
 
 Условное математическое ожидание --- это математическое ожидание по условному распределению.
+
+\subsubsection*{3.4}
+
+\textit{Задание.}
+Пусть $N = \left\{ N \left( t \right), \, t \geq 0 \right\} $ ---
+процесс Пуассона с интенсивностью $ \lambda $.
+Найдите вероятность того, что первый прыжок процесса $N$ произошёл до момента времени
+$s \in \left[ 0, t \right] $ при условии,
+что на отрезке $ \left[ 0, t \right] $ произошло ровно $n$ прыжков.
+
+\textit{Решение.}
+Нужно найти вероятность $P$(первый прыжок произошёл до момента
+$\left. s \in \left[ 0, t \right] \right| N \left( t \right) = n$).
+Нужно это условие переписать через пуассоновский процесс.
+Получаем
+$P$(первый прыжок произошёл до момента
+  $\left. s \in \left[ 0, t \right] \right| N \left( t \right) = n$) =
+  $P \left\{ N \left( s \right) \geq 1 \; \middle| \; N \left( t \right) = n \right\} $.
+Значения зависимые
+$$P \left\{ N \left( s \right) \geq 1 \; \middle| \; N \left( t \right) = n \right\} =
+  1 - P \left\{ N \left( s \right) = 0 \; \middle| \; N \left( t \right) = n \right\} =$$
+Условное распределение биномиальное
+\begin{gather*}
+  = 1 - P \left\{ Bin \left( n, \frac{s}{t} \right) = 0 \right\} =
+  1 - C_n^0 \cdot \left( \frac{s}{t} \right)^0 \cdot \left( 1 - \frac{s}{t} \right)^{n - 0} =
+  1 - \left( 1 - \frac{s}{t} \right)^n.
+\end{gather*}
