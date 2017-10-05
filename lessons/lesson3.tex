@@ -54,3 +54,50 @@ $$= e^{-\lambda t_1} \cdot \frac{ \left( \lambda t_1 \right)^{k_1}}{k_1!} \cdot
 \subsubsection*{Какое содержание имеет параметр процесса Пуассона?}
 
 $N \left( t \right) $ --- число событий, произошедших до момента времени $t$.
+
+\subsubsection*{3.3}
+
+\textit{Задание.}
+Пусть $ \left\{ N \left( t \right), \, t \geq 0 \right\} $ ---
+процесс Пуассона с интенсивностью $ \lambda $.
+Вычислите условное математическое ожидание
+$M \left[ N \left( s \right) \; \middle| \; N \left( t \right) \right] $ для
+$$0 \leq s \leq t.$$
+
+\textit{Решение.}
+Что ж такое условное математическое ожидание?
+
+$N \left( s \right) $ и $N \left( t \right) $ --- дискретные величины, то есть
+$$M \left[ N \left( s \right) \; \middle| \; N \left( t \right) \right] =
+  \sum \limits_{l = 0}^{ \infty }
+    l \cdot P \left\{ N \left( s \right) = l \; \middle| \; N \left( t \right) = k \right\}.$$
+Отдельно посчитаем условную вероятность, а потом по ней возьмём математическое ожидание
+$$P \left\{ N \left( s \right) = l \; \middle| \; N \left( t \right) = k \right\} =
+  \frac{P \left\{ N \left( t \right) - N \left( s \right) = k - l \right\} P \left\{ N \left( s \right) = l \right\} }{P \left\{ N \left( t \right) = k \right\} } =$$
+подставляем пуассоновские вероятности
+$$= \frac{ \frac{ \left[ \lambda \left( t - s \right) \right]^{k - l}}{ \left( k - l \right)!} \cdot e^{-\lambda \left( t - s \right) }}{ \frac{ \left( \lambda t \right)^k}{k!} \cdot e^{-\lambda t}} \cdot
+  \cdot \frac{ \left( \lambda s \right)^l}{l!} \cdot e^{-\lambda l} =
+  \frac{k! \left( t - s \right)^{k - l} s^l}{ \left( k - l \right)! l! t^k} =
+  C_k^l \cdot \left( \frac{t - s}{t} \right)^{k - l} \cdot \left( \frac{s}{t} \right)^l.$$
+Имеем биномиальное распределение с параметрами $k$ и $ \frac{s}{t}$.
+
+Вывод: при условии $N \left( t \right) = k$ мы нашли распределение
+$$N \left( s \right) \sim
+  B \left( k, \frac{s}{t} \right).$$
+
+Условное математическое ожидание
+$$M \left[ N \left( s \right) \; \middle| N \left( t \right) = k \right] =
+  \frac{ks}{t}.$$
+
+Ответ: $ \frac{N \left( t \right) \cdot s}{t}$.
+Куда пропала сумма?
+
+$$M \left[ N \left( s \right) \; \middle| \; N \left( t \right) = k \right] =
+  \sum \limits_l
+    l \cdot P \left[ N \left( s \right) = l \; \middle| \; N \left( t \right) = k \right] =$$
+Нашли эту вероятность
+$$= \sum \limits_l l \cdot P \left\{ Bin \left( k, \frac{s}{t} \right) = l \right\} =
+MBin \left( k, \frac{s}{t} \right) =
+k \cdot \frac{s}{t}.$$
+
+Условное математическое ожидание --- это математическое ожидание по условному распределению.
