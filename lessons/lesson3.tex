@@ -486,3 +486,30 @@ $$= \frac{e^{-\lambda t} p^k \left( \lambda t \right)^k}{k!} \cdot
     P \left\{ N \left( 1 \right) = 2 \right\} =
     \frac{5^2}{2!} \cdot e^{-5}.$$
 \end{enumerate}
+
+\subsubsection*{3.12}
+
+\textit{Задание.}
+Пусть $N = \left\{ N \left( t \right), \, t \geq 0 \right\} $ ---
+процесс Пуассона с интенсивностью $ \lambda = 1$.
+Найдите характеристическую функцию случайной величины
+$$N \left( 3 \right) - N \left( 2 \right) + N \left( 1 \right).$$
+
+\textit{Решение.}
+$N \left( t \right) \sim Pois \left( t \right) $.
+Процесс Пуассона имеет однородность приращений
+$N \left( 3 \right) - N \left( 2 \right) \sim
+  N \left( 3 - 2 \right) =
+  N \left( 1 \right)
+  \sim Pois \left( 1 \right) $,
+а $N \left( 1 \right) \sim Pois \left( 1 \right) $.
+
+Приращения $N \left( 3 \right) - N \left( 2 \right) $ и $N \left( 1 \right) $ --- независимы,
+следовательно,
+$$N \left( 3 \right) - N \left( 2 \right) + N \left( 1 \right) \sim
+  Pois \left( 1 + 1 \right) =
+  Pois \left( 2 \right).$$
+
+Тогда характеристическая функция
+$ \varphi_{N \left( 3 \right) - N \left( 2 \right) + N \left( 1 \right) } \left( t \right) =
+  e^{2 \left( e^{it} - 1 \right) }$.
