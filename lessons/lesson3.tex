@@ -126,7 +126,7 @@ $$P \left\{ N \left( s \right) = l \; \middle| \; N \left( t \right) = k \right\
   \frac{P \left\{ N \left( t \right) - N \left( s \right) = k - l \right\} P \left\{ N \left( s \right) = l \right\} }{P \left\{ N \left( t \right) = k \right\} } =$$
 подставляем пуассоновские вероятности
 $$= \frac{ \frac{ \left[ \lambda \left( t - s \right) \right]^{k - l}}{ \left( k - l \right)!} \cdot e^{-\lambda \left( t - s \right) }}{ \frac{ \left( \lambda t \right)^k}{k!} \cdot e^{-\lambda t}} \cdot
-  \cdot \frac{ \left( \lambda s \right)^l}{l!} \cdot e^{-\lambda l} =
+  \frac{ \left( \lambda s \right)^l}{l!} \cdot e^{-\lambda l} =
   \frac{k! \left( t - s \right)^{k - l} s^l}{ \left( k - l \right)! l! t^k} =
   C_k^l \cdot \left( \frac{t - s}{t} \right)^{k - l} \cdot \left( \frac{s}{t} \right)^l.$$
 Имеем биномиальное распределение с параметрами $k$ и $ \frac{s}{t}$.
@@ -554,3 +554,21 @@ $$N \left( s \right) \sim Pois \left( \lambda \left( s - t \right) \right).$$
 $$M \left[ N \left( s \right) \; \middle| \; N \left( t \right) \right] =
   MPois \left( \lambda \left( s - t \right) \right) =
   \lambda \left( s - t \right).$$
+
+\subsubsection*{3.14}
+\textit{Задание.}
+Пусть
+$ \xi = \left\{ \xi \left( t \right), \, t \geq 0 \right\}, \,
+  \eta = \left\{ \eta \left( t \right), \, t \geq 0 \right\} $
+являются независимыми процессами Пуассона с параметрами $ \lambda $ и $ \mu $ соответственно.
+Положим $ \zeta \left( t \right) = \xi \left( t \right) + \eta \left( t \right) $.
+Докажите, что процесс $ \zeta = \left\{ \zeta \left( t \right), \, t \geq 0 \right\} $
+является процессом Пуассона с параметром $ \lambda + \mu $.
+
+\textit{Решение.}
+$$ \varphi_{ \zeta } \left( t \right) =
+  \varphi_{ \xi + \eta } \left( t \right) =
+  \varphi_{ \xi } \left( t \right) \varphi_{ \eta } \left( t \right) =
+  e^{ \lambda t \left( e^{it} - 1 \right) } e^{ \mu t \left( e^{it} - 1 \right) } =
+  e^{ \left( \lambda + \mu \right) t \left( e^{it} - 1 \right) }.$$
+Следовательно, $ \zeta \sim Pois \left( \lambda + \mu \right) $.
