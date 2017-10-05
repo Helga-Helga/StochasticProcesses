@@ -279,3 +279,65 @@ $T_n$ --- это накопительные суммы.
   $$= e^{-\lambda s},$$
   так что такая величина $ \tilde{ \tau_1}$ действительно имеет показательное распределение.
 \end{enumerate}
+
+\subsubsection*{3.7}
+
+\textit{Задание.}
+Пусть $N = \left\{ N \left( t \right), \, t \geq 0 \right\} $ ---
+процесс Пуассона с параметром $ \lambda $ и пусть $ \left\{ Y_n \right\}_{n \geq 1}$ ---
+независимая от $N$ последовательность независимых бернуллиевских случайных величин с парметром
+$p \in \left( 0, 1 \right) $.
+Положим
+$$S_n = Y_1 + \dotsc + Y_n.$$
+Докажите, что процесс $ \xi = \left\{ S_{N \left( t \right)}, \, t \geq 0 \right\} $
+является процессом Пуассона с параметром $ \lambda t$.
+
+\textit{Решение.}
+Пуассоновский процесс
+$$N \left( t \right) =
+  \sum \limits_{n = 1}^{N \left( t \right) } 1$$
+--- число событий до момента $N \left( t \right) $.
+В $ \xi $ складываем не 1, а $Y_1 = 0$ или $1$.
+
+Начнём с того, что посчитаем одномерные распределения и посмотрим,
+что это тоже пуассоновские величины.
+Есть сумма случайного числа слагаемых.
+Нужно перебирать все возможные значения $N \left( t \right) $.
+Имеем
+\begin{gather*}
+  P \left\{ S_{N \left( t \right) } = k \right\} =
+  P \left\{ Y_1 + \dotsc + Y_{N \left( t \right) } = k \right\} = \\
+  = \sum \limits_{n = 0}^{ \infty }
+    P \left\{ N \left( t \right) = n, \, Y_1 + \dotsc + Y_n = k \right\} =
+\end{gather*}
+Сумма $Y_1 + \dotsc + Y_n $ --- биномиальная величина
+$$= \sum \limits_{n = k}^{ \infty }
+    \frac{ \left( \lambda t \right)^n}{n!} \cdot
+    e^{-\lambda t} \cdot C_n^k p^k \left( 1 - p \right)^{n - k} =$$
+Преобразуем
+$$= e^{-\lambda t} p^k \cdot
+  \sum \limits_{n = k}^{ \infty }
+    \frac{ \left( \lambda t \right)^n}{n!} \cdot C_n^k \left( 1 - p \right)^{n - k} =$$
+Распишем $C_n^k$ явно
+$$= e^{-\lambda t} p^k \cdot
+  \sum \limits_{n = k}^{ \infty }
+    \frac{ \left( \lambda t \right)^n}{n!} \cdot
+    \frac{n!}{k! \left( n - k \right)!} \cdot \left( 1 - p \right)^{n - k} =
+  \frac{e^{-\lambda t} p^k}{k!} \cdot
+  \sum \limits_{n = k}^{ \infty }
+    \frac{ \left( \lambda t \right)^{n + k} \left( 1 - p \right)^{n - k}}{ \left( n - k \right)!} =$$
+Имеем ряд для экспоненты.
+Заменим $n - k$ на новый индекс суммирования
+$$= \frac{e^{-\lambda t} p^k}{k!} \cdot
+  \sum \limits_{n = 0}^{ \infty }
+    \frac{ \left( \lambda t \right)^{n + k} \left( 1-  p \right)^n}{n!} =$$
+Выносим $ \left( \lambda t \right)^k$ за знак суммы
+$$= \frac{e^{-\lambda t} p^k \left( \lambda t \right)^k}{k!} \cdot
+  \sum \limits_{n = 0}^{ \infty } \frac{ \left( \lambda t \right)^n \left( 1 - p \right)^n}{n!} =
+  \frac{e^{-\lambda t} \left(p \lambda t \right)^k}{k!} \cdot e^{ \lambda t \left( 1 - p \right) } =
+  \frac{e^{-\lambda pt} \left( \lambda pt \right)^k}{k!}$$
+--- пуассоновская вероятность.
+
+Вывод: $S_{N \left( t \right) } \sim Pois \left( \lambda pt \right) $,
+то есть у такого процесса одномерные распределения такие же,
+как у пуассоновского с параметром $ \lambda pt$.
