@@ -513,3 +513,44 @@ $$N \left( 3 \right) - N \left( 2 \right) + N \left( 1 \right) \sim
 Тогда характеристическая функция
 $ \varphi_{N \left( 3 \right) - N \left( 2 \right) + N \left( 1 \right) } \left( t \right) =
   e^{2 \left( e^{it} - 1 \right) }$.
+
+\subsubsection*{3.13}
+
+\textit{Задание.}
+Пусть $N = \left\{ N \left( t \right), \, t \geq 0 \right\} $ ---
+процесс Пуассона с интенсивностью $ \lambda $.
+Найдите условную вероятность
+$P \left( N \left( s \right) = k \; \middle| \; N \left( t \right) = n \right) $ при $s > t$
+и вычислите условное математическое ожидание
+$M \left[ N \left( s \right) \; \middle| \; N \left( t \right) \right] $ для $s >  t$.
+
+\textit{Решение.}
+$N \left( t \right) \sim Pois \left( \lambda t \right) $.
+
+Что такое условное математическое ожидание?
+
+$N \left( s \right) $ и $N \left( t \right) $ --- дискретные величины, то есть
+$$M \left[ N \left( s \right) \; \middle| \; N \left( t \right) \right] =
+  \sum \limits_{k = 0}^{ \infty }
+    k \cdot P \left\{ N \left( s \right) = k \; \middle| \; N \left( t \right) = n \right\}.$$
+
+Отдельно посчитаем условную вероятность, а потом по ней возьмём математическое ожидание
+$$P \left\{ N \left( s \right) = k \; \middle| \; N \left( t \right) = n \right\} =
+  \frac{P \left\{ N \left( s \right) = k, \, N \left( t \right) = n \right\} }{P \left\{ N \left( t \right) = n \right\} } =$$
+Перепишем через приращения и воспользуемся их независимостью
+$$= \frac{P \left( N \left( t \right) = n \right\} P \left\{ N \left( s - t \right) = k - n \right\} }{P \left\{ N \left( t \right) = n \right\} } =$$
+Сократим одинаковые множители в числителе и знаменателе
+$$= P \left\{ N \left( s - t \right) = k - n \right\} =$$
+Подставим пуассоновские вероятности
+$$= \frac{ \left[ \lambda \left( s - t \right) \right]^{k - n}}{ \left( k - n \right)!} \cdot
+  e^{-\lambda \left( s - t \right) }.$$
+
+Имеем пуассоновское распределение с параметром $ \lambda \left( s - t \right) $.
+
+Вывод: при условии $N \left( t \right) = n$ мы нашли распределение
+$$N \left( s \right) \sim Pois \left( \lambda \left( s - t \right) \right).$$
+
+Условное математическое ожидание
+$$M \left[ N \left( s \right) \; \middle| \; N \left( t \right) \right] =
+  MPois \left( \lambda \left( s - t \right) \right) =
+  \lambda \left( s - t \right).$$
