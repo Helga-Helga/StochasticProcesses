@@ -55,6 +55,56 @@ $$= e^{-\lambda t_1} \cdot \frac{ \left( \lambda t_1 \right)^{k_1}}{k_1!} \cdot
 
 $N \left( t \right) $ --- число событий, произошедших до момента времени $t$.
 
+\addcontentsline{toc}{section}{Аудиторные задачи}
+\section*{Аудиторные задачи}
+
+\subsubsection*{3.2}
+
+\textit{Задание.}
+Пусть $ \left\{ N \left( t \right), \, t \geq 0 \right\} $ ---
+процесс Пуассона с интенсивностью
+$$ \lambda = 2.$$
+Вычислите вероятности:
+\begin{enumerate}[label=\alph*)]
+  \item $P \left( N \left( 6 \right) = 3 \right) $;
+  \item $P \left(
+    N \left( 6 \right) = 3, \, N \left(9 \right) = 7, \, N \left( 15 \right) = 10 \right) $;
+  \item $P \left( N \left( 6 \right) = 3 \; \middle| \; N \left( 9 \right) = 7 \right) $;
+  \item $P \left( N \left( 9 \right) = 7 \; \middle| \; N \left( 6 \right) = 3 \right) $.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item $N \left( 6 \right) \sim Pois \left( 6 \cdot 2 \right) $, поэтому
+  $$P \left( N \left( 6 \right) = 3 \right) =
+    \frac{12^3}{3!} \cdot e^{-12};$$
+  \item нужно перейти к приращениям, потому что они независимы
+  \begin{gather*}
+    P \left(
+      N \left( 6 \right) = 3, \, N \left(9 \right) = 7, \, N \left( 15 \right) = 10 \right) = \\
+    = P \left\{
+      N \left( 6 \right) = 3, \, N \left( 9 \right) - N \left( 6 \right) = 4, \,
+      N \left( 15 \right) - N \left( 9 \right) = 3 \right\} = \\
+    = \left( \frac{12^3}{3!} \cdot e^{-12} \right) \cdot
+    \left( \frac{6^4}{4!} \cdot e^{-6} \right) \cdot \left( \frac{12^3}{3!} \cdot e^{-12} \right);
+  \end{gather*}
+  \item по определению условной вероятности
+  \begin{gather*}
+    P \left( N \left( 6 \right) = 3 \; \middle| \; N \left( 9 \right) = 7 \right) =
+    \frac{P \left( N \left( 6 \right) = 3, \, N \left( 9 \right) = 7 \right) }{P \left( N \left( 9 \right) = 7 \right) } = \\
+    = \frac{ \frac{12^3}{3!} \cdot e^{-12} \cdot \frac{6^4}{4!} \cdot e^{-6}}{ \frac{18^7}{7!} \cdot e^{-18}} =
+    \frac{12^3 \cdot 6^4 \cdot 7!}{3! \cdot 4! \cdot 18^7};
+  \end{gather*}
+  \item аналогично предыдущему пункту
+  \begin{gather*}
+    P \left( N \left( 9 \right) = 7 \; \middle| \; N \left( 6 \right) = 3 \right) =
+    \frac{P \left( N \left( 9 \right) = 7, \, N \left( 6 \right) = 3 \right) }{P \left( N \left(6 \right) = 3 \right) } = \\
+    = \frac{ \frac{12^3}{3!} \cdot e^{-12} \cdot \frac{6^4}{4!} \cdot e^{-6}}{ \frac{12^3}{3!} \cdot e^{-12}} =
+    \frac{6^4}{4!} \cdot e^{-6} =
+    \frac{P \left( N \left( 6 \right) = 3 \right) P \left( N \left( 3 \right) = 4 \right) }{P \left( N \left( 6 \right) = 3 \right) }.
+  \end{gather*}
+\end{enumerate}
+
 \subsubsection*{3.3}
 
 \textit{Задание.}
