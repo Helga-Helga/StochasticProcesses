@@ -952,3 +952,47 @@ $M \left( \left. W \left( s \right) \right| W \left( t \right) \right) $ при 
 $$= \min \left( s, t \right) \cdot \frac{1}{t} \cdot W \left( t \right) =$$
 По условию $s < t$, потому
 $$= \frac{s}{t} \cdot W \left( t \right).$$
+
+\subsubsection*{5.18}
+
+\textit{Задание.}
+Пусть $W$ и $N$ --- независимые между собой винеровский процесс и пуассоновский процесс с
+интенсивностью $ \lambda $ соответственно.
+Найдите характеристическую функцию случайной величны
+$X \left( t \right) = W \left( N \left( t \right) \right) $.
+
+\textit{Решение.}
+Нужно найти $ \varphi_{W \left( N \left( t \right) \right) }$.
+Характеристическая функция --- это $Me^{isW \left( N \left( t \right) \right) }$.
+Имеемв винеровский процесс, в который подставляется случайное время.
+Нужно перебрать все возможные значения случайного времени.
+Пуассоновский процесс принимает значения от нуля до бесконечности
+$$Me^{isW \left( N \left( t \right) \right) } =
+  M \sum \limits_{k = 0}^{ \infty }
+    \mathbbm{1} \left\{ N \left( t \right) = k \right\} \cdot e^{isW \left( k \right) } =$$
+Математическое ожидание суммы можем написать как сумму математических ожиданий
+$$= \sum \limits_{k = 0}^{ \infty }
+  M \mathbbm{1} \left\{ N \left( t \right) = k \right\} e^{isW \left( k \right) } =$$
+Индикатор зависит от пуассоновского процесса, а экспонента --- от винеровского, а они независимы
+$$= \sum \limits_{k = 0}^{ \infty }
+  P \left\{ N \left( t \right) = k \right\} Me^{isW \left( k \right) } =$$
+Оба множителя нам известны.
+Второй --- это характеристическая функция гауссовской величины
+$$= \sum \limits_{k = 0}^{ \infty } e^{- \lambda t} \cdot
+\frac{ \left( \lambda t \right)^k}{k!} \cdot e^{-\frac{ \lambda^2}{2} \cdot k} =$$
+Случайная величина
+$N \left( t \right) \sim Pois \left( \lambda t \right), \,
+  W \left( k \right) \sim N \left( 0, k \right) $.
+Получаем
+$$= e^{- \lambda t} \sum \limits_{k = 0}^{ \infty } \frac{ \left( \lambda t e^{- \frac{s^2}{2}} \right)^k}{k!} =
+  e^{ \lambda t \left( e^{-\frac{s^2}{2}} - 1 \right) }.$$
+
+Тогда
+$Me^{isW \left( N \left( t \right) \right) } =
+  M \left. \left( Me^{isW \left( t \right) } \right) \right|_{k = N \left( t \right) } =
+  M \left[
+    e^{isW \left( N \left( t \right) \right) } \; \middle| \; N \left( t \right) = k \right] $.
+
+Свойство условного математического ожидания
+$MM \left( \xi \; \middle| \; \mathcal{F} \right) =
+  M \xi $.
