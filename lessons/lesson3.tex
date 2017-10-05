@@ -166,3 +166,116 @@ $P \left\{ \tau \leq t \; \middle| \; N \left( b \right) - N \left( a \right) = 
 Это бернуллиевская величина
 $$= \frac{t - a}{b - a}.$$
 Получилось равномерное распределение, что и требовалось доказать.
+
+\subsubsection*{3.6}
+
+\textit{Задание.}
+Пусть $ \left\{ \tau_k \right\}_{k \geq 1}$ --- последовательность независимых показательно
+распределённых случаных величин с параметром $ \lambda $.
+Положим
+$$T_0 = 0, \,
+  T_n = \sum \limits_{k = 1}^n \tau_k, \,
+  n \geq 1; \,
+  \nu \left( t \right) = \max \left( n \, : \, T_n \leq t \right), \,
+  t \geq 0.$$
+\begin{enumerate}[label=\alph*)]
+  \item Докажите, что
+  $$ \lim \limits_{n \to \infty } \frac{T_n}{n} =
+    \frac{1}{ \lambda }$$
+  почти наверное.
+  \item Докажите, что случайная величина $ \tau_1 = T_{ \nu \left( t \right) + 1} - t$
+  имеет показательное распределение с параметром $ \lambda $.
+  \item Докажите, что $ \left\{ \nu \left( t \right), \, t \geq 0 \right\} $
+  является процессом Пуассона с интенсивностью $ \lambda $.
+\end{enumerate}
+
+\textit{Решение.}
+$\nu \left( t \right) = \max \left( n \, : \, T_n \leq t \right) $ --- случайный процесс.
+
+Посмотрим, как этот процесс выглядит (рис. \ref{fig:36}).
+
+$T_n$ --- это накопительные суммы.
+
+В момент $T_1$ только $T_1 \leq t$, то есть от $T_1$ до $T_2$ значение процесса будет равно единице.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/3_6.png}
+  \caption{График процесса}
+  \label{fig:36}
+\end{figure}
+
+Тут расставили стрелочки, то ест $ \nu $ --- это непрерывная справа функция.
+То есть $ \nu $ --- это модификация пуассоновского процесса.
+Конечномерные распределения несут ещё не всю информацию.
+
+\begin{enumerate}[label=\alph*)]
+  \item Нужно доказать, что
+  $$ \lim \limits_{n \to \infty } \frac{T_n}{n} =
+    \frac{1}{ \lambda }$$
+  почти наверное.
+
+  Это равенство --- это просто закон больших чисел, потому что
+  $$ \frac{1}{n} \sum \limits_{k = 1}^n \tau_k = T_n \to
+    M \tau_1 = \frac{1}{ \lambda }.$$
+
+  Сумма $T_n$ сходится к бесконечности.
+  Это нужно для того, чтобы определить процесс на всей оси.
+  То есть вывод из пункта a) следующий
+  $$T_n =
+    n \cdot \frac{T_n}{n} \to
+    \infty \cdot \frac{1}{ \lambda } =
+    \infty $$
+  и $ \nu \left( t \right) $ определено при всех $t$.
+  \item $ \tilde{ \tau_1}$ --- это величина до следующего прыжка.
+
+  Этот пункт означает, что процесс $ \nu $ имеет однородные приращения.
+
+  Докажем, чо $ \tilde{ \tau_1}$ имеет действительно показательное распределение.
+  Проще всего для показательного распределения посчитать
+  $$P \left( \tilde{ \tau_1} \right) =
+    1 - F =
+    1 - \left( 1 - e^{-\lambda s} \right) =
+    e^{-\lambda s},$$
+  где $F$ --- функция распределения.
+  Вопрос: есть ли такое равенство.
+
+  Значит,
+  $P \left( \tilde{ \tau_1} > s \right) =
+    P \left( T_{ \nu \left( t \right) + 1} > t + s \right) $.
+  Величина $T$ берётся в случайный момент.
+  Такая вероятность может быть записана через сумму по всем возможным $T$, то есть
+  $$P \left( T_{ \nu \left( t \right) + 1} > t + s \right) =
+    \sum \limits_{n = 0}^{ \infty }
+      P \left( T_n \leq t < T_{n + 1}, \, T_{n + 1} > t + s \right) =$$
+  Одно условие убирается
+  $$ = \sum \limits_{k = 0}^{ \infty } P \left( T_n \leq t, T_{n + 1} \leq t + s \right) =$$
+  Момент $T_{n + 1}$ --- это момент следующего скачка после $T_n$.
+  Тогда
+  \begin{gather*}
+    = \sum \limits_{n = 0}^{ \infty }
+      P \left( T_n \leq t, \, T_n + \tau_{n + 1} > t + s \right) = \\
+    = \sum \limits_{n = 0}^{ \infty }
+      P \left\{ T_n \leq t, \tau_{n + 1} \geq \left( t - T_n \right) + s \right\} =
+  \end{gather*}
+  Моменты $ \tau_{n + 1}$ и $T_n$ --- независимые величины.
+  $$= \sum \limits_{n = 0}^{ \infty }
+    MP \left[ T_n \leq t, \, \tau_{n + 1} > \left( t - T_n \right) + s \; \middle| \;
+    T_n \right] =$$
+  Вспомним, какая вероятность $P \left( \tau > x \right) = e^{-\lambda x}$.
+  Тогда
+  $$P \left( \tau > x + y \right) =
+    e^{-\lambda \left( x + y \right) } =
+    e^{-\lambda x} e^{-\lambda y}.$$
+  Для показательных величин выполнено соотношение
+  $$P \left( \tau > x + y \right) =
+    e^{-\lambda y} P \left( \tau > x \right) $$
+  --- свойство отсутствия последействия.
+  $$= \sum \limits_{n = 0}^{ \infty }
+      e^{-\lambda s} P \left( T_n \leq t, \tau_{n + 1} > t - T_n \right) =
+    e^{-\lambda s} \sum \limits_{n = 0}^{ \infty } P \left( T_n \leq t < T_{n + 1} \right) =$$
+  Такая сумма равна единице,
+  потому что $t$ всегда попадает между $T_n$ и $T_{n + 1}$ при каком-то $n$, потому
+  $$= e^{-\lambda s},$$
+  так что такая величина $ \tilde{ \tau_1}$ действительно имеет показательное распределение.
+\end{enumerate}
