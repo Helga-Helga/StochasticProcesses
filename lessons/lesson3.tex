@@ -128,3 +128,41 @@ $$P \left\{ N \left( s \right) \geq 1 \; \middle| \; N \left( t \right) = n \rig
   1 - C_n^0 \cdot \left( \frac{s}{t} \right)^0 \cdot \left( 1 - \frac{s}{t} \right)^{n - 0} =
   1 - \left( 1 - \frac{s}{t} \right)^n.
 \end{gather*}
+
+\subsubsection*{3.5}
+
+\textit{Задание.}
+Пусть $N = \left\{ N \left( t \right), \, t \geq 0 \right\} $
+является процессом Пуассона с параметром $ \lambda $.
+Докажите, что при условии, что $N$ имеет ровно 1 прыжок на отрезке $ \left[ a, b \right] $,
+момент этого прыжка является равномерно распределённой на отрезке $ \left[ a, b \right] $
+случайной величиной.
+
+\textit{Решение.}
+Обозначим $ \tau $ --- момент прыжка на отрезке $ \left[ a, b \right] $.
+Нужно найти
+$P \left\{ \tau \leq t \; \middle| \; N \left( b \right) - N \left( a \right) = 1 \right\} =
+  P \left\{
+    N \left( t \right) - N \left( a \right) = 1 \; \middle| \;
+    N \left( b \right) - N \left( a \right) = 1 \right\} $.
+
+Изобразим процесс на графике \ref{fig:35}.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/3_5.png}
+  \caption{График пуассоновского процесса}
+  \label{fig:35}
+\end{figure}
+
+У пуассоновского процесса есть однородность приращений
+\begin{gather*}
+  P \left\{
+    N \left( t \right) - N \left( a \right) = 1 \; \middle| \;
+    N \left( b \right) - N \left( a \right) = 1 \right\} =
+  P \left\{ N \left( t - a \right) = 1 \; \middle| \; N \left( b - a \right) = 1 \right\} = \\
+  = P \left\{ Bin \left( 1, \frac{t - a}{b - a} \right) = 1 \right\} =
+\end{gather*}
+Это бернуллиевская величина
+$$= \frac{t - a}{b - a}.$$
+Получилось равномерное распределение, что и требовалось доказать.
