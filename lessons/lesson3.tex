@@ -572,3 +572,28 @@ $$ \varphi_{ \zeta } \left( t \right) =
   e^{ \lambda t \left( e^{it} - 1 \right) } e^{ \mu t \left( e^{it} - 1 \right) } =
   e^{ \left( \lambda + \mu \right) t \left( e^{it} - 1 \right) }.$$
 Следовательно, $ \zeta \sim Pois \left( \lambda + \mu \right) $.
+
+\subsubsection*{3.16}
+
+\textit{Задание.}
+Пусть $N = \left\{ N \left( t \right), \, t \geq 0 \right\} $ ---
+процесс Пуассона с интенсивностью $ \lambda $ и пусть $ \xi_1, \xi_2, \dotsc $ ---
+независимые от процесса $N$
+независимые одинаково распределённые случайные величины с математическим ожиданием $m$.
+Пусть
+$$X \left( t \right) =
+  \sum \limits_{i = 1}^{N \left( t \right) } \xi_i.$$
+Докажите, что $M \left[ X \left( t \right) \right] = m \lambda t$.
+
+\textit{Решение.}
+$N \left( t \right) \sim Pois \left( \lambda t \right) $.
+
+Вычислим математическое ожидание
+$$MX \left( t \right) =
+  M \left( \sum \limits_{i = 1}^{N \left( t \right) } \xi_i \right) =
+  M \sum \limits_{i = 1}^{ \infty }
+    \left( \mathbbm{1} \left\{ N \left( t \right) = i \right\} \xi_i \right) =$$
+Математическое ожидание индикатора --- вероятность
+$$= m \sum \limits_{i = 1}^{ \infty } i \cdot P \left\{ N \left( t \right) = i \right\} =
+  mMN \left( t \right) =
+  m \lambda t.$$
