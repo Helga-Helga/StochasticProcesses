@@ -328,6 +328,81 @@ $T_n$ --- это накопительные суммы.
   потому что $t$ всегда попадает между $T_n$ и $T_{n + 1}$ при каком-то $n$, потому
   $$= e^{-\lambda s},$$
   так что такая величина $ \tilde{ \tau_1}$ действительно имеет показательное распределение.
+  \item Найдём конечномерные распределения $ \nu \left( t \right) $.
+  Имеем
+  \begin{gather*}
+    P \left\{
+      \nu \left( t_1 \right) = k_1, \nu \left( t_2 \right) = k_2, \dotsc,
+      \nu \left( t_n \right) = k_n
+    \right\} = \\
+    = P \left(
+      \sum \limits_{l = 1}^{k_1} \tau_l \leq t_1 < \sum \limits_{l = 1}^{k_1 + 1} \tau_l, \dotsc,
+      \sum \limits_{l = 1}^{k_n} \tau_l \leq t_n < \sum \limits_{l = 1}^{k_n + 1} \tau_l
+    \right) = \\
+    = \idotsint \limits_{k_n + 1}
+      \lambda^{k_n + 1} e^{-\lambda \left( x_{k_1} + \dotsc + x_{k_n} + 1 \right) }
+    dx_{k_n + 1} \dotsc dx_1 = \\
+    = \lambda^{k_n + 1} \cdot
+    \idotsint \limits_{k_n, \, 0 < x_{k_1} + \dotsc + x_{k_n} \leq t, \, t = \sum t_i}
+      e^{-\lambda \left( x_{k_1} + \dotsc + x_{k_n} \right) } \times \\
+       \times \int \limits_{t - \sum \limits_{i = 1}^{k_n} x_i}
+        e^{-\lambda x_{k_n + 1}} dx_{k_n + 1} \dotsc dx_1 =
+  \end{gather*}
+  Возьмём последний интеграл
+  $$ \int \limits_{t - \sum \limits_{i = 1}^{k_n} x_i} e^{-\lambda x_{k_n + 1}} dx_{k_n + 1} =
+    \left.
+      -\frac{1}{ \lambda } \cdot e^{-\lambda x_{k_n + 1}}
+    \right|_{t - \sum \limits_{i = 1}^{k_n} x_i}^{+ \infty }.$$
+  Подставляем и получаем
+  \begin{gather*}
+    = \frac{ \lambda^{k_n + 1}}{ \lambda }
+    \idotsint \limits_{k_n, \, 0 < x_{k_1} + \dotsc + x_{k_n} \leq t}
+      e^{-\lambda \sum \limits_{i = k_1}^{k_n} x_i}
+      e^{-\lambda t + \lambda \sum \limits_{i = k_1}^{k_n} x_i} dx_{k_n} \dotsc dx_{k_1} = \\
+   = \lambda^{k_n} e^{-\lambda t}
+   \idotsint \limits_{0 < \sum \limits_{i = k_1}^{k_n} x_i \leq 1} dx_{k_n} \dotsc dx_{k_1} =
+ \end{gather*}
+  Чтобы понять, чему будет равен этот интеграл, рассмотрим частные случаи:
+  \begin{enumerate}
+    \item когда есть двойной интеграл
+    \begin{gather*}
+      \iint \limits_{0 < x_1 + x_2 \leq t} dx_2 dx_1 =
+      \int \limits_0^t \int \limits_0^{t - x_1} dx_2 dx_1 =
+      \int \limits_0^t \left. x_2 \right|_0^{t - x_1} dx_1 = \\
+       =\int \limits_0^t \left( t - x_1 \right) dx_1 =
+      t \int \limits_0^t dx_1 - \int \limits_0^t x_1 dx_1 =
+      t^2 - \left. \frac{x^2}{2} \right|_0^t =
+      t^2 - \frac{t^2}{2} = \\
+      = \frac{t^2}{2} =
+      \frac{t^2}{2!};
+    \end{gather*}
+    \item когда есть тройной интеграл
+    \begin{gather*}\iiint \limits_{0 < x_1 + x_2 + x_3 \leq t} dx_3 dx_2 dx_1 =
+      \int \limits_0^t \int \limits_0^{t - x_1} \int \limits_0^{t - x_1 - x_2} dx_3 dx_2 dx_1 = \\
+      = \int \limits_0^t \int \limits_0^{t - x_1} \left( t - x_1 - x_2 \right) dx_2 dx_1 = \\
+      = \int \limits_0^t \left(
+        t \int \limits_0^{t - x_1} dx_2 - x_1 \int \limits_0^{t - x_1} dx_2 -
+        \int \limits_0^{t - x_1} x_2 dx_2 \right) dx_1 = \\
+      = \int \limits_0^t \left[
+        t \left( t - x_1 \right) - x_1 \left( t - x_1 \right) - \frac{ \left( t - x_1 \right)^2}{2}
+      \right] dx_1 = \\
+      = \int \limits_0^t
+        \frac{2t^2 - 2tx_1 - 2tx_1 + 2x_1^2 - t^2 + 2tx_1 - x_1^2}{2} dx_1 \times \\
+      \times \int \limits_0^t \frac{t^2 - 2x_1 t + x_1^2}{2} dx_1 =
+      \int \limits_0^t \frac{ \left( t - x_1 \right)^2}{2} dx_1 =
+      \left. -\frac{1}{2} \cdot \frac{ \left( t - x_1 \right)^3}{3} \right|_0^t = \\
+      = \frac{t^3}{2 \cdot 3} =
+      \frac{t^3}{3!}.
+    \end{gather*}
+  \end{enumerate}
+  Значит,
+  $$ \idotsint \limits_{0 < \sum \limits_{i = k_1}^{k_n} x_i \leq 1} dx_{k_n} \dotsc dx_{k_1} =
+    \frac{t^{k_n}}{k_n!}.$$
+
+  Тогда вероятность равна
+  $$= \frac{ \lambda^{k_n} e^{-\lambda t} t^{k_n}}{k_n!} =
+    \frac{ \left( \lambda t \right)^{k_n}}{k_n!} \cdot e^{-\lambda t}.$$
+  Получился процесс Пуассона с интенсивностью $ \lambda $.
 \end{enumerate}
 
 \subsubsection*{3.7}
