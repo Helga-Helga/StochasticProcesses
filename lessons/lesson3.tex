@@ -648,6 +648,50 @@ $$ \varphi_{ \zeta } \left( t \right) =
   e^{ \left( \lambda + \mu \right) t \left( e^{it} - 1 \right) }.$$
 Следовательно, $ \zeta \sim Pois \left( \lambda + \mu \right) $.
 
+\subsubsection*{3.15}
+
+\textit{Задание.}
+Пусть $ \left\{ N \left( t \right), \, t \geq 0 \right\} $ ---
+процесс Пуассона с интенсивностью $ \lambda $.
+Выясните, какой из следующих процессов является пуассоновским:
+\begin{gather*}
+  \left\{ N_1 \left( t \right) = 2N \left( t \right), \, t \geq 0 \right\};
+  \left\{ N_2 \left( t \right) = N \left( 2t \right), \, t \geq 0 \right\};
+  \left\{ N_3 \left( t \right) = N \left( t^2 \right), \, t \geq 0 \right\}; \\
+  \left\{ N_4 \left( t \right) = N \left( t + s \right) - N \left( s \right), \, t \geq 0 \right\},
+\end{gather*}
+где $s > 0$ --- фиксированное число.
+Для пуассоновских процессов укажите их интенсивность.
+
+\textit{Решение.}
+$$P \left\{ N_1 \left( t \right) = k \right\} =
+  P \left\{ 2N \left( t \right) = k \right\} =
+  P \left\{ N \left( t \right) = \frac{k}{2} \right\} =
+  0,$$
+так как пуассоновский процесс принимает только неотрицательные целые значения.
+Следовательно, $ \left\{ N_1 \left( t \right), \, t \geq 0 \right\} $ --- не процесс Пуассона.
+
+$$P \left\{ N_2 \left( t \right) = k \right\} =
+  P \left\{ N \left( 2t \right) = k \right\} =
+  \frac{ \left( \lambda \cdot 2t \right)^k}{k!} \cdot e^{-2 \lambda t}$$
+--- процесс Пуассона с интенсивностью $2 \lambda $.
+Независимость и однородность приращений выполняются.
+
+
+Перейдём к третьему процессу
+$$P \left\{ N_3 \left( t \right) = k \right\} =
+  P \left\{ N \left( t^2 \right) = k \right\} =
+  \frac{ \left( \lambda t^2 \right)^k}{k!} \cdot e^{-\lambda t^2} \sim
+  Pois \left( \lambda t^2 \right) \not \sim
+  Pois \left( \mu t \right),$$
+значит, процесс не пуассоновский.
+
+$$P \left\{ N_4 \left( t \right) = k \right\} =
+  P \left\{ N \left( t + s \right) - N \left( s \right) = k \right\} =
+  P \left\{ N \left( t \right) = k \right\} =
+  \frac{ \left( \lambda t \right)^k}{k!} \cdot e^{-\lambda t}$$
+--- процесс Пуассона с интенсивностью $ \lambda $.
+
 \subsubsection*{3.16}
 
 \textit{Задание.}
