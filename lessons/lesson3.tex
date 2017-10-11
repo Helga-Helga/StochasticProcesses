@@ -716,3 +716,38 @@ $$MX \left( t \right) =
 $$= m \sum \limits_{i = 1}^{ \infty } i \cdot P \left\{ N \left( t \right) = i \right\} =
   mMN \left( t \right) =
   m \lambda t.$$
+
+\subsubsection*{3.17}
+
+\textit{Задание.}
+Пусть $ \left\{ N \left( t \right), \, t \geq 0 \right\} $ ---
+процесс Пуассона с интенсивностью $ \lambda $.
+Используя пункт а) задачи 3.6 докажите, что
+$$ \lim \limits_{t \to \infty } \frac{N \left( t \right) }{t} = \lambda \, a.s.$$
+
+\textit{Решение.}
+Надо проверить, что для пуассоновского процесса
+$$ \lim \limits_{t \to \infty } \frac{N \left( t \right) }{t} = \lambda \, a.s.$$
+
+В задаче 3.6 доказали, что
+$$ \frac{T_n}{n} \to
+  \frac{1}{ \lambda }$$
+с помощью закона больших чисел.
+
+$N \left( T_n \right) = n$ --- значение $T_n$-го скачка (рис. \ref{fig:317}).
+
+$$ \frac{T_n}{n} \to \frac{1}{ \lambda } \leftrightarrow
+  \frac{T_n}{N \left( T_n \right) } \to \frac{1}{ \lambda }.$$
+Тогда
+$$ \frac{N \left( T_n \right) }{T_n} \to \lambda.$$
+
+Из такой сходимости следует сходимость по всем моментам времени.
+Нужно вывести, что
+$$ \frac{N \left( t \right) }{t} \to \lambda.$$
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/3_17.png}
+  \caption{График пуассоновского процесса}
+  \label{fig:317}
+\end{figure}
