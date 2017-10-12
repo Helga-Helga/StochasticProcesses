@@ -224,3 +224,69 @@ $$K_1 \left( t, s \right) =
     M \left[ Y \left( t \right) Y \left( s \right) \right] =
     R_1 \left( t, s \right) R_2 \left( t, s \right) $.
 \end{enumerate}
+
+\subsubsection*{4.4}
+
+\textit{Задание.}
+Пусть $ \left\{ S_n, \, n = 0, 1, 2, \dotsc \right\} $ являетс простым случайным блужданием,
+что определяется следующим образом $S_0 = 0; \, S_{n + 1} = S_n + \varepsilon_{n + 1}$,
+где $ \left\{ \varepsilon_n \right\}_{n \geq 1}$ ---
+последовательность независимых одинаково распределённых случайных величин таких, что
+$$P \left( \varepsilon_i = 1 \right) =
+  P \left( \varepsilon_i = -1 \right) =
+  \frac{1}{2}.$$
+Вычислите математическое ожидание и ковариационную функцию процесса
+$ \left\{ S_n, \, n = 0, 1, 2, \dotsc \right\} $.
+Докажите, что
+$$ \frac{S_n}{ \sqrt{n}} \overset{d}{ \to } N \left( 0, 1 \right), \,
+  n \to \infty.$$
+
+\textit{Решение.}
+Процесс сейчас обозначается как $ \left\{ S_n, \, n \geq 0 \right\} $ и $S_n$ определяется как
+$S_0 = 0, \, S_{n + 1} = S_n + \varepsilon_{n + 1}$, то есть $S_n$ --- это накопительные суммы.
+Сейчас $ \left\{ \varepsilon_n \right\}_{n \geq 1}$ ---
+это независимые одинаково распределённые случайные величины с распределением Бернулли
+$$P \left( \varepsilon_i = 1 \right) =
+  P \left( \varepsilon_i = -1 \right) =
+  \frac{1}{2}.$$
+
+Это простое случайное блуждание (рис. \ref{fig:44}).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/4_4.png}
+  \caption{График случайноо блуждания}
+  \label{fig:44}
+\end{figure}
+
+$$S_n =
+  \sum \limits_{i = 1}^n \varepsilon_i.$$
+Найдём математическое ожидание этого процесса
+$$MS_n =
+  M \sum \limits_{i = 1}^n \varepsilon_i =$$
+Пользуемся независимостью
+$$= \sum \limits_{i = 1}^n M \varepsilon_i =
+  0,$$
+так как
+$$M \varepsilon_i =
+  1 \cdot \frac{1}{2} - 1 \cdot \frac{1}{2} =
+  0.$$
+Теперь найдём ковариационную функцию, то есть нужно найти
+$$cov \left( S_m, S_t \right) =
+  cov \left( \sum \limits_{i = 1}^n \varepsilon_i, \sum \limits_{j = 1}^t \varepsilon_j \right) =$$
+Вынесем суммы за ковариацию
+$$= \sum \limits_{i = 1}^n \sum \limits_{j = 1}^t cov \left( \varepsilon_i, \varepsilon_j \right) =
+\sum \limits_{i, j = 1}^{n, t} M \left( \varepsilon_i \varepsilon_j \right) =$$
+Такое математическое ожадине равно
+$$M \left( \varepsilon_i \varepsilon_j \right) =
+  \begin{cases}
+    1, \qquad i = j, \\
+    0, \qquad i \neq j.
+  \end{cases}$$
+Тут пар одинаковых чисел $ \min \left( n, t \right) $, так что
+$$= \min \left( n, t \right).$$
+
+По центральной предельной теореме
+$$ \frac{S_n}{ \sqrt{n}} \to N \left( 0, 1 \right), \,
+  n \to \infty,$$
+потому что $S_n$ --- сумма независимых одинаково распределённых случайных величин.
