@@ -349,3 +349,28 @@ $$= \sum \limits_{i = 0}^{ \infty } \frac{1}{i!} \sum \limits_{k = 1}^n c_k t_k^
   \sum \limits_{i = 0}^{ \infty } \frac{1}{i!} \left( \sum \limits_{k = 1}^n c_k t_k \right)^i \geq
   0,$$
 следовательно, $K \left( t, s \right) = e^{ts}$ --- ковариационная функция.
+
+\subsubsection*{4.12}
+
+\textit{Задание.}
+Пусть $ \varphi_1, \dotsc, \varphi_n$ --- произвольные действительные функции,
+$c_1, \dotsc, c_n$ --- неотрицательные числа.
+Докажите, что функция
+$$K \left( t, s \right) =
+  \sum \limits_{i = 1}^n c_i \varphi_i \left( t \right) \varphi_i \left( s \right) $$
+является ковариационной функцией некоторого случайного процесса.
+
+\textit{Решение.}
+Симметричность очевидна.
+Вопрос: будет ли такая функция неотрицательно определённой?
+$$ \sum \limits_{k, j = 1}^n \lambda_k \lambda_j \sum \limits_{i = 1}^n K \left( t_k, t_j \right) =
+  \sum \limits_{k, j = 1}^n \lambda_k \lambda_j
+  \sum \limits_{i = 1}^n c_i \varphi_i \left( t_k \right) \varphi_i \left( t_j \right) =$$
+Поменяем суммы местами и двойную сумму распишем как две отдельные
+$$= \sum \limits_{i = 1}^n c_i \sum \limits_{k = 1}^n \lambda_k \varphi_i \left( t_k \right)
+  \sum \limits_{j = 1}^n \lambda_j \varphi_i \left( t_j \right) =
+  \sum \limits_{i = 1}^n c_i
+    \sum \limits_{k = 1}^n \left( \lambda_k \varphi_i \left( t_k \right) \right)^2 \geq
+  0.$$
+
+Значит, функция ковариационная.
