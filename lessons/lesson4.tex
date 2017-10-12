@@ -1,0 +1,37 @@
+\addcontentsline{toc}{chapter}{Занятие 4. Гауссовские процессы}
+\chapter*{Занятие 4. Гауссовские процессы}
+
+\addcontentsline{toc}{section}{Контрольные вопросы и задания}
+\section*{Контрольные вопросы и задания}
+
+\subsubsection*{Приведите определение гауссовского процесса.}
+
+Процесс $ \left\{ X \left( t \right), \, t \in T \right\} $ --- гауссовский, если
+$$ \sum \limits_{k = 1}^n \lambda_k X \left( t_k \right) $$
+--- гауссовская случайная величина $ \forall \vec{ \lambda } \in \mathbb{R}^n$ и
+$ \forall t_1, \dotsc, t_n \in T$.
+
+Эквивалентно: $ \left( X \left( t_1 \right), \dotsc, X \left( t_n \right) \right)^T$ ---
+гауссовский вектор.
+
+\subsubsection*{Запишите плотность конечномерных распределений гауссовского процесса.}
+
+$$p =
+  \frac{1}{ \left( \sqrt{2 \pi} \right)^n} \cdot \frac{1}{ \sqrt{det \, A}} \cdot
+  e^{-\frac{1}{2} \left[ A^{-1} \left( \vec{x} - \vec{a} \right), \vec{x} - \vec{a} \right] },$$
+если $det \, A > 0$.
+Квадратные скобки в степени экспоненты --- это скалярное произведение,
+или квадратичная форма матрицы, обратной к ковариации.
+
+\subsubsection*{Приведите определение и сформулируйте основные свойства ковариационной функции.}
+
+$K \left( t, s \right) =
+  cov \left[ X \left( t \right), X \left( s \right) \right] $.
+
+Гауссовский процесс существует, из теомеры Колмогорова, с функциями $m$ и $K$ тогда и только тогда,
+когда функция $K \left( s, t \right) = K \left( t, s \right) $ --- симметричная, и $K$ ---
+неотрицательно определённая, то есть
+$$ \sum \limits_{k, j = 1}^n c_k c_j K \left( t_k, t_j \right) \geq
+  0.$$
+
+Тут неравенство возможно для любых $c_1, \dotsc, c_n, t_1, \dotsc, t_n$.
