@@ -329,3 +329,23 @@ $$ \frac{S_n}{ \sqrt{n}} \to N \left( 0, 1 \right), \,
   характеристической функцией?
   Это характеристическая функция для распределения Коши.
 \end{enumerate}
+
+\subsubsection*{4.11}
+
+\textit{Задание.}
+Докажите, что функция $K \left( t, s \right) = e^{ts}$
+является ковариационной функцией некоторого случайного процесса.
+
+\textit{Решение.}
+Симметричность есть.
+Вопрос: будет ли такая функция неотрицательно определёной
+$$ \sum \limits_{k, j = 1}^n c_k c_j K \left( t_k, t_j \right) =
+  \sum \limits_{k, j = 1}^n c_k c_j e^{t_k t_j} =
+  \sum \limits_{k, j = 1}^n \left( \sum \limits_{i = 0}^{ \infty } \frac{t_k^i t_j^i}{i!} \right) =
+  \sum \limits_{i = 0}^{ \infty } \frac{1}{i!} \sum \limits_{k, j = 1}^n c_k c_j t_k^i t_j^i =$$
+Разобьём двойную сумму на две
+$$= \sum \limits_{i = 0}^{ \infty } \frac{1}{i!} \sum \limits_{k = 1}^n c_k t_k^i
+  \sum \limits_{j = 1}^n c_j t_j^i =
+  \sum \limits_{i = 0}^{ \infty } \frac{1}{i!} \left( \sum \limits_{k = 1}^n c_k t_k \right)^i \geq
+  0,$$
+следовательно, $K \left( t, s \right) = e^{ts}$ --- ковариационная функция.
