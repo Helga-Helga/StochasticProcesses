@@ -155,3 +155,72 @@ $$ \sum \limits_{k, j = 1}^n c_k c_j K \left( t_k, t_j \right) \geq
   Так что $p$ --- плотность, $ \varphi $ --- это её преобразование Фурье, так что $ \varphi $ ---
   характеристическая функция.
   \end{enumerate}
+
+\subsubsection*{4.3}
+
+\textit{Задание.}
+Пусть $K \left( t, s \right), \, t, s \in T$ ---
+ковариационная функция некоторого случайного процесса, $Q \left( t \right) $ ---
+полином с положительными коэффициентами.
+Докажите, что функция $K_1 \left( t, s \right) = Q \left( K \left( t, s \right) \right) $
+тоже является ковариационной функцией некоторого случайного процесса.
+
+\textit{Решение.}
+$Q \left( t \right) = a_0 + a_1 t + a_2 t^2 + \dotsc + a_n t^n, \, a_0, a_1, \dotsc, a_n \geq 0$.
+Доказать, что если в этот многочлен подставить ковариационную функцию,
+то снова получится ковариационная функция.
+
+Явно запишем, что такое
+$$K_1 \left( t, s \right) =
+  a_0 + a_1 K \left( t, s \right) + a_2 K \left( t, s \right)^2 + \dotsc +
+  a_n K \left( t, s \right)^n.$$
+
+Симметричность есть, так как $K \left( t, s \right) $ --- симметрична.
+
+Задачу можно разбить на две подзадачи:
+\begin{enumerate}
+  \item если $R_0, R_1, R_2, \dotsc, R_n$ --- ковариационные функции, то и
+  $$ \sum \limits_{j = 0}^n a_j R_j \left( t, s \right) $$
+  --- ковариационная функция.
+  Это утверждение проверить просто.
+
+  Доказательство.
+  Берём двойную сумму
+  $$ \sum \limits_{k, i = 1}^n
+    c_k c_i \left( \sum \limits_{j = 0}^n a_j R_j \left( t_k, t_i \right) \right) =$$
+  Меняем суммы местами
+  $$= \sum \limits_{j = 0}^n
+    a_j \left( \sum \limits_{k, i = 1}^n R_j \left( t_k, t_i \right) c_k c_i \right) \geq 0,$$
+  так как внутренняя сумма неотрицательна.
+  Так что 1. проверили;
+  \item чтобы 1. применить, достаточно проверить, что степень ковариационной функции ---
+  это тоже ковариационная функция.
+  Достаточно проверить, что если $R_1, R_2$ --- ковариационные функции,
+  то и произведение $R_1 \left( t, s \right) R_2 \left( t, s \right) $ ---
+  тоже ковариационная функция.
+
+  Условие неотрицательности сейчас записывается так
+  $$ \sum \limits_{k, j = 1}^n c_k c_j R_1 \left( t_k, t_j \right) R_2 \left( t_k, t_j \right) \geq
+    0?,$$
+  где
+  $R_1 \left( t_k, t_j \right) = M \left[ X \left( t_k \right) X \left( t_j \right) \right], \,
+    R_2 \left( t_k, t_j \right) = M \left[ Y \left( t_k \right) Y \left( t_j \right) \right] $.
+
+  Раз $R_1$ --- ковариационая и $R_2$ --- ковариационная,
+  то существуют независимые процессы $X \left( t \right) $ и $Y \left( t \right) $, такие, что
+  $$R_1 \left( t, s \right) = M \left[ X \left( t \right) X \left( s \right) \right], \,
+    R_2 \left( t, s \right) = M \left[ Y \left( t \right) Y \left( s \right) \right].$$
+  Тогда если возьмём новый процесс
+  $$Z \left( t \right) = X \left( t \right) Y \left( t \right),$$
+  то
+  $M \left[ Z \left( t \right) Z \left( s \right) \right] =
+    M \left[ X \left( t \right) Y \left( t \right) X \left( s \right) Y \left( s \right) \right] $.
+  Группируем первый множитель с третьим, второй --- с четвёртым, пользуемся независимостью
+  $M \left[ X \left( t \right) Y \left( t \right) X \left( s \right) Y \left( s \right) \right] =
+    M \left[ X \left( t \right) X \left( s \right) \right] \cdot
+    M \left[ Y \left( t \right) Y \left( s \right) \right].$
+  По введённым обозначениям
+  $M \left[ X \left( t \right) X \left( s \right) \right] \cdot
+    M \left[ Y \left( t \right) Y \left( s \right) \right] =
+    R_1 \left( t, s \right) R_2 \left( t, s \right) $.
+\end{enumerate}
