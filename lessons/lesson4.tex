@@ -66,7 +66,7 @@ $$ \sum \limits_{k, j = 1}^n c_k c_j K \left( t_k, t_j \right) \geq
 
   Функция зависит только от разности.
   Сейчас $K \left( t, s \right) = \varphi \left( t - s \right) $, где
-  $$ \varphi \left( t, s \right) =
+  $$ \varphi \left( t \right) =
     \begin{cases}
       1 - \left| t \right| , \qquad \left| t \right| \leq 1, \\
       0, \qquad \left| t \right| > 1.
@@ -290,3 +290,42 @@ $$= \min \left( n, t \right).$$
 $$ \frac{S_n}{ \sqrt{n}} \to N \left( 0, 1 \right), \,
   n \to \infty,$$
 потому что $S_n$ --- сумма независимых одинаково распределённых случайных величин.
+
+\addcontentsline{toc}{section}{Домашнее задание}
+\section*{Домашнее задание}
+
+\subsubsection*{4.10}
+
+\textit{Задание.}
+Выясните, существует ли случайный процесс с ковариационной функцией
+\begin{enumerate}[label=\alph*)]
+  \item $K \left( t, s \right) = \min \left( t, s \right) - ts, \, t, s \in \left[ 0, 1 \right] $;
+  \item $K \left( t, s \right) = e^{- \left| t - s \right| }, \, t, s \in \mathbb{R}$.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item $K \left( t, s \right) = \min \left( t, s \right) - ts, \, t, s \in \left[ 0, 1 \right] $.
+
+  Такой процесс есть.
+  Это броуновский мост;
+  \item $K \left( t, s \right) = e^{- \left| t - s \right| }, \, t, s \in \mathbb{R}$.
+
+  Симметричность очевидна.
+  Вопрос: буде ли такая функция неотрицательно определена?
+
+  Функция зависит только от разности.
+  Сейчас $K \left( t, s \right) = \varphi \left( t - s \right) $,
+  где $ \varphi \left( t \right) = e^{-\left| t \right| }, \, t \in \mathbb{R}$.
+
+  Так что
+  $$ \sum \limits_{k, j = 1}^n c_k c_j K \left( t_k, t_j \right) =
+    \sum \limits_{k, j = 1}^n c_k c_j \varphi \left( t_k - t_j \right) \geq
+    0$$
+  --- это условие неотрицательной определённости для характеристической функции.
+  Будет ли эта функция $ \varphi $ характеристической?
+  То есть вопрос в задаче равносилен следующему:
+  будет ли $ \varphi \left( t \right) = e^{-\left| t \right| }, \, t \in \mathbb{R}$
+  характеристической функцией?
+  Это характеристическая функция для распределения Коши.
+\end{enumerate}
