@@ -35,3 +35,123 @@ $$ \sum \limits_{k, j = 1}^n c_k c_j K \left( t_k, t_j \right) \geq
   0.$$
 
 Тут неравенство возможно для любых $c_1, \dotsc, c_n, t_1, \dotsc, t_n$.
+
+\subsubsection*{4.2}
+
+\textit{Задание.}
+Выясните, существует ли случайный процесс с ковариационной функцией
+\begin{enumerate}[label=\alph*)]
+  \item $K \left( t, s \right) = \min \left( t, s \right) $;
+  \item $K \left( t, s \right) =
+    \left( 1 - \left| t - s \right| \right) \cdot
+    \mathbbm{1} \left\{ \left| t - s \right| < 1 \right\}; \,
+    t, s \in \mathbb{R}$.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item $K \left( t, s \right) = \min \left( t, s \right) $.
+
+  Такой процесс есть.
+  Какой?
+  Винеровский;
+  \item $K \left( t, s \right) =
+    \left( 1 - \left| t - s \right| \right) \cdot
+    \mathbbm{1} \left\{ \left| t - s \right| < 1 \right\}; \,
+    t, s \in \mathbb{R}$.
+
+  Если такой процесс есть, то мы его не встречали раньше.
+  Симметричность очевидна.
+  Вопрос: будет ли такая функция неотрицательно определена?
+
+  Функция зависит только от разности.
+  Сейчас $K \left( t, s \right) = \varphi \left( t - s \right) $, где
+  $$ \varphi \left( t, s \right) =
+    \begin{cases}
+      1 - \left| t \right| , \qquad \left| t \right| \leq 1, \\
+      0, \qquad \left| t \right| > 1.
+    \end{cases}$$
+  Так что
+  $$ \sum \limits_{k, j = 1}^n c_k c_j K \left( t_k, t_j \right) =
+    \sum \limits_{k, j = 1}^n c_k c_j \varphi \left( t_k - t_j \right) \geq
+    0$$
+  --- это условие неотрицательной определённости для характеристической функции.
+  Будет ли эта функция $ \varphi $ характеристической?
+  То есть вопрос в задаче равносилен следующему: будет ли
+  $$ \varphi \left( t \right) =
+    \begin{cases}
+      1 - \left| t \right| , \qquad \left| t \right| \leq 1, \\
+      0, \qquad \left| t \right| > 1.
+    \end{cases}$$
+  характеристической функцией?
+  Эта функция изображена на рисунке \ref{fig:42}.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=.4\textwidth]{./pictures/4_2.png}
+    \caption{График функции $ \varphi \left( t \right) $}
+    \label{fig:42}
+  \end{figure}
+
+
+  Она непрерывная, симметричная, в нуле --- единица.
+  Если бы это была характеристическая функция
+  $$ \varphi \left( t \right) =
+    \int \limits_{-\infty }^{+\infty } e^{itx} p \left( x \right) dx$$
+  --- преобразование Фурье плотности $p \left( x \right) $.
+  Плотность можно найти через обратное преобразование Фурье
+  $$p \left( x \right) =
+    \frac{1}{2 \pi } \int \limits_{-\infty}^{+\infty } e^{-itx} \varphi \left( t \right) dt =
+    \frac{1}{2 \pi } \int \limits_{-1}^1 e^{-itx} \left( 1 - \left| t \right| \right) dt =$$
+  Раскроем модуль
+  $$= \frac{1}{2 \pi } \left(
+    \int \limits_{-1}^1 e^{-itx} dt + \int \limits_{-1}^0 e^{-itx} tdt -
+    \int \limits_0^1 e^{-itx} tdt \right) =$$
+  Берём первый интеграл
+  $$= \frac{1}{2 \pi } \left(
+    \left. -\frac{e^{-itx}}{ix} \right|_{-1}^1 - \int \limits_0^1 e^{itx} tdt -
+    \int \limits_0^1 e^{-itx} tdt \right) =$$
+  Подставляем пределы интегрирования
+  $$= \frac{1}{2 \pi } \left[
+    -\frac{e^{-ix}}{ix} + \frac{e^{ix}}{ix} -
+    \int \limits_0^1 \left( e^{-itx} + e^{itx} \right) tdt \right] =$$
+  Из формулы Эйлера следует, что $e^{-itx} + e^{itx} = 2 \cos \left( tx \right) $.
+  Тогда
+  $$= \frac{1}{2 \pi }
+    \left[ \frac{-e^{-ix} + e^{ix}}{ix} - 2 \int \limits_0^1 \cos \left( tx \right) tdt \right] =$$
+  Интегрируем по частям, то есть
+  $$u = t, \,
+    du = dt, \,
+    dv = \cos \left( tx \right) dt, \,
+    c = \int \cos \left( tx \right) dt = \frac{1}{x} \cdot \sin \left( xt \right).$$
+  Получаем
+  $$= \frac{1}{2 \pi } \left[
+      \frac{-e^{-ix} + e^{ix}}{ix} -
+      2 \cdot \left. \frac{t}{x} \cdot \sin \left( xt \right) \right|_0^1 +
+      2 \int \limits_0^1 \frac{1}{x} \cdot \sin \left( xt \right) dt \right] =$$
+  Подставляем пределы интегрирования и берём интеграл от синуса
+  $$= \frac{1}{2 \pi } \left[
+    \frac{-e^{-ix} + e^{ix}}{ix} - \frac{2}{x} \cdot \sin x -
+    \left. \frac{2}{x^2} \cdot \cos \left( xt \right) \right|_0^1 \right] =$$
+  Снова подставляем пределы интегрирования
+  $$= \frac{1}{2 \pi } \left(
+    \frac{-e^{-ix} + e^{ix}}{ix} - \frac{2}{x} \cdot \sin x - \frac{2}{x^2} \cdot \cos x +
+    \frac{2}{x^2} \right) =$$
+  Из формулы Эйлера следует, что $e^{ix} - e^{-ix} = 2i \sin x$.
+  Тогда
+  $$= \frac{1}{2 \pi} \left[
+    \frac{2 \sin x}{x} - \frac{2 \sin x}{x} + \frac{2}{x^2} \left( -\cos x + 1 \right) \right] =
+  \frac{1}{ \pi x^2} \left( 1 - \cos x \right).$$
+
+  Нашли обратное преобразование Фурье
+  $$ \varphi \left( t \right) =
+    \int \limits_{-\infty }^{+\infty } e^{itx} p \left( x \right) dx $$
+  и $p \left( x \right) \geq 0$.
+
+  Должно выполняться условие нормировки
+  $$ \int \limits_{-\infty }^{+\infty } p \left( x \right) dx =
+    \varphi \left( 0 \right) =
+    1.$$
+  Так что $p$ --- плотность, $ \varphi $ --- это её преобразование Фурье, так что $ \varphi $ ---
+  характеристическая функция.
+  \end{enumerate}
