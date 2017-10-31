@@ -409,3 +409,43 @@ $$ \sum \limits_{i = 1}^n \xi \left( t_i \right) \alpha_i =
   - \left( MY \right)^2 =
   tsDX + DY + \left( t + s \right) D \left( XY \right).
 \end{gather*}
+
+\subsubsection*{4.14}
+
+\textit{Задание.}
+Пусть $ \left\{ S_n, \, n = 0, 1, 2, \dotsc \right\} $ является случайным блужданием,
+которое определяется следующим образом: $S_0 = 0; \, S_{n + 1} = S_n + \xi_{n + 1}$,
+где $ \left\{ \xi_n \right\}_{n \geq 1}$ ---
+последовательность независимых одинаково распределённых случайных величин таких,
+что $M \left[ \xi \right] = 0, \, M \left[ \xi^2 \right] = 1$.
+Докажите, что для произвольного фиксированного
+$$t \in \left[ 0, 1 \right] \qquad
+  \frac{S_{ \left[ nt \right] }}{ \sqrt{n}} \overset{d}{ \to } N \left( 0, t \right), \,
+  n \to \infty.$$
+
+\textit{Решение.}
+\begin{gather*}
+  S_1 = S_0 + \xi_1 = 0 + \xi_1 = \xi_1, \\
+  S_2 = S_1 + \xi_2 = \xi_1 + \xi_2, \\
+  S_3 = S_2 + \xi_3 = \xi_1 + \xi_2 + \xi_3, \\
+  \dotsc, \\
+  S_n = \sum \limits_{i = 1}^n \xi_i.
+\end{gather*}
+
+Математическое ожидание
+$$MS_n =
+  M \sum \limits_{i = 1}^n \xi_i =
+  \sum \limits_{i = 1}^n M \xi_i =
+  nM \xi_i =
+  0.$$
+
+Дисперсия
+$$DS_n =
+  D \sum \limits_{i = 1}^n \xi_i =
+  \sum \limits_{i = 1}^n D \xi_i =
+  nD \xi_i =
+  n.$$
+
+Значит, по центральной предельной теореме
+$$ \frac{S_{ \left[ nt \right] }}{ \sqrt{n}} \overset{d}{ \to } N \left( 0, t \right), \,
+  n \to \infty.$$
