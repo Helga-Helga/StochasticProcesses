@@ -291,6 +291,142 @@ $$ \frac{S_n}{ \sqrt{n}} \to N \left( 0, 1 \right), \,
   n \to \infty,$$
 потому что $S_n$ --- сумма независимых одинаково распределённых случайных величин.
 
+\subsubsection*{4.5}
+
+\textit{Задание.}
+Рассмотрим двумерные случайные векторы
+$$X^k = \left( \frac{1}{ \sqrt{k}} \cdot S_{ \frac{k}{1}}, \frac{1}{ \sqrt{k}} \cdot S_k \right), \,
+  k = 2, 4, 6, \dotsc,$$
+где $ \left\{ S_n \right\}_{n \geq 1}$ является простым случайным блужданием.
+\begin{enumerate}[label=\alph*)]
+  \item Убедитесь, что характеристическая функция вектора $X^k$ имеет вид
+  $$ \varphi_{X^k} \left( \theta_1, \theta_2 \right) =
+    \left[ \cos \left( \frac{ \theta_1 + \theta_2}{ \sqrt{k}} \right) \right]^{ \frac{k}{2}}
+    \left[ \cos \left( \frac{ \theta_2}{ \sqrt{k}} \right) \right]^{ \frac{k}{2}}.$$
+  \item Восплользовавшись тем, что
+  $$ \varepsilon^{-2} ln \left( \cos \left( \varepsilon \right) \right) \to
+    - \frac{1}{2}$$
+  при $ \varepsilon \to 0$,
+  найдите предел $ \varphi_{X^k} \left( \theta_1, \theta_2 \right) $ при $k \to \infty $
+  и укажите распределение случайного вектора $X$,
+  к которому слабо сходятся $X^k$ при $k \to \infty$.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item Сначала нужно найти характеристическую функцию такого вектора
+  $ \varphi_{X^{k}} \left( \theta_1, \theta_2 \right) =
+    Me^{i \left( \theta_1 X_1^k + \theta_2 X_2^k \right) } $.
+  Подставим компоненты
+  $$Me^{i \left( \theta_1 X_1^k + \theta_2 X_2^k \right) } =
+    Me^{i\left(\theta_1\cdot\frac{1}{\sqrt{k}}\cdot S_{\frac{k}{2}}+\theta_2\cdot\frac{1}{\sqrt{k}}\cdot S_k\right)}.$$
+  Можно вынести дробь с корнем от $k$, вместо $S$ будем писать сумму
+  $Me^{i\left(\theta_1\cdot\frac{1}{\sqrt{k}}\cdot S_{\frac{k}{2}}+\theta_2\cdot\frac{1}{\sqrt{k}}\cdot S_k\right)} =
+    Me^{i\cdot\frac{1}{\sqrt{k}}\left(\theta_1\sum\limits_{i=1}^{\frac{k}{2}}\varepsilon_i +\theta+2\sum\limits_{i = 1}^k\varepsilon_i\right)}$.
+  Вторую сумму можно разложить на две
+  $$Me^{i\cdot\frac{1}{\sqrt{k}}\left(\theta_1\sum\limits_{i=1}^{\frac{k}{2}}\varepsilon_i +\theta+2\sum\limits_{i = 1}^k\varepsilon_i\right)} =
+    Me^{i\cdot\frac{1}{\sqrt{k}}\left(\sum\limits_{i=1}^{\frac{k}{2}}\varepsilon_i\left(\theta_1+\theta_2\right)+\theta_2\sum\limits_{i=\frac{k}{2}+1}^k \varepsilon_i\right)} =$$
+  Суммы и слагаемые в суммах независимы
+  $$= Me^{i\cdot\frac{1}{\sqrt{k}}\sum\limits_{i=1}^{\frac{k}{2}}\varepsilon_i\left(\theta_1+\theta_2\right)}
+    Me^{i \cdot \frac{1}{ \sqrt{k}} \sum \limits_{i = \frac{k}{2} + 1}^k \varepsilon_i \theta_2} =$$
+  Все слагаемые в суммах независимы.
+  Первое и второе математическое ожидания - произведение $k / 2$ характеристических функций
+  \begin{gather*}
+    = \prod \limits_{i = 1}^{ \frac{k}{2}}
+      \varphi_{ \varepsilon_i} \left( \frac{ \theta_1 + \theta_2}{ \sqrt{k}} \right) \cdot
+    \prod \limits_{i = \frac{k}{2} + 1}^k
+      \varphi_{ \varepsilon_i} \left( \frac{ \theta_2}{ \sqrt{k}} \right) =
+    \end{gather*}
+  Осталось понять,
+  что такое $ \varphi_{ \varepsilon_i} \left( \lambda \right) = Me^{i \lambda \varepsilon_i}$.
+  Случайная величина $ \varepsilon_i$ принимает значения $-1$ и $1$ с вероятностями $0.5$, потому
+  $$Me^{i \lambda \varepsilon_i} =
+    \frac{1}{2} \cdot e^{i \lambda } + \frac{1}{2} \cdot e^{-i \lambda } =
+    \cos \lambda.$$
+  Тогда
+  $$= \cos^{ \frac{k}{2}} \left( \frac{ \theta_1 + \theta_2}{ \sqrt{k}} \right)
+    \cos^{ \frac{k}{2}} \left( \frac{ \theta_2}{ \sqrt{k}} \right).$$
+  \item Найдём предел этой характеристической функции, когда $k \to \infty $.
+
+  Оказывается, что
+  $$ \varepsilon^{-2} ln \left( \cos \varepsilon \right) \overset{ \varepsilon \to 0}{ \to }
+    \frac{1}{2}.$$
+  Когда $ \varepsilon \to 0, \, \cos \varepsilon \to 1$ и
+  $ln \left( \cos \varepsilon \right) \to 0$ --- это неопределённость 0 на 0.
+  Она раскрывается с помощью правила Лопиталя
+  $$ \frac{ln \left( \cos \varepsilon \right) }{ \varepsilon^2} \approx
+    -\frac{1}{2 \cos \varepsilon } \cdot \frac{ \sin \varepsilon }{ \varepsilon } \to
+    \frac{1}{2},$$
+  где
+  $$ \frac{ \sin \varepsilon }{ \varepsilon }$$
+  --- замечательный предел.
+  $$ \left( \cos \frac{x}{ \sqrt{k}} \right)^k =
+    e^{k \, ln \cos \frac{x}{ \sqrt{k}}} =$$
+  Заметим, что
+  $$ \frac{x}{ \sqrt{k}} =
+    \varepsilon \to
+    0,$$
+  тогда
+  $$= e^{ \frac{k \varepsilon^2 ln \left( \cos \varepsilon \right) }{ \varepsilon^2}} =$$
+  Здесь
+  $$ \frac{ln \left( \cos \varepsilon \right) }{ \varepsilon^2} \to
+    -\frac{1}{2}.$$
+  Тогда
+  $$= \lim \limits_{ \varepsilon \to 0}
+    e^{x^2 \varepsilon^{-2} ln \left( \cos \varepsilon \right) } =
+  e^{-\frac{x^2}{2}}.$$
+  Теперь нужно эту сходимость использовать
+  \begin{gather*}
+    \lim \limits_{k \to \infty }
+      \cos^{ \frac{k}{2}} \left( \frac{ \theta_1 + \theta_2}{ \sqrt{k}} \right)
+      \cos^{ \frac{k}{2}} \left( \frac{ \theta_2}{ \sqrt{k}} \right) =
+    e^{-\frac{ \left( \theta_1 + \theta_2 \right)^2}{4}} e^{-\frac{ \theta_2^2}{4}} =
+    e^{ \frac{-\theta_1^2 - 2 \theta_1 \theta_2 - \theta_2^2 - \theta_2^2}{4}} = \\
+    = e^{-\frac{ \theta_1^2 + 2 \theta_1 \theta_2 + 2 \theta_2^2}{4}}.
+  \end{gather*}
+
+  Вывод:
+  $$ \varphi_{X^k} \left( \theta_1, \theta_2 \right) \to
+    e^{-\frac{1}{4} \left( \theta_1^2 + 2 \theta_1 \theta_2 + 2 \theta_2^2 \right) } =$$
+  Это характеристическая функция нормального распределения.
+  Оно характеризуется средним и ковариационной матрицей.
+  Среднее тут 0, потому что $i$ нет в пределе
+  $$= exp \left\{ -\frac{1}{2} \left( A \vec{ \theta }, \vec{ \theta } \right) \right\},$$
+  где
+  $$ \begin{bmatrix}
+      \frac{1}{2} & \frac{1}{2} \\
+      \frac{1}{2} & 1
+    \end{bmatrix}$$
+  --- ковариационная матрица.
+
+  Двумерный случай блуждания сходится к двумерному гауссовскому вектору (рис. \ref{fig:45})
+  $$X^k =
+    \left( \frac{1}{ \sqrt{k}} \cdot S_{ \frac{k}{2}}, \frac{1}{ \sqrt{k}} \cdot S_k \right) =
+    \frac{1}{ \sqrt{k}} \left( S_{k \cdot \frac{1}{2}}, S_{k \cdot 1} \right).$$
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=.4\textwidth]{./pictures/4_5.png}
+    \caption{Двумерный случай блуждания}
+    \label{fig:45}
+  \end{figure}
+
+  Если брать не 2 значения, а $n$, то это сходится к
+  $$N \left(
+      \begin{bmatrix}
+        0 \\
+        \dotsc \\
+        0
+      \end{bmatrix},
+      \begin{bmatrix}
+        t_1 & t_1 & \dotsc & t_1 \\
+        \dotsc \\
+        t_1 & t_2 & \dotsc & t_n
+      \end{bmatrix}
+    \right) $$
+  --- винеровский процесс.
+\end{enumerate}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
