@@ -374,3 +374,38 @@ $$= \sum \limits_{i = 1}^n c_i \sum \limits_{k = 1}^n \lambda_k \varphi_i \left(
   0.$$
 
 Значит, функция ковариационная.
+
+
+\subsubsection*{4.13}
+
+\textit{Задание.}
+Пусть случайные величины $X$ и $Y$ имеют совместное гауссовское распределение.
+Докажите, что процесс $ \xi \left( t \right) = tX + y, \, t \geq 0$ гауссовский.
+Найдите его математическое ожидание и ковариационную функцию.
+
+\textit{Решение.}
+$ \xi \left( t \right) $ --- гауссовский, если
+$$ \forall \vec{ \alpha } \in \mathbb{R}^n \qquad
+  \left( \vec{ \alpha }, \vec{ \xi } \right) = \sum \limits_{i = 1}^n \alpha_i \xi_i$$
+--- гауссовская случайная величина, то есть
+$$ \sum \limits_{i = 1}^n \xi \left( t_i \right) \alpha_i =
+  \sum \limits_{i = 1}^n \left( t_i X + Y \right) \alpha_i =
+  X \sum \limits_{i = 1}^n t_i \alpha_i + Y \sum \limits_{i = 1}^n \alpha_i$$
+--- сумма гауссовских случайных величин, гауссовская, $ \forall t_1, \dotsc, t_n \geq 0$.
+
+Математическое ожидание $M \xi \left( t \right) = M \left( tX + Y \right) = tMX + My$.
+
+Ковариационная функция
+\begin{gather*}
+  K \left( t, s \right) = \\
+  = M \left[ \xi \left( t \right) \xi \left( s \right) \right] -
+  M \xi \left( t \right) M \xi \left( s \right)
+  M \left[ \left( tX + Y \right) \left( sX + Y \right) \right] - \\
+  - M \left( tX + Y \right) M \left( sX + Y \right) = \\
+  = tsMX^2 + tM \left( XY \right) + sM \left( XY \right) + MY^2 -
+  \left( tMX + MY \right) \left( sMX + MY \right) = \\
+  = tsMX^2 + \left( t + s \right) M \left( XY \right) + MY^2 - ts \left( MX \right)^2 -
+  tMX \cdot MY - sMY \cdot MX - \\
+  - \left( MY \right)^2 =
+  tsDX + DY + \left( t + s \right) D \left( XY \right).
+\end{gather*}
