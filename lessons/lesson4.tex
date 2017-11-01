@@ -427,6 +427,167 @@ $$X^k = \left( \frac{1}{ \sqrt{k}} \cdot S_{ \frac{k}{1}}, \frac{1}{ \sqrt{k}} \
   --- винеровский процесс.
 \end{enumerate}
 
+\subsubsection*{4.6}
+
+\textit{Задание.}
+Пусть $ \xi = \left\{ \xi \left( t \right), \, t \geq 0 \right\} $ ---
+гауссовский процесс с функцией математического ожидания $m \left( t \right) = t$
+и ковариационной функцией
+$$K \left( t, s \right) =
+  \begin{cases}
+    1 - \left| t - s \right|, \qquad \left| t - s \right| < \frac{1}{2}, \\
+    \frac{3}{5} - \frac{ \left| t - s \right| }{5}, \qquad \frac{1}{2} \leq \left|t-s\right| < 3, \\
+    0, \qquad \left| t - s \right| \geq 3;
+  \end{cases}
+  t, s \in \mathbb{R}.$$
+\begin{enumerate}[label=\alph*)]
+  \item Запишите плотность распределения вектора
+  $ \left( \xi \left( 1 \right), \xi \left( 3 \right), \xi \left( 4 \right) \right) $.
+  \item Найдите условное математическое ожидание
+  $M \left(
+    \xi \left( 1 \right) \; \middle| \; \left( \xi \left( 3 \right), \xi \left( 4 \right) \right)
+  \right) $.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item Нужно найти плотность трёхмерного вектора
+  $ \left( \xi \left( 1 \right), \xi \left( 3 \right), \xi \left( 4 \right) \right) $.
+  Процесс гауссовский, значит, такой вектор тоже гауссовский.
+  Он характеризуется математическим ожиданием и ковариационной матрицей
+  $cov \left( \xi \left( 1 \right), \xi \left( 1 \right) \right) = K \left( 1, 1 \right) $.
+  Будем считать по первой строчке.
+  Разность равна нулю $K \left( 1, 1 \right) = 1$.
+  Аналогично считаем
+  $$cov \left( \xi \left( 1 \right), \xi \left( 3 \right) \right) =
+    K \left( 1, 3 \right) =
+    \frac{1}{5}.$$
+  Тогда
+  $$ \left( \xi \left( 1 \right), \xi \left( 3 \right), \xi \left( 4 \right) \right)  \sim
+    N \left(
+      \begin{bmatrix}
+        1 \\
+        3 \\
+        4
+      \end{bmatrix},
+      \begin{bmatrix}
+        1 & \frac{1}{5} & 0 \\
+        \frac{1}{5} & 1 & \frac{2}{5} \\
+        0 & \frac{2}{5} & 1
+      \end{bmatrix}
+    \right),$$
+  где $cov \left( \xi \left( 1 \right), \xi \left( 4 \right) \right) = K \left( 1, 4 \right) = 0$ и
+  $$cov \left( \xi \left( 3 \right), \xi \left( 4 \right) \right) =
+    K \left( 3, 4 \right) =
+    \frac{2}{5}.$$
+
+  Плотность по определению равна
+  $$p \left( \vec{x} \right) =
+    \frac{1}{ \sqrt{2 \pi }^3 \sqrt{det \, A}} \cdot
+    exp \left\{ -\frac{1}{2}
+      \left[ \left( \vec{x} - \vec{m} \right), A^{-1} \left( \vec{x} - \vec{m} \right)
+      \right] \right\} =$$
+  Чтобы плотность написать, нужно найти определитель матрицы и обратную
+  $$det \, A =
+    1 - \frac{4}{25} - \frac{1}{5} \cdot \frac{1}{5} =
+    \frac{21}{25} - \frac{1}{25} =
+    \frac{20}{25} =
+    \frac{4}{5}.$$
+  Обратная матрица имеет вид
+  $$A^{-1} =
+    \frac{5}{4}
+    \begin{bmatrix}
+      \frac{21}{25} & -\frac{1}{5} & \frac{2}{25} \\
+      -\frac{1}{5} & 1 & \frac{2}{5} \\
+      \frac{2}{25} & \frac{2}{5} & \frac{24}{25}
+    \end{bmatrix}.$$
+  Тогда плотность равна
+  \begin{gather*}
+    = \frac{1}{ \sqrt{8 \pi^3 \cdot \frac{4}{5}}} \times \\
+    \times exp\{ -\frac{5}{8}
+      ( \frac{21}{25} \left( x_1 - 1 \right)^2 + \left( x_2 - 3 \right)^2 +
+      \frac{24}{25} \left( x_3 - 4 \right)^2 - \\
+      - \frac{2}{5} \left( x_1 - 1 \right) \left( x_2 - 3 \right) +
+      \frac{2}{25} \left( x_1 - 1 \right) \left( x_3 - 4 \right) +
+      \frac{4}{5} \left( x_2 - 3 \right) \left( x_3 - 4 \right) )\}.
+  \end{gather*}
+
+  Здесь
+  $$ \vec{x} - \vec{m} =
+    \begin{bmatrix}
+      x_1 - 1 \\
+      x_2 - 3 \\
+      x_3 - 4
+    \end{bmatrix}.$$
+  \item По определению
+  $$M \left(
+      \xi \left( 1 \right) \; \middle| \; \left( \xi \left( 3 \right), \xi \left( 4 \right) \right)
+    \right) =
+    \frac{\int\limits_{-\infty}^{+\infty}x_1 p\left(x_1,\xi\left(3\right),\xi\left(4\right)\right)dx_1}{\int\limits_{-\infty}^{+\infty}p\left(x_1,\xi\left(3\right),\xi\left(4\right)\right)dx_1}.$$
+  По теореме о нормальной корреляции
+  \begin{gather*}
+    M \left(
+      \xi \left( 1 \right) \; \middle| \; \left( \xi \left( 3 \right), \xi \left( 4 \right) \right)
+    \right) = \\
+    = M \xi \left( 1 \right) +
+    cov_{ \xi \left( 1 \right), \left( \xi \left( 3 \right), \xi \left( 4 \right) \right) } \cdot
+    cov_{ \left( \xi \left( 3 \right), \xi \left( 4 \right) \right),
+      \left( \xi \left( 3 \right), \xi \left( 4 \right) \right)^{-1}} \cdot
+    \begin{bmatrix}
+      \xi \left( 3 \right) - M \xi \left( 3 \right) \\
+      \xi \left( 4 \right) - M \xi \left( 4 \right)
+    \end{bmatrix} =
+  \end{gather*}
+  Здесь
+  $$cov_{ \xi \left( 1 \right), \left( \xi \left( 3 \right), \xi \left( 4 \right) \right) } =
+    \begin{bmatrix}
+      \frac{1}{5} & 0
+    \end{bmatrix}, \,
+    cov_{ \left( \xi \left( 3 \right), \xi \left( 4 \right) \right),
+      \left( \xi \left( 3 \right), \xi \left( 4 \right) \right)^{-1}} =
+    \begin{bmatrix}
+      1 & \frac{2}{5} \\
+      \frac{2}{5} & 1
+    \end{bmatrix}.$$
+  Тогда
+  \begin{gather*}
+    = 1 +
+    \begin{bmatrix}
+      \frac{1}{5} & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+      1 & \frac{2}{5} \\
+      \frac{2}{5} & 1
+    \end{bmatrix}^{-1}
+    \begin{bmatrix}
+      \xi \left( 3 \right) - 3 \\
+      \xi \left( 4 \right) - 4
+    \end{bmatrix} = \\
+    = 1 +
+    \begin{bmatrix}
+      \frac{1}{5} & 0
+    \end{bmatrix} \cdot \frac{25}{21}
+    \begin{bmatrix}
+      1 & -\frac{2}{5} \\
+      \frac{2}{5} & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+      \xi \left( 3 \right) - 3 \\
+      \xi \left( 4 \right) - 4
+    \end{bmatrix} = \\
+    = 1 +
+    \begin{bmatrix}
+      \frac{5}{21} & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+      \xi \left( 3 \right) - 3 - \frac{2}{5} \cdot \xi \left( 4 \right) + \frac{8}{5} \\
+      -\frac{2}{5} \cdot \xi \left( 3 \right) + \frac{6}{5} + \xi \left( 4 \right) - 4
+    \end{bmatrix} =
+    \frac{5}{21} \cdot \xi \left( 3 \right) - \frac{2}{21} \cdot \xi \left( 4 \right) -
+    \frac{2}{3}.
+  \end{gather*}
+\end{enumerate}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
