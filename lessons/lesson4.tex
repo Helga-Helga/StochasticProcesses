@@ -1127,3 +1127,28 @@ $M \left( t \right) =
   \end{bmatrix} =
   \frac{1}{3} \left[ \xi \left( 4 \right) + \xi \left( 6 \right) \right].$$
 \end{enumerate}
+
+\subsubsection*{4.17}
+
+\textit{Задание.}
+Рассмотрим случайный процесс $ \left\{ X \left( t \right), \, t \in T \right\} $ такой,
+что случайные величины $X \left( t \right) $ являются независимыми с одинаковым распределением
+$N \left( 0, \sigma^2 \right) $.
+Докажите, что процесс $ \left\{ X \left( t \right), \, t \in T \right\} $
+является гауссовским и найдите его математическое ожидание и ковариационную функцию.
+
+\textit{Решение.}
+Процесс гауссовский, если линейная комбинация
+$$ \sum \limits_{r = 1}^k c_r X \left( t_r \right) $$
+--- гауссовская.
+
+В такой сумме слагаемые гауссовские и независимые, значит, процесс будет гауссовским.
+
+$MX \left( t \right) = 0$.
+
+Ковариационная функция
+$$K \left( t, s \right) =
+  M \left[ X \left( t \right) X \left( s \right) \right] -
+  MX \left( t \right) \cdot MX \left( s \right) =
+  M \left[ X \left( t \right) X \left( s \right) \right] =
+  \sigma^2 \cdot \mathbbm{1} \left\{ t = s \right\}.$$
