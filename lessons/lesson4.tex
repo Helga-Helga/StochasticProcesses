@@ -964,3 +964,166 @@ $$DS_n =
 Значит, по центральной предельной теореме
 $$ \frac{S_{ \left[ nt \right] }}{ \sqrt{n}} \overset{d}{ \to } N \left( 0, t \right), \,
   n \to \infty.$$
+
+\subsubsection*{4.16}
+
+\textit{Задание.}
+Пусть $ \xi = \left\{ \xi \left( t \right), \, t \geq 0 \right\} $ ---
+гауссовский процесс с нулевым математическим ожиданием и ковариационной функцией
+$$K \left( t, s \right) =
+  \begin{cases}
+    1 - \left| t - s \right|, \qquad \left| t - s \right| < \frac{1}{2}, \\
+    \frac{2}{3} - \frac{ \left| t - s \right| }{3}, \qquad
+    \frac{1}{2} \leq \left| t - s \right| < 2, \\
+    0, \qquad \left| t - s \right| \geq 2.
+  \end{cases}; \, t, s \in \mathbb{R}$$
+\begin{enumerate}[label=\alph*)]
+  \item Запишите плотноть распределения вектора
+  $ \left( \xi \left( 4 \right), \xi \left( 5 \right), \xi \left( 6 \right) \right) $.
+  \item Найдите условное математическое ожидание
+  $M \left(
+    \xi \left( 5 \right) \; \middle| \; \left( \xi \left( 4 \right), \xi \left( 6 \right) \right)
+  \right) $.
+\end{enumerate}
+
+\textit{Решение.}
+$M \left( t \right) =
+  0$.
+\begin{enumerate}[label=\alph*)]
+  \item Нужно найти плотность трёхмерного вектора
+  $ \left( \xi \left( 4 \right), \xi \left( 5 \right), \xi \left( 6 \right) \right) $.
+
+  Процесс гауссовский, значит, такой вектор тоже гауссовский.
+  Он характеризуется математическим ожадинием и ковариационной матрицей
+  $cov \left[ \xi \left( 4 \right), \xi \left( 4 \right) \right] =
+    cov \left[ \xi \left( 5 \right), \xi \left( 5 \right) \right] =
+    cov \left[ \xi \left( 6 \right), \xi \left( 6 \right) \right] =
+    K \left( 4, 4 \right) $.
+  Будем считать по первой строке.
+  Разность равна нулю $K \left( 4, 4 \right) = 1$.
+
+  Аналогично считаем
+  $$cov \left[ \xi \left( 4 \right), \xi \left( 3 \right) \right] =
+    K \left( 4, 5 \right) =
+    \frac{2}{3} - \frac{1}{3} =
+    \frac{1}{3}.$$
+  По последней строке находим,
+  что $cov \left[ \xi \left( 4 \right), \xi \left( 6 \right)\right] = K \left( 4, 6 \right) = 0$, а
+  $$cov \left[ \xi \left( 5 \right), \xi \left( 6 \right) \right] =
+    K \left( 5, 6 \right) =
+    \frac{2}{3} - \frac{1}{3} =
+    \frac{1}{3}.$$
+
+  Тогда распределение вектора имеет вид
+  $$ \left( \xi \left( 4 \right), \xi \left( 5 \right), \xi \left( 6 \right) \right) \sim
+    N \left(
+      \begin{bmatrix}
+        0 \\
+        0 \\
+        0
+      \end{bmatrix},
+      \begin{bmatrix}
+        1 & \frac{1}{3} & 0 \\
+        \frac{1}{3} & 1 & \frac{1}{3} \\
+        0 & \frac{1}{3} & 1
+      \end{bmatrix}
+    \right).$$
+
+  Плотность имеет вид
+  $$p \left( \vec{x} \right) =
+    \frac{1}{ \sqrt{2 \pi}^3 \sqrt{det \, A}} \cdot
+    exp \left\{
+      -\frac{1}{2} \left[ \left( \vec{x} - \vec{m} \right),
+      A^{-1} \left( \vec{x} - \vec{m} \right) \right] \right\} =$$
+  Чтобы написать плотность, нужно найти определитель матрицы и обратную
+  $$det \, A =
+    \begin{vmatrix}
+      1 & \frac{1}{3} & 0 \\
+      \frac{1}{3} & 1 & \frac{1}{3} \\
+      0 & \frac{1}{3} & 1
+    \end{vmatrix} =
+    \begin{vmatrix}
+      1 & \frac{1}{3} \\
+      \frac{1}{3} & 1
+    \end{vmatrix} -
+    \frac{1}{3} \begin{vmatrix}
+      \frac{1}{3} & \frac{1}{3} \\
+      0 & 1
+    \end{vmatrix} =
+    1 - \frac{1}{9} - \frac{1}{3} \cdot \frac{1}{3} =
+    1 - \frac{1}{9} - \frac{1}{9} =
+    \frac{7}{9}.$$
+  Обратная матрица
+  $$A^{-1} =
+    \frac{9}{7}
+    \begin{bmatrix}
+      \frac{8}{9} & -\frac{1}{3} & \frac{1}{9} \\
+      -\frac{1}{3} & 1 & -\frac{1}{3} \\
+      \frac{1}{9} & -\frac{1}{3} & \frac{8}{9}
+    \end{bmatrix}.$$
+  Подставим определитель и обратную матрицу в выражение для плотности
+  \begin{gather*}
+    = \frac{1}{ \sqrt{8 \pi^3 \cdot \frac{7}{9}}} \times \\
+    \times exp \left\{
+      -\frac{9}{14} \left( \frac{8}{9} \cdot x_1^2 - \frac{2}{3} \cdot x_1 x_2 +
+      \frac{2}{9} \cdot x_1 x_3 + x_2^2 + \frac{8}{9} \cdot x_3^2 - \frac{2}{3} \cdot x_2 x_3 \right)
+    \right\}.
+  \end{gather*}
+
+  Здесь
+  $$ \vec{x} - \vec{m} =
+    \begin{bmatrix}
+      x_1 \\
+      x_2 \\
+      x_3
+    \end{bmatrix}.$$
+  \item По определению условного математического ожидания
+  $$M \left(
+      \xi \left( 5 \right) \; \middle| \; \left( \xi \left( 4 \right), \xi \left( 6 \right) \right)
+    \right) =
+    \frac{\int\limits_{-\infty}^{+\infty}x_2 p\left(\xi\left(4\right),x_2,\xi\left(6\right)\right)dx_2}{\int\limits_{-\infty}^{+\infty}p\left(\xi\left(4\right),x_2,\xi\left(6\right)\right)dx_2.}$$
+
+  Теорема о нормальной корреляции
+  \begin{gather*}
+    M \left(
+      \xi \left( 5 \right) \; \middle| \; \left( \xi \left( 4 \right), \xi \left( 6 \right) \right)
+    \right) = \\
+    = M \xi \left( 5 \right) +
+    cov_{ \xi \left(5 \right), \left( \xi \left( 4 \right), \xi \left( 6 \right) \right) } \cdot
+    cov_{\left(\xi\left(4\right),\xi\left(6\right)\right),\left(\xi\left(4\right),\xi\left(6\right)\right)^{-1}} \cdot
+    \begin{bmatrix}
+      \xi \left( 4 \right) - M \xi \left( 4 \right) \\
+      \xi \left( 6 \right) - M \xi \left( 6 \right)
+    \end{bmatrix} =
+  \end{gather*}
+  Здесь
+  Первая ковариация равна
+  $$ \begin{bmatrix}
+    \frac{1}{3} & \frac{1}{3}
+  \end{bmatrix},$$
+  а вторая ---
+  $$ \begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+  \end{bmatrix}.$$
+  Тогда
+  $$= \begin{bmatrix}
+    \frac{1}{3} & \frac{1}{3}
+  \end{bmatrix}
+  \begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+  \end{bmatrix}
+  \begin{bmatrix}
+    \xi \left( 4 \right) \\
+    \xi \left( 6 \right)
+  \end{bmatrix} =
+  \begin{bmatrix}
+    \frac{1}{3} & \frac{1}{3}
+  \end{bmatrix}
+  \begin{bmatrix}
+    \xi \left( 4 \right) \\
+    \xi \left( 6 \right)
+  \end{bmatrix} =
+  \frac{1}{3} \left[ \xi \left( 4 \right) + \xi \left( 6 \right) \right].$$
+\end{enumerate}
