@@ -588,6 +588,121 @@ $$K \left( t, s \right) =
   \end{gather*}
 \end{enumerate}
 
+\subsubsection*{4.7}
+
+\textit{Задание.}
+Пусть
+$$Y_n =
+  \sum \limits_{i = 1}^n \xi_i V_i,$$
+где $ \left\{ \xi_n \right\}_{n \geq 1}$
+является последовательностью независимых одинаково распределённых случайных величин таких, что
+$$P \left( \xi_i = 1 \right) =
+  P \left( \xi_i = -1 \right) =
+  \frac{1}{2},$$
+а $ \left\{ V_n \right\}_{n \geq 1}$ является независимой от последовательности
+$ \left\{ \xi_n \right\}_{n \geq 1}$
+последовательностью независимых одинаково
+распределённых случайных величин со стандартным нормальным законом распределения.
+\begin{enumerate}[label=\alph*)]
+  \item Найдите распределение случайной величины $ \xi_1 V_1$.
+  \item Найдите математическое ожидание и ковариационную функцию процесса
+  $ \left\{ Y_n, \, n \geq 1 \right\} $.
+  \item Докажите, что процесс $ \left\{ Y_n, \, n \geq 1 \right\} $ имеет независимые приращения.
+  Найдите распределение приращений.
+  \item Докажите, что процесс $ \left\{ Y_n, \, n \geq 1 \right\} $ является гауссовским.
+  \item Запишите совместную плотность распределения $f_{Y_n, Y_{2n}} \left( x, y \right) $
+  случайных величин $Y_n$ и $Y_{2n}$.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item $ \xi_1 V_1$ --- это произведение нормальной величины на бернуллиевскую, они независимы.
+
+  Найдём характеристическую функцию такого произведения
+  $$ \varphi_{ \xi_1 V_1} \left( t \right) =
+    Me^{it \xi_1 V_1} =$$
+  Переберём значения $ \xi_1$.
+  Имеем
+  $$= M \left(
+    e^{itV_1} \cdot \mathbbm{1} \left\{ \xi_1 = 1 \right\} +
+    e^{-itV_1} \cdot \mathbbm{1} \left\{ \xi_1 = -1 \right\} \right) =$$
+  Пользуемся независимостью
+  $$= Me^{itV_1} \cdot P \left( \xi_1 = 1 \right) + Me^{-itV_1} \cdot P \left( \xi_1 = -1 \right).$$
+  Математическое ожидание --- это характеристическая функция стандартного нормального распределия
+  $$Me^{itV_1} \cdot P \left( \xi_1 = 1 \right) + Me^{-itV_1} \cdot P \left( \xi_1 = -1 \right) =
+    e^{-\frac{t^2}{2}} \cdot \frac{1}{2} + e^{-\frac{t^2}{2}} \cdot \frac{1}{2} =
+    e^{-\frac{t^2}{2}}.$$
+  Получилось такое же распределение $ \xi_1 V_1 \sim N \left( 0, 1 \right) $.
+
+  Случайные величины $V_1$ и $-V_1$ имеют одинаковое распределение,
+  потому что плотность симметрична $z_i = \xi_i V_i \sim N \left( 0, 1 \right) $,
+  при этом $z_1, z_2, \dotsc $ --- независимы и
+  $$Y_n =
+    \sum \limits_{i = 1}^n z_i.$$
+  \item Найдём математическое ожидание процесса
+  $$MY_n =
+    M \sum \limits_{i = 1}^n z_i =$$
+  Пользуемся независимостью
+  $$= \sum \limits_{i = 1}^n Mz_i =
+    0.$$
+  Ищем ковариационную функцию процесса
+  $$K \left( Y_n, Y_m \right) =
+    cov \left( Y_n, Y_m \right) =
+    cov \left( \sum \limits_{i = 1}^n z_i, \sum \limits_{j = 1}^m z_j \right) =
+    \sum \limits_{i = 1}^n \sum \limits_{j = 1}^m cov \left( z_i, z_j \right) =$$
+  При $i \neq j \qquad cov \left( z_i, z_j \right) = 0$,
+  при $i = j \qquad cov \left( z_i, z_i \right) = Dz_i = 1$.
+  Двойная сумма --- это количество пар с одинаковыми индексами
+  $$= min \left( n, m \right).$$
+  \item Запишем приращения $Y_n$, то есть $Y_{n_1}, Y_{n_2} - Y_{n_1}, Y_{n_3} - Y_{n_2}, \dotsc $,
+  индексы $1 \leq n_1 \leq n_2 < n_3 < \dotsc $.
+  Запишем через суммы
+  $$Y_{n_1}, Y_{n_2} - Y_{n_1}, Y_{n_3} - Y_{n_2}, \dotsc  =
+    \sum \limits_{i = 1}^{n_1} z_i,
+    \sum \limits_{i = n_1 + 1}^{n_2} z_i,
+    \sum \limits_{i = n_2 + 1}^{n_3} z_i, \dotsc.$$
+  В каждой такой сумме разные $z$, они независимы, следовательно, приращения независимы.
+
+  Пусть
+  $$Y_n - Y_m =
+    \sum \limits_{i = m + 1}^n z_i \sim $$
+  Сумма независимых нормальных величин --- это тоже нормальная величина
+  $$ \sim N \left( 0, n - m \right).$$
+  \item Процесс гауссовский, если линейная комбинация
+  $$ \sum \limits_{r = 1}^k c_r \cdot I_{n_k} =$$
+  --- гауссовские.
+  Перепишем через приращения
+  $$= \sum \limits_{r = 1}^n d_r \left( Y_{n_r} - Y_{n_{r - 1}} \right).$$
+  В такой сумме разности гауссовские и независимы.
+
+  Значит и процесс будет гауссовским.
+  \item $$f_{Y_n, Y_{2n}} \left( x, y \right) =
+    \frac{1}{2 \pi n} \cdot exp \left\{ -\frac{1}{2n} \left( 2x^2 - 2xy + y^2 \right) \right\}.$$
+
+  Ковариация --- это матрица из минимумов
+  $$cov_{\begin{bmatrix} Y_n \\ Y_{2n} \end{bmatrix}, \begin{bmatrix} Y_n \\ Y_{2n} \end{bmatrix}} =
+    \begin{bmatrix}
+      n & n \\
+      n & 2n
+    \end{bmatrix} =
+    A.$$
+
+  Определитель этой матрицы $det \, A = 2n^2 - n^2 = n^2$.
+
+  Обратная матрица
+  $$A^{-1} =
+    \frac{1}{n^2}
+    \begin{bmatrix}
+      2n & -n \\
+      -n & n
+    \end{bmatrix} =
+    \frac{1}{n}
+    \begin{bmatrix}
+      2 & -1 \\
+      -1 & 1
+    \end{bmatrix}.$$
+\end{enumerate}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
