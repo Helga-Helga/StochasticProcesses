@@ -965,6 +965,82 @@ $$DS_n =
 $$ \frac{S_{ \left[ nt \right] }}{ \sqrt{n}} \overset{d}{ \to } N \left( 0, t \right), \,
   n \to \infty.$$
 
+\subsubsection*{4.15}
+
+\textit{Задание.}
+Пусть
+$$ \hat{S_k} =
+  \frac{1}{ \sqrt{k}}
+  \sum \limits_{i = 1}^k \left(
+    \mathbbm{1} \left\{ \omega_i = P \right\} - \mathbbm{1} \left\{ \omega_i = \Gamma \right\}
+  \right) $$
+является нормированной разность между количеством решек и гербов, которые выпали при $k$
+подбрасываниях монеты.
+Докажите, что характеристическая функция $ \hat{S_k}$ имеет вид
+$$ \varphi_{ \hat{S_k}} \left( \theta \right) =
+  \left[ \cos \left( \frac{ \theta }{ \sqrt{k}} \right) \right]^k.$$
+Вычислите предел $ \varphi_{ \hat{S_k}} \left( \theta \right) $ при $k \to \infty $.
+Укажите распределение случайной величины $ \hat{S}$,
+к которой слабо сходятся $ \hat{S_k}$ при $k \to \infty $.
+
+\textit{Решение.}
+Сначала нужно найти характеристическую функцию
+$$ \varphi_{ \hat{S_k}} \left( \theta \right) =
+  Me^{i \theta \hat{S_k}}.$$
+Подставим
+$Me^{i \theta \hat{S_k}} =
+  Me^{i\theta\cdot\frac{1}{\sqrt{k}}\sum\limits_{j=1}^k \left(\mathbbm{1}\left\{\omega_i =P\right\}-\mathbbm{1}\left\{\omega_j =\Gamma\right\}\right)}=
+  Me^{i \theta \cdot \frac{1}{ \sqrt{k}} \sum \limits_{j = 1}^k \eta_j}$.
+Все слагаемые $ \eta_1, \dotsc, \eta_k$ в суммах независимы,
+$$P \left( \eta_j = 1 \right) =
+  \frac{1}{2} =
+  P \left( \eta_j = -1 \right).$$
+Тогда
+$$Me^{i \theta \cdot \frac{1}{ \sqrt{k}} \sum \limits_{j = 1}^k \eta_j} =
+  \prod \limits_{j = 1}^k \varphi_{ \eta_j} \left( \frac{ \theta }{ \sqrt{k}} \right) =$$
+Осталось понять, что такое $ \varphi_{ \eta_j} \left( \lambda \right) = Me^{- \lambda \eta_j}$.
+Случайная величина $ \eta_j$ принимаем значения $-1$ и $1$ с вероятностями $ \frac{1}{2}$.
+Тогда
+$$Me^{- \lambda \eta_j} =
+  \frac{1}{2} \cdot e^{i \lambda } + \frac{1}{2} \cdot e^{-i \lambda } =
+  \cos \lambda.$$
+Значит,
+$$= \cos^k \left( \frac{ \theta }{ \sqrt{k}} \right).$$
+
+Найдём предел этой характеристической функции, когда $k \to \infty $.
+
+Оказывается, что
+$$ \varepsilon^{-2} ln \left( \cos \varepsilon \right) \overset{ \varepsilon \to 0}{ \to }
+  \frac{1}{2}.$$
+
+Когда $ \varepsilon \to 0, \, \cos \varepsilon \to 1$ и
+$ln \left( \cos \varepsilon \right) \to 0$ --- это неопределённость 0 на 0.
+Она раскрывается с помощью правила Лопиталя
+$$ \frac{ln \left( \cos \varepsilon \right) }{ \varepsilon^2} \approx
+  -\frac{1}{2 \cos \varepsilon } \cdot \frac{ \sim \varepsilon }{ \varepsilon } \to
+  \frac{1}{2},$$
+где отношение синуса к его аргументу --- замечательный предел.
+
+$$ \left( \cos \frac{x}{ \sqrt{k}} \right)^k =
+  e^{k \, ln \cos \frac{x}{ \sqrt{k}}} =$$
+Аргумент косинуса --- это $ \varepsilon \to 0$.
+Значит,
+$$= e^{ \frac{k \varepsilon^2 ln \left( \cos \varepsilon \right) }{ \varepsilon^2}} =
+  \lim \limits_{ \varepsilon \to 0} e^{x^2 \varepsilon^{-2} ln \left( \cos \varepsilon \right) } =
+  e^{-\frac{x^2}{2}}.$$
+
+Теперь нужно эту сходимость использовать
+$$ \lim \limits_{k \to \infty } \cos^k \left( \frac{ \theta }{ \sqrt{k}} \right) =
+  e^{-\frac{ \theta^2}{2}}.$$
+
+Вывод: $ \varphi_{ \hat{S_k}} \left( \theta \right) \to e^{-\frac{ \theta^2}{2}}$.
+
+Это характеристическая функция нормального распределения.
+Оно характеризуется средним и дисперсией.
+Среднее тут 0, потому что нет $i$ в пределе, дисперсия --- 1.
+
+$ \hat{S_k}$ сходится к $ \hat{S} \sim N \left( 0, 1 \right) $.
+
 \subsubsection*{4.16}
 
 \textit{Задание.}
