@@ -703,6 +703,109 @@ $ \left\{ \xi_n \right\}_{n \geq 1}$
     \end{bmatrix}.$$
 \end{enumerate}
 
+\subsubsection*{4.8}
+
+\textit{Задание.}
+Пусть $X$ и $Y$ являются независимыми случайными велчинами,
+причём $Y$ имеет равномерное распределение на отрезке $ \left[ 0, 2 \pi \right] $,
+а $X$ имеет плотность распределения
+$f_X \left( x \right) =
+  xe^{-\frac{x^2}{2}} \mathbbm{1} \left\{ x \geq 0 \right\} $.
+\begin{enumerate}[label=\alph*)]
+  \item Докажите, что случайные величины $X \cos Y, \, X \sin Y$
+  являются независимыми и имеют стандартное нормальное распределение.
+  \item Докажите, что процесс
+  $ \xi \left( t \right) = X \cos \left( 2 \pi t + Y \right), \,
+    t \in \mathbb{R}$
+  является гауссовским.
+  Найдите его математическое ожидание и ковариационную функцию.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item Нужно доказать, что $X \cos Y$ и $X \sin Y$ ---
+  независимые с распределением $N \left( 0, 1 \right) $,
+  то есть нужно описать распределение двух таким величин.
+
+  Найдём характеристическую функцию
+  \begin{gather*}
+    \varphi_{ \left( X \cos Y, \, X \sin Y \right) } \left( \theta_1, \theta_2 \right) =
+    M \, exp \left\{ i \left( \theta_1 X \cos Y + \theta_2 X \sin Y \right) \right\} = \\
+    = \int \limits_0^{ \infty }
+      \int \limits_{0}^{2 \pi }
+        e^{i \left( \theta_1 x \cos y + \theta_2 x \sin y \right) } \cdot \frac{1}{2 \pi } \cdot
+        xe^{-\frac{x^2}{2}} dydx =
+  \end{gather*}
+  Это двойной интеграл, записанный в полярных координатах
+  $$u = x \cos y, \,
+    v = x \sin y, \,
+    dudv = xdxdy.$$
+  Получаем
+  $$= \int \limits_{-\infty }^{+\infty }
+    \int \limits_{-\infty }^{+\infty }
+      e^{i \left( \theta_1 u + \theta_2 v \right) } \cdot \frac{1}{2 \pi } \cdot
+      e^{-\frac{u^2}{2}} \cdot e^{-\frac{v^2}{2}} dudv =$$
+  Здесь
+  $$ \frac{1}{2 \pi } \cdot e^{-\frac{u^2}{2}} \cdot e^{-\frac{v^2}{2}}$$ ---
+  это совместная плотность $ \left( X \cos Y, \, X \sin Y \right) $ ---
+  это произведение стандартных плотностей
+  $$= e^{-\frac{ \theta_1^2}{2} - \frac{ \theta_2^2}{2}},$$
+  то есть такие две величины --- это независимые стандартные гауссовские случайные величины.
+  \item $ \xi \left( t \right) = X \cos \left( 2 \pi t + Y \right) $.
+  Распишем косинус суммы
+  \begin{gather*}
+    X \cos \left( 2 \pi t + Y \right) =
+    X \cos \left( 2 \pi t \right) \cos Y - X \sin \left( 2 \pi t \right) \sin Y = \\
+    = \cos \left( 2 \pi t \right) \left( X \cos Y \right) -
+    \sin \left( 2 \pi t \right) \left( X \sin Y \right),
+  \end{gather*}
+  следовательно, $ \xi $ --- гауссовский процесс.
+
+  Нужно проверять, что любые суммы
+  $$ \sum \limits_{r = 1}^k c_r \xi \left( t_r \right) =
+    \alpha \cdot X \cos Y + \beta X \sin Y$$
+  --- гауссовская величина, где $X \cos Y, \, X \sin Y$ --- независимые гауссовские величины.
+
+  Математическое ожидание
+  \begin{gather*}
+    M \xi \left( t \right) =
+    M \left[
+      \cos \left( 2 \pi t \right) \left( X \cos Y \right) -
+      \sin \left( 2 \pi t \right) \left( X \sin Y \right) \right] = \\
+    = \cos \left( 2 \pi t \right) M \left( X \cos Y \right) -
+    \sin \left( 2 \pi t \right) M \left( X \sin Y \right) =
+    0.
+  \end{gather*}
+
+  Ковариационная функция
+  \begin{gather*}
+    K \left( \xi \left( t \right), \xi \left( s \right) \right) =
+    M \left[ \xi \left( t \right) \xi \left( s \right) \right] -
+    M \xi \left( t \right) \cdot M \xi \left( s \right) = \\
+    = M \left[ X \cos \left( 2 \pi t + Y \right) X \cos \left( 2 \pi s + Y \right) \right] - \\
+    - M \left[ X \cos \left( 2 \pi t + Y \right) \right]
+    M \left[ X \cos \left( 2 \pi s + Y \right) \right] = \\
+    = M\{ \left[
+      \cos \left( 2 \pi t \right) \left( X \cos Y \right) -
+      \sin \left( 2 \pi s \right) \left( X \sin Y \right) \right] \times \\
+      \times \left[ \cos \left( 2 \pi s \right) \left( X \cos Y \right) -
+      \sin \left( 2 \pi s \right) \left( X \sin Y \right) \right] \} - \\
+    - M \left[
+      \cos \left( 2 \pi t \right) \left( X \cos Y \right) -
+      \sin \left( 2 \pi t \right) \left( X \sin Y \right) \right] \times \\
+    \times M \left[ \cos \left( 2 \pi s \right) \left( X \cos Y \right) -
+      \sin \left( 2 \pi s \right) \left( X \sin Y \right) \right] = \\
+    = M[
+      \cos \left( 2 \pi t \right) \cos \left( 2 \pi s \right) \left( X \cos Y \right)^2 - \\
+      - \cos \left( 2 \pi t \right) \sin \left( 2 \pi s \right) X \cos Y \cdot X \sin Y - \\
+      - \sin \left( 2 \pi t \right) \cos \left( 2 \pi s \right) X \sin Y \cdot X \cos Y +
+      \sin \left( 2 \pi t \right) \sin \left( 2 \pi s \right) \left( X \sin Y \right)^2 ] = \\
+    = \cos \left( 2 \pi t \right) \cos \left( 2 \pi s \right) +
+    \sin \left( 2 \pi t \right) \sin \left( 2 \pi s \right) =
+    \cos \left[ 2 \pi \left( t - s \right) \right].
+  \end{gather*}
+\end{enumerate}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
