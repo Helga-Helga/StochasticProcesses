@@ -1,4 +1,4 @@
-\addcontentsline{toc}{chapter}{Занятие 6. Стохастическая непрерывность случайного процесса.
+не \addcontentsline{toc}{chapter}{Занятие 6. Стохастическая непрерывность случайного процесса.
                                 Существование непрерывной модификации}
 \chapter*{Занятие 6. Стохастическая непрерывность случайного процесса.
           Существование непрерывной модификации}
@@ -25,3 +25,98 @@ $$ \exists \alpha, \beta, C > 0: \qquad
   M \left| \xi \left( t_1 \right) =
   \xi \left( t_2 \right) \right|^{ \alpha } \leq C \left| t_1 - t_2 \right|^{1 + \beta }.$$
 Тогда $ \xi $ имеет непрерывную модификацию.
+
+\addcontentsline{toc}{section}{Аудиторные задачи}
+\section*{Аудиторные задачи}
+
+\subsubsection*{6.7}
+
+\textit{Задание.}
+Пусть $ \left\{ \xi \left( t \right), \, t \in \left[ a, b \right] \right\} $ ---
+стохастически непрерывный процесс, а $f$ --- неслучайная функция,
+определённая на $ \left[ a, b \right] $.
+Докажите, что случайный процесс
+$ \eta \left( t \right) =
+  \xi \left( t \right) + f \left( t \right), \, t \in \left[ a, b \right] $
+является стохастически непрерывным в тех и только тех точках отрезка $ \left[ a, b \right] $,
+где является непрерывной функция $f$.
+
+\textit{Решение.}
+Нужно доказывать в обе стороны.
+
+Сначала предположим, что $f$ --- непрерывная.
+Пусть $f$ --- непрерывная в точке $t_0$.
+Будем сейчас проверять, что сумма стохастически непрерывна.
+
+Если $ \xi \left( t \right) $ --- стохастически непрерывна, то
+$$ \xi \left( t \right) \overset{P}{ \to }
+  \xi \left( t_0 \right)$$
+при $t \to t_0$.
+
+Сходимость по вероятности сохраняется при непрерывных операциях.
+Сумма --- непрерывная операция.
+
+Знаем, что $f$ --- непрерывна, то есть если $t \to t_0$,
+то $f \left( t \right) \to f \left( t_0 \right) $.
+От $ \omega $ тут зависимости нет.
+Эту сходимость можно интерпретировать как сходимость почти наверное, следовательно,
+$$f \left( t \right) \overset{P}{ \to }
+  f \left( t_0 \right).$$
+
+Значит и сумма будет сходиться.
+Значит, отсюда следует, что $ \eta $ --- стохастически непрерывен.
+
+Теперь предоложим, что вся сумма стохастически непрерывна.
+
+Пусть $ \eta $ --- стохастически непрерывен в $t_0$.
+Это значит, что
+$$ \eta \left( t \right) \overset{P}{ \to } \eta \left( t_0 \right), \,
+  t \to t_0.$$
+
+Для $ \eta $ и $ \xi $ мы знаем, что есть сходимость по вероятности.
+Надо взять разность.
+Разность --- это $f$, то есть
+$$ \begin{cases}
+    \xi \left( t \right) + f \left( t \right) \overset{P}{ \to }
+    \xi \left( t_0 \right) + f \left( t_0 \right), \\
+    \xi \left( t \right) \overset{P}{ \to } \xi \left( t_0 \right).
+  \end{cases}$$
+
+Вычтем из первого второе
+$$f \left( t \right) \overset{P}{ \to }
+  f \left( t_0 \right).$$
+Нужно проверить, что для неслучайной функции сходимость по вероятности и просто сходимость ---
+одно и то же.
+Сходимость по вероятности:
+$ \forall \varepsilon > 0 \qquad
+  P \left\{ \left| f \left( t \right) - f \left( t_0 \right) \right| > \varepsilon \right\} \to 0,
+  \, t \to t_0$.
+Это есть.
+Просто сходимость: $ \forall \varepsilon > 0 \, \exists \delta > 0$,
+чтобы выполнялось соотношение
+$ \left| f \left( t \right) - f \left( t_0 \right) \right| <
+  \varepsilon $
+при $ \left| t - t_0 \right| < \delta $.
+Это нужно проверить.
+
+$ \forall \varepsilon > 0 \, \forall \alpha > 0 \, \exists \delta > 0 \qquad
+  P \left\{ \left| f \left( t \right) - f \left( t_0 \right) \right| > \varepsilon \right\} <
+  \alpha $
+при $ \left| t - t_0 \right| < \delta $.
+
+Функция $f$ --- неслучайная функция, то есть событие неслучайно.
+Его вероятность равна или нулю, или единице.
+Если $ \alpha > 1$, то вероятность равна нулю.
+Значит, $ \left| f \left( t \right) - f \left( t_0 \right) \right| < \varepsilon $ при
+$ \left| t - t_0 \right| <
+  \delta $.
+То есть $ \alpha < 1$.
+
+Тогда
+$P \left\{ \left| f \left( t \right) - f \left( t_0 \right) \right| > \varepsilon \right\} =
+  0$.
+Из этого следует, что при $ \left| t - t_0 \right| < \delta $ выполняется дополнение
+$ \left| f \left( t \right) - f \left( t_0 \right) \right| \leq
+  \varepsilon $.
+Это и значит непрерывность в точке $t_0$.
+Таким образом, для неслучайных величин все сходимости равносильны.
