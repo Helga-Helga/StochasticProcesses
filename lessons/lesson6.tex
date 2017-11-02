@@ -248,3 +248,86 @@ $$ \begin{cases}
   \end{cases} \Rightarrow X \left( t \right) \to X \left( t_0 \right) \, a.s.,$$
 то есть процесс $X \left( t \right) $ стохастически непрерывен --- противоречие с условием.
 Значит, $X \left( t \right) $ не имеет непрерывной модификации.
+
+\subsubsection*{6.18}
+
+\textit{Задание.}
+Пусть $X = \left\{ X \left( t \right), \, t \in \mathbb{R}^+ \right\} $ ---
+гауссовский процесс с нулевым математическим ожиданием и ковариационной функцией
+$K \left( t, s \right) $, которая равна
+\begin{enumerate}[label=\alph*)]
+  \item $e^{-\left| t - s \right| }$,
+  \item $ \left( t^{ \alpha } + s^{ \alpha } - \left| t - s \right|^{ \alpha } \right) / 2, \,
+    \alpha \in \left( 0, 2 \right] $.
+\end{enumerate}
+Докажите, что $X$ имеет непрерывную модификацию.
+
+\textit{Решение.}
+Нам нужно доказать, что существуют такие константы
+$$ \alpha > 0, \,
+  \beta > 0, \,
+  C > 0,$$
+что
+$M \left| X \left( t + h \right) - X \left( t \right) \right|^{ \alpha} \leq
+  C \left| h \right|^{1 + \beta }$
+для произвольных $t, \, t + h \in \mathbb{R}^+, \, h > 0$.
+
+Поскольку процесс $X$ является гауссовским, то для произвольных
+$$t, \, t + h \in \mathbb{R}^+$$
+вектор $ \left( X \left( t \right), X \left( t + h \right) \right) $ является гауссовским.
+Поэтому случайная величина $X \left( t + h \right) - X \left( t \right) $,
+как линейная комбинация компонент гауссовского вектора, имеет нормальное распределение.
+Найдём параметры этого распределения.
+Имеем
+$M \left[ X \left( t + h \right) - X \left( t \right) \right] =
+  MX \left( t + h \right) - MX \left( t \right) =
+  0$,
+\begin{enumerate}[label=\alph*)]
+  \item $D \left[ X \left( t + h \right) - X \left( t \right) \right] =
+    M \left[ X \left( t + h \right) - X \left( t \right) \right]^2.$
+  Раскроем квадрат
+  $$M \left[ X \left( t + h \right) - X \left( t \right) \right]^2 =
+    K \left( t + h, t + h \right) - 2K \left( t + h, t \right) + K \left( t, t \right) =$$
+  Подставим выражения для ковариационной функции
+  $$= e^{-\left| t + h - t - h \right| } - 2e^{-\left| t + h - t \right| } +
+    e^{-\left| t - t \right| } =
+    1 - 2e^{-\left| h \right| } + 1 =
+    2 - 2e^{-h}.$$
+
+  Тогда любой чётный момент случайной величины $X \left( t + h \right) - X \left( t \right) $ равен
+  $M \left[ X \left( t + h \right) - X \left( t \right) \right]^{2n} =
+    \left( 2n - 1 \right)!! \left( 2 - 2e^{-h} \right)^n$.
+
+  Поскольку $1 - e^{-h} \leq h$ для $h > 0$,
+  то $M \left[ X \left( t + h \right) - X \left( t \right) \right]^4 \leq 12h^2$ и, значит,
+  достаточное условие Колмогорова существования непрерывной модификации выполняется при
+  $ \alpha = 4, \,
+    \beta = 1, \,
+    C = 12$.
+  \item Имеем
+  $$D \left[ X \left( t + h \right) - X \left( t \right) \right] =
+    M \left[ X \left( t + h \right) - X \left( t \right) \right]^2 =$$
+  Раскроем квадрат
+  \begin{gather*}
+    = K \left( t + h, t + h \right) - 2K \left( t + h, t \right) + K \left( t, t \right) = \\
+    = \frac{\left(t+h\right)^{\alpha}+\left(t+h\right)^{\alpha}-\left|t+h-t-h\right|^{\alpha}}{2}- \\
+    - 2\cdot\frac{\left(t+h\right)^{\alpha}+t^{\alpha}-\left|t+h-t\right|^{\alpha}}{2} +
+    \frac{t^{ \alpha } + t^{ \alpha } - \left| t - t \right|^{ \alpha }}{2} = \\
+    = \left( t + h \right)^{ \alpha } - \left( t + h \right)^{ \alpha } - t^{ \alpha } -
+    h^{ \alpha } + t^{ \alpha } =
+    -h^{ \alpha }.
+  \end{gather*}
+
+  Тогда любой чётный момент случайной величины $X \left( t + h \right) - X \left( t \right) $ равен
+  $M \left[ X \left( t + h \right) - X \left( t \right) \right]^{2n} =
+    \left( 2n - 1 \right)!! \left( -h^{ \alpha } \right)^n$.
+
+  В частности,
+  $M \left[ X \left( t + h \right) - X \left( t \right) \right]^2 =
+    3!! \left( -h^{ \alpha } \right) =
+    3h^{ \alpha }$
+  и, значит, достаточное условие Колмогорова существования непрерывной модификации выполняется при
+  $ \alpha = 2, \,
+    \beta = \alpha - 1 = 2 - 1 = 1, \,
+    C = 3$.
+\end{enumerate}
