@@ -161,6 +161,41 @@ $ \left| f \left( t \right) - f \left( t_0 \right) \right| \leq
 Это и значит непрерывность в точке $t_0$.
 Таким образом, для неслучайных величин все сходимости равносильны.
 
+\subsubsection*{6.8}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Докажите, что для произвольного $A > 0$
+$$P \left\{
+    \sum \limits_{i = 0}^{n - 1}
+      \left| W \left( \frac{i + 1}{n} \right) - W \left( \frac{i}{n} \right) \right| > A
+  \right\} \to
+  1, \,
+  n \to \infty.$$
+
+\textit{Решение.}
+Приращения --- нормальные независимые величины
+$$W \left( \frac{i + 1}{n} \right) - W \left( \frac{i}{n} \right) \sim
+  N \left( 0, \frac{1}{n} \right).$$
+
+Сумма одинаково распределённых случайных величин
+$$ \frac{1}{n} \sum \limits_{i = 1}^{n - 1}
+    \left| W \left( \frac{i + 1}{n} \right) - W \left( \frac{1}{n} \right) \right| \cdot
+  \sqrt{n} \overset{a.s.}{ \to }
+  M \left| W \left( 1 \right) \right|, \,
+  n \to \infty $$
+по усиленному закону больших чисел, так как
+$$ \sqrt{n} \left[ W \left( \frac{i + 1}{n} \right) - W \left( \frac{i}{n} \right) \right] \sim
+  N \left( 0, 1 \right).$$
+
+Тогда вероятность
+$$P \left\{
+    \sum \limits_{i = 0}^{n - 1}
+      \left| W \left( \frac{i + 1}{n} \right) - W \left( \frac{i}{n} \right) \right| \cdot
+    \frac{ \sqrt{n}}{n} \cdot \frac{n}{ \sqrt{n}} > A \right\} =
+  P \left\{ M \left| W \left( 1 \right) \right| > 0 \right\} =
+  1.$$
+
 \subsubsection*{6.9}
 
 \textit{Задание.}
