@@ -120,3 +120,65 @@ $ \left| f \left( t \right) - f \left( t_0 \right) \right| \leq
   \varepsilon $.
 Это и значит непрерывность в точке $t_0$.
 Таким образом, для неслучайных величин все сходимости равносильны.
+
+\subsubsection*{6.9}
+
+\textit{Задание.}
+Пусть $ \left\{ X \left( t \right), \, t \in T \right\} $ --- случайный процесс такой, что
+$$MX \left( t \right) = 0, \,
+  MX^2 \left( t \right) = 1$$
+для произвольного $t \in T$.
+\begin{enumerate}[label=\alph*)]
+  \item Докажите, что $ \left| MX \left( t \right) X \left( t + h \right) \right| \leq 1$
+  для произвольного $h > 0$ и произвольного $t \in \left[ 0, T - h \right] $.
+  \item Допустим, что для некоторых $ \lambda < \infty, \, p > 1$ и $h_0 > 0$
+  $$M \left[ X \left( t \right) X \left( t + h \right) \right] \geq
+    1 - \lambda h^p$$
+  для произвольного $h \in \left( 0, h_0 \right] $.
+  Докажите, что $ \left\{ X \left( t \right), \, t \in T \right\} $ имеет непрерывную модификацию.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item Пусть $X \left( t \right) = \xi $ и $X \left( t + h \right) = \eta $.
+  Тогда
+  $$ \left| M \xi \eta \right| \leq
+    M \left| \xi \eta \right| \leq
+    \left( M \left| \xi \right|^p \right)^{ \frac{1}{p}}
+    \left( M \left| \eta \right|^q \right)^{ \frac{1}{q}},$$
+  где
+  $$ \frac{1}{p} + \frac{1}{q} =
+    1$$
+  (неравенство Гёльдера).
+  Возьмём $p = q = 2$.
+
+  Получаем неравенство Коши-Буняковского
+  $$M \left[ X \left( t \right) X \left( t + h \right) \right] \leq
+    \left\{ M \left| X \left( t \right) \right|^2 \right\}^{ \frac{1}{2}}
+    \left\{ M \left| X \left( t + h \right) \right|^2 \right\}^{ \frac{1}{2}} =
+    1 \cdot 1 =
+    1.$$
+  \item Будем пользоваться достаточным условием Колмогорова
+  $$ \exists \alpha, \beta, C > 0 \, : \,
+    \forall t_1, t_2 \in \left[ 0, 1 \right] \qquad
+    M \left| \xi \left( t_1 \right) - \xi \left( t_2 \right) \right|^{ \alpha } \leq
+    C \left| t_1 - t_2 \right|^{1 - \beta }.$$
+  Тогда у процесса будут непрерывные модификации.
+  Нужно оценить
+  $$M \left| X \left( t + h \right) - X \left( t \right) \right|^2 =
+    M\left[X^2\left(t+h\right)-2X\left(t+h\right)X\left(t\right)+X^2\left(t\right)\right] =$$
+  Воспользуемся линейностью математического ожидания
+  $$= MX^2 \left( t + h \right) - 2M \left[  X \left( t + h \right) X \left( t \right) \right] +
+    MX^2 \left( t \right).$$
+  Здесь первое и последнее слагаемые равны единице, а второе не меньше $1 - \lambda h^p$.
+  Тогда
+  $$MX^2 \left( t + h \right) - 2M \left[  X \left( t + h \right) X \left( t \right) \right] +
+    MX^2 \left( t \right) \geq
+    2 - 2 \left( 1 - \lambda h^p \right) =
+    2 \lambda h^p,$$
+  где $2 \lambda = const, \, p = 1 + \beta $.
+
+  Теорема Колмогорова работает с $ \alpha = 2, \, C = 2 \lambda $ и $ \beta = p - 1$.
+
+  Значит, такой процесс имеет непрерывные модификации.
+\end{enumerate}
