@@ -331,3 +331,39 @@ $M \left[ X \left( t + h \right) - X \left( t \right) \right] =
     \beta = \alpha - 1 = 2 - 1 = 1, \,
     C = 3$.
 \end{enumerate}
+
+\subsubsection*{6.19}
+
+\textit{Задание.}
+Для процесса Пуассона найдите предел с вероятностью единица последовательности случайных величин
+$$ \sum \limits_{i = 0}^{n - 1} \left( N \left( t_{i + 1} \right) - N \left( t_i \right) \right)^2$$
+при $ \max \left( t_{i + 1} - t_i \right) \to 0$, где $0 = t_0 < t_1 < \dotsc < t_n = 1$ ---
+разбитие отрезка $ \left[ 0, 1 \right] $.
+
+\textit{Решение.}
+$$P \left\{
+    \sum \limits_{i = 0}^{n - 1} \left[ N \left( t_{i + 1} \right) - N \left( t_i \right) \right]^2 >
+    \varepsilon \right\} \leq
+  \frac{M\sum\limits_{i=0}^{n-1}\left[N\left(t_{i+1}\right)-N\left(t_i\right)\right]^2}{\varepsilon} =$$
+Пользуемся независимостью приращений
+$$=\frac{\sum\limits_{i=0}^{n-1}M\left[N\left(t_{i+1}\right)-N\left(t_i\right)\right]^2}{\varepsilon} =$$
+Пользуемся однородностью приращений
+$$= \frac{ \sum \limits_{i = 0}^{n - 1} MN^2 \left( t_{i + 1} - t_i \right) }{ \varepsilon } =
+  \frac{1}{ \varepsilon }
+  \sum \limits_{i = 0}^{n - 1}
+    \left[ DN \left( t_{i + 1} - t_i \right) + M^2 N \left( t_{i + 1} - t_i \right) \right] =$$
+Пусть случайная величина $X \left( t \right) $ с распределением Пуассона имеет параметр $ \lambda $.
+Тогда
+$$= \frac{1}{ \varepsilon }
+  \sum \limits_{i = 0}^{n - 1} \left[
+  \lambda \left( t_{i + 1} - t_i \right) + \lambda^2 \left( t_{i + 1} - t_i \right)^2 \right] =
+  \frac{1}{ \varepsilon }
+  \sum \limits_{i = 0}^{n - 1}
+    \lambda \left( t_{i + 1} - t_i \right)
+    \left[ 1 + \lambda \left( t_{i + 1} - t_i \right) \right] \leq$$
+Оценим сумму максимумом
+$$\leq \frac{n}{ \varepsilon } \cdot \left\{
+    \lambda \max \left( t_{i + 1} - t_i \right)
+    \left[ 1 + \lambda \max \left( t_{i + 1} - t_i \right) \right] \right\} \to
+  0$$
+при $ \max \left( t_{i + 1} - t_i \right) \to 0$, следовательно, предел по вероятности равен нулю.
