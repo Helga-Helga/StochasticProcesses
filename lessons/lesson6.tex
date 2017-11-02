@@ -29,6 +29,46 @@ $$ \exists \alpha, \beta, C > 0: \qquad
 \addcontentsline{toc}{section}{Аудиторные задачи}
 \section*{Аудиторные задачи}
 
+\subsubsection*{6.4}
+
+\textit{Задание.}
+Пусть $ \left\{ \xi \left( t \right), \, t \in \left[ 0, 1 \right] \right\} $ ---
+случайный процесс, все значения которого являются независимыми и имеют одинаковое невырожденное
+распределение.
+Докажите, что этот процесс не является стохастически непрерывным ни в какой точке.
+
+\textit{Решение.}
+Распределения невырождены в том смысле, что это не константа (рис. \ref{fig:64}).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/6_4.png}
+  \caption{График функции $ \xi \left( t \right) $}
+  \label{fig:64}
+\end{figure}
+
+Стохастическая непрерывность означает, что вероятность
+$$P \left\{ \left| \xi \left( s \right) - \xi \left( t \right) \right| > \varepsilon \right\} \to
+  0.$$
+
+Предположим, что распределение равномерное на отрезке $ \left[ 0, 1 \right] $.
+
+Тогда такая вероятность равна
+$$P \left\{ \left| \xi \left( s \right) - \xi \left( t \right) \right| > \varepsilon \right\} =
+  \left( 1 - \varepsilon \right)^2 \not \to
+  0, \,
+  t \to s$$
+(рис. \ref{fig:641}).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/6_4_1.png}
+  \caption{Площадь квадратика со стороной $1 - \varepsilon$}
+  \label{fig:641}
+\end{figure}
+
+Для такого процесса вероятность --- это постоянная и она не может стремиться к нулю.
+
 \subsubsection*{6.7}
 
 \textit{Задание.}
@@ -182,3 +222,29 @@ $$MX \left( t \right) = 0, \,
 
   Значит, такой процесс имеет непрерывные модификации.
 \end{enumerate}
+
+\addcontentsline{toc}{section}{Домашнее задание}
+\section*{Домашнее задание}
+
+\subsubsection*{6.17}
+
+\textit{Задание.}
+Пусть все значения процесса $ \left\{ X \left( t \right), \, t \in \mathbb{R}^+ \right\} $
+являются независимыми и равномерно распределёнными на $ \left[ 0, 1 \right] $.
+Выясните, имеет ли этот процесс непрерывную модификацию.
+
+\textit{Решение.}
+Из задачи 6.4 $X \left( t \right) $ не стохастически непрерывен в каждой точке.
+
+Стохастическая непрерывность означает,
+что $X \left( t \right) \overset{P}{ \to } X \left( t_0 \right) $ при $t \to t_0$.
+
+Пусть процесс $X \left( t \right) $ имеет непрерывную модификацию.
+Тогда
+$$ \begin{cases}
+    X \left( t \right) = \tilde{X} \left( t \right) \, a.s., \\
+    \tilde{X} \left( t \right) \to \tilde{X} \left( t_0 \right), \, t \to t_0, \\
+    X \left( t_0 \right) = \hat{X} \left( t_0 \right) \, a.s.
+  \end{cases} \Rightarrow X \left( t \right) \to X \left( t_0 \right) \, a.s.,$$
+то есть процесс $X \left( t \right) $ стохастически непрерывен --- противоречие с условием.
+Значит, $X \left( t \right) $ не имеет непрерывной модификации.
