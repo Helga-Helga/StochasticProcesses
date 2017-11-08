@@ -651,7 +651,36 @@ $$ \varphi_{ \zeta } \left( t \right) =
   \varphi_{ \xi } \left( t \right) \varphi_{ \eta } \left( t \right) =
   e^{ \lambda t \left( e^{it} - 1 \right) } e^{ \mu t \left( e^{it} - 1 \right) } =
   e^{ \left( \lambda + \mu \right) t \left( e^{it} - 1 \right) }.$$
-Следовательно, $ \zeta \sim Pois \left( \lambda + \mu \right) $.
+Это доказывает только то,
+что $ \zeta \sim Pois \left( \left( \lambda + \mu \right) t \right) $ для каждого $t \geq 0$,
+чего недостаточно.
+
+$ \left\{ \zeta \left( t \right), \, t \geq 0 \right\} $ --- процесс Пуассона, так как
+\begin{enumerate}
+  \item $ \zeta \left( t \right) = \xi \left( t \right) + \eta \left( t \right) = 0$;
+  \item при $t_1 < t_2 < \dotsc < t_n$ события
+  \begin{gather*}
+    \zeta \left( t_1 \right) = \xi \left( t_1 \right) + \eta \left( t_1 \right),
+    \zeta \left( t_2 \right) - \zeta \left( t_1 \right) =
+    \xi \left( t_2 \right) + \eta \left( t_2 \right) -
+    \xi \left( t_1 \right) - \eta \left( t_1 \right),
+    \dotsc, \\
+    \zeta \left( t_n \right) - \zeta \left( t_{n - 1} \right) =
+    \xi \left( t_n \right) + \eta \left( t_n \right) -
+    \xi \left( t_{n - 1} \right) - \eta \left( t_{n - 1} \right)
+  \end{gather*}
+  --- независимы;
+  \item число событий на интервале зависит только от длины интервала,
+  то есть есть однородность приращений
+  \begin{gather*}
+    \zeta \left( t + s \right) - \zeta \left( t \right) =
+    \xi \left( t + s \right) + \eta \left( t + s \right) -
+    \xi \left( t \right) - \eta \left( t \right) \overset{d}{=}
+    \xi \left( s \right) + \eta \left( s \right) = \\
+    = \zeta \left( s \right) \sim
+    Pois \left( \left( \lambda + \mu \right) t \right).
+  \end{gather*}
+\end{enumerate}
 
 \subsubsection*{3.15}
 
