@@ -179,3 +179,76 @@ $$= \int \limits_{t_0}^t \int \limits_{t_0}^t
 $$= t - t_0 \to
   0.$$
 Это и надо было проверить.
+
+\subsubsection*{7.4}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Докажите существование интеграла в среднем квадратическом
+$$ \int \limits_0^{ \infty } e^{-t} W \left( t \right) dt =
+  L_2-\lim \limits_{T \to + \infty } \int \limits_0^T e^{-t} W \left( t \right) dt$$
+и найдите его распределение.
+
+\textit{Решение.}
+Рассматриваются интегралы
+$$ \int \limits_0^T e^{-t} W \left( t \right) dt.$$
+Нужно доказать, что у этих интегралов есть предел, то есть
+$$ \int \limits_0^T e^{-t} W \left( t \right) dt \overset{L_2, \, T \to \infty }{ \to }?$$
+
+Что нужно проверять, чтобы доказать, что этот интеграл сходится?
+Надо брать математическое ожидание разностей в квадрате.
+Предела мы не знаем.
+
+Гильбертово пространство обладает свойством полноты
+$$ \xi_n \overset{L_2, \, n \to \infty }{ \to }
+  \xi$$
+тогда и только тогда, когда $ \left\{ \xi_n \right\} $ фундаментальная, то есть
+$$M \left( \xi_n - \xi_m \right)^3 \overset{n, m \to \infty }{ \to }
+  0.$$
+
+Предположим, что $T_1 < T_2$.
+Из полноты следует, что нам достаточно проверить такое
+$$M \left[
+    \int \limits_0^{T_1} e^{-t} W \left( t \right) dt -
+    \int \limits_0^{T_2} e^{-t} W \left( t \right) dt \right]^2 =
+  M \left[ \int \limits_{T_1}^{T_2} e^{-t} W \left( t \right) dt \right]^2 =$$
+Это двойной интеграл от ковариации
+$$= \int \limits_{T_1}^{T_2} \int \limits_{T_1}^{T_2}
+    cov \left[ e^{-t} W \left( t \right), e^{-s} W \left( s \right) \right] dtds =
+  \int \limits_{T_1}^{T_2} \int \limits_{T_1}^{T_2}
+    e^{-t-s} \min \left( t, s \right) dtds =$$
+Нужно проверить, что это выражение стремится к нулю, когда $T_1, T_2 \to \infty $.
+Распишем для всех случаев
+$$= \int \limits_{T_1}^{T_2} \left( \int \limits_{T_1}^s e^{-t-s} tdt \right) ds +
+  \int \limits_{T_1}^{T_2} \left( \int \limits_s^{T_2} e^{-t-s} sdt \right) ds \leq $$
+Пусть $t < s$.
+Тогда
+$$ \leq \int \limits_{T_1}^{T_2} \left( \int \limits_{T_1}^s e^{-t-s} sdt \right) ds +
+  \int \limits_{T_1}^{T_2} \left( \int \limits_s^{T_2} e^{-t-s} sdt \right) ds =
+  \int \limits_{T_1}^{T_2} \int \limits_{T_1}^{T_2} e^{-s} e^{-t} sdtds =$$
+Интегрируем по $y$, получаем
+$$= \int \limits_{T_1}^{T_2} se^{-s} ds \int \limits_{T_1}^{T_2} e^{-t} dt =
+  \int \limits_{T_1}^{T_2} se^{-s} ds \cdot \left( e^{-T_2} - e^{-T_1} \right) =$$
+Берём интеграл по частям
+$$= \left( e^{-T_2} - e^{-T_1} \right)
+  \left( \left. -e^{-s} s \right|_{T_1}^{T_2} - \left. e^{-s} \right|_{T1}^{T_2} \right) =$$
+Подставим пределы интегрирования
+$$= \left( e^{-T_2} - e^{-T_1} \right)
+  \left( -T_2 e^{-T_2} + T_1 e^{-T_1} - e^{-T_2} + e^{-T_1} \right)
+  \overset{T_1, T_2 \to \infty }{ \to } 0,$$
+Так как каждое слагаемое стремится к нулю,
+то есть мы посчитали расстояние между двумя интегралами и показали, что оно стремится к нулю
+$$ \exists \lim \limits_{T \to \infty } \int \limits_0^T e^{-t} W \left( t \right) dt =
+  \int \limits_0^{ \infty } e^{-t} W \left( t \right) dt.$$
+
+Теперь скажем, какое распределение у этого предела.
+
+$W$ --- это винеровский процесс, а интеграл --- это предельные суммы, так что
+$$ \int \limits_0^T e^{-t} W \left( t \right) dt \sim
+  N \left( 0, \int \limits_0^T \int \limits_0^T e^{-t-s} \min \left( t, s \right) dtds \right).$$
+
+Предел гауссовской величины --- это тоже нормальная величина
+$$ \int \limits_0^{ \infty } e^{-t} W \left( t \right) dt \sim
+  N \left(
+    0, \int \limits_0^{ \infty } \int \limits_0^{ \infty } e^{-t-s} \min \left( t, s \right) dtds
+  \right).$$
