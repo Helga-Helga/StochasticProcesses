@@ -607,8 +607,8 @@ $N \left( t \right) \sim Pois \left( \lambda t \right) $.
 Что такое условное математическое ожидание?
 
 $N \left( s \right) $ и $N \left( t \right) $ --- дискретные величины, то есть
-$$M \left[ N \left( s \right) \; \middle| \; N \left( t \right) \right] =
-  \sum \limits_{k = 0}^{ \infty }
+$$M \left[ N \left( s \right) \; \middle| \; N \left( t \right) = n \right] =
+  \sum \limits_{k = n}^{ \infty }
     k \cdot P \left\{ N \left( s \right) = k \; \middle| \; N \left( t \right) = n \right\}.$$
 
 Отдельно посчитаем условную вероятность, а потом по ней возьмём математическое ожидание
@@ -628,9 +628,12 @@ $$= \frac{ \left[ \lambda \left( s - t \right) \right]^{k - n}}{ \left( k - n \r
 $$N \left( s \right) \sim Pois \left( \lambda \left( s - t \right) \right).$$
 
 Условное математическое ожидание
+$$M \left[ N \left( s \right) \; \middle| \; N \left( t \right) = n \right] =
+  MPois \left( \lambda \left( s - t \right) \right) + n =
+  \lambda \left( s - t \right) + n.$$
+Тогда
 $$M \left[ N \left( s \right) \; \middle| \; N \left( t \right) \right] =
-  MPois \left( \lambda \left( s - t \right) \right) =
-  \lambda \left( s - t \right).$$
+  \lambda \left( s - t \right) + N \left( t \right).$$
 
 \subsubsection*{3.14}
 \textit{Задание.}
