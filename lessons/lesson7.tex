@@ -252,3 +252,27 @@ $$ \int \limits_0^{ \infty } e^{-t} W \left( t \right) dt \sim
   N \left(
     0, \int \limits_0^{ \infty } \int \limits_0^{ \infty } e^{-t-s} \min \left( t, s \right) dtds
   \right).$$
+
+\subsubsection*{7.5}
+
+\textit{Задание.}
+Докажите, что случайный процесс
+$$ \eta \left( t \right) =
+  e^{-t} + \int \limits_0^t e^{-\left( t - s \right) } W \left( s \right) ds$$
+является решением следующей задачи Коши:
+$$ \begin{cases}
+    \eta' \left( t \right) = -\eta \left( t \right) + W \left( t \right), \\
+    \eta \left( 0 \right) = 1.
+  \end{cases}$$
+
+\textit{Решение.}
+$$ eta \left( 0 \right) =
+  e^0 + \int \limits_0^0 e^{-\left( t - s \right) } \cdot W \left( s \right) ds = 1.$$
+
+Чтобы проверить, что уравенение выполняется, надо написать производную
+$$ \eta' \left( t \right) =
+  -e^{-t} - \int \limits_0^t e^{-\left( t - s \right) } W \left( s \right) ds +
+  e^{-\left( t - t \right) } W \left( t \right) =$$
+Первые 2 стагаемых равны $-\eta \left( t \right) $, второе --- подынтегральная функция в точке $t$.
+Тогда
+$$= -\eta \left( t \right) + W \left( t \right).$$
