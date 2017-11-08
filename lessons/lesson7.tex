@@ -276,3 +276,60 @@ $$ \eta' \left( t \right) =
 Первые 2 стагаемых равны $-\eta \left( t \right) $, второе --- подынтегральная функция в точке $t$.
 Тогда
 $$= -\eta \left( t \right) + W \left( t \right).$$
+
+\subsubsection*{7.6}
+
+\textit{Задание.}
+Пусть процесс $ \xi = \left\{ \xi \left( t \right), \, t \in T \right\} $
+имеет функцию математического ожидания $m \left( t \right) = t^2$ и ковариационную функцию
+$K \left( t, s \right) = e^{ts}$.
+Вычислите:
+\begin{enumerate}[label=\alph*)]
+  \item $M \left[ \xi \left( 1 \right) + \xi \left( 2 \right) \right]^2$;
+  \item $M \xi \left( 1 \right) \xi' \left( 2 \right) $;
+  \item $$M \left[ \xi \left( 1 \right) + \int \limits_0^1 \xi \left( s \right) ds \right]^2.$$
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item Посчитаем
+  \begin{gather*}
+    M \left[ \xi \left( 1 \right) + \xi \left( 2 \right) \right]^2 =
+    D \left[ \xi \left( 1 \right) + \xi \left( 2 \right) \right] +
+    \left\{ M \left[ \xi \left( 1 \right) + \xi \left( 2 \right) \right] \right\}^2 = \\
+    = cov \left[
+      \xi \left( 1 \right) + \xi \left( 2 \right), \xi \left( 1 \right) + \xi \left( 2 \right)
+    \right] + \left( 1 + 4 \right)^2 = \\
+    = K \left( 1, 1 \right) + K \left( 1, 2 \right) + K \left( 2, 1 \right) +
+    K \left( 2, 2 \right) + 5^2 =
+    e + e^2 + e^2 + e^4 + 25 = \\
+    = e + 2e^2 + e^4 + 25;
+  \end{gather*}
+  \item посчитаем
+  $M \xi \left( 1 \right) \xi' \left( 2 \right) =
+    cov \left[ \xi \left( 1 \right), \xi' \left( 2 \right) \right] +
+    M \xi \left( 1 \right) \cdot M \xi' \left( 2 \right)$.
+  Запишем общую формулу.
+  Ковариация линейная, и производная выносится вперёд
+  $$cov \left[ \xi \left( t \right), \xi' \left( t \right) \right] =
+    \frac{ \partial K}{ \partial  s} \left( t, s \right).$$
+  Тогда
+  $cov \left[ \xi \left( 1 \right), \xi' \left( 2 \right) \right] +
+    M \xi \left( 1 \right) \cdot M \xi' \left( 2 \right) =
+    \left. te^{ts} \right|_{t = 1, s = 2} + \left. 1 \cdot 2t \right|_{t = 2} =
+    t^2 + 4$;
+  \item посчитаем
+  \begin{gather*}
+    M \left[ \xi \left( 1 \right) + \int \limits_0^1 \xi \left( s \right) ds \right]^2 = \\
+    = D \left[ \xi \left( 1 \right) + \int \limits_0^1 \xi \left( s \right) ds \right] +
+    \left\{
+      M \left[ \xi \left( 1 \right) + \int \limits_0^1 \xi \left( s \right) ds \right]
+    \right\}^2 = \\
+    = D \xi \left( 1 \right) +
+    2cov \left[ \xi \left( 1 \right), \int \limits_0^1 \xi \left( s \right) ds \right] +
+    D \left[ \int \limits_0^1 \xi \left( s \right) ds \right] +
+    \left( 1 + \int \limits_0^1 s^2 ds \right)^2 = \\
+    = e + 2 \int \limits_0^1 cov \left[ \xi \left( 1 \right), \xi \left( s \right) \right] ds +
+    \int \limits_0^1 \int \limits_0^1 e^{ts} dtds + \left( \frac{4}{3} \right)^2.
+  \end{gather*}
+\end{enumerate}
