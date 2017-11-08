@@ -50,3 +50,59 @@ $$ \exists \lim \limits_{s, t \to t_0}
 
 Непрерывный в среднем квадратическом на отрезке $ \left[ a, b \right] $ процесс $ \xi $
 интегрируем в среднем квадратическом на этом отрезке.
+
+\addcontentsline{toc}{section}{Аудиторные задачи}
+\section*{Аудиторные задачи}
+
+\subsubsection*{7.2}
+
+\textit{Задание.}
+Пусть $ \zeta_1, \dotsc, \zeta_n$ --- интегрируемые с квадратом случайные величины.
+Докажите, что случайный процесс
+$$ \xi \left( t \right) =
+  \sum \limits_{k = 1}^n \zeta_k e^{kt}$$
+имеет производную в среднем квадратическом и найдите её.
+
+\textit{Решение.}
+$ \zeta_1, \dotsc, \zeta_n \in L_2$, то есть есть $n$ величин, и процесс определяется как
+$$ \xi \left( t \right) =
+  \sum \limits_{k = 1}^n \zeta_l e^{kt}.$$
+Нужно проверить, что этот процесс дифференцируем и найти его производную в $L_2$.
+
+Время $t$ входит только в экспоненту, которую мы умеем дифференцировать.
+Нужно проверить, что
+$$ \left \Vert
+    \frac{ \xi \left( t \right) - \xi \left( t_0 \right) }{t - t_0} -
+    \sum \limits_{k = 1}^n \zeta_k ke^{kt_0} \right \Vert \to
+  0,$$
+когда $t \to t_0$.
+
+Будем это проверять.
+Можно $ \xi \left( t \right) $ расписать.
+
+$ \xi \left( t \right) $ --- это сумма
+$$ \left \Vert
+    \frac{ \xi \left( t \right) - \xi \left( t_0 \right) }{t - t_0} -
+    \sum \limits_{k = 1}^n \zeta_k k e^{kt_0} \right \Vert =
+  \left \Vert
+    \frac{ \sum \limits_{k = 1}^n \zeta_k e^{kt} - \sum \limits_{k = 1}^n \zeta_k e^{kt_0}}{t - t_0} -
+    \sum \limits_{k = 1}^n \zeta_k ke^{kt_0} \right \Vert =$$
+Во всех слагаемых есть сумма и $ \zeta_k$.
+Так что приведём подобные, и будет одна сумма
+$$= \left \Vert
+    \sum \limits_{k = 1}^n \zeta_k \left( \frac{e^{kt} - e^{kt_0}}{t - t_0} - ke^{kt_0} \right)
+  \right \Vert \leq$$
+Первое слагаемое в скобках стремится к производной, а второе и есть производная.
+Из разность стремится к нулю.
+Используем неравенство треугольника
+$$ \leq \sum \limits_{k = 1}^n
+  \left \Vert \zeta_k \left( \frac{e^{kt} - e^{kt_0}}{t - t_0} - ke^{kt_0} \right) \right \Vert =$$
+С помощью свойства
+$ \left \Vert \alpha \xi \right \Vert \leq
+  \left| \alpha \right| \cdot \left \Vert \xi \right \Vert $
+коэффициент выносится из нормы
+$$= \sum \limits_{k = 1}^n
+    \left| \frac{e^{kt} - e^{kt_0}}{t - t_0} - ke^{kt_0} \right| \cdot
+    \left \Vert \zeta_k \right \Vert \to$$
+Под модулем стоят числа, которые сходятся к нулю, под нормой --- числа
+$$ \to 0.$$
