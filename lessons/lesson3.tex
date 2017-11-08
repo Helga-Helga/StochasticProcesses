@@ -744,8 +744,8 @@ $N \left( t \right) \sim Pois \left( \lambda t \right) $.
 Вычислим математическое ожидание
 $$MX \left( t \right) =
   M \left( \sum \limits_{i = 1}^{N \left( t \right) } \xi_i \right) =
-  M \sum \limits_{i = 1}^{ \infty }
-    \left( \mathbbm{1} \left\{ N \left( t \right) = i \right\} \xi_i \right) =$$
+  M \sum \limits_{i = 1}^{ \infty } \left(
+    \mathbbm{1} \left\{ N \left( t \right) = i \right\} \sum \limits_{j = 1}^i \xi_j \right) =$$
 Математическое ожидание индикатора --- вероятность
 $$= m \sum \limits_{i = 1}^{ \infty } i \cdot P \left\{ N \left( t \right) = i \right\} =
   mMN \left( t \right) =
