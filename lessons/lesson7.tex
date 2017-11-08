@@ -106,3 +106,76 @@ $$= \sum \limits_{k = 1}^n
     \left \Vert \zeta_k \right \Vert \to$$
 Под модулем стоят числа, которые сходятся к нулю, под нормой --- числа
 $$ \to 0.$$
+
+\subsubsection*{7.3}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Докажите, что случайный процесс
+$$ \left\{ \eta \left( t \right) = \int \limits_0^t W \left( s \right) ds, \, t \geq 0 \right\} $$
+являюется дифференцируемым в среднем квадратическом и что
+$$ \eta' \left( t \right) =
+  W \left( t \right) $$
+для произвольного $t \geq 0$.
+
+\textit{Решение.}
+Дифференцируем интеграл по верхнему пределу.
+
+Должна получиться подинтегральная функция.
+Нужно проверить, что
+$$ \frac{ \eta \left( t \right) - \eta \left( t_0 \right) }{t - t_0} \overset{L_2}{ \to }
+  W \left( t_) \right).$$
+
+Проверяем.
+Вместо $ \eta $ подставляем интеграл
+$$M \left[
+    \frac{ \eta \left( t \right) - \eta \left( t_0 \right) }{t - t_0} - W \left( t_0 \right)
+  \right]^2 =
+  M \left[
+    \frac{ \int \limits_0^t W \left( s \right) ds - \int \limits_0^{t_0} W \left( s \right) ds}{t - t_0} -
+    W \left( t_0 \right)
+  \right]^2 =$$
+Разность интегралов --- это интеграл от $t_0$ до $t$.
+Так что
+$$= M \left[
+    \frac{\int \limits_{t_0}^t W \left( s \right) ds}{t - t_0} - W \left( t_0 \right)
+  \right]^2 =$$
+Случайную величину $W \left( t_0 \right) $ можно внести под интеграл,
+потому что он не зависит от $s$.
+Знаменатель вынесем из-под интеграла
+$$= M \left\{
+    \int \limits_{t_0}^t \left[
+      W \left( s \right) - W \left( t_0 \right)
+    \right] ds
+  \right\}^2 \cdot
+  \frac{1}{ \left( t - t_0 \right)^2} =$$
+Найдём дисперсию
+$$D \int \limits_a^b \xi \left( s \right) ds =
+  cov \left(
+    \int \limits_a^b \xi \left( s \right) ds, \int \limits_a^b \xi \left( r \right) dr
+  \right).$$
+Ковариация --- это линейная функция, оба интеграла выносятся
+$$cov \left(
+    \int \limits_a^b \xi \left( s \right) ds, \int \limits_a^b \xi \left( r \right) dr
+  \right) =
+  \int \limits_a^b \int \limits_a^b
+    cov \left[ \xi \left( s \right), \xi \left( t \right) \right]
+  dsdr.$$
+Тогда
+$$= \frac{1}{ \left( t - t_0 \right)^2} \int \limits_{t_0}^t \int \limits_{t_0}^t cov \left[
+    W \left( s \right) - W \left( t_0 \right), W \left( r \right) - W \left( t_0 \right) \right]
+  dsdr =$$
+Ковариацию винеровского процесса мы знаем
+$$= \int \limits_{t_0}^t \int \limits_{t_0}^t \left[
+    \min \left( s, r \right) - t_0 - t_0 + t_0 \right] dsdr \cdot
+  \frac{1}{ \left( t - t_0 \right)^2} =$$
+Одинаковые слагаемые с разными знаками уничножаются
+$$= \int \limits_{t_0}^t \int \limits_{t_0}^t
+    \left[ \min \left( s, r \right) - t_0 \right] dsdr \cdot
+  \frac{1}{ \left( t - t_0 \right)^2} \leq
+  \int \limits_{t_0}^t \int \limits_{t_0}^t \left( t - t_0 \right) dsdr \cdot
+  \frac{1}{ \left( t - t_0 \right)^2} =$$
+Величина $t - t_0 = const$, она вносится
+$$= t - t_0 \to
+  0.$$
+Это и надо было проверить.
