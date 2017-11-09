@@ -93,7 +93,7 @@ $$= \left \Vert
     \sum \limits_{k = 1}^n \zeta_k \left( \frac{e^{kt} - e^{kt_0}}{t - t_0} - ke^{kt_0} \right)
   \right \Vert \leq$$
 Первое слагаемое в скобках стремится к производной, а второе и есть производная.
-Из разность стремится к нулю.
+Их разность стремится к нулю.
 Используем неравенство треугольника
 $$ \leq \sum \limits_{k = 1}^n
   \left \Vert \zeta_k \left( \frac{e^{kt} - e^{kt_0}}{t - t_0} - ke^{kt_0} \right) \right \Vert =$$
@@ -384,3 +384,57 @@ $K \left( t, s \right) = e^{ts}$.
     8.
   \end{gather*}
 \end{enumerate}
+
+\subsubsection*{7.11}
+
+\textit{Задание.}
+Пусть $ \tau \geq 0$ --- случайная величина,
+которая имеет положительную непрерывную плотность распределения,
+и пусть $X \left( t \right) = \mathbbm{1} \left\{ t \geq \tau \right\} $ --- процесс ожидания,
+связанный с $ \tau $.
+Докажите, что $ \left\{ X \left( t \right), \, t \in \left[ 0, 1 \right] \right\} $
+не дифференцируем в среднем квадратическом.
+
+\textit{Решение.}
+Допустим, что процесс ожидания дифференцируем в среднем квадратическом.
+Это означает, что для произвольного $t \in \left[ 0, 1 \right] $
+существовала бы такая случайная величина $X' \left( t \right) $, что
+$$M \left| \frac{X \left( t + h \right) - X \left( t \right) }{h} - X' \left( t \right) \right|^2 \to
+  0, \,
+  h \to 0.$$
+
+Если бы такой предел существовал, то величина
+$$M \left| \frac{X \left( t + h \right) - X \left( t \right) }{h} \right|^2$$
+должна была бы быть ограниченной при $h \to 0$.
+Но непосредственным вычислением показываем, что
+$$M \left| \frac{X \left( t + h \right) - X \left( t \right) }{h} \right|^2 =
+  M \left|
+    \frac{ \mathbbm{1} \left\{ t + h \geq \tau \right\} - \mathbbm{1} \left\{ t \geq \tau \right\} }{h}
+  \right|^2 =$$
+Возводим в квадрат
+$$= \frac{1}{h^2} \cdot M \left[
+    \left( \mathbbm{1} \left\{ t + h \geq \tau \right\} \right)^2 -
+    2 \cdot \mathbbm{1} \left\{ t + h \geq \tau \right\} \mathbbm{1} \left\{ t \geq \tau \right\} +
+    \left( \mathbbm{1} \left\{ t \geq \tau \right\} \right)^2
+  \right] =$$
+Произведение индикаторов событий --- это индикатор пересечения этих событий
+$$= \frac{1}{h^2} \cdot \left[
+    M \mathbbm{1} \left\{ t + h \geq \tau \right\} -
+    2M \mathbbm{1} \left\{
+      \left\{ t + h \geq \tau \right\} \cap \left\{ t \geq \tau \right\} \right\} +
+    M \mathbbm{1} \left\{ t \geq \tau \right\} \right] =$$
+Математическое ожидание индикатора события --- это вероятность этого события
+$$= \frac{1}{h^2} \cdot \left[
+    P \left( t + h \geq \tau \right) - 2P \left( t + h \geq \tau \right) +
+    P \left( t \geq \tau \right) \right] =$$
+Приведём подобные
+$$= \frac{1}{h^2} \cdot
+  \left[ -P \left( t + h \geq \tau \right) + P \left( t \geq \tau \right) \right] =
+  \frac{1}{h^2} \cdot
+  \left[ P \left( \tau \leq t \right) - P \left( \tau \leq t + h \right) \right] =$$
+Запишем через интеграл от плотности
+$$= \frac{1}{h^2} \int \limits_t^{t + h} \tau \left( x \right) p_{ \tau } \left( x \right) dx \to
+  \infty, \,
+  h \to 0.$$
+
+Это противоречие доказывает недифференцируемость в среднем квадратическом процесса ожидания.
