@@ -266,7 +266,7 @@ $$ \begin{cases}
   \end{cases}$$
 
 \textit{Решение.}
-$$ eta \left( 0 \right) =
+$$ \eta \left( 0 \right) =
   e^0 + \int \limits_0^0 e^{-\left( t - s \right) } \cdot W \left( s \right) ds = 1.$$
 
 Чтобы проверить, что уравенение выполняется, надо написать производную
@@ -331,5 +331,56 @@ $K \left( t, s \right) = e^{ts}$.
     \left( 1 + \int \limits_0^1 s^2 ds \right)^2 = \\
     = e + 2 \int \limits_0^1 cov \left[ \xi \left( 1 \right), \xi \left( s \right) \right] ds +
     \int \limits_0^1 \int \limits_0^1 e^{ts} dtds + \left( \frac{4}{3} \right)^2.
+  \end{gather*}
+\end{enumerate}
+
+\addcontentsline{toc}{section}{enumeнее задание}
+\section*{Домашнее задание}
+
+\subsubsection*{7.10}
+
+\textit{Задание.}
+Для винеровского процесса вычислите:
+\begin{enumerate}[label=\alph*)]
+  \item $$cov \left(
+      W \left( 2 \right), \int \limits_0^4 W \left( s \right) ds + W \left( 3 \right) \right);$$
+  \item $$cov \left(
+      W \left( 3 \right) + 2 W \left( 1 \right), \int \limits_1^3 W \left( s \right) ds \right).$$
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item \begin{gather*}
+    cov \left(
+      W \left( 2 \right), \int \limits_0^4 W \left( s \right) ds + W \left( 3 \right) \right) = \\
+    = cov \left[ W \left(2 \right), \int \limits_0^4 W \left( s \right) ds \right] +
+    cov \left[ W \left( 2 \right), W \left( 3 \right) \right] = \\
+    = \int \limits_0^4 cov \left[ W \left( 2 \right), W \left( s \right) \right] ds +
+    \min \left( 2, 3 \right) =
+    \int \limits_0^4 \min \left( 2, s \right) ds + \min \left( 2, 3 \right) = \\
+    = \int \limits_0^2 \min \left( 2, s \right) ds + \int \limits_2^4 \min \left( 2, s \right) ds +
+    2 =
+    \int \limits_0^2 sds + \int \limits_2^4 2ds + 2 = \\
+    = \left. \frac{s^2}{2} \right|_0^2 + \left. 2s \right|_2^4 + 2 =
+    \frac{4}{2} + 2 \cdot 4 - 2 \cdot 2 + 2 =
+    2 + 8 - 4 + 2 =
+    8;
+  \end{gather*}
+  \item посчитаем
+  \begin{gather*}
+    cov \left(
+      W \left( 3 \right) + 2 W \left( 1 \right), \int \limits_1^3 W \left( s \right) ds \right) = \\
+    = cov \left[ W \left( 3 \right), \int \limits_1^3 W \left( s \right) ds \right] +
+    cov \left[ 2W \left( 1 \right), \int \limits_1^3 W \left( s \right) ds \right] = \\
+    = \int \limits_1^3 cov \left[ W \left( 3 \right), W \left( s \right) \right] ds +
+    2 \int \limits_1^3 cov \left[ W \left( 1 \right), W \left( s \right) \right] ds = \\
+    = \int \limits_1^3 \min \left( 3, s \right) ds +
+    2 \int \limits_1^3 \min \left( 1, s \right) ds =
+    \int \limits_1^3 sds + 2 \int \limits_1^3 ds =
+    \left. \frac{s^2}{2} \right|_1^3 + \left. 2s \right|_1^3 = \\
+    = \frac{9}{2} - \frac{1}{2} + 6 - 2 =
+    \frac{8}{2} + 4 =
+    4 + 4 =
+    8.
   \end{gather*}
 \end{enumerate}
