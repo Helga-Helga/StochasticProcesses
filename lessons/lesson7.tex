@@ -533,7 +533,7 @@ $$= \frac{e^{-2t}}{t^2} \left\{
   = \frac{e^{-2t}}{t^2} \left(
     1 + \int \limits_0^t \int \limits_{s_1}^t e^{s_1} e^{s_2} s_1 ds_1 ds_2 \right) =
   \frac{e^{-2t}}{t^2}
-  \left( 1 + \int \limits_0^t e^{s_1} s_1 \left. e^{s_2} \right|_{s_1}^t ds_1 \right) = \\
+  \left( 1 + \int \limits_0^t e^{s_1} s_1 \left. e^{s_2} \right|_{s_1 }^t ds_1 \right) = \\
   = \frac{e^{-2t}}{t^2}
   \left[ 1 + \int \limits_0^t e^{s_1} s_1 \left( t - s_1 \right) ds_1 \right] = \\
   = \frac{e^{-2t}}{t^2}
@@ -568,3 +568,47 @@ $$= \frac{e^{-2t}}{t^2} + \frac{e^{-3t}}{t} + \frac{e^{-2t}}{t} - \frac{2e^{-t}}
 Снова используем правило Лопиталя
 $$ \approx 2e^{-2t} - 3e^{-3t} - 2e^{-2t} + 2e^{-t} \to 0$$
 при $t \to +\infty$.
+
+\subsubsection*{7.14}
+
+\textit{Задание.}
+Докажите, что случайный процесс
+$$ \eta \left( t \right) =
+  \frac{1}{2} \cdot e^{-\lambda t} +
+  \int \limits_0^t
+    e^{-\lambda \left( t - s \right) } \left( \lambda m \left( s \right) +
+    W \left( s \right) \right) ds, \,
+  t \geq 0$$
+является решением задачи Коши:
+$$ \begin{cases}
+    \eta' \left( t \right) =
+    -\lambda \left( \eta \left( t \right) - m \left( t \right) \right) + W \left( t \right), \\
+    \eta \left( 0 \right) = \frac{1}{2}.
+  \end{cases}$$
+Здесь $m \left( t \right) $ --- детерминированная функция.
+
+\textit{Решение.}
+$$ \eta \left( 0 \right) =
+  \frac{1}{2} \cdot e^{-\lambda \cdot 0} +
+  \int \limits_0^0
+    e^{-\lambda \left( 0 -s \right) } \left[ \lambda m \left( s \right) + W \left( s \right) \right]
+  ds =
+  \frac{1}{2}.$$
+
+Чтобы проверить, что уравнение выполняется, надо написать производную
+\begin{gather*}
+  \eta' \left( t \right) = \\
+  = \frac{1}{2} \cdot \left( -\lambda \right) e^{-\lambda t} -
+  \lambda e^{-\lambda t} \int \limits_0^t
+    e^{ \lambda s} \left[ \lambda m \left( s \right) + W \left( s \right) \right] ds +
+  e^{-\lambda \left( t - t \right) }
+  \left[ \lambda m \left( t \right) + W \left( t \right) \right] = \\
+  = -\lambda \left\{
+    \frac{1}{2} \cdot e^{-\lambda t} -
+    \int \limits_0^t
+      e^{-\lambda \left( t - s \right) }
+      \left[ \lambda m \left( s \right) + W \left( s \right) \right]
+    ds - m \left( t \right)
+  \right\} + W \left( t \right) = \\
+  = -\lambda \left[ \eta \left( t \right) - m \left( t \right) \right] + W \left( t \right).
+\end{gather*}
