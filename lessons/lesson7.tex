@@ -334,7 +334,7 @@ $K \left( t, s \right) = e^{ts}$.
   \end{gather*}
 \end{enumerate}
 
-\addcontentsline{toc}{section}{enumeнее задание}
+\addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
 \subsubsection*{7.10}
@@ -489,3 +489,82 @@ $$M \left|
   0
 \end{gather*}
 при $t \to t_0$.
+
+\subsubsection*{7.13}
+
+\textit{Задание.}
+Пусть $ \eta $ --- решение задачи Коши
+$$ \begin{cases}
+    \eta' \left( t \right) = -\eta \left( t \right) + W \left( t \right), \\
+    \eta \left( 0 \right) = 1.
+  \end{cases}$$
+Докажите, что
+$$L_2-\lim \limits_{t \to +\infty } \frac{ \eta \left( t \right) }{t} =
+  0.$$
+
+\textit{Решение.}
+Надо проверить, что
+$$M \left[ \frac{ \eta \left( t \right) }{t} \right]^2 \to
+  0$$
+при $t \to +\infty $.
+
+Из задачи 7.5 решением такой задачи Коши есть
+$$ \eta \left( t \right) =
+  e^{-t} + \int \limits_0^t e^{-\left( t - s \right) } W \left( s \right) ds.$$
+
+Тогда
+$$M \left[ \frac{ \eta \left( t \right) }{t} \right]^2 =
+  M \left[
+    \frac{e^{-t} + \int \limits_0^t e^{-\left( t - s \right) } W \left( s \right) ds}{t}
+  \right]^2 =$$
+Возведём в квадрат
+$$= M \left\{
+    \frac{e^{-2t}}{t^2} + \frac{2e^{-2t}}{t^2} \int \limits_0^t e^s W \left( s \right) ds +
+    \frac{e^{-2t}}{t^2} \left[ \int \limits_0^t e^s W \left( s \right) ds \right]^2 \right\} =$$
+Вынесем константу и внесём математическое ожидание
+$$= \frac{e^{-2t}}{t^2} \left\{
+    1 + \int \limits_0^t e^s MW \left( s \right) ds +
+    M \left[ \int \limits_0^t e^s W \left( s \right) ds \right]^2 \right\} =$$
+Математическое ожидание винеровского процесса равно нулю
+\begin{gather*}
+  = \frac{e^{-2t}}{t^2} \left[
+    1 + \int \limits_0^t \int \limits_0^t e^{s_1 + s_2} \min \left( s_1, s_2 \right) ds_1 ds_2
+  \right] = \\
+  = \frac{e^{-2t}}{t^2} \left(
+    1 + \int \limits_0^t \int \limits_{s_1}^t e^{s_1} e^{s_2} s_1 ds_1 ds_2 \right) =
+  \frac{e^{-2t}}{t^2}
+  \left( 1 + \int \limits_0^t e^{s_1} s_1 \left. e^{s_2} \right|_{s_1}^t ds_1 \right) = \\
+  = \frac{e^{-2t}}{t^2}
+  \left[ 1 + \int \limits_0^t e^{s_1} s_1 \left( t - s_1 \right) ds_1 \right] = \\
+  = \frac{e^{-2t}}{t^2}
+  \left( 1 + t \int \limits_0^t e^{s_1} s_1 ds_1 - \int \limits_0^t e^{s_1} s_1^2 ds_1 \right) =
+\end{gather*}
+Оба интеграла берём по частям.
+Для первого интеграла
+$$u = s_1, \,
+  dv = e^{s_1} ds_1, \,
+  du = ds_1, \,
+  v = \int \limits e^{s_1} ds_1 = e^{s_1}.$$
+Для второго интеграла
+$$u = s_1^2, \,
+  dv = e^{s_1} ds_1, \,
+  du = 2s_1 ds_1, \,
+  v = e^{s_1}.$$
+Тогда
+$$= \frac{e^{-2t}}{t^2} \left(
+    1 + \left. ts_1 e^{s_1} \right|_0^t - t \int \limits_0^t e^{s_1} ds_1 -
+    \left. e^{s_1} s_1^2 \right|_0^t + 2 \int \limits_0^t e^{s_1} s_1 ds_1 \right) =$$
+Подставим пределы интегрирования и возьмём интегралы
+$$= \frac{e^{-2t}}{t^2} \left(
+    1 + t^2 e^t - \left. te^{s_1} \right|_0^t - e^t t^2 + 2 \left. s_1 e^{s_1} \right|_0^t -
+    2 \int \limits_0^t e^{s_1} ds_1 \right) =$$
+Одинаковые слагаемые с разными знаками уничтожаются,
+снова берём интеграл и подставляем пределы интегрирования
+$$= \frac{e^{-2t}}{t^2} \left( 1 - te^t + t + 2te^t - 2 \left. e^{s_1} \right|_0^t \right) =
+  \frac{e^{-2t}}{t^2} \left( 1 + te^t + t - 2e^t \right) =$$
+Раскроем скобки
+$$= \frac{e^{-2t}}{t^2} + \frac{e^{-3t}}{t} + \frac{e^{-2t}}{t} - \frac{2e^{-t}}{t^2} \approx
+  -\frac{2e^{-2t}}{2t} - 3e^{-3t} - 2e^{-2t} + 2e^{-t} \approx$$
+Снова используем правило Лопиталя
+$$ \approx 2e^{-2t} - 3e^{-3t} - 2e^{-2t} + 2e^{-t} \to 0$$
+при $t \to +\infty$.
