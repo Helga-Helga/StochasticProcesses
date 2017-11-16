@@ -237,6 +237,68 @@ $$K \left( t, s \right) =
     0, \qquad \left| t - s \right| \leq 1.
   \end{cases}$$
 
+\subsubsection*{8.6}
+
+\textit{Задание.}
+Найдите спектральную функцию стационарного в широком смысле процесса $ \xi $,
+если его ковариационная функция равна:
+\begin{enumerate}[label=\alph*)]
+  \item $K_{ \xi } \left( t \right) = e^{-\left| t \right| }$;
+  \item $K_{ \xi } \left( t \right) = \frac{1}{1 + t^2}$;
+  \item $K_{ \xi } \left( t \right) = e^{ \lambda \left( e^{it} - 1 \right) }$.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item Можно найти плотность
+  $$p \left( \lambda \right) =
+    \int \limits_{-\infty }^{+\infty } e^{-\left| t \right| } e^{-i \lambda t} dt =
+    \int \limits_0^{+\infty } e^{-\left( 1 + i \lambda \right) t} dt +
+    \int \limits_0^{+\infty } e^{-\left( 1 - i \lambda \right) t} dt =$$
+  Вычислим интегралы
+  $$= \frac{1}{1 + i \lambda } + \frac{1}{1 - i \lambda } =
+    \frac{2}{1 + \lambda^2}$$
+  --- это распределение Коши;
+  \item с точностью до константы это будет $e^{-\left| t \right| }$.
+
+  Ковариационная функция --- это преобразование Фурье от плотности
+  $$k \left( t \right) =
+    \frac{1}{2 \pi }
+    \int \limits_{-\infty }^{+\infty } p \left( \lambda \right) e^{i \lambda t} d \lambda.$$
+
+  Плотность --- это обратное преобразование Фурье
+  $$p \left( \lambda \right) =
+    \int \limits_{-\infty }^{+\infty } \frac{e^{-i \lambda t}}{1 + t^2} dt =
+    \pi
+    \int \limits_{-\infty }^{+\infty } \frac{e^{-i \lambda t}}{ \pi \left( 1 + t^2 \right) } dt =$$
+  Под интегралом стоит плотность распределения Коши.
+  Сам интеграл --- характеристическая функция распределения Коши
+  $$= \pi e^{-\left| \lambda \right| };$$
+  \item ковариационная функция
+  $K_{ \xi } \left( t \right) = e^{ \lambda \left( e^{it} - 1 \right) }$ ---
+  это характеристическая функция для пуассоновского распределения.
+
+  Нет смысла искать плотность,
+  потому что у пуассоновского распределения нет плотности $K \left( t \right) = Me^{it \xi }$,
+  где $ \xi \sim Pois \left( a \right) $.
+  Это значит, что
+  $$K \left( t \right) =
+    \sum \limits_{n = 0}^{ \infty } e^{itn} e^{-a} \cdot \frac{a^n}{n!} =
+    \frac{1}{2 \pi }
+    \int \limits_{-\infty }^{+\infty } e^{it \lambda } \mu \left( d \lambda \right).$$
+
+  Вспомним, что
+  $$ \int \limits_{-\infty }^{+\infty } f \left( x \right) \delta_c \left( dx \right) =
+    f \left( c \right),$$
+  где $c$ --- какая-то точка.
+
+  Если мера сосредоточена в точке $n$, то получаем сумму.
+  Сейчас спектральная мера равна
+  $$ \mu =
+    \sum \limits_{n = 0}^{ \infty } 2 \pi e^{-a} \cdot \frac{a^n}{n!} \cdot \delta_n,$$
+  где $ \delta_n$ --- $ \delta $-мера в точке $n$.
+\end{enumerate}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
@@ -526,3 +588,64 @@ $$= e^{i \left( t + s \right) } M \varepsilon_1^2 + e^{2i \left( t + s \right) }
   k \left( t + s \right) \neq
   k \left( t - s \right),$$
 следовательно, $ \xi \left( t \right) $ --- нестационарный процесс и не имеет спектральной функции.
+
+\subsubsection*{8.15}
+
+\textit{Задание.}
+Найдите спектральную функцию стационарного в широком смысле процесса $ \xi $,
+если его ковариационная функция $K_{ \xi }$ равна:
+\begin{enumerate}[label=\alph*)]
+  \item $K_{ \xi } \left( t \right) = \frac{e^{iat} - 1}{iat}$;
+  \item $K_{ \xi } \left( t \right) = \frac{ \sin at}{at}$;
+  \item $K_{ \xi } \left( t \right) = \frac{1 - \cos at}{a^2 t^2}$.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item Можно найти плотность
+  $$p \left( \lambda \right) =
+    \int \limits_{-\infty }^{+\infty } \frac{e^{iat} - 1}{iat} \cdot e^{-i \lambda t} dt =
+    \int \limits_{-\infty }^{+\infty }
+      \frac{e^{it \left( a - \lambda \right) } - e^{-i \lambda t}}{iat} dt =$$
+  Под интегралом стоит характеристическая фукнция равномерного распределения.
+  Сам интеграл --- плотность равномерного распределения
+  $$= \frac{1}{a} \cdot \mathbbm{1}_{ \left[0, a \right] } \left( \lambda \right);$$
+  \item можно найти плотность
+  $$p \left( \lambda \right) =
+    \int \limits_{-\infty }^{+\infty } \frac{ \sin at}{at} \cdot e^{-i \lambda t} dt =
+    \int \limits_{-\infty }^{+\infty } \frac{2i \sin at}{2iat} \cdot e^{-i \lambda t} dt =$$
+  Прибавим и отнимем косинус в числителе
+  \begin{gather*}
+    = \int \limits_{-\infty }^{+\infty }
+      \frac{2i \sin at - \cos at + \cos at}{2iat} \cdot e^{-i \lambda t} dt = \\
+    = \int \limits_{-\infty }^{+\infty }
+      \frac{i \sin at - \cos at + \cos at + i \sin at}{2iat} \cdot e^{-i \lambda t} dt = \\
+    = \int \limits_{-\infty }^{+\infty } \frac{e^{iat} - e^{-iat}}{2iat} \cdot e^{-i \lambda t} dt =
+    \int \limits_{-\infty }^{+\infty }
+      \frac{e^{it \left( a - \lambda \right) } - e^{-it \left( a + \lambda \right) }}{2iat} dt =
+  \end{gather*}
+  Под интегралом стоит характеристическая функция равномерного распредления.
+  Сам интеграл --- плотность равномерного распределения
+  $$= \frac{1}{2a} \cdot \mathbbm{1}_{ \left[ -a, a \right] } \left( \lambda \right);$$
+  \item аналогично
+  \begin{gather*}
+    p \left( \lambda \right) =
+    \int \limits_{-\infty }^{+\infty } \frac{1 - \cos at}{a^2 t^2} \cdot e^{-i \lambda t} dt =
+    \int \limits_{-\infty }^{+\infty }
+      \frac{2 \sin^2 \frac{at}{2}}{a^2 t^2} \cdot e^{-i \lambda t} dt = \\
+    = \int \limits_{-\infty }^{+\infty }
+      \frac{1}{2} \cdot \frac{ \sin^2 \frac{at}{2}}{ \frac{a^2 t^2}{4}} \cdot e^{-i \lambda t} dt =
+    \frac{1}{2}
+    \int \limits_{-\infty }^{+\infty }
+      \frac{e^{ \frac{iat}{2}} - e^{-\frac{iat}{2}}}{2i \cdot \frac{at}{2}} \cdot e^{-i \lambda t}
+    dt = \\
+    = \frac{1}{2}
+    \int \limits_{-\infty }^{+\infty }
+      \frac{e^{it \left( \frac{a}{2} - \lambda \right) } - e^{-it \left( \frac{a}{2} + \lambda \right) }}{iat}
+    dt =
+  \end{gather*}
+  Под интегралом стоит характеристическая функция равномерного распределения.
+  Сам интеграл --- плотность равномерного распределения
+  $$= \frac{1}{a} \cdot
+    \mathbbm{1}_{ \left[ -\frac{a}{2}, \frac{a}{2} \right] } \left( \lambda \right).$$
+\end{enumerate}
