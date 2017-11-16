@@ -91,6 +91,76 @@ $$= \frac{MA^2}{2} \cdot \left\{
 $$= \frac{MA^2}{2} \cdot M \cos \left[ \eta \left( t - s \right) \right].$$
 Значит, процесс стационарный.
 
+\subsubsection*{8.3}
+
+\textit{Задание.}
+Пусть $ \left\{ N \left( t \right), \, t \geq 0 \right\} $ ---
+процесс Пуассона с параметром $ \lambda $.
+Докажите, что процесс
+$ \left\{ \xi \left( t \right) = N \left( t + 1 \right) - N \left( t \right), \, t \geq 1 \right\} $
+является стационарным в широком смысле.
+
+\textit{Решение.}
+$ \left\{ \xi \left( t \right) = N \left( t + 1 \right) - N \left( t \right), \, t \geq 1 \right\} $
+--- процесс приращений пуассоновского процесса.
+
+\begin{enumerate}
+  \item
+  $$M \xi \left( t \right) =
+    M \left[ N \left( t + 1 \right) - N \left( t \right) \right] =
+    MN \left( t + 1 \right) - MN \left( t \right) =
+    \lambda \left( t + 1 \right) - \lambda t =
+    \lambda,$$
+  то есть математическое ожидание постоянное.
+  \item Теперь найдём ковариационную функцию
+  $$K \left( t, s \right) =
+    cov \left[ \xi \left( t \right), \xi \left( s \right) \right] =
+    cov \left[
+      N \left( t + 1 \right) - N \left( t \right),
+      N \left( s + 1 \right) - N \left( s \right) \right] =$$
+  Известно, что
+  $cov \left[ N \left( t \right), N \left( s \right) \right] =
+    \lambda \min \left( t, s \right) $.
+  Раскрываем ковариацию и получаем 4 слагаемых
+  $$= \lambda \left[
+      \min \left( t + 1, s + 1 \right) - \min \left( t + 1, s \right) -
+      \min \left( t, s + 1 \right) + \min \left( t, s \right) \right] =$$
+  Возможные случаи изображены на рисунке \ref{fig:83}.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=.4\textwidth]{./pictures/4_2.png}
+    \caption{Возможные случаи (два последних симметричны двум первым)}
+    \label{fig:83}
+  \end{figure}
+
+  В первом случае
+  $$= 0.$$
+  Во втором случае
+  $$= \lambda \left[ s + 1 - t \right].$$
+
+  Запишем ковариационную функцию
+  $$K \left( t, s \right) =
+    \begin{cases}
+      0, \qquad s + 1 \leq t \, \left( 1 \leq t - s \right), \\
+      \lambda \left[ 1 - \left( t - s \right) \right],
+      \qquad s \leq t \leq s + 1 \, \left( 0 \leq t - s \leq 1 \right), \\
+      0, \qquad s \geq t + 1 \, \left( t - s \leq 1 \right), \\
+      \lambda \left[ 1 - \left( s - t \right) \right],
+      \qquad t \leq s \leq t + 1 \, \left( -1 \leq t - s \leq 0 \right).
+    \end{cases}$$
+
+  Надо понять, это функция от разности или нет.
+  Условия переписываются через разности, тогда ковариация зависит от разности.
+
+  Сейчас
+  $$K \left( t, s \right) =
+    \begin{cases}
+      0, \qquad \left| t - s \right| \geq 1, \\
+      \lambda \left( 1 - \left| t - s \right| \right), \qquad \left| t - s \right| \leq 1.
+    \end{cases}$$
+\end{enumerate}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
