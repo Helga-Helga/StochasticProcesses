@@ -89,3 +89,44 @@ $$= \frac{MA^2}{2} \cdot \left\{
 Первое слагаемое равно нулю
 $$= \frac{MA^2}{2} \cdot M \cos \left[ \eta \left( t - s \right) \right].$$
 Значит, процесс стационарный.
+
+\addcontentsline{toc}{section}{Домашнее задание}
+\section*{Домашнее задание}
+
+\subsubsection*{8.10}
+
+\textit{Задание.}
+Докажите, что сумма независимых стационарных в широком смысле процессов является стационарным в
+широком смысле процессом.
+
+\textit{Решение.}
+Пусть $ \left\{ \xi_i \left( t \right), \, t \in T \right\}, \, i = \overline{1, n}$ ---
+независимые стационарные в широком смысле процессы.
+Нужно доказать, что процесс
+$$ \left\{
+  \eta \left( t \right) = \sum \limits_{i = 1}^n \xi_i \left( t \right), \, t \in T \right\} $$
+является стационарным в широком смысле.
+
+$$M \eta \left( t \right) =
+  M \sum \limits_{i = 1}^n \xi_i \left( t \right) =
+  \sum \limits_{i = 1}^n M \xi_i \left( t \right) =
+  \sum \limits_{i = 1}^n m_i =
+  m =
+  const.$$
+
+Ковариационная функция
+$$K \left( t, s \right) =
+  cov \left[ \eta \left( t \right), \eta \left( s \right) \right] =
+  cov \left[
+    \sum \limits_{i = 1}^n \xi_i \left( t \right), \sum \limits_{j = 1}^n \xi_j \left( s \right)
+  \right] =$$
+Вынесем суммы, так как ковариация --- линейная функция
+$$= \sum \limits_{i = 1}^n
+    \sum \limits_{j = 1}^n cov \left[ \xi_i \left( t \right), \xi_j \left( s \right) \right] =
+  \sum \limits_{i = 1}^n cov \left[ \xi_i \left( t \right), \xi_i \left( s \right) \right] =
+  \sum \limits_{i = 1}^n K_i \left( t, s \right) =$$
+Все $ \xi_i \left( t \right) $ стационарные,
+поэтому их ковариационные функции зависят только от разности аргументов
+$$= \sum \limits_{i = 1}^n k_i \left( t - s \right) =
+  k \left( t - s \right).$$
+Значит, процесс стационарный.
