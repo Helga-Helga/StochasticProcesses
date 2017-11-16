@@ -58,13 +58,14 @@ $$M \xi \left( t \right) =
 Распишем косинус суммы
 $$= MA \cdot M \left[
     \cos \left( \eta t \right) \cos \varphi - \sin \left( \eta t \right) \sin \varphi \right] =$$
-Все слагаемые и множители независимы
+Все множители независимы
 $$= MA \cdot M \cos \left( \eta t \right) \cdot M \cos \varphi -
   MA \cdot M \sin \left( \eta t \right) \cdot M \sin \varphi =$$
 Сгруппируем множители
 $$= M \left[ A \cos \left( \eta t \right) \right] \cdot M \cos \varphi -
   M \left[ A \sin \left( \eta t \right) \right] \cdot M \sin \varphi =$$
-Запишем математическое ожидание $ \varphi $ через интеграл от плотности равномерного распределения
+Запишем математическое ожидание $ \sin \varphi $
+через интеграл от плотности равномерного распределения
 $$= M \left[ A \cos \left( \eta t \right) \right]
   \int \limits_{ \mathbb{R}} \cos x \cdot p \left( x \right) dx -
   M \left[ A \sin \left( \eta t \right) \right]
@@ -167,4 +168,97 @@ $$K \left( t, s \right) =
   \cos \left[ \lambda \left( t - s \right) \right] = \\
   = k \left( t - s \right).
 \end{gather*}
+Значит, процесс стационарный.
+
+\subsubsection*{8.12}
+
+\textit{Задание.}
+Пусть $ \xi_1, \dotsc, \xi_n, \theta_1, \dotsc, \theta_n$ --- независимые случайные величины,
+причём $ \theta_1, \dotsc, \theta_n$ имеют равномерное распределение на $ \left[ 0, 2 \pi \right] $.
+Докажите, что процесс
+$$ \left\{
+    \xi \left( t \right) = \sum \limits_{k = 1}^n \xi_k \cos k \left( \theta_k + t \right)
+  \right\} $$
+является стационарным в широком смысле.
+
+\textit{Решение.}
+$$M \xi \left( t \right) =
+  M \sum \limits_{k = 1}^n \xi_k \cos k \left( \theta_k + t \right) =$$
+Распишем косинус суммы
+$$= \sum \limits_{k = 1}^n
+    M \xi_k \cdot
+    M \left[
+      \cos \left( k \theta_k \right) \cos \left( kt \right) -
+      \sin \left( k \theta_k \right) \sin \left( kt \right) \right] =$$
+Все множители независимы
+$$= \sum \limits_{k = 1}^n
+  M \xi_k \cdot
+  \left[
+    \cos \left( kt \right) \cdot M \cos \left( k \theta_k \right) -
+    \sin \left( kt \right) \cdot M \sin \left( k \theta_k \right) \right] =$$
+Запишем математическое ожидание $ \cos \left( k \theta_k \right) $ и
+$ \sin \left( k \theta_k \right) $ через интеграл от плотности равномерного распределения
+$$= \sum \limits_{k = 1}^n
+  M \xi_k \left[
+    \cos \left( kt \right) \int \limits_{ \mathbb{R}} \cos \left( kx \right) p \left( x \right) dx -
+    \sin \left( kt \right) \int \limits_{ \mathbb{R}} \sin \left( kx \right) p \left( x \right) dx
+  \right] =$$
+Подставим плотность
+$$= \sum \limits_{k = 1}^n
+  M \xi_k \left[
+    \cos \left( kt \right) \int \limits_0^{2 \pi } \cos \left( kx \right) dx -
+    \sin \left( kt \right) \int \limits_0^{2 \pi } \sin \left( kx \right) dx \right] =$$
+Замена
+$$kx = u, \,
+  du = kdx, \,
+  dx = \frac{du}{k}, \,
+  x = 0 \Rightarrow u = 0, \,
+  x = 2 \pi \Rightarrow u = 2k \pi.$$
+Используя данную замену, получим
+$$= \sum \limits_{k = 1}^n
+    \frac{M \xi_k}{k} \left[
+      \cos \left( kt \right) \int \limits_0^{2k \pi } \cos udu -
+      \sin \left( kt \right) \int \limits_0^{2k \pi } \sin udu \right] =$$
+Возьмём интегралы
+$$= \sum \limits_{k = 1}^n
+    \frac{M \xi_k}{k} \left[
+      \cos \left( kt \right) \left. \sin u \right|_0^{2k \pi } +
+      \sin \left( kt \right) \left. \cos u \right|_0^{2k \pi } \right] =$$
+Подставим пределы интегрирования
+$$= \sum \limits_{k = 1}^n
+    \frac{M \xi_k}{k}
+    \left\{
+      \cos \left( kt \right) \cdot \sin \left( 2k \pi \right) +
+      \sin \left( kt \right) \cdot \left[ \cos \left( 2k \pi \right) - 1 \right] \right\} =$$
+Синус в точках 0 и $2 \pi $ равен нулю, а косинус в нуле равен единице
+$$= \sum \limits_{k = 1}^n
+    \frac{M \xi_k}{k} \left[ 0 + \sin \left( kt \right) \left( 1 - 1 \right) \right] =
+  0.$$
+
+Ковариационная функция
+$$K \left( t, s \right) =
+  cov \left[ \xi \left( t \right), \xi \left( s \right) \right] =
+  cov \left[
+    \sum \limits_{k = 1}^n \xi_k \cos k \left( \theta_k + t \right),
+    \sum \limits_{j = 1}^n \xi_j \cos j \left( \theta_j + s \right) \right] =$$
+Вынесем суммы и константы из-под знака ковариации
+$$= \sum \limits_{k = 1}^n
+    \sum \limits_{j = 1}^n
+      \cos k \left( \theta_k + t \right) \cdot
+      \cos j \left( \theta_j + s \right) \cdot cov \left( \xi_k, \xi_j \right) =$$
+Случайные величины независимы, поэтому ковариация не равна нулю, только если индексы совпадают
+$$= \sum \limits_{k = 1}^n
+    \cos k \left( \theta_k + t \right) \cdot \cos k \left( \theta_k + s \right) \cdot
+    cov \left( \xi_k, \xi_k \right) =$$
+Распишем произведение косинусов через сумму
+\begin{gather*}
+  = \sum \limits_{k = 1}^n
+    M \xi_k^2 \cdot \frac{1}{2} \cdot
+    \left\{
+      \cos \left[ k \left( \theta_k + t - \theta_k - s \right) \right] +
+      \cos \left[ k \left( 2 \theta_k + t + s \right) \right] \right\} = \\
+  = \frac{1}{2} \sum \limits_{k = 1}^n M \xi_k^2 \cdot \cos \left[ k \left( t - s \right) \right] =
+  k \left( t - s \right).
+\end{gather*}
+
 Значит, процесс стационарный.
