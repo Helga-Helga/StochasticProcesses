@@ -330,6 +330,74 @@ $P \left\{ \left| \xi \left( t \right) - \xi \left( s \right) \right| > \varepsi
 когда $t \to s$ или $s \to t$.
 То есть вывод такой, что этот процесс стохастически непрерывен.
 
+\subsubsection*{6.14}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Докажите, что
+$$ \frac{W \left( t \right) }{t} \overset{P, \, n \to \infty }{ \to }
+  0.$$
+
+\textit{Решение.}
+$$ \frac{W \left( t \right) }{t} \overset{P, \, n \to \infty }{ \to }
+  0,$$
+если
+$$ \forall \varepsilon > 0 \,
+  P \left\{ \left| \frac{W \left( t \right) }{t} \right| > \varepsilon \right\} \to 0,$$
+когда $t \to \infty $.
+
+Найдём математическое ожидание такой величины
+$$M \frac{W \left( t \right) }{t} =
+  \frac{1}{t} \cdot MW \left( t \right) =
+  0.$$
+
+Посчитаем дисперсию
+$$D \frac{W \left( t \right) }{t} =
+  \frac{1}{t^2} \cdot DW \left( t \right) =
+  \frac{1}{t^2} \cdot t =
+  \frac{1}{t}.$$
+
+Используем неравенство Чебышева
+\begin{gather*}
+  P \left\{
+    \left| \frac{W \left( t \right) }{t} - M \frac{W \left( t \right) }{t} \right| \geq \varepsilon
+  \right\} =
+  P \left\{ \left| \frac{W \left( t \right) }{t} - 0 \right| \geq \varepsilon \right\} \leq
+  \frac{D \frac{W \left( t \right) }{t}}{ \varepsilon^2} =
+  \frac{ \frac{1}{t}}{ \varepsilon^2} =
+  \frac{1}{t \varepsilon^2} \to \\
+  \to 0, \,
+  t \to \infty.
+\end{gather*}
+
+\subsubsection*{6.15}
+
+\textit{Задание.}
+Докажите, что если случайный процесс $ \left\{ \xi \left( t \right), \, t \in \mathbb{R} \right\} $
+имеет непрерывную функцию математического ожидания $m \left( t \right) $ и непрерывную по $t, s$
+ковариационную функцию $K \left( t, s \right) $, то он является стохастически непрерывным.
+
+\textit{Решение.}
+Стохастическая непрерывность означает следующее
+$$P \left\{ \left| \xi \left( t \right) - \xi \left( s \right) \right| > \varepsilon \right\} \to
+  0,$$
+когда $t \to s$ или $s \to t$.
+
+Используем неравенство Чебышева
+$$P \left\{
+    \left|
+      \xi \left( t \right) - \xi \left( s \right) -
+      \left[ m \left( t \right) - m \left( s \right) \right] \right| \geq \varepsilon \right\} \leq
+  \frac{D \left[ \xi \left( t \right) - \xi \left( s \right) \right] }{ \varepsilon^2} =$$
+Дисперсия суммы нескольких случайных величин вычисляется по формуле
+$$D \left( \xi_1, \dotsc, \xi_n \right) =
+  \sum \limits_{i, j = 0}^n cov \left( \xi_i, \xi_j \right).$$
+Тогда
+$$= \frac{K \left( t, t \right) - K \left( t, s \right) - K \left( t, s \right) + K \left( s, s \right) }{ \varepsilon^2} \to
+  0$$
+при $t \to s$ или $s \to t$.
+То есть вывод такой, что этот процесс стохастически непрерывен.
+
 \subsubsection*{6.17}
 
 \textit{Задание.}
