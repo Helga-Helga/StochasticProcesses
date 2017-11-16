@@ -161,6 +161,67 @@ $ \left\{ \xi \left( t \right) = N \left( t + 1 \right) - N \left( t \right), \,
     \end{cases}$$
 \end{enumerate}
 
+\subsubsection*{8.4}
+
+\textit{Задание.}
+Пусть $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Надите сектральную функцию процесса
+$ \left\{
+  \xi \left( t \right) = W \left( t + 1 \right) - W \left( t \right), \, t \geq 0 \right\} $.
+
+\textit{Решение.}
+Если $ \left\{ \xi_n, \, n \in \mathbb{Z} \right\} $ ---
+это стационарная последовательность с $K \left( n, m \right) = k \left( n - m \right) $,
+тогда теорема Герглотца говорит,
+что функцию $k$ можно представить как преобразование Фурье какой-то меры, то есть
+$$k \left( n \right) =
+  \frac{1}{2 \pi } \int \limits_{-\pi }^{ \pi } e^{i \lambda n} \mu \left( d \lambda \right).$$
+
+Эта мера называется спектральной мерой.
+
+Это в слуае дискретного времени.
+Для непрерывного времени если
+$$ \left\{ \xi \left( t \right), \, t \in \mathbb{R} \right\} $$~---~это стационарный процесс,
+непрерывный в $L_2$, его ковариационная функция ---
+это $K \left( t, s \right) = k \left( t - s \right) $, в этом случае есть теорема Бохнера,
+которая говорит, что
+$$k \left( t \right) =
+  \frac{1}{2 \pi }
+  \int \limits_{-\infty }^{+\infty } e^{i \lambda t} \mu \left( d \lambda \right).$$
+
+Если у этой меры есть плотность, то она называется спектральной плотностью.
+
+$$K \left( t, s \right) =
+  \begin{cases}
+    1 - \left| t - s \right|, \, \left| t - s \right| \leq 1, \\
+    0, \qquad \left| t - s \right| \geq 1.
+  \end{cases}$$
+
+Это то же самое, что
+$$k \left( t \right) =
+  \begin{cases}
+    1 - \left| t \right|, \qquad \left| t \right| \leq 1, \\
+    0, \qquad \left| t \right| \geq 1.
+  \end{cases}$$
+
+Теперь нужно подобрать меру, для которой это --- преобразование Фурье.
+
+Сейчас спектральная плотность
+$$p \left( \lambda \right) =
+  \int \limits_{-\infty }^{+\infty } k \left( t \right) e^{-i \lambda t} dt =
+  \int \limits_{-1}^1 \left( 1 - \left| t \right| \right) e^{-i \lambda t} dt =$$
+Экспонента расписывается по формуле Эйлера как сумма косинуса и синуса,
+умноженного на мнимую единицу.
+Интеграл от синуса равен нулю, так как синус --- нечётная функция, $1 - \left| t \right| $ ---
+чётная функция, интегрирование происходит по симметричному отрезку
+$$= 2 \int \limits_0^1 \left( 1 - t \right) \cos \lambda t dt =$$
+Интегрируем по частям, при этом $1 - \left| t \right| = u$, а $ \cos \lambda t = v$.
+Тогда
+$$= 2 \left. \left( 1 + t \right) \cdot \frac{ \sin \lambda t}{ \lambda } \right|_0^1 +
+  \frac{2}{ \lambda } \int \limits_0^1 \sin \lambda t dt =$$
+Первое слагаемое равно нулю
+$$= \frac{2}{ \lambda^2} \left( 1 - \cos \lambda \right).$$
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
@@ -402,3 +463,51 @@ $$= \frac{1}{2 \pi \left( 1 - i \lambda \right) } + \frac{1}{2 \pi \left( 1 + i 
 Упрощаем числитель, а в знаменателе применяем формулу разности квадратов
 $$= \frac{1}{2 \pi } \cdot \frac{2}{1 - \left( i \lambda \right)^2} =
   \frac{1}{ \pi \left( 1 + \lambda^2 \right) }.$$
+
+\subsubsection*{8.14}
+
+\textit{Задание.}
+Пусть $ \xi \left( t \right) = \varepsilon_1 e^{it} + \varepsilon_2 e^{2it}$,
+где $ \varepsilon_1, \varepsilon_2$ --- независимые случайные величины,
+которые имеют стандартное нормальное распределение.
+Найдите ковариационную и спектральную функции этого процесса.
+
+\textit{Решение.}
+Если $ \left\{ \xi_n, \, n \in \mathbb{Z} \right\} $ ---
+стационарная последовательность с
+$$K \left( n, m \right) =
+  k \left( n - m \right),$$
+тогда теорема Герглотца говорит,
+что функцию $k$ можно представить как преобразование Фурье какой-то меры, то есть
+$$k \left( n \right) =
+  \frac{1}{2 \pi } \int \limits_{-\pi }^{ \pi } e^{i \lambda n} \mu \left( d \lambda \right).$$
+
+Эта мера называется спектральной мерой.
+
+Это в случае дискретного времени.
+Для непрерывного времени если
+$$ \left\{ \xi \left( t \right), \, t \in \mathbb{R} \right\} $$~---~
+это стационарный случайный процесс с $K \left( t, s \right) = k \left( t - s \right) $,
+непрерывный в $L_2$, в этом случае есть теорема Бохнера, которая говорит, что
+$$k \left( t \right) =
+  \frac{1}{2 \pi }
+  \int \limits_{-\infty }^{+\infty } e^{i \lambda t} \mu \left( d \lambda \right).$$
+
+Если у этой меры есть плотность, то она называется спектральной плотностью.
+
+$$K \left( t, s \right) =
+  cov \left[ \xi \left( t \right), \xi \left( s \right) \right] =
+  cov \left(
+    \varepsilon_1 e^{it} + \varepsilon_2 e^{2it}, \varepsilon_1 e^{is} + \varepsilon_2 e^{2is}
+  \right) =$$
+Раскроем ковариацию
+$$= cov \left( \varepsilon_1 e^{it}, \varepsilon_2 e^{is} \right) +
+  cov \left( \varepsilon_1 e^{it}, \varepsilon_2 e^{2is} \right) +
+  cov \left( \varepsilon_2 e^{2it}, \varepsilon_1 e^{is} \right) +
+  cov \left( \varepsilon_2 e^{2it}, \varepsilon_2 e^{2is} \right) =$$
+Вынесем константы и воспользуемся независимостью
+$$= e^{i \left( t + s \right) } M \varepsilon_1^2 + e^{2i \left( t + s \right) } M \varepsilon_2^2 =
+  e^{i \left( t + s \right) } + e^{2i \left( t + s \right) } =
+  k \left( t + s \right) \neq
+  k \left( t - s \right),$$
+следовательно, $ \xi \left( t \right) $ --- нестационарный процесс и не имеет спектральной функции.
