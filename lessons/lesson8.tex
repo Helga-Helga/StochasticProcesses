@@ -130,3 +130,41 @@ $$= \sum \limits_{i = 1}^n
 $$= \sum \limits_{i = 1}^n k_i \left( t - s \right) =
   k \left( t - s \right).$$
 Значит, процесс стационарный.
+
+\subsubsection*{8.11}
+
+\textit{Задание.}
+Пусть $ \xi_1, \xi_2$ --- независимые одинаково распределённые случайные величины,
+которые принимают значения $+1$ и $-1$ с вероятностью $1 / 2$.
+Докажите, что процесс
+$ \left\{
+  \xi \left( t \right) = \xi_1 \cos \lambda t + \xi_2 \sin \lambda t, \, t \in \mathbb{R} \right\} $
+является стационарным в широком смысле.
+
+\textit{Решение.}
+$$M \xi \left( t \right) =
+  M \left( \xi_1 \cos \lambda t + \xi_2 \sin \lambda t \right) =
+  M \left( \xi_1 \cos \lambda t \right) + M \left( \xi_2 \sin \lambda t \right) =$$
+Вынесем константы
+$$= \cos \lambda t \cdot M \xi_1 + \sin \lambda t \cdot M \xi_2 =
+  \cos \lambda t \cdot \left( 1 \cdot \frac{1}{2} - 1 \cdot \frac{1}{2} \right) +
+  \sin \lambda t \cdot \left( 1 \cdot \frac{1}{2} - 1 \cdot \frac{1}{2} \right) =
+  0.$$
+
+Ковариационная функция
+$$K \left( t, s \right) =
+  M \xi \left( t \right) \xi \left( s \right) =
+  M \left[
+    \left( \xi_1 \cos \lambda t + \xi_2 \sin \lambda t \right)
+    \left( \xi_1 \cos \lambda s + \xi_2 \sin \lambda s \right) \right] =$$
+Перемножим скобки
+\begin{gather*}
+  = \cos \lambda t \cdot \cos \lambda s \cdot M \xi_1^2 +
+  \cos \lambda t \cdot \sin \lambda s \cdot M \left( \xi_1 \xi_2 \right) +
+  \sin \lambda t \cdot \cos \lambda s \cdot M \left( \xi_2 \xi_1 \right) + \\
+  + \sin \lambda t \cdot \sin \lambda s \cdot M \xi_2^2 =
+  \cos \lambda t \cdot \cos \lambda s + \sin \lambda t \cdot \sin \lambda s =
+  \cos \left[ \lambda \left( t - s \right) \right] = \\
+  = k \left( t - s \right).
+\end{gather*}
+Значит, процесс стационарный.
