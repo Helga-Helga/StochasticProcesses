@@ -262,3 +262,73 @@ $$= \sum \limits_{k = 1}^n
 \end{gather*}
 
 Значит, процесс стационарный.
+
+\subsubsection*{8.13}
+
+\textit{Задание.}
+Пусть $ \xi \left( t \right) = e^t W \left( e^{-2t} \right), \, t \in \mathbb{R}$,
+где $ \left\{ W \left( t \right), \, t \geq 0 \right\} $ --- винеровский процесс.
+Докажите, что процесс $ \xi $ является стационарным в широком смысле.
+Найдите ковариационную и спектральную функции этого процесса.
+
+\textit{Решение.}
+Вычислим математическое ожидание и ковариационную функцию случайного процесса $ \xi $.
+Поскольку $W \left( t \right) $ --- винеровский процесс, то
+$M \xi \left( t \right) =
+  M \left[ e^t W \left( e^{-2t} \right) \right] =
+  e^t MW \left( e^{-2t} \right) =
+  0$.
+
+Обозначим $ \xi_1 = \xi \left( t_1 \right), \, \xi_2 = \xi \left( t_2 \right), \, t_1 < t_2$.
+Тогда
+$$K \left( t_1, t_2 \right) =
+  M \xi_1 \xi_2 =
+  M \left[ e^{t_1} W \left( e^{-2t_1} \right) e^{t_2} W \left( e^{-2t_2} \right) \right] =$$
+Вынесем экспоненты
+$$= e^{t_1 + t_2} M \left[ W \left( e^{-2t_1} \right) W \left( e^{-2t_2} \right) \right] =
+  e^{t_1 + t_2} \min \left( e^{-2t_1}, e^{-2t_2} \right) =
+  e^{t_1 + t_2} e^{-2t_2} =$$
+Запишем в виде одной экспоненты
+$$= e^{t_1 + t_2 - 2t_2} =
+  e^{t_1 - t_2}.$$
+
+Таким образом, $K \left( t_1, t_2 \right) = e^{-\left| t_1 - t_2 \right| }$
+и значит процесс является стационарным в широком смысле.
+
+Обозначим $k \left( u \right) = e^{-\left| u \right| }$.
+Поскольку
+$$ \int \limits_{-\infty }^{+\infty } \left| k \left( u \right) \right| du =
+  \int \limits_{-\infty }^{+\infty } \left| e^{-\left| u \right| } \right| du =
+  \int \limits_{-\infty }^{+\infty } e^{-\left| u \right| } du =
+  \int \limits_{-\infty }^0 e^u du + \int \limits_0^{+\infty } e^{-u} du =$$
+Возьмём интегралы
+$$= \left. e^u \right|_{-\infty }^0 - \left. e^{-u} \right|_0^{+\infty } =
+  1 - 1 =
+  0 <
+  + \infty,$$
+то спектральную плотность процесса $ \left\{ \xi \left( t \right), \, t \in \mathbb{R} \right\} $
+находим как обратное преобразование Фурье функции $k \left( u \right) $
+$$p \left( \lambda \right) =
+  \frac{1}{2 \pi } \int \limits_{-\infty }^{+\infty } e^{-iu \lambda } k \left( u \right) du =
+  \frac{1}{2 \pi } \int \limits_{-\infty }^{+\infty } e^{-iu \lambda } e^{-\left| u \right| } du =$$
+Разобьём интеграл на два
+$$= \frac{1}{2 \pi } \int \limits_{-\infty }^0 e^{-iu \lambda } e^u du +
+  \frac{1}{2 \pi } \int \limits_0^{+ \infty } e^{-iu \lambda } e^{-u} du =$$
+Запишем под одной экспонентой
+$$= \frac{1}{2 \pi } \int \limits_{-\infty }^0 e^{u \left( 1 - i \lambda \right) } du +
+  \frac{1}{2 \pi } \int \limits_0^{+\infty } e^{-u \left( 1 + i \lambda \right) } du =$$
+Возьмём интегралы
+$$= \left.
+    \frac{1}{2 \pi \left( 1 - i \lambda \right) } \cdot e^{u \left( 1 - i \lambda \right) }
+  \right|_{-\infty }^0 -
+  \left.
+    \frac{1}{2 \pi \left( 1 + i \lambda \right) } \cdot e^{-u \left( 1 + i \lambda \right) }
+  \right|_0^{+\infty } =$$
+Подставим пределы интегрирования
+$$= \frac{1}{2 \pi \left( 1 - i \lambda \right) } + \frac{1}{2 \pi \left( 1 + i \lambda \right) } =
+  \frac{1}{2 \pi } \left( \frac{1}{1 - i \lambda } + \frac{1}{1 + i \lambda } \right) =
+  \frac{1}{2 \pi } \cdot
+  \frac{1 + i \lambda + 1 - i \lambda }{ \left( 1 - i \lambda \right) \left( 1 + i \lambda \right) } =$$
+Упрощаем числитель, а в знаменателе применяем формулу разности квадратов
+$$= \frac{1}{2 \pi } \cdot \frac{2}{1 - \left( i \lambda \right)^2} =
+  \frac{1}{ \pi \left( 1 + \lambda^2 \right) }.$$
