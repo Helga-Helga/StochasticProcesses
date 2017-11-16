@@ -36,3 +36,56 @@ $$k \left( t \right) =
 
 $ \mu $ называеься спектральной мерой, а если есть плотность $p$, то $p$ ---
 это спектральная плотность.
+
+\addcontentsline{toc}{section}{Аудиторные задачи}
+\section*{Аудиторные задачи}
+
+\subsubsection*{8.2}
+
+\textit{Задание.}
+Пусть $A, \eta, \varphi $ --- независимые случайные величины,
+причём $ \varphi $ имеет равномерное распределение на отрезке $ \left[ 0, 2 \pi \right] $.
+Докажите, что процесс
+$ \left\{
+    \xi \left( t \right) = A \cos \left( t \eta + \varphi \right), \, t \in \mathbb{R}
+  \right\} $
+является стационарным в широком смысле.
+
+\textit{Решение.}
+$$M \xi \left( t \right) =
+  M \left[ A \cos \left( \eta t + \varphi \right) \right] =
+  MA \cdot M \cos \left( \eta t + \varphi \right) =$$
+Распишем косинус суммы
+$$= MA \cdot M \left[
+    \cos \left( \eta t \right) \cos \varphi - \sin \left( \eta t \right) \sin \varphi \right] =$$
+Все слагаемые и множители независимы
+$$= MA \cdot M \cos \left( \eta t \right) \cdot M \cos \varphi -
+  MA \cdot M \sin \left( \eta t \right) \cdot M \sin \varphi =$$
+Сгруппируем множители
+$$= M \left[ A \cos \left( \eta t \right) \right] \cdot M \cos \varphi -
+  M \left[ A \sin \left( \eta t \right) \right] \cdot M \sin \varphi =$$
+Запишем математическое ожидание $ \varphi $ через интеграл от плотности равномерного распределения
+$$= M \left[ A \cos \left( \eta t \right) \right]
+  \int \limits_{ \mathbb{R}} \cos x \cdot p \left( x \right) dx -
+  M \left[ A \sin \left( \eta t \right) \right]
+  \int \limits_{ \mathbb{R}} \sin x \cdot p \left( x \right) dx =$$
+Подставим плотность
+$$= M \left[ A \cos \left( \eta t \right) \right] \int \limits_0^{2 \pi } \cos xdx -
+  M \left[ A \sin \left( \eta t \right) \right] \int \limits_0^{2 \pi } \sin xdx =$$
+Возьмём интегралы
+$$= M \left[ A \cos \left( \eta t \right) \right] \cdot \left. \sin x \right|_0^{2 \pi } -
+  M \left[ A \sin \left( \eta t \right) \right] \cdot
+  \left. \left( - \cos x \right) \right|_0^{2 \pi } =
+  0.$$
+
+Ковариационная функция
+$$K \left( t, s \right) =
+  M \xi \left( t \right) \xi \left( s \right) =
+  M A^2 \cdot M \cos \left( \eta t + \varphi \right) \cdot \cos \left( \eta s + \varphi \right) =$$
+Распишем произведение косинусов
+$$= \frac{MA^2}{2} \cdot \left\{
+  M \cos \left[ \eta \left( t + s \right) + 2 \varphi \right] +
+  M \cos \left[ \eta \left( t - s \right) \right] \right\} =$$
+Первое слагаемое равно нулю
+$$= \frac{MA^2}{2} \cdot M \cos \left[ \eta \left( t - s \right) \right].$$
+Значит, процесс стационарный.
