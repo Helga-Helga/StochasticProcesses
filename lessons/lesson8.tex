@@ -649,3 +649,43 @@ $$= e^{i \left( t + s \right) } M \varepsilon_1^2 + e^{2i \left( t + s \right) }
   $$= \frac{1}{a} \cdot
     \mathbbm{1}_{ \left[ -\frac{a}{2}, \frac{a}{2} \right] } \left( \lambda \right).$$
 \end{enumerate}
+
+\subsubsection*{8.16}
+
+\textit{Задание.}
+Пусть ковариационная функция стационарного в широком смысле процесса $ \xi $ равна
+$$K_{ \xi } \left( t \right) =
+  \frac{1}{1 - \alpha e^{it}}.$$
+Найдите спектральную функцию $F_{ \xi }$ при $0 < \alpha < 1$.
+
+\textit{Решение.}
+Ковариационная функция
+$$K_{ \xi } \left( t \right) =
+  \frac{1}{1 - \alpha e^{it}} =
+  \frac{1 - \alpha }{1 - \alpha } \cdot \frac{1}{1 - \alpha e^{it}}$$
+--- это характеристическая функция гауссовского процесса,
+поделенная на $ \left( 1 - \alpha \right) $.
+
+Нет смысла искать плотность, потому что у геометрического распределения плотности нет.
+$K_{ \xi } \left( t \right) = Me^{it \xi }$, где $ \xi \sim Geom \left( \alpha \right) $.
+Это значит, что
+$$K_{ \xi } \left( t \right) =
+  \frac{1}{1 - \alpha }
+  \sum \limits_{n = 0}^{+ \infty }
+    e^{itn} \left( 1 - \alpha \right) \alpha^n \left( e^{it} \right)^n =
+  \frac{1}{2 \pi } \cdot \frac{1}{1 - \alpha }
+  \int \limits_{-\infty }^{+\infty } e^{it \lambda } \mu \left( d \lambda \right).$$
+
+Вспомним, что
+$$ \int \limits_{-\infty }^{+\infty } f \left( x \right) \delta_c \left( dx \right) =
+  f \left( c \right),$$
+где $c$ --- какая-то точка.
+
+Если мера определена в точке $n$, то получится сумма.
+Сейчас спектральная мера равна
+$$ \mu =
+  \sum \limits_{n = 0}^{+\infty }
+    2 \pi \left( 1 - \alpha \right) \alpha^n \left( e^{it} \right)^n \cdot \delta_n \cdot
+    \frac{1}{1 - \alpha } =
+  2 \pi \sum \limits_{n = 0}^{+\infty } \alpha^n \left( e^{it} \right)^n \delta_n,$$
+где $ \delta_n$ --- $ \delta $-мера в точке $n$.

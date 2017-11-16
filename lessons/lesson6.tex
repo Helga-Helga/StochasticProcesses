@@ -280,6 +280,56 @@ $$MX \left( t \right) = 0, \,
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
+\subsubsection*{6.13}
+
+\textit{Задание.}
+На отрезке $ \left[ 0, 1 \right] $ независимым образом наугад выбраны две точки.
+Пусть $ \xi \left( t \right) $ --- количество точек,
+которые попали в интервал
+$$ \left[ 0, t \right], \,
+  t \in \left[ 0, 1 \right].$$
+Найдите одномерные распределения процесса
+$ \left\{ \xi \left( t \right), \, t \in \left[ 0, 1 \right] \right\} $.
+Выясните, является ли этот процесс стохастически непрерывным.
+
+\textit{Решение.}
+Начнём с того, что найдём одномерные распределения.
+
+$ \xi $ --- дискретная величина
+$P \left\{ \xi \left( t \right) = k \right\} = C_2^k t^k \left( 1 - t \right)^{2 - k}, \,
+  k \in \left\{ 0, 1, 2 \right\} $.
+
+При $k = 0$ получаем
+$P \left\{ \xi \left( t \right) = 0 \right\} =
+  C_2^0 t^0 \left( 1 - t \right)^{2 - 0} =
+  \left( 1 - t \right)^2$.
+
+При $k = 1$ получаем
+$P \left\{ \xi \left( t \right) = 1 \right\} =
+  C_2^1 t^1 \left( 1 - t \right)^{2 - 1} =
+  2t \left( 1 - t \right) $.
+
+При $k = 2$ получаем
+$P \left\{ \xi \left( t \right) = 2 \right\} =
+  C_2^2 t^2 \left( 1 - t \right)^{2 - 2} =
+  t^2$.
+
+Будет ли этот процесс стохастически непрерывным?
+Стохастическая непрерывность означает следующее
+$P \left\{ \left| \xi \left( t \right) - \xi \left( s \right) \right| > \varepsilon \right\} \to
+  0$,
+когда $t \to s$ или $s \to t$.
+Тогда
+$P \left\{ \left| \xi \left( t \right) - \xi \left( s \right) \right| > \varepsilon \right\} =
+  P$(в интервал $ \left[ s, t \right] $ попала хотя бы одна точка) $=
+  P$(в интервал $ \left[ s, t \right] $ попала одна точка) $+
+  P$(в интервал $ \left[ s, t \right] $ попало две точки) $=
+  2 \left[ 1 - \left( t - s \right) \right] \left( t - s \right) + \left( t - s \right)^2 =
+  2 \left( t - s \right) - \left( t - s \right)^2 \to
+  0$,
+когда $t \to s$ или $s \to t$.
+То есть вывод такой, что этот процесс стохастически непрерывен.
+
 \subsubsection*{6.17}
 
 \textit{Задание.}
