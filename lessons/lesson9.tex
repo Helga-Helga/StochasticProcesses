@@ -51,3 +51,122 @@ $ \xi \left( t \right), \, t \in T$ называется стационарны�
   \frac{ \left| Q \left( i \lambda \right) \right|^2}{ \left| P \left( i \lambda \right) \right|^2} \cdot
   \mu_{ \eta } \left( d \lambda \right).
 \end{equation*}
+
+\addcontentsline{toc}{section}{Аудиторные задачи}
+\section*{Аудиторные задачи}
+
+\subsubsection*{9.2}
+
+\textit{Задание.}
+Пусть $ \left\{ \xi \left( t \right), \, t \in \mathbb{R} \right\} $~---~стационарный
+в широком смысле процесс.
+Положим
+\begin{equation*}
+  \eta \left( t \right) =
+  \sum \limits_{k = 1}^n c_k \xi \left( t + \delta_k \right), \,
+  t \in \mathbb{R},
+\end{equation*}
+где $c_1, \dotsc, c_n, \delta_1, \dotsc, \delta_n$~---~некоторые постоянные.
+Докажите, что процесс $ \left\{ \eta \left( t \right), \, t \in \mathbb{R} \right\} $
+являвтся стационарным в широком смысле.
+Выразите ковариационную и спектральную функции процесса $ \eta $
+через ковариационную и спектральную функцию процесса $ \xi $.
+
+\textit{Решение.}
+Если $ \xi $~---~стационарный, это значит, что $M \xi \left( t \right) = m_{ \xi } = const$ и
+$cov \left[ \xi \left( t \right), \xi \left( s \right) \right] =
+  k_{ \xi } \left( t - s \right) $.
+
+Проверим, что $ \eta $~---~стационарный
+\begin{equation*}
+  M \eta \left( t \right) =
+  M \sum \limits_{k = 1}^n c_k \xi \left( t + \delta_k \right) =
+\end{equation*}
+Выносим сумму и коэффициенты
+\begin{equation*}
+  = \sum \limits_{k = 1}^n c_k M \xi \left( t + \delta_k \right) =
+  m_{ \xi } \sum \limits_{k = 1}^n c_k.
+\end{equation*}
+Значит, математическое ожидание $ \eta $ будет тоже постоянным.
+
+Теперь найдём ковариационную функцию для $ \eta $.
+Вынесем две суммы и коэффициенты
+\begin{equation*}
+  cov \left[ \eta \left( t \right), \eta \left( s \right) \right] =
+  \sum \limits_{k = 1}^n
+    \sum \limits_{i = 1}^n
+      c_k c_i cov \left[ \xi \left( t + \delta_k \right), \xi \left( s + \delta_i \right) \right] =
+\end{equation*}
+Такая ковариация~---~это $k_{ \xi }$ от разности аргументов
+\begin{equation*}
+  = \sum \limits_{k = 1}^n
+    \sum \limits_{i = 1}^n c_k c_i k_{ \xi } \left( t + \delta_k - s - \delta_i \right)=
+  \sum \limits_{k = 1}^n
+    \sum \limits_{i = 1}^n c_k c_i k_{ \xi } \left( t - s + \delta_k - \delta_i \right).
+\end{equation*}
+
+Ответ зависит только от разности $t$ и $s$, значит, это стационарный процесс
+\begin{equation*}
+  k_{ \xi } \left( t \right) =
+  \int \limits_{ \mathbb{R}} e^{i \lambda t} F_{ \xi } \left( d \lambda \right),
+\end{equation*}
+где $F_{ \xi } \left( d \lambda \right) $~---~спектральная функция для $ \xi $.
+
+Для процесса $ \eta $ нужно найти представление
+\begin{equation*}
+  k_{ \eta } \left( t \right) =
+  \int \limits_{ \mathbb{R}} e^{i \lambda t} F_{ \eta } \left( d \lambda \right),
+\end{equation*}
+где $F_{ \eta } \left( d \lambda \right) $~---~искомая функция.
+
+Выпишем
+\begin{equation*}
+  k_{ \eta } \left( t \right) =
+  \sum \limits_{k, j} c_k c_j k_{ \xi } \left( t + \delta_k - \delta_j \right).
+\end{equation*}
+
+Для $k_{ \xi }$ есть интегральное выражение, подставим его и попытаемся вынести интеграл за сумму
+\begin{equation*}
+  k_{ \eta } \left( t \right) =
+  \sum \limits_{k, j = 1}^n
+    c_k c_j \int \limits_{ \mathbb{R}}
+      e^{i \lambda \left( t + \delta_k - \delta_j \right) } F_{ \xi } \left( d \lambda \right) =
+\end{equation*}
+Приведём интеграл к нужному виду.
+Нужно интеграл вынести за сумму, и чтобы в интеграле получилась экспонента без всяких $ \delta $.
+Получим
+\begin{equation*}
+  = \int \limits_{ \mathbb{R}}
+      \sum \limits_{k, j = 1}^n
+        c_k c_j e^{i \lambda t} e^{i \lambda \left( \delta_k - \delta_j \right) }
+    F_{ \xi } \left( d \lambda \right) =
+  \int \limits_{ \mathbb{R}} e^{i \lambda t} F_{ \eta } \left( d \lambda \right).
+\end{equation*}
+
+Получилось, что $F_{ \eta } \left( d \lambda \right) $~---~спектральная функция для $ \eta $, равная
+\begin{equation*}
+  F_{ \eta } \left( d \lambda \right) =
+  \sum \limits_{k, j = 1}^n
+    c_k c_j e^{i \lambda \left( \delta_k - \delta_j \right) } F_{ \xi } \left( d \lambda \right).
+\end{equation*}
+
+Плотность должна всегда быть неотрицательной.
+
+Как понять, что такая двойная сумма неотрицательна?
+
+Экспоненту запишем как произведение
+\begin{equation*}
+  \sum \limits_{k, j = 1}^n c_k c_j e^{i \lambda \left( \delta_k - \delta_j \right) } =
+  \sum \limits_{k = 1}^n
+    \sum \limits_{j = 1}^n c_k e^{i \lambda \delta_k} c_j e^{-i \lambda \delta_j} =
+\end{equation*}
+Запишем через произведение двух сумм
+\begin{equation*}
+  = \left( \sum \limits_{k = 1}^n c_k e^{i \lambda \delta_k} \right) \cdot
+  \left( \sum \limits_{k = 1}^n c_k e^{-i \lambda \delta_k} \right) =
+\end{equation*}
+Это комплексно сопряжённые числа
+\begin{equation*}
+  = \left| \sum \limits_{k = 1}^n c_k e^{i \lambda \delta_k} \right|^2.
+\end{equation*}
+Получили неотрицательную величину, которая может быть плотностью.
