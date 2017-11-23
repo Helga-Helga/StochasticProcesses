@@ -1,0 +1,53 @@
+\addcontentsline{toc}{chapter}{Занятие 9. Линейные преобразования случайных процессов.}
+\chapter*{Занятие 9. Линейные преобразования случайных процессов.}
+
+\addcontentsline{toc}{section}{Контрольные вопросы и задания}
+\section*{Контрольные вопросы и задания}
+
+\subsubsection*{Приведите определение стационарного в широком смысле процесса.}
+
+$ \xi \left( t \right), \, t \in T$ называется стационарным в широком смысле, если
+\begin{enumerate}
+  \item $m \left( t  \right) \equiv m$ (const);
+  \item $K \left( t, s \right) = k \left( t + r, s + r \right), \qquad \forall t, s, r \in T$.
+  Это означает, что ковариационная функция~---~это сейчас функция разности аргументов,
+  то есть $K \left( t, s \right) = k \left( t - s \right) $.
+\end{enumerate}
+
+\subsubsection*{Сформулируйте теорему Бохнера про спектральное изображение ковариационной функции
+                стационарного в широком смысле случайного процесса.}
+
+Пусть $ \xi \left( t \right), \, t \in \mathbb{R}$~---~это
+стационарный и непрерывный в среднем квадратическом случайный процесс.
+Тогда существует конечная мера $ \mu $ на $ \mathbb{R}$ такая, что
+\begin{equation*}
+  k \left( t \right) =
+  \int \limits_{-\infty }^{+\infty } e^{it \lambda } \mu \left( d \lambda \right),
+\end{equation*}
+мера $ \mu $ определяется единственным образом.
+
+\subsubsection*{Запишите, как изменяются ковариационная функция и спектральная функция стационарного
+                в широком смысле случайного процесса при применении к нему линейного
+                дифференциального оператора, интегрального оператора.}
+
+\begin{equation*}
+  P \left( \frac{d}{dt} \right) \xi \left( t \right) =
+  Q \left( \frac{d}{dt} \right) \eta \left( t \right),
+\end{equation*}
+где $ \xi $ и $ \eta $ --- гладкие в среднем квадратическом стационарные процессы.
+
+Спектральная мера для
+\begin{equation*}
+  P \left( \frac{d}{dt} \right) \xi
+\end{equation*}
+имеет вид
+\begin{equation*}
+  \rho \left( d \lambda \right) =
+  \left| P \left( i \lambda \right) \right|^2 \mu \left( d \lambda \right).
+\end{equation*}
+Следовательно,
+\begin{equation*}
+  \mu_{ \xi } \left( d \lambda \right) =
+  \frac{ \left| Q \left( i \lambda \right) \right|^2}{ \left| P \left( i \lambda \right) \right|^2} \cdot
+  \mu_{ \eta } \left( d \lambda \right).
+\end{equation*}
