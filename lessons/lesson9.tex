@@ -170,3 +170,151 @@ $cov \left[ \xi \left( t \right), \xi \left( s \right) \right] =
   = \left| \sum \limits_{k = 1}^n c_k e^{i \lambda \delta_k} \right|^2.
 \end{equation*}
 Получили неотрицательную величину, которая может быть плотностью.
+
+\addcontentsline{toc}{section}{Домашнее задание}
+\section*{Домашнее задание}
+
+\subsubsection*{6.10}
+
+\textit{Задание.}
+Пусть $ \left\{ \xi \left( t \right), \, t \in T \right\} $~---~действительнозначный
+стационарный в широком смысле процесс с математическим ожиданием $m$ и спектральной плотностью
+$f \left( \lambda \right) $.
+Положим
+$ \eta \left( t \right) = \xi \left( t \right) \cos \left( \Lambda t + \varphi \right), \,
+  t \in T$,
+где
+\begin{equation*}
+  \Lambda =
+  const,
+\end{equation*}
+а $\varphi$~---~независимая от $ \xi $ случайна величина,
+равномерно распределённая на $ \left[ 0, 2 \pi \right) $.
+Докажите, что случайный процесс $ \left\{ \eta \left( t \right), \, t \in T \right\} $
+является стационарным в широком смысле и найдите его спектральную функцию.
+
+\textit{Решение.}
+Если $ \xi $~---~стационарный, это значит,
+что $M \xi \left( t \right) = m_{ \xi } = const$ и
+$cov \left[ \xi \left( t \right), \xi \left( s \right) \right] =
+  k_{ \xi } \left( t - s \right) $.
+
+Проверим, что $ \eta $~---~стационарный
+\begin{equation*}
+  M \eta \left( t \right) =
+  M \left[ \xi \left( t \right) \cos \left( \Lambda t + \varphi \right) \right] =
+  M \xi \left( t \right) \cdot M \cos \left( \Lambda t + \varphi \right) =
+\end{equation*}
+Запишем математическое ожидание $ \varphi $ через интеграл от плотности
+\begin{equation*}
+  = m_{ \xi } \cdot \int \limits_0^{2 \pi } \cos \left( \Lambda t + x \right) dx =
+\end{equation*}
+Сделаем замену
+\begin{equation*}
+  \Lambda t + x = u \Rightarrow du = dx, \,
+  x = 0 \Rightarrow u = \Lambda t, \,
+  x = 2 \pi \Rightarrow u = \Lambda t + 2 \pi.
+\end{equation*}
+Подставив замену в интеграл, получим
+\begin{equation*}
+  = m_{ \xi } \cdot \int \limits_{ \Lambda t}^{ \Lambda t + 2 \pi } \cos u du =
+  m_{ \xi } \cdot \left. \sin u \right|_{ \Lambda t}^{ \Lambda t + 2 \pi } =
+  m_{ \xi } \left[ \sin \left( \Lambda t + 2 \pi \right) - \sin \left( \Lambda t \right) \right] =
+\end{equation*}
+Запишем разность синусов через произведение синуса на косинус
+\begin{equation*}
+  = m_{ \xi } \cdot 2 \sin \frac{ \Lambda t + 2 \pi - \Lambda t}{2} \cdot
+  \cos \frac{ \Lambda t + 2 \pi + \Lambda t}{2} =
+  2m_{ \xi } \cdot \sin \pi \cos \left( \Lambda t + \pi \right) =
+  0.
+\end{equation*}
+
+Значит, математическое ожидание $ \eta $ будет тоже постоянным.
+
+Теперь найдём ковариационную функцию для $ \eta $.
+Получим
+\begin{equation*}
+  cov \left[ \eta \left( t \right), \eta \left( s \right) \right] =
+  M \left[ \eta \left( t \right) \eta \left( s \right) \right] -
+  M \eta \left( t \right) \cdot M \eta \left( s \right) =
+\end{equation*}
+Подставим выражение для случайного процесса
+\begin{equation*}
+  = M \left[
+    \xi \left( t \right) \cos \left( \Lambda t + \varphi \right)
+    \xi \left( s \right) \cos \left( \lambda s + \varphi \right) \right] =
+\end{equation*}
+Распишем произведение косинусов через их сумму
+\begin{equation*}
+  = M \left[
+    \xi \left( t \right) \xi \left( s \right) \cdot \frac{1}{2} \cdot
+    \cos \left( \Lambda t + \varphi - \Lambda s - \varphi \right) +
+    \cos \left( \Lambda t + \varphi + \Lambda s + \varphi \right) \right] =
+\end{equation*}
+Упростим аргументы косинусов
+\begin{equation*}
+  = M \left\{
+    \xi \left( t \right) \xi \left( s \right) \cdot
+    \frac{ \cos \left[ \Lambda \left( t - s \right) \right] + \cos \left[ \Lambda \left( t + s \right) + 2 \varphi \right] }{2} \right\} =
+\end{equation*}
+Разобьём на 2 математических ожидания
+\begin{gather*}
+  = M \left\{
+    \xi \left( t \right) \xi \left( s \right) \cdot
+    \frac{ \cos \left[ \Lambda \left( t - s \right) \right] }{2} \right\} +
+  M \left\{
+    \xi \left( t \right) \xi \left( s \right)
+    \cos \left[ \Lambda \left( t + s \right) + 2 \varphi \right] \right\} = \\
+  = M \left[ \xi \left( t \right) \xi \left( s \right) \right] \cdot
+  \frac{ \cos \left[ \Lambda \left( t - s \right) \right] }{2} = \\
+  = \left\{
+    cov \left[ \xi \left( t \right), \xi \left( s \right) \right] -
+    M \xi \left( t \right) M \xi \left( s \right)
+  \right\} \cdot \frac{ \cos \left[ \Lambda \left( t - s \right) \right] }{2} = \\
+  = \frac{k_{ \xi } \left( t - s \right) - m_{ \xi }^2}{2} \cdot
+  \cos \left[ \Lambda \left( t - s \right) \right].
+\end{gather*}
+
+Ответ зависит только от разности $t$ и $s$, значит, это стационарный процесс
+\begin{equation*}
+  k_{ \xi } \left( t \right) =
+  \int \limits_{ \mathbb{R}} e^{i \lambda t} dF_{ \xi } \left( d \lambda \right) =
+  \int \limits_{ \mathbb{R}} e^{i \lambda t} f \left( \lambda \right) d \lambda,
+\end{equation*}
+где $F_{ \xi } \left( d \lambda \right) $~---~спектральная функция для $ \xi $.
+
+Для процесса $ \eta $ нужно найти представление
+\begin{equation*}
+  k_{ \eta } \left( t \right) =
+  \int \limits_{ \mathbb{R}} e^{i \lambda t} F_{ \eta } \left( d \lambda \right),
+\end{equation*}
+где $F_{ \eta } \left( d \lambda \right) $~---~искомая функция.
+
+Выпишем
+\begin{equation*}
+  k_{ \eta } \left( t \right) =
+  \frac{k_{ \xi } \left( t \right) - m_{ \xi }^2}{2} \cdot \cos \left( \Lambda t \right).
+\end{equation*}
+Для $k_{ \xi }$ есть интегральное выражение, подставим его
+\begin{equation*}
+  k_{ \eta } \left( t \right) =
+  \left[
+    \frac{1}{2} \int \limits_{ \mathbb{R}} e^{i \lambda t} f \left( \lambda \right) d \lambda -
+    \frac{m_{ \xi }^2}{2} \right] \cdot \cos \left( \Lambda t \right) =
+\end{equation*}
+Можем внести косинус и константы под знак интеграла, потому что они не зависят от аргумента,
+по которому идёт интегрирование,
+\begin{equation*}
+  = \int \limits_{ \mathbb{R}}
+    e^{i \lambda t} \cdot
+    \left[ \frac{1}{2} \cdot f \left( \lambda \right) - \frac{m_{ \xi }^2}{2} \right] \cdot
+    \cos \left( \Lambda t \right) d \lambda =
+  \int \limits_{ \mathbb{R}} e^{i \lambda t} F_{ \eta } \left( d \lambda \right).
+\end{equation*}
+
+Получили, что $F_{ \eta } \left( d \lambda \right) $~---~спектральная функция для $ \eta $, равная
+\begin{equation*}
+  F_{ \eta } \left( d \lambda \right) =
+  \left[ \frac{1}{2} \cdot f \left( \lambda \right) - \frac{m_{ \xi }^2}{2} \right] \cdot
+  \cos \left( \Lambda t \right).
+\end{equation*}
