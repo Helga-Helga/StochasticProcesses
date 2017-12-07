@@ -171,10 +171,98 @@ $cov \left[ \xi \left( t \right), \xi \left( s \right) \right] =
 \end{equation*}
 Получили неотрицательную величину, которая может быть плотностью.
 
+\subsubsection*{9.3}
+
+\textit{Задание.}
+Пусть $ \left\{ \xi \left( t \right), \, t \in \mathbb{R} \right\} $~---~стационарный в широком
+смысле процесс, непрерывный в среднем квадратическом;
+$f$~---~непрерывная функция с компактным носителем.
+Положим
+\begin{equation*}
+  \eta \left( t \right) =
+  \int \limits_{-\infty }^{ \infty } f \left( t - s \right) \xi \left( s \right) ds.
+\end{equation*}
+Выразите спектральную функцию $F_{ \eta }$ через спектральную функцию $F_{ \xi }$.
+
+\textit{Решение.}
+Проверим, что $ \eta $~---~тоже стационарный.
+Начнём с математического ожидания
+\begin{equation*}
+  M \eta \left( t \right) =
+  M \int \limits_{-\infty }^{+\infty } f \left( t - s \right) \xi \left( s \right) ds =
+\end{equation*}
+Математическое ожидание и интеграл можно поменять местами
+\begin{equation*}
+  = \int \limits_{-\infty }^{+\infty } f \left( t - s \right) M \xi \left( s \right) ds =
+  \int \limits_{-\infty }^{+\infty } f \left( t - s \right) \cdot const \cdot ds =
+  \int \limits_{-\infty }^{+\infty } f \left( t - s \right) \cdot m_{ \xi } ds =
+\end{equation*}
+Сделаем замену переменных: $t - s = x$~---~новая переменная
+\begin{equation*}
+  = m_{ \xi } \int \limits_{-\infty }^{+\infty } f \left( x \right) dx
+\end{equation*}
+не зависит от $t$.
+
+Значит, математическое ожидание постоянное.
+Теперь ковариационная функци
+\begin{equation*}
+  cov \left[ \eta \left( t \right), \eta \left( s \right) \right] =
+  cov \left[
+    \int \limits_{-\infty }^{+\infty } f \left( t - u \right) \xi \left( u \right) du,
+    \int \limits_{-\infty }^{+\infty } f \left( s - v \right) \xi \left( v \right) dv \right] =
+\end{equation*}
+Интегралы выносим, $f$ выносим,
+остаётся под интегралами $cov \left[ \xi \left( u \right), \xi \left( v \right) \right] $, то есть
+\begin{equation*}
+  \int \limits_{-\infty }^{+\infty }
+    \int \limits_{-\infty }^{+\infty }
+      f \left( t - u \right) f \left( s - v \right) \cdot k_{ \xi } \left( u - v \right) dudv =
+\end{equation*}
+Сделаем две замены: $t - u = x, \, s - v = y$.
+Получим
+\begin{equation*}
+  = \int \limits_{-\infty }^{+\infty }
+    f \left( x \right) f \left( y \right) \cdot k_{ \xi } \left( t - x + y - s \right) dxdy.
+\end{equation*}
+
+Интеграл зависит от разности $t - s$.
+Спектральную функцию для $ \eta $ выразим через спектральную функцию для $ \xi $.
+Нашли, что
+\begin{gather*}
+  k_{ \eta } \left( t \right) =
+  \iint \limits_{ \mathbb{R}^2}
+    f \left( x \right) f \left( y \right) k_{ \xi } \left( t - x + y \right) dxdy = \\
+  = \iint \limits_{ \mathbb{R}^2}
+    f \left( x \right) f \left( y \right)
+    \int \limits_{ \mathbb{R}}
+      e^{i \lambda \left( t - x + y \right) } F_{ \xi } \left( d \lambda \right) dxdy = \\
+  = \int \limits_{ \mathbb{R}}
+    e^{i \lambda t} \iint \limits_{ \mathbb{R}^2}
+      f \left( x \right) f \left( y \right) e^{i \lambda \left( y - x \right) }
+    dxdy F_{ \xi } \left( d \lambda \right).
+\end{gather*}
+Двойной интеграл~---~спектральная функция для $ \eta $.
+
+Ответ получился следующий.
+Спектральная функция для $ \eta $ равна
+\begin{equation*}
+  k_{ \eta } \left( \lambda \right) =
+  \left|
+    \int \limits_{-\infty }^{+\infty }
+      f \left( s \right) e^{i \lambda s} ds \right|^2 F_{ \xi } \left( d \lambda \right).
+\end{equation*}
+
+При этом процесс $ \eta $ задавался как
+\begin{equation*}
+  \eta \left( t \right) =
+  \int \limits_{-\infty }^{+\infty } f \left( t - s \right) \xi \left( s \right) ds =
+  \int \limits_{-\infty }^{+\infty } f \left( s \right) \xi \left( t + s \right) ds.
+\end{equation*}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
-\subsubsection*{6.10}
+\subsubsection*{9.10}
 
 \textit{Задание.}
 Пусть $ \left\{ \xi \left( t \right), \, t \in T \right\} $~---~действительнозначный
