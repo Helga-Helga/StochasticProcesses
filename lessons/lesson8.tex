@@ -299,6 +299,34 @@ $$K \left( t, s \right) =
   где $ \delta_n$ --- $ \delta $-мера в точке $n$.
 \end{enumerate}
 
+\subsubsection*{8.7}
+
+\textit{Задание.}
+Пусть $ \left\{ \xi \left( t \right), \, t \in T \right\} $
+является стационарным в широком смысле гауссовским процессом с нулевым математическим ожиданием и
+ковариационной функцией $k \left( t \right) $ такой, что $k \left( 0 \right)> 0$.
+Докажите, что для произвольных $t \in T$ и $h \geq 0$
+\begin{equation*}
+  M \left( \xi \left( t + h \right) \; \middle| \; \xi \left( t \right) \right) =
+  \frac{k \left( h \right) }{k \left( 0 \right) } \cdot \xi \left( t \right).
+\end{equation*}
+
+\textit{Решение.}
+Теорема о нормальной корреляции
+\begin{equation*}
+  M \left[ \xi \left( t + h \right) \; \middle| \; \xi \left( t \right) \right] =
+  M \xi \left( t + h \right) +
+  \frac{cov \left[ \xi \left( t + h \right), \xi \left( t \right) \right] }{D \xi \left( t \right) }
+  \cdot \left[ \xi \left( t \right) - M \xi \left( t \right) \right] =
+\end{equation*}
+По условию первое слагаемое и второе слагаемое в последних скобках равны нулю.
+Процесс стационарный, то есть ковариация зависит только от разности
+\begin{equation*}
+  = \frac{k \left( h \right) }{k \left( 0 \right) } \cdot \xi \left( t \right).
+\end{equation*}
+
+Для стационарных процессов $D \xi \left( t \right) = K \left( t, t \right) = k \left( 0 \right) $.
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
