@@ -334,6 +334,65 @@ $K \left( t, s \right) = e^{ts}$.
   \end{gather*}
 \end{enumerate}
 
+\subsubsection*{7.7}
+
+\textit{Задание.}
+Докажите, что существуют пределы в среднем квадратическом
+\begin{enumerate}[label=\alph*)]
+  \item $$ \lim \limits_{n \to \infty }
+    \sum \limits_{k = 0}^{n - 1}
+      W \left( \frac{k}{n} \right)
+      \left[ W \left( \frac{k + 1}{n} \right) - W \left( \frac{k}{n} \right) \right];$$
+  \item $$ \lim \limits_{n \to \infty }
+    \sum \limits_{k = 0}^{n - 1}
+      W \left( \frac{k + 1}{n} \right)
+      \left[ W \left( \frac{k + 1}{n} \right) - W \left( \frac{k}{n} \right) \right] $$
+\end{enumerate}
+и найдите их.
+
+\textit{Решение.}
+Обозначим первый предел через $A_n$ и второй --- через $B_n$.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/7_7.png}
+  \caption{}
+  \label{fig:77}
+\end{figure}
+
+Отрезок разбивается на $n$ одинаковых частей (рис. \ref{fig:77}).
+
+Это похоже на интегральные функции, то есть берётся значение и умножается на приращение.
+
+Если бы винеровский процесс был дифференцируем, то это было бы равно
+\begin{equation*}
+  \int \limits_0^1 W \left( t \right) dW \left( t \right) =
+  \frac{W^2 \left( 1 \right) }{2}.
+\end{equation*}
+
+Возьмём разность двух пределов
+\begin{equation*}
+  B_n - A_n =
+  \sum \limits_{k = 0}^{n - 1}
+    \left[ W \left( \frac{k + 1}{n} \right) - W \left( \frac{k}{n} \right) \right] \to
+  1.
+\end{equation*}
+Получили длину отрезка.
+
+Возьмём сумму двух пределов
+\begin{equation*}
+  B_n + A_n =
+  \sum \limits_{k = 0}^{n - 1}
+    \left[ W^2 \left( \frac{k + 1}{n} \right) - W^2 \left( \frac{k}{b} \right) \right] =
+  W^2 \left( 1 \right).
+\end{equation*}
+
+То есть
+\begin{equation*}
+  A_n \to \frac{1}{2} \cdot W^2 \left( 1 \right) - \frac{1}{2}, \,
+  B_n \to \frac{1}{2} \cdot W^2 \left( 1 \right) + \frac{1}{2}.
+\end{equation*}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
