@@ -393,6 +393,81 @@ $K \left( t, s \right) = e^{ts}$.
   B_n \to \frac{1}{2} \cdot W^2 \left( 1 \right) + \frac{1}{2}.
 \end{equation*}
 
+\subsubsection*{7.8}
+
+\textit{Задание.}
+Докажите, что сумма квадратов приращений винеровского процесса,
+который соответствует разбиению $a = t_0 < t_1 < \dotsc < t_n = b$ отрезка $ \left[ a, b \right] $,
+сходится к $b - a$ в среднем квадратическом при измельчении разбиения:
+\begin{equation*}
+  L_2 - \lim
+    \sum \limits_{i = 0}^{n - 1}
+      \left[ W \left( t_{i + 1} \right) - W \left( t_i \right) \right]^2 =
+  b - a
+\end{equation*}
+при $ \max \left( t_{i + 1} - t_i \right) \to 0$.
+
+\textit{Решение.}
+Отрезок разбивается на конечное число отрезков
+\begin{equation*}
+  a = t_0 < t_1 < \dotsc < t_n = b,
+\end{equation*}
+и по этим отрезкам считается
+\begin{equation*}
+  \sum \limits_{i = 0}^{n - 1}
+    \left[ W \left( t_{i + 1} \right) - W \left( t_i \right) \right]^2.
+\end{equation*}
+Надо проверить, что такие выражения сходится к $b - a$, то есть к длине отрезка, то есть
+\begin{equation*}
+  M \left\{
+    \sum \limits_{i = 0}^{n - 1}
+      \left[ W \left( t_{i + 1} \right) - W \left( t_i \right) \right]^2 - \left( b - a \right)
+  \right\}^2 \to 0,
+\end{equation*}
+когда $ \max \left( t_{i + 1} - t_i \right) \to 0$.
+
+Распределение разности
+$W \left( t_{i + 1} \right) - W \left( t_i \right) \sim
+  N \left( 0, t_{i + 1} - t_i \right) $,
+то есть
+\begin{equation*}
+  M \left[ W \left( t_{i + 1} \right) - W \left( t_i \right) \right]^2 =
+  t_{i + 1} - t_i,
+\end{equation*}
+то есть математическое ожидание всей этой суммы~---~это $b - a$, тогда
+\begin{equation*}
+  M \left[
+    \sum \limits_{i = 0}^{n - 1}
+      \left[ W \left( t_{i + 1} \right) - W \left( t_i \right) \right]^2 -
+    \left( b - a \right) \right]^2 =
+  D \sum \limits_{i = 0}^{n - 1}
+    \left[ W \left( t_{i + 1} \right) - W \left( t_i \right) \right]^2 =
+\end{equation*}
+Разности независимы, значит и их квадраты независимы
+\begin{equation*}
+  = \sum \limits_{i = 0}^{n - 1}
+    D \left[ W \left( t_{i + 1} \right) - W \left( t_i \right) \right]^2 =
+\end{equation*}
+То, что осталось,~---~это дисперсия квадрата случайной величины.
+Обозначим $ \xi \sim N \left( 0, \sigma^2 \right) $,
+тогда $D \xi^2 = M \xi^4 - \left( m \xi^2 \right)^2 = 3 \sigma^4 - \sigma^4 = 2 \sigma^4$.
+Тогда
+\begin{equation*}
+= \sum \limits_{i = 0}^{n - 1} 2 \left( t_{i + 1} - t_i \right)^2 =
+\end{equation*}
+Один из множителей заменяем на максимальным в каждом слагаемом, максимум выносим
+\begin{equation*}
+  = 2 \max \left( t_{i + 1} - t_i \right)
+  \sum \limits_{i = 0}^{n - 1} \left( t_{i + 1} - t_i \right) =
+\end{equation*}
+Сумма равна длине отрезка
+\begin{equation*}
+  = 2 \left( b - a \right) \max \left( t_{i + 1}, t_i \right) \to
+  0.
+\end{equation*}
+
+Это называется квадратическая вариация винеровского процесса.
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
