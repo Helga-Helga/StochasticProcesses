@@ -419,6 +419,36 @@ $$= \frac{K \left( t, t \right) - K \left( t, s \right) - K \left( t, s \right) 
 при $t \to s$ или $s \to t$.
 То есть вывод такой, что этот процесс стохастически непрерывен.
 
+\subsubsection*{6.16}
+
+\textit{Задание.}
+Пусть $ \left\{ X \left( t \right), \, t \in T \right\} $~---~стохастически непрерывный процесс,
+а $g$~---~непрерывная функция.
+Докажите, что процесс $ \left\{ g \left( X \left( t \right) \right), \, t \in T \right\} $
+тоже является стохастически непрерывным.
+
+\textit{Решение.}
+Процесс подставляется в функцию $g$.
+
+Нужно проверить, что если $t \to s$, то
+$P \left\{
+    \left| g \left( X \left( t \right) \right) - g \left( X \left( s \right) \right) \right| >
+    \varepsilon \right\}
+  \to 0$.
+
+Знаем, что если $t \to s$, то
+\begin{equation*}
+  X \left( t \right) \overset{P}{ \to }
+  X \left( s \right),
+\end{equation*}
+функция $g$~---~непрерывная функция.
+Тогда
+\begin{equation*}
+  g \left( X \left( t \right) \right) \overset{P}{ \to } g \left( X \left( s \right) \right), \,
+  t \to s.
+\end{equation*}
+Непрерывная функция сохраняет сходимость по вероятности.
+
 \subsubsection*{6.17}
 
 \textit{Задание.}
