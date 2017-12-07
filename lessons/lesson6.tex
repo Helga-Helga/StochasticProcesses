@@ -449,6 +449,207 @@ $P \left\{
 \end{equation*}
 Непрерывная функция сохраняет сходимость по вероятности.
 
+\subsubsection*{Задача}
+
+\textit{Задание.}
+$ \left\{ X \left( t \right), \, t \in \left[ a, b \right] \right\}$~---~это
+стохастически непрерывный процесс.
+Тогда
+$ \forall \varepsilon > 0 \,
+  \exists \delta > 0 \, : \,
+  \left| t - s \right| < \delta \Rightarrow
+  P \left( \left| X \left( t \right) - X \left( s \right) \right| > \varepsilon \right) <
+  \varepsilon $.
+Это равномерная стохастическая непрерывность.
+
+\textit{Решение.}
+$ \left\{ X \left( t \right), \, t \in \left[ a, b \right] \right\}$~---~это
+стохастически непрерывный процесс на отрезке $ \left[ a, b \right] $.
+Нужно доказать, что
+\begin{equation*}
+  \forall \varepsilon > 0 \,
+  \exists \delta > 0 \,
+  \forall t \in \left[ a, b \right] \,
+  \forall s \in \left[ a, b \right], \,
+  \left| t - s \right| < \delta \Rightarrow
+  P \left( \left| X \left( t \right) - X \left( s \right) \right| > \varepsilon \right) <
+  \varepsilon.
+\end{equation*}
+
+Решим вспомогательную задачу, то есть $f \, : \, \left[ a, b \right] \to \mathbb{R}$~---~непрерывна.
+Тогда $f$~---~равномерно непрерывна, то есть
+\begin{equation*}
+  \forall \varepsilon > 0, \,
+  \exists \delta > 0 \,
+  \forall t \in \left[ a, b \right] \,
+  \forall s \in \left[ a, b \right] \,
+  \left(
+    \left| t - s \right| < \delta \Rightarrow
+    \left| f \left( t \right) - f \left( s \right) \right| < \varepsilon \right).
+\end{equation*}
+Попробуем это доказать.
+
+Пусть
+\begin{gather*}
+  f \left( t \right) \in C \left( \left[ a, b \right] \right) \Rightarrow
+  \forall t_0 \in \left[ a, b \right] \,
+  \forall \varepsilon > 0 \,
+  \exists \delta_0 > 0 \,
+  \forall t \in \left[ a, b \right] \\
+  \left(
+    \left| t - t_0 \right| < \delta_0 \Rightarrow
+    \left| f \left( t \right) - f \left( t_0 \right) \right| < \frac{ \varepsilon }{2} \right).
+\end{gather*}
+Пусть $ \varepsilon $ задано и для каждой точки $t_0$ отрезка своё $ \delta_0 $ найдено.
+Построим $ \forall t_0 \in \left[ a, b \right] $ окрестность
+\begin{equation*}
+  \left| t - t_0 \right| <
+  \frac{ \delta_0}{2}.
+\end{equation*}
+Они образуют покрытие $ \left[ a, b \right] $ интервалами.
+Следовательно, по лемме Гейне-Бореля,
+можно выбрать из этого покрытия конечное подпокрытие для отрезка $ \left[ a, b \right] $.
+Пусть у нас остались следующие окрестности:
+\begin{equation*}
+  \left| t - t_1 \right| < \frac{ \delta_1}{2}, \,
+  \left| t - t_2 \right| < \frac{ \delta_2}{2}, \,
+  \dotsc, \,
+  \left| t - t_n \right| < \frac{ \delta_n}{2}.
+\end{equation*}
+
+Возьмём
+\begin{equation*}
+  \delta =
+  \min \left\{ \frac{ \delta_1}{2}, \frac{ \delta_2}{2}, \dotsc, \frac{ \delta_n}{2} \right\}.
+\end{equation*}
+
+Покажем, что
+$ \forall t', t'' \in \left[ a, b \right] \,
+  \left| t' - t'' \right| < \delta \Rightarrow
+  \left| f \left( t' \right) - f \left( t'' \right) \right| < \varepsilon $.
+Пусть $t' \in \left[ a, b \right] $~---~произвольная.
+Тогда в нашем конечном покрытии найдётся хотя бы одна окрестность, содержащая эту точку
+\begin{equation*}
+  t_k \, : \,
+  \left| t' - t_k \right| < \frac{ \delta_k}{2}.
+\end{equation*}
+Пусть теперь $t'' \in \left[ a, b \right] , \, : \left| t'' - t' \right| < \delta $.
+Тогда
+\begin{equation*}
+  \left| t'' - t_k \right| =
+  \left| t'' - t' + t' - t_k \right| \leq
+  \left| t'' - t' \right| + \left| t' - t_k \right| <
+  \delta + \frac{ \delta_k}{2} <
+  \frac{ \delta_k}{2} + \frac{ \delta_k}{2} =
+  \delta_k.
+\end{equation*}
+То есть
+\begin{equation*}
+  \left| t'' - t_k \right| < \delta_k \Rightarrow
+  \left| f \left( t'' \right) - f \left( t_k \right) \right| < \frac{ \varepsilon }{2}.
+\end{equation*}
+
+Тогда
+\begin{gather*}
+  \left| f \left( t'' \right) - f \left( t' \right) \right| =
+  \left|
+    f \left( t'' \right) - f \left( t_k \right) + f \left( t_k \right) - f \left( t' \right)
+  \right| \leq \\
+  \leq \left| f \left( t'' \right) - f \left( t_k \right) \right| +
+  \left| f \left( t' \right) - f \left( t_k \right) \right| <
+  \frac{ \varepsilon }{2} + \frac{ \varepsilon }{2} =
+  \varepsilon.
+\end{gather*}
+Следовательно,  $f$ равномерно непрерывна на $ \left[ a, b \right] $.
+
+Будем рассуждать по аналогии.
+
+Пусть
+$ \forall \varepsilon > 0 \,
+  P \left\{ \left| X \left( t \right) - X \left( t_0 \right) \right| \geq \varepsilon \right\} \to
+  0$,
+когда $t \to t_0$.
+Пусть $ \varepsilon $ задано и для каждой точки $t_0$ отрезка своё $ \delta_0 $ найдено.
+Построим $ \forall t_0 \in \left[ a, b \right] $ окрестность
+\begin{equation*}
+  \left| t - t_0 \right| <
+  \frac{ \delta_0}{2}.
+\end{equation*}
+Они образовывают покрытие $ \left[ a, b \right] $ интервалами.
+Следовательно, по лемме Гейне-Бореля,
+можно выбрать из этого покрытия конечное подпокрытие для отрезка $ \left[ a, b \right] $.
+Пусть у нас остались следующие окрестности:
+\begin{equation*}
+  \left| t - t_1 \right| < \frac{ \delta_1}{2}, \,
+  \left| t - t_2 \right| < \frac{ \delta_2}{2}, \,
+  \dotsc, \,
+  \left| t - t_n \right| < \frac{ \delta_n}{2}.
+\end{equation*}
+
+Возьмём
+\begin{equation*}
+  \delta =
+  \min \left\{ \frac{ \delta_1}{2}, \frac{ \delta_2}{2}, \dotsc, \frac{ \delta_n}{2} \right\}.
+\end{equation*}
+
+Покажем, что
+$ \forall t', t'' \in \left[ a, b \right] \,
+  \left| t' - t'' \right| < \delta \Rightarrow
+  P \left\{ \left| X \left( t' \right) - X \left( t'' \right) \right| \geq \varepsilon \right\} <
+  \varepsilon $.
+Пусть $t' \in \left[ a, b \right] $~---~произвольное.
+Тогда в нашем конечном покрытии найдётся хотя бы одна окрестность, содержащая эту точку
+\begin{equation*}
+  t_k \, : \,
+  \left| t' - t_k \right| < \delta_k.
+\end{equation*}
+Пусть теперь $t'' \in \left[ a, b \right], \, \left| t'' - t' \right| < \delta $.
+Тогда
+\begin{equation*}
+  \left| t'' - t_k \right| =
+  \left| t'' - t' + t' - t_k \right| <
+  \delta + \frac{ \delta_k}{2} <
+  \frac{ \delta_k}{2} + \frac{ \delta_k}{2} =
+  \delta_k.
+\end{equation*}
+То есть
+\begin{equation*}
+  \left| t'' - t_k \right| < \delta_k \Rightarrow
+  P \left\{
+    \left| X \left( t'' \right) - X \left( t_k \right) \right| \geq \frac{ \varepsilon }{2}
+  \right\} < \frac{ \varepsilon }{2}.
+\end{equation*}
+При этом
+\begin{equation*}
+  \left| t' - t_k \right| < \frac{ \delta_k }{2} < \delta_k \Rightarrow
+  P \left\{
+    \left| X \left( t \right) - X \left( t_k \right) \right| \geq \frac{ \varepsilon }{2} \right\} <
+  \frac{ \varepsilon }{2}.
+\end{equation*}
+
+Тогда
+\begin{gather*}
+  P \left\{ \left| X \left( t'' \right) - X \left( t' \right) \right| \geq \varepsilon \right\} =
+  P \left\{
+    \left|
+      X \left( t'' \right) - X \left( t_k \right) + X \left( t_k \right) - X \left( t' \right)
+    \right| \geq \varepsilon \right\} = \\
+  = P \left\{
+    \left| X \left( t'' \right) - X \left( t_k \right) \right| +
+    \left| X \left( t_k \right) - X \left( t' \right) \right| \geq
+    \varepsilon \right\} = \\
+  = P \left\{
+    \left| X \left( t'' \right) - X \left( t_k \right) \right| \geq \frac{\varepsilon }{2}
+  \right\} +
+  P \left\{
+    \left| X \left( t_k \right) - X \left( t' \right) \right| \geq \frac{ \varepsilon }{2}
+  \right\} <
+  \frac{ \varepsilon }{2} + \frac{ \varepsilon }{2} =
+  \varepsilon.
+\end{gather*}
+Следовательно,
+$X \left( t \right) $~---~равномерно стохастически непрерывен на $ \left[ a, b \right] $.
+
 \subsubsection*{6.17}
 
 \textit{Задание.}
