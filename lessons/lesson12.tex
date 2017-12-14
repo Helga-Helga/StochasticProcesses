@@ -98,3 +98,83 @@ $L_2 \left( \Omega, \mathcal{F}, P \right) $.
   \varepsilon_n + 4 \varepsilon_{n - 1} + \sum \limits_{k > 1} c_k \varepsilon_{n - k},
 \end{equation*}
 откуда $c_0 = 1, c_1 = 4, c_k = 0, k > 1$.
+
+\subsubsection*{12.11}
+
+\textit{Задание.}
+Стационарная последовательность имеет спектральную плотность
+\begin{equation*}
+  f \left( \lambda \right) =
+  \frac{1}{2 \pi } \left( 6 + \cos \lambda \right).
+\end{equation*}
+Докажите, что последовательность является регулярной, показав,
+что её можно подать в виде одностороннего скользящего среднего.
+
+\textit{Решение.}
+\begin{equation*}
+  f \left( \lambda \right) =
+  \left| \varphi \left( \lambda \right) \right|^2 \cdot f_{ \varepsilon } \left( \lambda \right) =
+  \frac{1}{2 \pi } \left( 6 + \cos \lambda \right),
+\end{equation*}
+где
+\begin{equation*}
+  f_{ \varepsilon } \left( \lambda \right) =
+  \frac{1}{2 \pi }
+\end{equation*}
+это плотность белого шума.
+
+Воспользуемся формулой Эйлера
+\begin{equation*}
+  6 + \cos \lambda =
+  6 + \frac{e^{i \lambda } + e^{-i \lambda }}{2}.
+\end{equation*}
+
+Тогда
+\begin{gather*}
+  \left| \varphi \left( \lambda \right) \right|^2 =
+  \left( c_1 + c_2 e^{i \lambda} \right) \left( c_1 + c_2 e^{-i \lambda } \right) =
+  c_1^2 + c_1 c_2 e^{-i \lambda } + c_1 c_2 e^{i \lambda } + c_2^2 = \\
+  = 6 + \frac{1}{2} \cdot e^{i \lambda } + \frac{1}{2} \cdot e^{-i \lambda }.
+\end{gather*}
+
+Находим коэффициенты из системы уравнений
+\begin{equation*}
+  \begin{cases}
+    c_1^2 + c_2^2 = 6, \\
+    c_1 c_2 = \frac{1}{2}.
+  \end{cases}
+\end{equation*}
+Выразим из второго уравнения
+\begin{equation*}
+  c_1 =
+  \frac{1}{2c_2}
+\end{equation*}
+и подставим в первое уравнение
+\begin{equation*}
+  \frac{1}{4c_2^2} + c_2^2 = 6.
+\end{equation*}
+Умножим уравнение на $4c_2^2$ и сделаем замену $c_2^2 = t$.
+Получим квадратное уравнение $4t^2 - 24t + 1 = 0$.
+Найдём дискриминант
+\begin{equation*}
+  D =
+  576 - 16 = 560 = 16 \cdot 35.
+\end{equation*}
+Тогда корни имеют вид
+\begin{equation*}
+  t_{1, 2} =
+  \frac{24 \pm 4 \sqrt{35}}{8} =
+  \frac{6 \pm \sqrt{35}}{2},
+\end{equation*}
+откуда
+\begin{equation*}
+  c_2 = \frac{ \left( 6 + \sqrt{35} \right)^2}{4}, \,
+  c_1 = \frac{2}{ \left( 6 + \sqrt{35} \right)^2}.
+\end{equation*}
+Тогда
+\begin{equation*}
+  \varphi \left( \lambda \right) =
+  c_1 + c_2 e^{i \lambda } =
+  \sum \limits_{k = 0}^{+\infty } a_k e^{-ik \lambda },
+\end{equation*}
+откуда $a_0 = c_1, a_1 = c_2, a_k = 0, k > 1$.
