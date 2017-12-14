@@ -174,7 +174,83 @@ $L_2 \left( \Omega, \mathcal{F}, P \right) $.
 Тогда
 \begin{equation*}
   \varphi \left( \lambda \right) =
-  c_1 + c_2 e^{i \lambda } =
+  c_1 + c_2 e^{-i \lambda } =
   \sum \limits_{k = 0}^{+\infty } a_k e^{-ik \lambda },
 \end{equation*}
 откуда $a_0 = c_1, a_1 = c_2, a_k = 0, k > 1$.
+
+\subsubsection*{12.12}
+
+\textit{Задание.}
+Спектральная плотность стационарной последовательности
+\begin{equation*}
+  \left\{ \xi_n \right\}_{n \in \mathbb{Z}}
+\end{equation*}
+равна $f \left( \lambda \right) = e^{-\frac{1}{ \left| \lambda \right| }}$.
+Выясните, является ли последовательность регулярной, сингулярной.
+
+\textit{Решение.}
+Согласно критерию Колмогорова,
+стационарная последовательность со спектральной плотностью $f \left( \lambda \right) $
+является регулярной тогда и только тогда, когда
+\begin{equation*}
+  \int \limits_{-\pi }^{ \pi } ln f \left( \lambda \right) d \lambda >
+  -\infty.
+\end{equation*}
+Проверим выполнимость этого условия для заданной спектральной плотности.
+Имеем:
+\begin{equation*}
+  \int \limits_{-\pi }^{ \pi } ln e^{-\frac{1}{ \left| \lambda \right| }} d \lambda =
+  -\int \limits_{-\pi }^{ \pi } \frac{1}{ \left| \lambda \right| } d \lambda =
+  \int \limits_{-\pi }^0 \frac{1}{ \lambda } d \lambda -
+  \int \limits_0^{ \pi } \frac{1}{ \lambda } d \lambda =
+  -2 \int \limits_0^{ \pi } \frac{1}{ \lambda } d \lambda =
+  -2 \left. ln \lambda \right|_0^{ \pi } =
+\end{equation*}
+Подставим пределы интегрирования
+\begin{equation*}
+  = -2 ln \pi + 2 ln 0 =
+  -2 ln \pi - 2 \cdot \infty =
+  -\infty.
+\end{equation*}
+
+Из бесконечности этого интеграла следует,
+что последовательность
+\begin{equation*}
+  \left\{ \xi_n \right\}_{n \in \mathbb{Z}}
+\end{equation*}
+является сингулярной.
+
+\subsubsection*{12.13}
+
+\textit{Задание.}
+Докажите, что последовательность со спектральной плотностью
+$f \left( \lambda \right) =
+  \mathbbm{1}_{ \left[ 0, \pi \right] } \left( \lambda \right) $
+является сингулярной.
+
+\textit{Решение.}
+Согласно критерию Колмогорова,
+стационарная последовательность со спектральной плотностью $f \left( \lambda \right) $
+является сингулярной тогда и только тогда, когда
+\begin{equation*}
+  \int \limits_{-\pi }^{ \pi } ln f \left( \lambda \right) d \lambda =
+  -\infty.
+\end{equation*}
+
+Проверим выполнимость этого условия для заданной спектральной плотности.
+Имеем
+\begin{equation*}
+  \int \limits_{-\pi }^{ \pi }
+    ln \mathbbm{1}_{ \left[ 0, \pi \right] } \left( \lambda \right) d \lambda =
+  \int \limits_{-\pi }^0 ln \mathbbm{1}_{ \left[ 0, \pi \right] } \left( \lambda \right) d \lambda +
+  \int \limits_0^{ \pi } ln \mathbbm{1}_{ \left[ 0, \pi \right] } \left( \lambda \right) d \lambda =
+  \int \limits_{-\pi }^0 ln 0 d \lambda + \int \limits_0^{ \pi } ln 1 d \lambda =
+\end{equation*}
+Второй интеграл равен нулю
+\begin{equation*}
+  = -\infty.
+\end{equation*}
+
+Из бесконечности этого интеграла следует,
+что последовательность $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$ сингулярна.
