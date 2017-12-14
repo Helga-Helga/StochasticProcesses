@@ -1,0 +1,66 @@
+\addcontentsline{toc}{chapter}{Занятие 12.
+                                Регулярные и сингурярные стационарные последовательности.}
+\chapter*{Занятие 12. Регулярные и сингурярные стационарные последовательности.}
+
+\addcontentsline{toc}{section}{Контрольные вопросы и задания}
+\section*{Контрольные вопросы и задания}
+
+\subsubsection*{Приведите определение стационарной последовательноси.}
+
+Последовательность $ \left\{ \xi_n, n \in \mathbb{Z} \right\} $ называется стационарной
+(в широком смысле), если
+$M \xi_n = M \xi_0, n \in \mathbb{Z},
+  cov \left( \xi_{n + m}, \xi_m \right) = cov \left( \xi_nn, \xi_0 \right), n, m \in \mathbb{Z}$.
+
+\subsubsection*{Запишите спектральное изображение ковариационной функции стационарной
+                последовательности}
+
+Если $k$~---~ковариационная функция стационарной в широком смысле последовательности,
+то сущетвует мера на
+$ \left( \left[ -\pi, \pi \right], \beta \left( \left[ -\pi, \pi \right] \right) \right)$ такая, что
+\begin{equation*}
+  k \left( n \right) =
+  \frac{1}{2 \pi } \int \limits_{-\pi }^{ \pi } e^{i \lambda n} \mu \left( d \lambda \right),
+  n \in \mathbb{Z}.
+\end{equation*}
+
+\subsubsection*{Приведите определение подпространств будущего,
+                связанных со стационарной последовательностью.}
+$H_n^{ \xi } = \overline{LS \left\{ \xi_k, k \leq n \right\} }$~---~замыкание
+в среднем квадратическом линейной оболочки
+$ \left\{ \xi_k, k \leq n \right\} $~---~подпространство пространства
+$L_2 \left( \Omega, \mathcal{F}, P \right) $.
+
+\subsubsection*{Приведите определение регулярной и сингулярной последовательности.}
+
+Стационарная последовательность называется сингулярной, если
+\begin{equation*}
+  H_{-\infty }^{ \xi } =
+  \dotsc =
+  H_0^{ \xi } =
+  \dotsc,
+\end{equation*}
+то есть если они все просто совпадают между собой, и называется рещулярной,
+если $H_{-\infty }^{ \xi } = \left\{ 0 \right\} $.
+
+\subsubsection*{Сформулируйте задачу прогноза стационарной последовательности.}
+
+Найти $ \hat{ \xi_n} = Q_{n_0} \xi_n, n_0 < n$, где $Q_n$~---~это проектор на $H_n$.
+
+\subsubsection*{Сформулируйте критерий Колмогорова регулярности стационарной последовательности.}
+
+Пусть $ \left\{ \xi_n \right\} $ имеет спектральную плотность $p$.
+Тогда $ \left\{ \xi_n \right\} $~---~сингулярная или решулярная в зависимости от
+\begin{equation*}
+  \int \limits_{-\pi }^{ \pi } ln \, p \left( \lambda \right) d \lambda =
+  \begin{cases}
+    -\infty, \qquad singular, \\
+    \in \mathbb{R}, \qquad regular.
+  \end{cases}
+\end{equation*}
+
+\addcontentsline{toc}{section}{Аудиторные задачи}
+\section*{Аудиторные задачи}
+
+\addcontentsline{toc}{section}{Домашнее задание}
+\section*{Домашнее задание}
