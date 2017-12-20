@@ -1,0 +1,142 @@
+\addcontentsline{toc}{chapter}{Занятие 13. Разложение Вольда. Задача прогноза.}
+\chapter*{Занятие 13. Разложение Вольда. Задача прогноза.}
+
+\addcontentsline{toc}{section}{Контрольные вопросы и задания}
+\section*{Контрольные вопросы и задания}
+
+\subsubsection*{Приведите определение сингулярной и регулярной стационарной последовательности,
+                приведите примеры.}
+
+Стационарная последовательность называется сингулярной, если
+\begin{equation*}
+  H_{-\infty }^{ \xi } =
+  \dotsc =
+  H_0^{ \xi } =
+  \dotsc,
+\end{equation*}
+то есть если они все просто совпадают между собой, и называется регулярной,
+если $H_{-\infty }^{ \xi } = \left\{ 0 \right\} $.
+
+Примеры:
+\begin{enumerate}
+  \item если $ \left\{ \xi_n \right\} $~---~это последовательность случайных колебаний, то
+  \begin{equation*}
+    \mu =
+    \sum \limits_{k = 1}^m \delta_{ \lambda_k}.
+  \end{equation*}
+  Прогноз: $ \hat{ \xi }_n = \xi_n$.
+
+  Сейчас $H_n^{ \xi } = \overline{LS \left\{ \xi_k \right\} }, \, n \in \mathbb{Z}$.
+
+  Нет зависимости от $n$, следовательно, $ \dotsc = H_n^{ \xi } = H_{n + 1}^{ \xi } = \dotsc $.
+
+  Так как $H_n^{ \xi }$ не меняется, то
+  \begin{equation*}
+    \bigcap \limits_{n \in \mathbb{Z}} H_n^{ \xi } =
+    H_0^{ \xi };
+  \end{equation*}
+  \item последовательность белого шума $ \left\{ \xi_n, \, n \in \mathbb{Z} \right\} $.
+  У неё есть спектральная плотность $p \equiv 1$ на $ \left[ -\pi, \pi \right] $.
+  В этом случае прогноза вообще никакого нет.
+  Вместо проекции получаем $ \hat{ \xi }_n = 0$.
+
+  Сейчас $H_n^{ \xi } = \overline{LS \left\{ \xi_k, \, k \leq n \right\} }$.
+
+  Так как последовательность белого шума~---~ортонональные случайные величины,
+  то $ \xi_{n + 1} \perp H_n^{ \xi }$.
+
+  Следовательно, $H_n^{ \xi } \subset H_{n + 1}^{ \xi }$ (включение строгое).
+
+  $H_n^{ \xi }$~---~это прошлое до момента времени $n$.
+
+  Тогда
+  \begin{equation*}
+    \bigcap \limits_{n \in \mathbb{Z}} H_n^{ \xi } =
+    \left\{ 0 \right\}.
+  \end{equation*}
+
+  Докажем это.
+  Возьмём
+  \begin{equation*}
+    \zeta =
+    \bigcap \limits_{n \in \mathbb{Z}} H_n^{ \xi } \equiv
+    H_{-\infty }^{ \xi }.
+  \end{equation*}
+  Если $ \zeta $ принадлежит пересечению, то $ \zeta \in H_0^{ \xi }$.
+  Раз так, то $ \zeta $ должно представляться как предел линейной комбинации
+  \begin{equation*}
+    \zeta =
+    \lim \limits_{m \to \infty } \sum \limits_{k = -m}^0 c_{km} \zeta_k.
+  \end{equation*}
+
+  Замыканием такой линейной комбинации и есть $H_0^{ \xi }$.
+
+  Одновременно с этим $ \zeta \in H_{-1}^{ \xi }$.
+  Следовательно, $ \zeta \perp \xi_0$.
+  Можем сделать заключение, что $ \zeta \in H_{-2}^{ \xi } \Rightarrow \zeta \perp \xi_{-1}$.
+
+  Таким образом, $ \forall k \leq 0 \; : \; \zeta \perp \xi_k$.
+  Отсюда
+  \begin{equation*}
+    M \left| \zeta \right|^2 =
+    \lim \limits_{m \to \infty } M \zeta \cdot \overline{ \sum \limits_{k = -m}^0 c_{km} \zeta_k} =
+    0
+  \end{equation*}
+  (так как $ \zeta $ ортогональная ко всем $ \xi_k$).
+
+  Таким образом, $H_{-\infty }^{ \xi } = \left\{ 0 \right\} $.
+\end{enumerate}
+
+\subsubsection*{Опишите пространства, связанные со стационарной последовательностью.}
+
+Будем использовать
+$ \forall n \in \mathbb{Z} \; : \;
+  H_n^{ \xi } = \overline{LS \left\{ \xi_k, \, k \leq n \right\} }$~---~замыкание
+в среднем квадратическом линейной оболочки $ \left\{ \xi_k, \, k \leq n \right\} $.
+
+Получили $H_n^{ \xi }$~---~подпространство пространства
+$L_2 \left( \Omega, \mathcal{F}, P \right) $.
+
+Пусть $Q_n$~---~это проектор на $H_n$.
+
+\subsubsection*{Что такое разложение Вольда?}
+
+Для произвольной стационарной последовательности $ \left\{ \xi_n \right\} $
+существует регулярная последовательность $ \left\{ \xi_n' \right\} $
+и сингулярная последовательность $ \left\{ \xi_n'' \right\} $ такие, что
+\begin{enumerate}
+  \item $ \xi_n = \xi_n' + \xi_n''$;
+  \item $ \xi_n' \perp \xi_m'', \qquad \forall n, m \in \mathbb{Z}$;
+  \item $ \xi_n', \xi_n'' \in H_n^{ \xi }$.
+\end{enumerate}
+
+Это представление называется разложением Вольда.
+
+\subsubsection*{Как определяются прогноз и погрешность прогноза $ \xi_n, \, n \geq 1$ при
+                $ \xi^0 = \left( \dotsc, \xi_{-1}, \xi_0 \right) $ с помощью разложения Вольда?}
+
+Решение задачи прогноза:
+\begin{equation*}
+  Q_{n_0} \xi_n =
+  \sum \limits_{k = n - n_0}^{ \infty } \alpha_k e_{n - k}.
+\end{equation*}
+
+Можем посчитать ошибку прогноза:
+\begin{equation*}
+  \left \Vert \xi_n - Q_{n_0} \xi_n \right \Vert^2 =
+  \left \Vert \sum \limits_{k = 0}^{n - n_0 - 1} \alpha_k e_{n - k} \right \Vert^2 =
+  \sum \limits_{k = 0}^{n - n_0 - 1} \left| \alpha_k \right|^2.
+\end{equation*}
+
+\subsubsection*{Запишите формулу для погрешности прогноза в терминах спектральной плотности.}
+
+\begin{equation*}
+  \sigma^2 =
+  e^{ \frac{1}{2 \pi } \int \limits_{-\pi }^{ \pi } ln \, p \left( \lambda \right) d \lambda }.
+\end{equation*}
+
+\addcontentsline{toc}{section}{Аудиторные задачи}
+\section*{Аудиторные задачи}
+
+\addcontentsline{toc}{section}{Домашнее задание}
+\section*{Домашнее задание}

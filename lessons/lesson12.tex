@@ -5,7 +5,7 @@
 \addcontentsline{toc}{section}{Контрольные вопросы и задания}
 \section*{Контрольные вопросы и задания}
 
-\subsubsection*{Приведите определение стационарной последовательноси.}
+\subsubsection*{Приведите определение стационарной последовательности.}
 
 Последовательность $ \left\{ \xi_n, n \in \mathbb{Z} \right\} $ называется стационарной
 (в широком смысле), если
@@ -254,3 +254,34 @@ $f \left( \lambda \right) =
 
 Из бесконечности этого интеграла следует,
 что последовательность $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$ сингулярна.
+
+\subsubsection*{12.14}
+
+\textit{Задание.}
+Пусть $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$ и
+$ \left\{ \eta_n \right\}_{n \in \mathbb{Z}}$~---~ортогональные регулярные последовательности.
+Докажите, что сумма $ \left\{ \xi_n + \eta_n \right\}_{n \in \mathbb{Z}}$
+является регулярной последовательностью.
+
+\textit{Решение.}
+Если последовательности $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$ и
+$ \left\{ \eta_n \right\}_{n \in \mathbb{Z}}$ регулярны,
+то их можно представить в виде одностороннего скользящего среднего, то есть
+\begin{equation*}
+  \xi_n = \sum \limits_{k = 0}^{+\infty } a_k \varepsilon_{n - k}, \,
+  \eta_n = \sum \limits_{k = 0}^{+\infty } b_k \varepsilon_{n - k},
+\end{equation*}
+где
+\begin{equation*}
+  \sum \limits_{k = 0}^{+\infty } \left| a_k \right|^2 < +\infty, \,
+  \sum \limits_{k = 0}^{+\infty } \left| b_k \right|^2 < +\infty.
+\end{equation*}
+Тогда
+\begin{equation*}
+  \xi_n + \eta_n =
+  \sum \limits_{k = 0}^{+\infty } a_k \varepsilon_{n - k} +
+  \sum \limits_{k = 0}^{+\infty } b_k \varepsilon_{n - k} =
+  \sum \limits_{k = 0}^{+\infty } \left( a_k + b_k \right) \varepsilon_{n - k} =
+  \sum \limits_{k = 0}^{+\infty } c_k \varepsilon_{n - k},
+\end{equation*}
+поэтому $ \left\{ \xi_n + \eta_n \right\}_{n \in \mathbb{Z}}$~---~регулярная последовательность.
