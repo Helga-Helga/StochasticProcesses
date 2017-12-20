@@ -377,5 +377,72 @@ $ \sqrt{3} \xi_0, \varepsilon_{-1}, \varepsilon_{-2}, \varepsilon_{-3}, \dotsc $
   \frac{1}{3} - \frac{1}{3 \cdot 4^n}.
 \end{equation*}
 
+\subsubsection*{13.4}
+
+\textit{Задание.}
+Пусть
+\begin{equation*}
+  R_{ \xi } \left( n \right) =
+  \begin{cases}
+    5, \qquad n = 0, \\
+    2, \qquad \left| n \right| = 1, \\
+    0, \qquad \left| n \right| > 1.
+  \end{cases}
+\end{equation*}
+Найдите оптимальную линейную оценку $ \xi_n$ при $ \xi^0 = \left( \dotsc, \xi_{-1}, \xi_0 \right) $.
+
+\textit{Решение.}
+Нужно решить задачу прогноза, то есть найти $ \hat{ \xi }_n$.
+
+Знаем, что
+\begin{equation*}
+  \xi_n =
+  \sum \limits_{k = 0}^{ \infty } a_k \varepsilon_{n - k}.
+\end{equation*}
+
+Чтобы обеспечить условие 3, возьмём $a_k = 0, \, k \geq 2$.
+
+Условие номер 1 означает, что $a_0^2 + a_1^2 = 5$, а условие 2 означает, что $a_0 a_1 = 2$.
+
+Отсюда
+\begin{equation*}
+  a_0 =
+  \frac{2}{a_1}.
+\end{equation*}
+
+Подставим это в первое уравнение
+\begin{equation*}
+  \frac{4}{a_1^2} + a_1^2 = 5.
+\end{equation*}
+
+Умножим на $a_1^2$ и получим $a_1^4 - 5a_1^2 + 4 = 0$.
+
+Сделаем замену $a_1^2 = t$ и подставим её в уравнение $t^2 - 5t + 4 = 0$.
+
+По теореме Виета
+\begin{equation*}
+  \begin{cases}
+    t_1 + t_2 = 5, \\
+    t_1 \cdot t_2 = 4,
+  \end{cases}
+\end{equation*}
+откуда $t_1 = 1, t_2 = 4$.
+
+Тогда $a_1 = \pm 1, \pm 2, \, a_0 = \pm 2, \pm 1$.
+
+Имеем представление $ \xi_n = 2 \varepsilon_n + \varepsilon_{n - 1}$, откуда
+\begin{equation*}
+  \varepsilon_n =
+  \frac{1}{2} \cdot \xi_n - \frac{1}{2} \cdot \varepsilon_{n - 1} =
+  \sum \limits_{k = 0}^{ \infty } \left( -1 \right)^k \cdot \frac{1}{2^{k + 1}} \cdot \xi_{n - k}.
+\end{equation*}
+
+Тогда прогноз равен $ \hat{ \xi }_n = 0, \, n \geq 2$ и
+\begin{equation*}
+  \hat{ \xi_1} =
+  \varepsilon_0 =
+  \sum \limits_{k = 0}^{ \infty } \frac{ \left( -1 \right)^k}{2^{k + 1}} \cdot \xi_{-k}.
+\end{equation*}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
