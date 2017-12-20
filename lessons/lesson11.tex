@@ -211,3 +211,94 @@ $k = \overline{n - m, n}$; для этого же $k$ выполняется $k 
 \end{equation*}
 
 Так что это действительно стационарная последовательность.
+
+\subsubsection*{11.4}
+
+\textit{Задание.}
+Найдите спектральную плотноть стационарной в широком смысле последовательности
+$ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$, если её ковариационная функция $R_{ \xi }$ равна:
+\begin{enumerate}[label=\alph*)]
+  \item $R_{ \xi } \left( n \right) =
+    \begin{cases}
+      1, \qquad n = 0, \\
+      0, \qquad n \neq 0;
+    \end{cases}$
+  \item $R_{ \xi } \left( n \right) =
+    \begin{cases}
+      4, \qquad n = 0, \\
+      1, \qquad \left| n \right| = 1, \\
+      0, \qquad \left| n \right| > 1.
+    \end{cases}$
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item
+  \begin{equation*}
+    R \left( n \right) =
+    \begin{cases}
+      1, \qquad n = 0, \\
+      0, \qquad n \neq 0
+    \end{cases} =
+    \frac{1}{2 \pi }
+    \int \limits_{-\pi }^{ \pi } e^{i \lambda n} f \left( \lambda \right) d \lambda.
+  \end{equation*}
+  Нужно найти $f \left( \lambda \right) $.
+
+  Проверим, что
+  \begin{equation*}
+    f \left( \lambda \right) =
+    \sum \limits_{n = -\infty }^{+\infty } e^{-i \lambda n} R \left( n \right)
+  \end{equation*}
+  это формула обращения.
+
+  Проверим, что $f \left( \lambda \right) $~---~плотность.
+  Посчитаем
+  \begin{equation*}
+    \frac{1}{2 \pi }
+    \int \limits_{-\pi }^{ \pi }
+      e^{i \lambda n} \sum \limits_{k = -\infty }^{+\infty } e^{-i \lambda k} R \left( k \right)
+    d \lambda =
+  \end{equation*}
+  Здесь
+  \begin{equation*}
+    \sum \limits_{k = -\infty }^{+\infty } e^{-i \lambda k} R \left( k \right) =
+    f \left( \lambda \right).
+  \end{equation*}
+  Сумму и $R$ выносим за интеграл
+  \begin{equation*}
+    = \sum \limits_{k = -\infty }^{+\infty }
+      R \left( k \right) \cdot \frac{1}{2 \pi }
+      \int \limits_{-\pi }^{ \pi } e^{i \lambda \left( n - k \right) } d \lambda =
+    R \left( n \right),
+  \end{equation*}
+  когда $k = n$.
+
+  Когда $k \neq n$, то
+  \begin{equation*}
+    \int \limits_{-\pi }^{ \pi } e^{i \lambda \left( n - k \right) } d \lambda =
+    \left.
+      \frac{1}{i \left( n - k \right) } \cdot e^{i \lambda \left( n - k \right) }
+    \right|_{-\pi }^{ \pi } =
+    0,
+  \end{equation*}
+  потому что экспонента~---~периодическая с периодом $2 \pi $.
+  В нашей ситуации
+  \begin{equation*}
+    f \left( \lambda \right) =
+    \sum \limits_{n - \infty }^{+\infty } R \left( n \right) e^{i \lambda n} =
+  \end{equation*}
+  Остаётся слагаемое только при $n = 0$.
+  Получается
+  \begin{equation*}
+    = 1.
+  \end{equation*}
+
+  Эта последовательность называется белый шум.
+  У него постоянная плотность.
+  \item $f \left( \lambda \right) =
+    4 + e^{i \lambda } + e^{-i \lambda } =
+    4 + 2 \cos \lambda $,
+  где 4~---~при $n = 0$, слагаемое $e^{i \lambda }$~---~при $n = 1$,
+  а слагаемое $e^{-i \lambda }$~---~при $n = -1$.
+\end{enumerate}
