@@ -133,3 +133,81 @@ $f \left( \lambda \right) := \mu \left( \left[ \-\pi, \pi \right] \right), \,
 \end{equation*}
 
 Найдём дисперсию $D \xi_4 = cov \left( \xi_4, \xi_4 \right) = R \left( 0 \right) = 2^{-0} = 1$.
+
+\subsubsection*{11.3}
+
+\textit{Задание.}
+Пусть $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$~---~последовательность
+независимых одинаково распределённых случайных величин таких,
+что $M \xi_1 = 0, \, M \xi_1^2 = \sigma^2$.
+Положим $ \eta_n = \xi_n + \xi_{n - 1} + \dotsc + \xi_{n - m}, \, n \in \mathbb{Z}, \, m = const$.
+Докажите, что $ \left\{ \eta_n \right\}_{n \in \mathbb{Z}}$
+образует стационарную в широком смысле последовательность и найдите её ковариационную функцию.
+
+\textit{Решение.}
+Нужно найти математическое ожидание
+\begin{equation*}
+  M \eta_n =
+  M \left( \xi_n + \xi_{n - 1} + \dotsc + \xi_{n - m} \right) =
+  M \xi_n + M \xi_{n - 1} + \dotsc + M \xi_{n - m} =
+  0,
+\end{equation*}
+потому что у каждого слагаемого математическое ожидание 0.
+Теперь ещё нужно найти ковариационную функцию
+\begin{equation*}
+  cov \left( \eta_n, \eta_j \right) =
+  cov \left(
+    \xi_n + \xi_{n - 1} + \dotsc + \xi_{n - m}, \xi_j + \xi_{j - 1} + \dotsc + \xi_{j - m}
+  \right) =
+\end{equation*}
+Сдучайные величины $ \xi $ независимые и одинаково распределённые
+\begin{equation*}
+  = cov \left( \sum \limits_{k = n - m}^n \xi_k, \sum \limits_{i = j - m}^j \xi_i \right) =
+\end{equation*}
+Суммы можно вынести
+\begin{equation*}
+  = \sum \limits_{k = n - m, \, i = j - m}^{n, j} cov \left( \xi_k, \xi_i \right) =
+  \sum \limits_{k = n - m}^n \sum \limits_{i = j - m}^j M \left( \xi_k \xi_j \right) =
+\end{equation*}
+Когда индексы одинаковые~---~это $ \sigma^2$, когда индексы разные~---~это 0.
+Получаем
+\begin{equation*}
+  = \sigma^2 \cdot \# \left\{
+    \left( k, i \right) \; : \; k = i, \, k = \overline{n - m, n}, \, i = \overline{j = m, j}
+  \right\},
+\end{equation*}
+где $ \# $~---~количество.
+
+$k = \overline{n - m, n}$; для этого же $k$ выполняется $k = \overline{j - m, j}$.
+
+Первое условие: $k \geq \max \left( n - m, j - m \right) = \max \left( n, j \right) - m$.
+
+Второе условие: $k \leq \min \left( n, j \right) $.
+
+Случай номер 1: верхняя граница меньше чем нижняя граница.
+Тогда решений нет, и ковариация будет 0.
+Это в том случае, если
+\begin{equation*}
+  \min \left( n, j \right) < \max \left( n, j \right) - m
+\end{equation*}
+тогда и только тогда, когда $ \left| n - s \right| > m$.
+
+Второй случай:
+когда $ \min \left( n, j \right) \geq \max \left( n, j \right) - m$ тогда и только тогда,
+когда $ \left| n - j \right| \leq m$.
+Количество пар индексов
+\begin{equation*}
+  \min \left( n, j \right) - \max \left( n, j \right) + m + 1 =
+  m + 1 - \left| n - j \right|.
+\end{equation*}
+
+Нашли ковариационную функцию, и она получилась такой
+\begin{equation*}
+  K \left( \xi_n, \xi_j \right) =
+  \begin{cases}
+    0, \qquad \left| n - j \right| > m, \\
+    \sigma^2 \left( m + 1 - \left| n - j \right| \right), \qquad \left| n - j \right| \leq m.
+  \end{cases}
+\end{equation*}
+
+Так что это действительно стационарная последовательность.
