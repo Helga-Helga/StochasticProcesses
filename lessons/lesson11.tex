@@ -302,3 +302,123 @@ $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$, если её ковариацио
   где 4~---~при $n = 0$, слагаемое $e^{i \lambda }$~---~при $n = 1$,
   а слагаемое $e^{-i \lambda }$~---~при $n = -1$.
 \end{enumerate}
+
+\subsubsection*{11.5}
+
+\textit{Задание.}
+Пусть
+\begin{equation*}
+  \xi_n =
+  \sum \limits_{k = 0}^{ \infty } \frac{1}{3^k} \cdot \varepsilon_{n - k},
+\end{equation*}
+где $ \left\{ \varepsilon_k \right\}_{k \in \mathbb{Z}}$~---~последовательность
+независимых одинаково распределённых случайных величин со стандартным нормальным распределением.
+Найдите ковариационную функцию и спектральную плотность последовательности
+$ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$.
+
+\textit{Решение.}
+$ \varepsilon_n$ обозначает белый шум.
+
+\begin{equation*}
+  M \varepsilon_n = 0, \,
+  cov \left( \varepsilon_n, \varepsilon_k \right) =
+  \begin{cases}
+    1, \qquad n = k, \\
+    0, \qquad n \neq k.
+  \end{cases}
+\end{equation*}
+
+Считаем ковариационную функцию.
+Подставляем сумму
+\begin{equation*}
+  cov \left( \xi_n, \xi_s \right) =
+  cov \left(
+    \sum \limits_{k = 0}^{ \infty } \frac{1}{3^k} \cdot \varepsilon_{n - k},
+    \sum \limits_{j = 0}^{ \infty } \frac{1}{3^j} \cdot \varepsilon_{s - j}
+  \right) =
+\end{equation*}
+Выносим сумму и коэффициенты
+\begin{equation*}
+  \sum \limits_{k, j = 0}^{ \infty }
+    \frac{1}{3^k} \cdot \frac{1}{3^j} \cdot
+    cov \left( \varepsilon_{n - k}, \varepsilon_{s - j} \right) =
+\end{equation*}
+Из внутренней сумы нужно оставить только одно слагаемое, когда
+\begin{equation*}
+  n - k =
+  s - j.
+\end{equation*}
+Отсюда $j = s - n + k \geq 0, \, s \geq n$.
+Получим
+\begin{equation*}
+  = \sum \limits_{k = 0}^{ \infty } \frac{1}{3^k} \cdot \frac{1}{3^{s - n + k}} =
+  \sum \limits_{k = 0}^{ \infty } \frac{1}{3^{k + s - n + k}} =
+  \sum \limits_{k = 0}^{ \infty } \frac{1}{3^{2k + s - n}} =
+\end{equation*}
+Сумма геометрической прогрессии
+\begin{equation*}
+  \frac{1}{3^{s - n}} \sum \limits_{k = 0}^{ \infty } \frac{1}{3^{2k}} =
+  \frac{1}{3^{s - n}} \cdot \frac{1}{1 - \frac{1}{9}} =
+  \frac{9}{8 \cdot 3^{s - n}}.
+\end{equation*}
+
+В ответе будет стоять модуль.
+Итого, ковариационная функция $ \xi $~---~это
+\begin{equation*}
+  R_{ \xi } \left( n \right) =
+  \frac{9}{8 \cdot 3^{ \left| n \right| }}.
+\end{equation*}
+Теперь найдём спектральную плотность для такой ковариационной функции
+\begin{equation*}
+  f \left( \lambda \right) =
+  \sum \limits_{n = -\infty }^{+\infty } e^{-i \lambda n} R_{ \xi } \left( n \right) =
+  \sum \limits_{n = -\infty }^{+\infty }
+    e^{-i \lambda n} \cdot \frac{9}{8 \cdot 3^{ \left| n \right| }} =
+\end{equation*}
+Разбиваем на две суммы
+\begin{gather*}
+  = \sum \limits_{n = 0}^{+\infty } e^{-i \lambda n} \cdot \frac{1}{3^n} \cdot \frac{9}{8} +
+  \sum \limits_{n = 1}^{+\infty } \left( \frac{e^{i \lambda }}{3} \right)^n \cdot \frac{9}{8} =
+  \left(
+    \frac{1}{1 - \frac{e^{-i \lambda }}{3}} +
+    \frac{ \frac{e^{i \lambda }}{3}}{1 - \frac{e^{i \lambda }}{3}}
+  \right) \cdot \frac{9}{8} = \\
+  = \frac{9}{8} \cdot
+  \left( \frac{3}{3 - e^{-i \lambda }} + \frac{e^{i \lambda }}{3 - e^{i \lambda }} \right) =
+\end{gather*}
+Приведём к общему знаменателю
+\begin{gather*}
+  = \frac{9}{8} \cdot
+  \frac{9 - 3e^{i \lambda } + 3e^{i \lambda } - 1}{ \left( 3 - e^{-i \lambda } \right) \left( 3 - e^{i \lambda } \right) } =
+  \frac{9}{8} \cdot
+  \frac{8}{ \left( 3 - e^{-i \lambda } \right) \left( 3 - e^{i \lambda } \right) } =
+  \frac{9}{9 - 3e^{i \lambda } - 3e^{-i \lambda } + 1} = \\
+  = \frac{9}{10 - 3e^{-i \lambda } - 3e^{i \lambda }} =
+  \frac{9}{10 - 6 \cos \lambda }.
+\end{gather*}
+
+Это спектральная плотность.
+
+Вычисление спектральной плотности можно было делать проще.
+
+$f_{ \varepsilon } = 1$, потому что $ \varepsilon $~---~это белый шум.
+
+\begin{equation*}
+  f_{ \xi } \left( \lambda \right) =
+  \left| \sum \limits_{k = 0}^{ \infty } \frac{1}{3^k} \cdot ^{-i \lambda k} \right|^2 \cdot 1 =
+  \left| \frac{1}{1 - \frac{e^{-i \lambda }}{3}} \right|^2 =
+  \left| \frac{3}{3 - e^{-i \lambda }} \right|^2 =
+  \frac{9}{ \left( 3 - \cos \lambda \right)^2 + \sin^2 \lambda } =
+\end{equation*}
+Раскроем квадрат
+\begin{equation*}
+  = \frac{9}{10 - 6 \cos \lambda }.
+\end{equation*}
+
+Таким образом,
+\begin{equation*}
+  R \left( n \right) =
+  \frac{1}{2 \pi }
+  \int \limits_{-\pi }^{ \pi } e^{i \lambda n} \cdot \frac{9}{10 - 6 \cos \lambda} \cdot d \lambda =
+  \frac{9}{8 \cdot 3^{ \left| n \right| }}.
+\end{equation*}
