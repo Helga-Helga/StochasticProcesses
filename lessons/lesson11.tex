@@ -97,3 +97,39 @@ $ \left( \left[ -\pi, \pi \right], \beta \left( \left[ -\pi, \pi \right] \right)
 $f \left( \lambda \right) := \mu \left( \left[ \-\pi, \pi \right] \right), \,
   -\pi \leq \lambda < \pi $~---~спектральной
 функцией стационарной последовательности с ковариационной функцией $k$.
+
+\addcontentsline{toc}{section}{Аудиторные задачи}
+\section*{Аудиторные задачи}
+
+\subsubsection*{11.2}
+
+\textit{Задание.}
+Пусть $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$~---стационарная
+в широком смысле последовательность, $M \xi_n = 2, R \left( n \right) = 2^{-\left| n \right| }$.
+Вычислите:
+\begin{equation*}
+  cov \left( \xi_3, \xi_5 \right), \,
+  cov \left( \xi_{100}, \xi_{105} \right), \,
+  M \xi_2 \xi_8, \,
+  D \xi_4.
+\end{equation*}
+
+\textit{Решение.}
+Посчитаем ковариационную функцию $R$ от разности аргументов
+\begin{equation*}
+  cov \left( \xi_3, \xi_5 \right) =
+  R \left( 2 \right) =
+  \frac{1}{4}.
+\end{equation*}
+
+Дальше $cov \left( \xi_{100}, \xi_{105} \right) = R \left( 5 \right) = 2^{-5}$.
+
+Перепишем следующее математическое ожидание через ковариацию
+\begin{equation*}
+  M \xi_2 \xi_8 =
+  cov \left( \xi_2, \xi_8 \right) + M \xi_2 \cdot M \xi_8 =
+  K \left( 6 \right) + 2 \cdot 2 =
+  2^{-6} + 4.
+\end{equation*}
+
+Найдём дисперсию $D \xi_4 = cov \left( \xi_4, \xi_4 \right) = R \left( 0 \right) = 2^{-0} = 1$.
