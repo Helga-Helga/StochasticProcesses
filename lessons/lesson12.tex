@@ -62,6 +62,258 @@ $L_2 \left( \Omega, \mathcal{F}, P \right) $.
 \addcontentsline{toc}{section}{Аудиторные задачи}
 \section*{Аудиторные задачи}
 
+\subsubsection*{12.7}
+
+\textit{Задание.}
+Стационарная последовательность $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$
+имеет ковариационную функцию
+\begin{enumerate}[label=\alph*)]
+  \item $R \left( n \right) = 1$,
+  \item $R \left( n \right) = e^{in \lambda }$,
+  \item $R \left( n \right) = 2 + 2^{in \lambda }$.
+\end{enumerate}
+Докажите, что последовательность сингулярна.
+
+\textit{Решение.}
+Имеем примеры сингулярных последовательностей.
+
+\begin{enumerate}[label=\alph*)]
+  \item Нужно понять, как такая последовательность устроена.
+
+  $cov \left( \i_n, \xi_0 \right) = 1$ для любых $n$.
+  Это верно и при $n = 0$, то есть
+  \begin{equation*}
+    cov \left( \xi_0, \xi_0 \right) =
+    D \xi_0 =
+    D \xi_n.
+  \end{equation*}
+
+  Знаем, что $cov \left( \xi_n, \xi_0 \right) = M \xi_n \overline{ \xi_0}$.
+
+  При этом $D \xi_n = M \left| \xi_n \right|^2$.
+
+  Оценим
+  $ \left| M \xi_n \overline{ \xi_0} \right| \leq
+    \sqrt{M \left| \xi_n \right|^2} \sqrt{M \left| \xi_0 \right|^2}$,
+  другими словами,
+  \begin{equation*}
+    \left| cov \left( \xi_n, \xi_0 \right) \right| \leq
+    \sqrt{D \xi_n \cdot D \xi_0}
+  \end{equation*}
+  Использовали неравенство Коши-Буняковского.
+
+  Обе части равны единице, то есть в неравенстве Коши-Буняковского достигается равенство.
+  Из этого следует, что величины пропорциональны, то есть $ \xi_n = a_n \xi_0 \Rightarrow a_n = 1$.
+  Делаем предположение, что в такой последовательности все величины одинаковы,
+  то есть $ \xi_n = \xi_0$.
+  Проверим это.
+
+  Величины равны, если их разность равна нулю, то есть
+  \begin{equation*}
+    D \left( \xi_n - \xi_0 \right) =
+    cov \left( \xi_n - \xi_0, \xi_n - \xi_0 \right) =
+    R \left( 0 \right) - R \left( n \right) - R \left( -n \right) + R \left( 0 \right) =
+    0.
+  \end{equation*}
+
+  Сейчас $ \xi_n = \xi_0$ для всех $n$.
+  Тогда пространство $H_n^{ \xi } = \left\{ c \cdot \xi_0 \; : \; c \in \mathbb{C} \right\} $.
+
+  Эти пространства не изменяются при изменении $n$.
+  Значит, последовательность сингулярная.
+  \item $D \xi_n = R \left( 0 \right) = 1$.
+  Опять находимся в ситуации, когда
+  \begin{equation*}
+    \left| cov \left( \xi_n, \xi_0 \right) \right| =
+    \sqrt{D \xi_n \cdot D \xi_0}.
+  \end{equation*}
+
+  Это значит, что $ \xi_n = a_n \xi_0 \Rightarrow a_n = e^{i \lambda n}$.
+  Поэтому можем сделать предположение, что $ \xi_n = e^{i \lambda n} \xi_0$.
+  Как его проверить:
+  Нужно взять
+  \begin{equation*}
+    D \left( \xi_n - e^{i \lambda n} \xi_0 \right) =
+    cov \left( \xi_n - e^{i \lambda n} \xi_0, \overline{ \xi_n - e^{i \lambda n} \xi_0} \right) =
+  \end{equation*}
+  Раскроем ковариацию
+  \begin{equation*}
+    = R \left( 0 \right) - e^{-i \lambda n} R \left( n \right) + R \left( 0 \right) -
+    e^{i \lambda n} R \left( -n \right) =
+    1 - e^{-i \lambda n} \cdot e^{i \lambda n} + 1 - e^{i \lambda n} \cdot e^{-i \lambda n} =
+    0.
+  \end{equation*}
+  Так что у такой последовательности есть равенство $ \xi_n = e^{i \lambda n} \xi_0$.
+
+  Так же как в предыдущем пункте
+  $H_n^{ \xi } = \left\{ c \cdot \xi_0, \, c \in \mathbb{C} \right\} $.
+  Опять пространства не меняются
+  \begin{equation*}
+    R \left( n \right) =
+    e^{i \lambda n} =
+    \frac{1}{2 \pi } \int \limits_{-\pi }^{ \pi } e^{ixn} \mu \left( dx \right) \Rightarrow
+    \mu = 2 \pi \delta_{ \lambda }
+  \end{equation*}
+  с точностью до коэффициента.
+  \item Можем сделать предположение: $ \xi_n = a_n \xi_0 + b_n \xi_1$.
+
+  Берём ковариацию с $ \xi_0$.
+  Получится
+  \begin{equation*}
+    \begin{cases}
+      R \left( 0 \right) a_n + R \left( 1 \right) b_n = R \left( n \right), \\
+      R \left( -1 \right) a_n + R \left( 0 \right) b_n = R \left( n - 1 \right).
+    \end{cases}
+  \end{equation*}
+
+  Задача: найти коэффициенты $a_n$ и $b_n$.
+
+  Вычислим $R \left( 0 \right) = 2 + e^{i \lambda \cdot 0} = 3$.
+
+  Аналогично $R \left( 1 \right) = 2 + e^{i \lambda }$.
+
+  Таким же образом получаем, что $R \left( n \right) = 2 + e^{i \lambda n}$.
+
+  Ещё нужно $R \left( n - 1 \right) = 2 + e^{i \lambda \left( n - 1 \right) }$.
+
+  Осталось найти $R \left( -1 \right) = 2 + e^{-i \lambda }$.
+
+  Подставим это всё в систему
+  \begin{equation*}
+    \begin{cases}
+      3a_n + \left( 2 + e^{i \lambda } \right) b_n = 2 + e^{i \lambda n}, \\
+      \left( 2 + e^{-i \lambda } \right) a_n + 3b_n = 2 + e^{i \lambda \left( n - 1 \right) }.
+    \end{cases}
+  \end{equation*}
+
+  Из первого уравнения выразим
+  $a_n R \left( 0 \right) =
+    R \left( n \right) - R \left( 1 \right) b_n$.
+
+  Поделим на $R \left( 0 \right) $ и получим
+  \begin{equation*}
+    a_n =
+    \frac{R \left( n \right) - R \left( 1 \right) b_n}{R \left( 0 \right) }.
+  \end{equation*}
+
+  Подставим это выражение во второе уравнение
+  \begin{equation*}
+    R \left( -1 \right) \cdot
+    \frac{R \left( n \right) - R \left( 1 \right) b_n}{R \left( 0 \right) } +
+    R \left( 0 \right) b_n =
+    R \left( n - 1 \right).
+  \end{equation*}
+
+  Поделим числитель на знаменатель
+  \begin{equation*}
+    \frac{R \left( -1 \right) R \left( n \right) }{R \left( 0 \right) } -
+    \frac{R \left( -1 \right) R \left( 1 \right) }{R \left( 0 \right) } \cdot b_n +
+    R \left( 0 \right) b_n =
+    R \left(n - 1 \right).
+  \end{equation*}
+
+  Вынесем $b_n$.
+  Получим
+  \begin{equation*}
+    b_n \left(
+      R \left( 0 \right) - \frac{R \left( -1 \right) R \left( 1 \right) }{R \left( 0 \right) }
+    \right) =
+    R \left( n - 1 \right) - \frac{R \left( -1 \right) R \left( n \right) }{R \left( 0 \right) }.
+  \end{equation*}
+  Приведём слагаемые в скобках к общему знаменателю
+  \begin{equation*}
+    R \left( 0 \right) - \frac{R \left( -1 \right) R \left( 1 \right) }{R \left( 0 \right) } =
+    \frac{R^2 \left( 0 \right) - R \left( -1 \right) R \left( 1 \right) }{R \left( 0 \right) }.
+  \end{equation*}
+
+  Тогда
+  \begin{equation*}
+    b_n =
+    \frac{R \left( n - 1 \right) R \left( 0 \right) - R \left( -1 \right) R \left( n \right) }{R \left( 0 \right) } \cdot
+    \frac{R \left( 0 \right) }{R^2 \left( 0 \right) - R \left( -1 \right) R \left( 1 \right) } =
+  \end{equation*}
+  Сократим
+  \begin{equation*}
+    = \frac{R \left( n - 1 \right) R \left( 0 \right) - R \left( -1 \right) R \left( n \right) }{R^2 \left( 0 \right) - R \left( -1 \right) R \left( 1 \right) }.
+  \end{equation*}
+
+  Тогда
+  \begin{equation*}
+    a_n =
+    \frac{R \left( 0 \right) R \left( n \right) - R \left( 1 \right) R \left( n - 1 \right) }{R^2 \left( 0 \right) - R \left( 1 \right) R \left( -1 \right) } =
+  \end{equation*}
+  Подставим значения ковариационной функции
+  \begin{equation*}
+    = \frac{3 \left( 2 + e^{i \lambda n} \right) - \left( 2 + e^{i \lambda } \right) \left( 2 + e^{i \lambda \left(n - 1 \right) } \right) }{9 - \left( 2 + e^{i \lambda } \right) \left( 2 + e^{-i \lambda } \right) } =
+  \end{equation*}
+  Раскроем скобки
+  \begin{equation*}
+    = \frac{6 + 3e^{i \lambda n} - 4 - 2e^{i \lambda \left( n - 1 \right) } - 2e^{i \lambda } - e^{i \lambda n}}{9 - 4 - 2e^{-i \lambda } - 2e^{i \lambda } - e^{i \lambda } \cdot e^{-i \lambda }} =
+  \end{equation*}
+  Упростим
+  \begin{equation*}
+    = \frac{2 + 2e^{i \lambda n} - 2e^{i \lambda} - 2e^{i \lambda \left( n - 1 \right) }}{4 - 4 \cos \lambda } =
+  \end{equation*}
+  Можно на 2 сократить
+  \begin{equation*}
+    = \frac{1 + e^{i \lambda n} - e^{i \lambda} - e^{i \lambda \left( n - 1 \right) }}{2 \left( 1 - \cos \lambda \right) }.
+  \end{equation*}
+
+  Второй коэффициент равен
+  \begin{equation*}
+    b_n =
+    \frac{ \left( 2 + e^{i \lambda \left( n - 1 \right) } \right) \cdot 3 - \left( 2 + e^{-i \lambda } \right) \left( 2 + e^{i \lambda n} \right) }{4 - 4 \cos \lambda } =
+  \end{equation*}
+  Упростим
+  \begin{equation*}
+    = \frac{1 + e^{i \lambda \left( n - 1 \right) } - e^{i \lambda } - e^{i \lambda n}}{2 \left( 1 - \cos \lambda \right) }.
+  \end{equation*}
+
+  Проверим, что будет равенство.
+  Для этого нужно взять
+  \begin{equation*}
+    D \left( \xi_n - a_n \xi_0 - b_n \xi_1 \right) =
+    cov \left( \xi_n - a_n \xi_0 - b_n \xi_1, \xi_n - a_n \xi_0 - b_n \xi_1 \right) =
+  \end{equation*}
+  По поиску $a_n, b_n$ во второй части ковариации можем вычеркнуть два последних слагаемых
+  \begin{equation*}
+    = R \left( 0 \right) - a_n \cdot R \left( -n \right) - b_n R \left( 1 - n \right) =
+  \end{equation*}
+  Подставим и проверим, что это равняется нулю
+  \begin{gather*}
+    = 3 -
+    \frac{1 + e^{i \lambda n} - e^{i \lambda } - e^{i \lambda \left( n - 1 \right) }}{2 \left( 1 - \cos \lambda \right) } \cdot
+    \left( 2 + e^{-i \lambda n} \right) - \\
+    - \frac{1 + e^{i \lambda \left( n - 1 \right) } - e^{-i \lambda } - e^{i \lambda n}}{2 \left( 1 - \cos \lambda \right) } \cdot
+    \left( 2 + e^{i \lambda \left( 1 - n \right) } \right) =
+  \end{gather*}
+  Осталось раскрыть скобки и проверить, что это равняется нулю
+  \begin{gather*}
+    = 3 - \frac{1}{2 \left( 1 - \cos \lambda \right) } \times \\
+    \times \left(
+      2 + 2e^{i \lambda n} - 2e^{i \lambda } - 2e^{i \lambda \left( n - 1 \right) } +
+      e^{-i \lambda n} + 1 - e^{i \lambda \left( n - 1 \right) } - e^{-i \lambda } + 2 +
+      2e^{i \lambda \left( n - 1 \right) }
+    \right) = \\
+    = 3 - \frac{6 - 3e^{i \lambda } - 3e^{-i \lambda }}{2 \left( 1 - \cos \lambda \right) } =
+    3 - \frac{6 - 6 \cos \lambda }{2 \left( 1 - \cos \lambda \right) } =
+    0.
+  \end{gather*}
+  Это значит, что действительно предположение было верным, и
+  \begin{equation*}
+    \xi_n =
+    \xi_0 a_n + b_n \xi_1.
+  \end{equation*}
+
+  Имеем пространство
+  $H_n^{ \xi } =
+  \left\{ c_0 \cdot \xi_0 + c_1 \cdot \xi_1 \; : \; c_0, c_1 \in \mathbb{C} \right\} $.
+
+  Пространство не меняется.
+
+  Если спектральная мера дискретна и имеет конечное число атомов, то последовательность сингулярная.
+\end{enumerate}
+
 \subsubsection*{12.8}
 
 \textit{Задание.}
