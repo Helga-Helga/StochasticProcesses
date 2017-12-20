@@ -233,5 +233,149 @@ $H_0^{ \xi } \,
 ошибка прогноза $M \left( \xi_1 - \hat{ \xi_1} \right)^2 = M \left( 3 \varepsilon_1 \right)^2 = 9$.
 Решили задачу прогноза.
 
+\subsubsection*{13.3}
+
+\textit{Задание.}
+Стационарная последовательность $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$
+удовлетворяет уравнению $ \xi_{n + 1} = 3 \xi_n + \varepsilon_n$,
+где $ \left\{ \varepsilon_n \right\}_{n \in \mathbb{Z}}$~---~белый шум.
+Найдите оптимальную линейную оценку $ \xi_n$ при $ \xi^0 = \left( \dotsc, \xi_{-1}, \xi_0 \right) $
+и погрешность прогноза $M \left( \xi_n - \hat{ \xi }_n \right)^2$.
+
+\textit{Решение.}
+Нужно сначала понять, как устроено пространство $H_0^{ \xi }$,
+то есть нужно найти ортонормированный базис в этом пространстве.
+
+$ \xi_n =
+  2 \xi_{n - 1} + \varepsilon_{n - 1} =
+  4 \xi_{n - 2} + 2 \varepsilon_{n - 2} + \varepsilon_{n - 1}$,
+но так сейчас плохо делать, потому что длина остатка стремится к бесконечности.
+$ \xi_{n + 3} = 2 \xi_{n + 2} + \varepsilon_{n + 2}$, откуда
+\begin{equation*}
+  \xi_{n + 1} =
+  \frac{1}{2} \cdot \xi_{n + 3} - \frac{1}{2} \cdot \varepsilon_{n + 2}.
+\end{equation*}
+
+Тогда
+\begin{equation*}
+  \xi_n =
+  \frac{ \xi_{n + 1}}{2} - \frac{ \varepsilon_n}{2} =
+  \frac{1}{2} \cdot
+  \left( \frac{1}{2} \cdot \xi_{n + 2} - \frac{1}{2} \cdot \varepsilon_{n + 1 } \right) -
+  \frac{1}{2} \cdot \varepsilon_n =
+  \frac{1}{4} \cdot \xi_{n + 2} - \frac{1}{4} \cdot \varepsilon_{n + 1} -
+  \frac{1}{2} \cdot \varepsilon_n =
+\end{equation*}
+За $N$ шагов получим
+\begin{equation*}
+  = -\sum \limits_{k = 0}^{N - 1} \frac{1}{2^{k + 1}} \cdot \varepsilon_{n + k} +
+  \frac{ \varepsilon_{n + N}}{2^N}.
+\end{equation*}
+Второе слагаемое сходится к нулю, значит, мы нашли $ \xi $.
+
+Сейчас
+\begin{equation*}
+  \xi_n =
+  -\sum \limits_{k = 0}^{ \infty } \frac{1}{2^{k + 1}} \cdot \varepsilon_{n + k}.
+\end{equation*}
+
+Как построить ортонормированный базис в $H_0^{ \xi }$?
+Напомним, что
+\begin{equation*}
+  H_n^{ \xi } =
+  \overline{LS \left\{ \dotsc, \xi_{-2}, \xi_{-1}, \xi_0 \right\} }.
+\end{equation*}
+
+Знаем, что $ \xi_{n + 1} = 2 \xi_n + \varepsilon_n$.
+Используем ортогонализацию Грама-Шмидта.
+По условию
+\begin{equation*}
+  \xi_0 =
+  2 \xi_{n - 1} + \varepsilon_{-1} =
+  -\left( \frac{1}{2} \cdot \varepsilon_0 + \frac{1}{4} \cdot \varepsilon_1 + \dotsc \right).
+\end{equation*}
+
+Как организовать $ \xi_{-1}$?
+
+Получаем
+\begin{equation*}
+  \xi_{-1} =
+  -\left(
+    \frac{1}{2} \cdot \varepsilon_{-1} + \frac{1}{4} \cdot \varepsilon_0 +
+    \frac{1}{8} \cdot \varepsilon_1 + \dotsc
+  \right),
+\end{equation*}
+где
+\begin{equation*}
+  \frac{1}{4} \cdot \varepsilon_0 + \frac{1}{8} \cdot \varepsilon_1 + \dotsc =
+  -\frac{1}{2} \cdot \xi_0.
+\end{equation*}
+Слагаемое
+\begin{equation*}
+  -\frac{1}{2} \cdot \varepsilon_{-1}
+\end{equation*}
+это ортогональная составляющая $ \xi_{-1}$ до $ \xi_0$.
+
+Ортонормированный базис тогда будет таким:
+$ \sqrt{3} \xi_0, \varepsilon_{-1}, \varepsilon_{-2}, \varepsilon_{-3}, \dotsc $.
+
+Посчитаем длину $ \xi_0$.
+Получим
+\begin{equation*}
+  \left \Vert \xi_0 \right \Vert^2 =
+  \sum \limits_{k = 0}^{ \infty } \frac{1}{4^{k + 1}} =
+  \frac{ \frac{1}{4}}{1 - \frac{1}{4}} =
+  \frac{1}{3}.
+\end{equation*}
+
+Запишем прогноз
+\begin{equation*}
+  \hat{ \xi }_n =
+  3 \left( \xi_n, \xi_0 \right) \xi_0 + \left( \xi_n, \varepsilon_{-1} \right) \varepsilon_{-1} +
+  \left( \xi_n, \varepsilon_{-2} \right) \varepsilon_{-2} + \dotsc =
+\end{equation*}
+Все слагаемые, начиная со второго, равны нулю.
+Здесь $n \geq 1$.
+Получаем
+\begin{equation*}
+  = 3 \left( \xi_n, \xi_0 \right) \xi_0.
+\end{equation*}
+
+Найдём отдельно
+\begin{equation*}
+  \left( \xi_n, \xi_0 \right) =
+  \left(
+    -\sum \limits_{k = 0}^{ \infty } \varepsilon_{n + 2} \cdot \frac{1}{2^{k + 1}},
+    -\sum \limits_{j = 0}^{ \infty } \frac{ \varepsilon_j}{2^{j + 1}}
+  \right) =
+\end{equation*}
+Двойные суммы выносятся
+\begin{equation*}
+  = \sum \limits_{k, j = 0}^{ \infty }
+    \frac{1}{2^{k + j + 2}} \left( \varepsilon_{n + k}, \varepsilon_j \right) =
+\end{equation*}
+Скалярное произведение равно единице, когда индексы совпадают, то есть $k = j - n$.
+Вместо двойной суммы остаётся одинарная сумма
+\begin{equation*}
+  = \sum \limits_{j = n}^{ \infty } \frac{1}{2^{2j - n + 2}} =
+  2^{n - 2} \sum \limits_{j = n}^{ \infty } \frac{1}{4j} =
+  2^{n - 2} \cdot \frac{ \frac{1}{4^n}}{1 - \frac{1}{4}} =
+  \frac{1}{3 \cdot 2^n}.
+\end{equation*}
+
+Подставляем скалярное произведение в формулу и получим ответ
+\begin{equation*}
+  \hat{ \xi }_n = \frac{ \xi_0}{2^n}, \,
+  n \geq 1.
+\end{equation*}
+Это оптимальный прогноз.
+
+Найдём ошибку прогноза по теореме Пифагора
+\begin{equation*}
+  M \left| \xi_n - \hat{ \xi }_n \right|^2 =
+  M \xi_n^2 - M \hat{ \xi }_n^2 =
+  \frac{1}{3} - \frac{1}{3 \cdot 4^n}.
+\end{equation*}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
