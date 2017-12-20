@@ -1,0 +1,99 @@
+\addcontentsline{toc}{chapter}{Занятие 11. Стационарные случайные последовательности.}
+\chapter*{Занятие 11. Стационарные случайные последовательности.}
+
+\addcontentsline{toc}{section}{Контрольные вопросы и задания}
+\section*{Контрольные вопросы и задания}
+
+\subsubsection*{Приведите определение стационарной случайной последовательности.}
+
+Последовательность $ \left\{ \xi_n, \, n \in \mathbb{Z} \right\} $ называется стационарной
+(в широком смысле), если
+$M \xi_n = M \xi_0, \, n \in \mathbb{Z}, \,
+  cov \left( \xi_{n + m}, \xi_m \right) = cov \left( \xi_n, \xi_0 \right), \, n, m \in \mathbb{Z}.$
+
+\subsubsection*{Приведите примеры стационарных случайных последовательностей.}
+
+\begin{enumerate}
+  \item $ \xi_n = \eta \cdot e^{i \lambda n}, \, n \in \mathbb{Z}$,
+  где $ \lambda \in \mathbb{R}, \, \eta $~---~случайная величина такая,
+  что $M \eta = 0$ и $M \left| \eta \right|^2 \equiv \sigma^2 < +\infty $.
+
+  При этом
+  \begin{equation*}
+    cov \left( \xi_{n + m}, \xi_m \right) =
+    M \left[
+      \eta \cdot e^{i \lambda \left( n + m \right) } \cdot \overline{ \eta } \cdot e^{-i \lambda m}
+    \right] =
+    M \left| \eta \right|^2 \cdot e^{i \lambda n} =
+    \sigma^2 \cdot e^{i \lambda n} =
+  \end{equation*}
+  Нет зависимости от $m$,
+  есть зависимость только от разностей
+  \begin{equation*}
+    \left( n + m \right) - m = n + m - m = n.
+  \end{equation*}
+  Получаем
+  \begin{equation*}
+    = K \left( n \right).
+  \end{equation*}
+  \item Пусть
+  \begin{equation*}
+    \eta_n =
+    \sum \limits_{k = 1}^N \eta_k e^{i \lambda_k n}, \,
+    n \in \mathbb{Z},
+  \end{equation*}
+  где $ \eta_1, \dotsc, \eta_N$~---~случайные величина с $M \eta_i = 0, \, 1 \leq i \leq N$ и
+  \begin{equation*}
+    M \eta_i \overline{ \eta_j} = 0, \,
+    1 \leq i, j \leq N, \,
+    i \neq j,
+  \end{equation*}
+  и $M \left| \eta_i \right|^2 = \sigma_i^2$,
+  а $ \lambda_i \neq \lambda_j, \, i \neq j$~---~действительные числа.
+  Тогда
+  \begin{equation*}
+    cov \left( \xi_{n + m}, \xi_n \right) =
+    M \left[
+      \sum \limits_{k = 1}^N \eta_k e^{i \lambda_k \left( n + m \right) } \cdot
+      \sum \limits_{l = 1}^N \overline{ \eta_l} e^{-i \lambda_l m}
+    \right] =
+  \end{equation*}
+  Запишем произведение двух сумм в виде двойной суммы
+  \begin{equation*}
+    = \sum \limits_{k = 1}^N
+      \sum \limits_{l = 1}^N \left[
+        M \eta_k \overline{ \eta }_l \cdot e^{i \lambda_k \left( n + m \right) } e^{-i \lambda_l m}
+      \right] =
+  \end{equation*}
+  Воспользуемся тем, что $M \eta_i \overline{ \eta }_j = 0$.
+  Получим
+  \begin{equation*}
+    = \sum \limits_{k = 1}^n \sigma_k^2 \cdot e^{i \lambda_k n} =
+  \end{equation*}
+  Ковариационная функция элементов последовательности зависит только от разности их индексов
+  \begin{equation*}
+    = K \left( n \right).
+  \end{equation*}
+\end{enumerate}
+
+\subsubsection*{Сформулируйте теорему Герглотца про спектральное изображение ковариационной функции
+                стационарной случайной последовательности.}
+
+Если $k$~---~ковариационная функция стационарной в широком смысле последовательности,
+то существует мера на
+$ \left( \left[ -\pi, \pi \right], \beta \left( \left[ -\pi, \pi \right] \right) \right) $,
+где $ \beta $~---~борелевская $ \sigma$-алгебра.
+Мера такая, что
+\begin{equation*}
+  k \left( n \right) =
+  \frac{1}{2 \pi } \int \limits_{-\pi }^{ \pi } e^{i \lambda n} \mu \left( d \lambda \right), \,
+  n \in \mathbb{Z}.
+\end{equation*}
+
+\subsubsection*{Что называется спектральной функцией, спектральной плотностью стационарной случайной
+                последовательности?}
+
+Мера $ \mu $, которая фигурировала в теореме Герглотца, называется спектральной мерой, а функция
+$f \left( \lambda \right) := \mu \left( \left[ \-\pi, \pi \right] \right), \,
+  -\pi \leq \lambda < \pi $~---~спектральной
+функцией стационарной последовательности с ковариационной функцией $k$.
