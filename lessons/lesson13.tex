@@ -720,8 +720,109 @@ $ \sqrt{3} \xi_0, \varepsilon_{-1}, \varepsilon_{-2}, \varepsilon_{-3}, \dotsc $
     M \left( \xi_2 - \hat{ \xi }_2 \right)^2 =
     M \left( 3 \varepsilon_2 + 11 \varepsilon_1 - 4 \varepsilon_0 + 4 \varepsilon_0 \right)^2 =
     M \left( 3 \varepsilon_2 + 11 \varepsilon_1 \right)^2 =
-    9 + 121 =
     130.
   \end{equation*}
 \end{enumerate}
 Решили задачу прогноза.
+
+\subsubsection*{13.9}
+
+\textit{Задание.}
+Спектральна мера стационарной последовательности $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$
+подаётся в виде
+\begin{equation*}
+  \mu \left( d \lambda \right) =
+  \delta_0 \left( d \lambda \right) +
+  \frac{1}{2 \pi } \cdot \left| 2 - e^{-i \lambda } \right|^2 d \lambda.
+\end{equation*}
+Найдите регулярную компоненту в разложении Вольда для последовательности
+$ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$.
+
+\textit{Решение.}
+Допустим, что
+\begin{equation*}
+  \mu^{regular} \left( d \lambda \right) =
+  \frac{1}{2 \pi } \cdot \left| 2 - e^{-i \lambda } \right|^2 d \lambda, \,
+  \mu^{singular} \left( d \lambda \right) = \delta_0 \left( d \lambda \right).
+\end{equation*}
+Тогда
+\begin{gather*}
+  R^{singular} \left( n \right) =
+  \frac{1}{2 \pi }
+  \int \limits_{-\pi }^{ \pi } e^{i \lambda n} \mu^{singular} \left( d \lambda \right) =
+  \frac{1}{2 \pi } \int \limits_{-\pi }^{ \pi } e^{i \lambda n} \delta_0 \left( d \lambda \right) =
+  1, \\
+  R^{regular} \left( n \right) =
+  \frac{1}{2 \pi } \int \limits_{-\pi }^{ \pi }
+    e^{i \lambda n} \cdot \frac{1}{2 \pi } \cdot \left| 2 - e^{-i \lambda } \right|^2
+  d \lambda =
+\end{gather*}
+Выпишем отдельно
+\begin{gather*}
+  \left| 2 - e^{-i \lambda } \right|^2 =
+  \left| 2 - \cos \lambda + i \sin \lambda \right|^2 =
+  \left(
+    2 - \cos \lambda + i \sin \lambda \right) \left( 2 - \cos \lambda - i \sin \lambda
+  \right) = \\
+  = 4 - 2 \cos \lambda - 2i \sin \lambda - 2 \cos \lambda + \cos^2 \lambda +
+  i \cos \lambda \cdot \sin \lambda + 2i \sin \lambda - \\
+  - i \sin \lambda \cdot \cos \lambda + \sin^2 \lambda =
+  4 - 4 \cos \lambda + 1 =
+  5 - 4 \cos \lambda.
+\end{gather*}
+Тогда
+\begin{gather*}
+  = \frac{1}{4 \pi }
+  \int \limits_{-\pi }^{ \pi } e^{i \lambda n} \left( 5 - 4 \cos \lambda \right) d \lambda =
+  \frac{1}{4 \pi } \int \limits_{-\pi }^{ \pi }
+    e^{i \lambda n} \left( 5 - 2e^{i \lambda } - 2e^{-i \lambda } \right)
+  d \lambda = \\
+  = \begin{cases}
+    \frac{5}{4 \pi }, \qquad n = 0, \\
+    0, \qquad n \neq 0.
+  \end{cases}
+\end{gather*}
+
+Поскольку свойство быть сингулярной или регулярной последовательностью полностью определяется
+ковариационной функцией последовательности, то, если найдём такую сингулярную последовательность,
+что $R \left( n \right) = 1$, и регулярную последовательность с
+\begin{equation*}
+  R \left( n \right) =
+  \begin{cases}
+    \frac{5}{4 \pi }, \qquad n = 0, \\
+    0, \qquad n \neq 0,
+  \end{cases}
+\end{equation*}
+то наше начальное предположение будет верным.
+
+Итак,
+\begin{enumerate}
+  \item $ \xi_n = \xi_{n + 1}, \,
+    \xi_n \sim N \left( 0, 1 \right), \,
+    cov \left( \xi_n, \xi_m \right) = M \xi_n^2 = 1$;
+  \item пусть $ \left\{ \varepsilon_n \right\}_{n \in \mathbb{Z}}$~---~белый шум.
+  Тогда
+  \begin{equation*}
+    \xi_n = \frac{ \sqrt{5}}{2 \sqrt{ \pi }} \cdot \varepsilon_n,
+  \end{equation*}
+  ковариация равна
+  \begin{gather*}
+    cov \left( \xi_n, \xi_m \right) =
+    cov \left(
+      \frac{ \sqrt{5}}{2 \sqrt{ \pi }} \cdot \varepsilon_n,
+      \frac{ \sqrt{5}}{2 \sqrt{ \pi }} \cdot \varepsilon_m
+    \right) =
+    \frac{5}{4 \pi } \cdot cov \left( \varepsilon_n, \varepsilon_m \right) = \\
+    = \begin{cases}
+      \frac{5}{4 \pi }, \qquad n = m, \\
+      0, \qquad n \neq m.
+    \end{cases}
+  \end{gather*}
+\end{enumerate}
+
+Значит,
+регулярная компонента в разложении Вольда для $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$~---~это
+\begin{equation*}
+  \xi_n^{regular} =
+  \frac{ \sqrt{5}}{2 \sqrt{ \pi }} \cdot \varepsilon_n.
+\end{equation*}
