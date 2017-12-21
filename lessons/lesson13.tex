@@ -886,3 +886,73 @@ $M \left( \xi_N^{singular} \right)^2 = 0 \,
   \forall N \Rightarrow
   \xi_n^{singular} = 0$,
 следовательно, $ \xi $~---~регулярная.
+
+\subsubsection*{13.11}
+
+\textit{Задание.}
+Докажите,
+что стационарная последовательность
+\begin{equation*}
+  \left\{ \xi_n = e^{in \varphi } \right\}_{n \in \mathbb{Z}},
+\end{equation*}
+где $ \varphi $~---~равномерно распределённая на $ \left[ 0, 2 \pi \right] $ случайная величина,
+является регулярной.
+Найдите оценку $ \hat{ \xi }_n$, величину $ \sigma_n^2$ и докажите, что нелинейная оценка
+\begin{equation*}
+  \hat{ \xi }_n =
+  \left( \frac{ \xi_0}{ \xi_{-1}} \right)^n
+\end{equation*}
+даёт безошибочный прогноз $ \xi_n $ при $ \xi^0 = \left( \dotsc, \xi_{-1}, \xi_0 \right) $.
+
+\textit{Решение.}
+\begin{gather*}
+  M \xi_n =
+  Me^{in \varphi } =
+  \int \limits_0^{2 \pi } \frac{1}{2 \pi } \cdot e^{in \varphi } d \varphi =
+  \left. \frac{1}{2 \pi in} \cdot e^{in \varphi} \right|_0^{2 \pi } =
+  \frac{1}{2 \pi in} \cdot \left( e^{2i \pi n} - 1 \right) = \\
+  = \frac{1}{2 \pi in} \cdot
+  \left[ \cos \left( 2 \pi n \right) + i \sin \left( 2 \pi n \right) - 1 \right] =
+  \frac{1}{2 \pi in} \cdot \left[ 1 - 1 \right] =
+  0, \,
+  n > 0.
+\end{gather*}
+
+При $n = 0$ получим $M \xi_0 = Me^{i \cdot 0 \cdot \varphi } = 1$.
+
+Ковариация равна
+\begin{equation*}
+  cov \left( \xi_n, \xi_m \right) =
+  \begin{cases}
+    1, \qquad n = m, \\
+    0, \qquad n \neq m,
+  \end{cases}
+\end{equation*}
+следовательно, $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$~---~белый шум.
+
+$ \hat{ \xi }_n = 0$,
+так как $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$~---~регулярная последовательность.
+
+\begin{gather*}
+  \sigma_n^2 =
+  M \left( \xi_n - 0 \right)^2 =
+  Me^{2in \varphi } =
+  \int \limits_0^{2 \pi } \frac{1}{2 \pi } \cdot e^{2in \varphi } d \varphi =
+  \left. \frac{1}{2 \pi \cdot 2in} \cdot e^{2in \varphi } \right|_0^{2 \pi } = \\
+  = \frac{1}{4i \pi n} \cdot \left( e^{2in \cdot 2 \pi } - 1 \right) =
+  \frac{1}{4i \pi n} \cdot \left( e^{4in \pi } - 1 \right) = \\
+  = \frac{1}{4 \pi in} \cdot \left[
+    \cos \left( 2 \pi n \right) + i \sin \left( 4 \pi n \right) - 1
+  \right] =
+  \frac{1}{4 \pi in} \cdot \left( 1 - 1 \right) =
+  0.
+\end{gather*}
+
+Ошибка прогноза
+\begin{gather*}
+  M \left( \xi_n - \hat{ \xi }_n \right)^2 =
+  M \left[ \xi_n - \left( \frac{ \xi_0}{ \xi_{-1}} \right)^n \right]^2 =
+  M \left( e^{in \varphi } - \frac{1}{e^{-in \varphi}} \right)^2 = \\
+  = M \left( e^{in \varphi } - e^{-in \varphi } \right)^2 =
+  0.
+\end{gather*}
