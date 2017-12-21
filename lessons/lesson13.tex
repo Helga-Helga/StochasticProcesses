@@ -182,14 +182,14 @@ $ \hat{ \xi_n}$~---~проекция $ \xi_n$ на $H_0^{ \xi }$.
 Тогда
 \begin{equation*}
   \varepsilon_n =
-  \sum \limits_{k = 0}^{ \infty } \frac{ \left( -1 \right)^k}{3^{k + 1}} \cdot \xi_{n - 1} \in
+  \sum \limits_{k = 0}^{ \infty } \frac{ \left( -1 \right)^k}{3^{k + 1}} \cdot \xi_{n - k} \in
   H_n^{ \xi }.
 \end{equation*}
-Вывод такой, что у нас появляется ортономированный базис в
+Вывод такой, что у нас появился ортономированный базис в
 $H_0^{ \xi } \,
   \left\{ \varepsilon_k, \, k \leq 0 \right\} $.
 
-Значит, мы может посчитать проекцию
+Значит, мы можем посчитать проекцию
 \begin{equation*}
   \hat{ \xi_n} =
   \sum \limits_{k = -\infty }^0 \left( \xi_n, \varepsilon_k \right) \varepsilon_k.
@@ -446,3 +446,282 @@ $ \sqrt{3} \xi_0, \varepsilon_{-1}, \varepsilon_{-2}, \varepsilon_{-3}, \dotsc $
 
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
+
+\subsubsection*{13.8}
+
+\textit{Задание.}
+Найдите оптимальную линейную оценку $ \xi_n, \, n \geq 1$ при
+\begin{equation*}
+  \xi^0 =
+  \left( \dotsc, \xi_{-1}, \xi_0 \right)
+\end{equation*}
+и погрешность прогноза, если
+\begin{enumerate}[label=\alph*)]
+  \item $ \xi_n = 10 \varepsilon_n + 3 \varepsilon_{n - 1} - \varepsilon_{n - 2}$;
+  \item $ \xi_n = 3 \varepsilon_n + 11 \varepsilon_{n - 1} - 4 \varepsilon_{n - 2}$.
+\end{enumerate}
+
+\textit{Решение.}
+Оптимальная оценка $ \hat{ \xi }_n$~---~это проекция $ \xi_n$ на $H_0^{ \xi }$.
+
+Нужно знать базис в пространстве $H_0^{ \xi }$.
+
+Если $ \varepsilon_n \in H_0^{ \xi }$,
+то $ \varepsilon_0, \varepsilon_{-1}, \varepsilon_{-2}, \dotsc $~---~это
+и будет ортонормированный базис в $H_0^{ \xi }$.
+Можно ли $ \varepsilon_n$ переписать через $ \xi_n$?
+\begin{enumerate}[label=\alph*)]
+  \item Выразим из соотношения, заданного в условии
+  \begin{equation*}
+    10 \varepsilon_n =
+    \xi_n - 3 \varepsilon_{n - 1} + \varepsilon_{n - 2},
+  \end{equation*}
+  откуда
+  \begin{equation*}
+    \varepsilon_n =
+    \frac{1}{10} \cdot \xi_n - \frac{3}{10} \cdot \varepsilon_{n - 1} +
+    \frac{1}{10} \cdot \varepsilon_{n - 2} =
+  \end{equation*}
+  Подставим выражение для $ \varepsilon_{n - 1}$ и раскроем скобки
+  \begin{equation*}
+    = \frac{1}{10} \cdot \xi_n - \frac{3}{10^2} \cdot \xi_{n - 1} +
+    \frac{9}{10^2} \cdot \varepsilon_{n - 2} - \frac{3}{10^2} \cdot \varepsilon_{n - 3} +
+    \frac{1}{10} \cdot \varepsilon_{n - 2} =
+  \end{equation*}
+  Приведём подобные
+  \begin{equation*}
+    = \frac{1}{10} \cdot \xi_n - \frac{3}{10^2} \cdot \xi_{n - 1} +
+    \frac{19}{10^2} \cdot \varepsilon_{n - 2} - \frac{3}{10^3} \varepsilon_{n - 3} =
+    \dotsc =
+  \end{equation*}
+  После $N$ шагов получим
+  \begin{equation*}
+    = \sum \limits_{k = 0}^N \left( -1 \right)^k \cdot \frac{c_k}{10^{k + 1}} \cdot \xi_{n - k} +
+    \frac{ \varepsilon_{n - N}}{10^N} \cdot c_N \cdot \left( -1 \right)^N.
+  \end{equation*}
+
+  Второе слагаемое стремится к нулю при $N \to \infty $, потому что его длина~---~это
+  $c_N \cdot 10^{-N}$.
+
+  Тогда
+  \begin{equation*}
+    \varepsilon_n =
+    \sum \limits_{k = 0}^{ \infty }
+      \frac{ \left( -1 \right)^k \cdot c_k}{10^{k + 1}} \cdot \xi_{n - k} \in
+    H_0^{ \xi }.
+  \end{equation*}
+
+  Вывод такой, что у нас появился ортонормированный базис в $H_0^{ \xi }$,
+  то есть $ \left\{ \varepsilon_k, \, k \leq 0 \right\} $.
+
+  Значит, мы можем посчитать проекцию
+  \begin{equation*}
+    \hat{ \xi }_n =
+    \sum \limits_{k = -\infty }^0 \left( \xi_n, \varepsilon_k \right) \varepsilon_k.
+  \end{equation*}
+
+  Чтобы получить ответ, нужно найти ковариацию, то есть
+  \begin{equation*}
+    \left( \xi_n, \varepsilon_k \right) =
+    \left( 10 \varepsilon_n + 3 \varepsilon_{n - 1} - \varepsilon_{n - 2}, \varepsilon_k \right) =
+  \end{equation*}
+  Раскроем скобки
+  \begin{equation*}
+    = 10 \left( \varepsilon_n, \varepsilon_k \right) +
+    3 \left( \varepsilon_{n - 1}, \varepsilon_k \right) -
+    \left( \varepsilon_{n - 2}, \varepsilon_k \right) =
+  \end{equation*}
+  Первое слагаемое равно нулю
+  \begin{equation*}
+    = \begin{cases}
+      3, \qquad n = 1, k = 0, \\
+      -1, \qquad n = 1, k = -1, \\
+      -1, \qquad n = 2, k = 0, \\
+      0, \qquad in \, other \, cases.
+    \end{cases}
+  \end{equation*}
+
+  Говорили, что $n \geq 1$, а $k \leq 0$.
+
+  Теперь получим ответ.
+  Если хотим спрогнозировать $ \xi_n$ при $n > 2$, то $ \hat{ \xi }_n = 0$.
+  Значит, ошибка прогноза
+  \begin{equation*}
+    M \left( \xi_n - \hat{ \xi }_n \right)^2 =
+    M \xi_n^2 =
+    M \left( 10 \varepsilon_n + 3 \varepsilon_{n - 1} - \varepsilon_{n - 2} \right)^2 =
+  \end{equation*}
+  По теореме Пифагора
+  \begin{equation*}
+    = 100 + 9 + 1 =
+    110.
+  \end{equation*}
+
+  Если $n = 1$, то
+  \begin{equation*}
+    \hat{ \xi }_1 =
+    3 \varepsilon_0 - \varepsilon_{-1} =
+    3 \sum \limits_{k = 0}^{ \infty }
+      \frac{ \left( -1 \right)^k \cdot c_k}{10^{k + 1}} \cdot \xi_{-k} -
+    \sum \limits_{k = 0}^{ \infty }
+      \frac{ \left( -1 \right)^k \cdot c_k}{10^{k + 1}} \cdot \xi_{-1 - k} =
+  \end{equation*}
+  Запишем под одну сумму
+  \begin{equation*}
+    = \sum \limits_{k = 0}^{ \infty } \frac{ \left( -1 \right)^k \cdot c_k}{10^{k + 1}}
+    \left( 3 \xi_{-k} - \xi_{-1 - k} \right).
+  \end{equation*}
+
+  Значит, ошибка прогноза
+  \begin{equation*}
+    M \left( \xi_1 - \hat{ \xi }_1 \right)^2 =
+    M \left(
+      10 \varepsilon_1 + 3 \varepsilon_0 - \varepsilon_{-1} - 3 \varepsilon_0 + \varepsilon_{-1}
+    \right)^2 =
+    M \left( 10 \varepsilon_1 \right)^2 =
+    100.
+  \end{equation*}
+
+  Если $n = 2$, то
+  \begin{equation*}
+    \hat{ \xi }_2 = - \varepsilon_0 =
+    - \sum \limits_{k = 0}^{ \infty }
+      \frac{ \left( -1 \right)^k \cdot c_k}{10^{k + 1}} \cdot \xi_{-k}.
+  \end{equation*}
+
+  Значит, ошибка прогноза
+  \begin{equation*}
+    M \left( \xi_2 - \hat{ \xi }_2 \right)^2 =
+    M \left( 10 \varepsilon_2 + 3 \varepsilon_1 - \varepsilon_0 + \varepsilon_0 \right)^2 =
+    M \left( 10 \varepsilon_2 + 3 \varepsilon_1 \right)^2 =
+    109.
+  \end{equation*}
+  \item Выразим из соотношения, которое задано в условии,
+  \begin{equation*}
+    3 \varepsilon_n =
+    \xi_n - 11 \varepsilon_{n - 1} + 4 \varepsilon_{n - 2},
+  \end{equation*}
+  откуда
+  \begin{equation*}
+    \varepsilon_n =
+    \frac{1}{3} \cdot \xi_n - \frac{11}{3} \cdot \varepsilon_{n - 1} +
+    \frac{4}{3} \cdot \varepsilon_{n - 2} =
+  \end{equation*}
+  Подставим выражение для $ \varepsilon_{n - 1}$.
+  Получим
+  \begin{equation*}
+    = \frac{1}{3} \cdot \xi_n - \frac{11}{3} \left(
+      \frac{1}{3} \cdot \xi_{n - 1} - \frac{11}{3} \cdot \varepsilon_{n - 2} +
+      \frac{4}{3} \cdot \varepsilon_{n - 3}
+    \right) + \frac{4}{3} \cdot \varepsilon_{n - 2} =
+  \end{equation*}
+  Раскроем скобки
+  \begin{equation*}
+    = \frac{1}{3} \cdot \xi_n - \frac{11}{3^2} \cdot \xi_{n - 1} +
+    \frac{133}{3^2} \cdot \varepsilon_{n - 2} - \frac{44}{3^3} \cdot \varepsilon_{n - 3} =
+    \dotsc =
+  \end{equation*}
+  После $N$ шагов получим
+  \begin{equation*}
+    = \sum \limits_{k = 0}^N \left( -1 \right)^k \cdot \frac{1}{3^{k + 1}} \cdot c_k \xi_{n - k} +
+    \frac{ \varepsilon_{n - N}}{3^N} \cdot c_n \left( -1 \right)^N.
+  \end{equation*}
+
+  Второе слагаемое стремится к нулю при $N \to \infty $,
+  потому что его длина~---~это $c^N \cdot 3^{-N}$.
+
+  Тогда
+  \begin{equation*}
+    \varepsilon_n =
+    \sum \limits_{k = 0}^{ \infty } \frac{ \left( -1 \right)^k}{3^{k + 1}} \cdot c_k \xi_{n - k} \in
+    H_0^{ \xi }.
+  \end{equation*}
+
+  Вывод такой, что у нас появился ортонормированный базис в
+  $H_0^{ \xi }$, то есть $ \left\{ \varepsilon_k, \, k \leq 0 \right\} $.
+
+  Значит, мы можем найти проекцию
+  \begin{equation*}
+    \hat{ \xi }_n =
+    \sum \limits_{k = -\infty }^0 \left( \xi_n, \varepsilon_k \right) \varepsilon_k.
+  \end{equation*}
+
+  Чтобы получить ответ, нужно найти ковариацию, то есть
+  \begin{equation*}
+    \left( \xi_n, \varepsilon_k \right) =
+    \left( 4 \varepsilon_n + 11 \varepsilon_{n - 1} - 4 \varepsilon_{n - 2}, \varepsilon_k \right) =
+  \end{equation*}
+  Раскроем скобки
+  \begin{equation*}
+    = 3 \left( \varepsilon_n, \varepsilon_k \right) +
+    11 \left( \varepsilon_{n - 1}, \varepsilon_k \right) -
+    4 \left( \varepsilon_{n - 2}, \varepsilon_k \right) =
+  \end{equation*}
+  Первое слагаемое равно нулю
+  \begin{equation*}
+    = \begin{cases}
+      11, \qquad n = 1, k = 0, \\
+      -4, \qquad n = 1, k = -1, \\
+      -4, \qquad n = 2, k = 0, \\
+      0, \qquad otherwise.
+    \end{cases}
+  \end{equation*}
+
+  Говорили, что $n \geq 1, \, k \leq 0$.
+
+  Теперь получим ответ.
+  Если хотим спрогнозировать $ \xi_n$ при $n \geq 3$, то $ \hat{ \xi }_n = 0$.
+  Значит, ошибка прогноза
+  \begin{equation*}
+    M \left( \xi_n - \hat{ \xi }_n \right)^2 =
+    M \xi_n^2 =
+    M \left( 3 \varepsilon_n + 11 \varepsilon_{n - 1} - 4 \varepsilon_{n - 2} \right)^2 =
+  \end{equation*}
+  По теореме Пифагора
+  \begin{equation*}
+    = 9 + 121 + 16 =
+    146.
+  \end{equation*}
+
+  Если $n = 1$, то
+  \begin{equation*}
+    \hat{ \xi }_1 =
+    11 \varepsilon_0 - 4 \varepsilon_{-1} =
+    11 \sum \limits_{k = 0}^{ \infty } \frac{ \left( -1 \right)^k}{3^{k + 1}} \cdot c_k \xi_{-k} -
+    4 \sum \limits_{k = 0}^{ \infty }
+      \frac{ \left( -1 \right)^k}{3^{k + 1}} \cdot c_k \xi_{-1 - k} =
+  \end{equation*}
+  Запишем под одной суммой
+  \begin{equation*}
+    = \sum \limits_{k = 0}^{ \infty } \frac{ \left( -1 \right)^k}{3^{k + 1}} \cdot c_k
+    \left( 11 \xi_{-k} - 4 \xi_{-1 - k} \right).
+  \end{equation*}
+
+  Значит, ошибка прогноза
+  \begin{equation*}
+    M \left( \xi_1 - \hat{ \xi }_1 \right)^2 =
+    M \left(
+      3 \varepsilon_1 + 11 \varepsilon_0 - 4 \varepsilon_{-1} - 11 \varepsilon_0 +
+      4 \varepsilon_{-1}
+    \right)^2 =
+    M \left( 3 \varepsilon_1 \right)^2 =
+    9.
+  \end{equation*}
+
+  Если $n = 2$, то
+  \begin{equation*}
+    \hat{ \xi }_2 =
+    -4 \varepsilon_0 =
+    -4 \sum \limits_{k = 0}^{ \infty } \frac{ \left( -1 \right)^k}{3^{k + 1}} \cdot c_k \xi_{-k}.
+  \end{equation*}
+
+  Значит, ошибка прогноза
+  \begin{equation*}
+    M \left( \xi_2 - \hat{ \xi }_2 \right)^2 =
+    M \left( 3 \varepsilon_2 + 11 \varepsilon_1 - 4 \varepsilon_0 + 4 \varepsilon_0 \right)^2 =
+    M \left( 3 \varepsilon_2 + 11 \varepsilon_1 \right)^2 =
+    9 + 121 =
+    130.
+  \end{equation*}
+\end{enumerate}
+Решили задачу прогноза.
