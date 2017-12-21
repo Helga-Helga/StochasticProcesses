@@ -826,3 +826,63 @@ $ \left\{ \xi_n \right\}_{n \in \mathbb{Z}}$.
   \xi_n^{regular} =
   \frac{ \sqrt{5}}{2 \sqrt{ \pi }} \cdot \varepsilon_n.
 \end{equation*}
+
+\subsubsection*{13.10}
+
+\textit{Задание.}
+Пусть
+$ \hat{ \xi }_n = M \left( \xi_n \; \middle| \; H_0 \left( \xi \right) \right), \,
+  \sigma_n^2 = M \left( \xi_n - \hat{ \xi }_n \right)^2$.
+Докажите, что если $ \sigma_n^2 = 0$ для некоторого $n \geq 1$, то последовательность сингулярна;
+если же $ \sigma_n^2 \to R \left( 0 \right) $ при $n \to \infty $, то последовательность регулярна.
+
+\textit{Решение.}
+$ \sigma_n^2 =
+  M \left( \xi_n - \hat{ \xi }_n \right)^2 =
+  M \left[ \xi_n - Pr_{H_0^{ \xi }} \left( \xi_n \right) \right]^2$.
+
+Проверим сигрулярность.
+$M \left[ \xi_n - Pr_{H_0^{ \xi }} \left( \xi_n \right) \right]^2 = 0 \Rightarrow
+  \xi_n - Pr_{H_0^{ \xi }} \left( \xi_n \right) = 0$
+при некотором $n \geq 1$.
+
+Тогда $ \xi_n = Pr_{H_0^{ \xi }} \left( \xi_n \right) $.
+
+По определению
+$H_n^{ \xi } =
+  \overline{LS \left\{ \xi_k, \, k \leq n \right\} } =
+  H_{n - 1}^{ \xi }$,
+так как
+\begin{equation*}
+  \xi_n \in H_0^{ \xi } \Rightarrow
+  \xi_n \in H_{n - 1}^{ \xi },
+\end{equation*}
+следовательно, $ \xi_n$~---~сингулярная.
+
+Проверим регулярность.
+$M \left( \xi_n - \hat{ \xi }_n \right)^2 \to R \left( 0 \right) = M \xi_N^2, \,
+  n \to \infty, \,
+  N$~---~фиксировано.
+
+\begin{gather*}
+  M \left( \xi_n - \hat{ \xi }_n \right)^2 =
+  M \left(
+    \xi_n^{singular} - \sum \limits_{k \geq 0} c_k \varepsilon_{n - k} - \xi_n^{singular} +
+    \sum \limits_{k \geq N} c_k \varepsilon_{n - k}
+  \right)^2 = \\
+  = M \left( \sum \limits_{k = 0}^{N - 1} c_k \varepsilon_{n - k} \right)^2 =
+  \sum \limits_{k = 0}^{N - 1} \left| c_k \right|^2.
+\end{gather*}
+
+Таким образом,
+\begin{equation*}
+  M \xi_N^2 =
+  M \left( \xi_N^{singular} \right)^2 + \sum \limits_{k \geq 0} \left| c_k \right|^2 \geq
+  \sum \limits_{k \geq 0} \left| c_k \right|^2.
+\end{equation*}
+
+Сходимость есть только когда
+$M \left( \xi_N^{singular} \right)^2 = 0 \,
+  \forall N \Rightarrow
+  \xi_n^{singular} = 0$,
+следовательно, $ \xi $~---~регулярная.
