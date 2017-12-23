@@ -82,3 +82,141 @@ $ \left( i \leftrightarrow j \right) \Rightarrow \left( d \left( i \right) =
 
 \addcontentsline{toc}{section}{Аудиторные задачи}
 \section*{Аудиторные задачи}
+
+\subsubsection*{15.4}
+
+\textit{Задание.}
+По виду матрицы переходных вероятностей проведите классификацию состояний соответствующей цепи
+Маркова и найдите её инвариантное распределение.
+\begin{enumerate}[label=\alph*)]
+  \item \begin{equation*}
+    P =
+    \begin{bmatrix}
+      0 & 0 & \frac{1}{3} & \frac{1}{3} & \frac{1}{3} \\
+      0 & \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 \\
+      \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & 0 \\
+      0 & 0 & 0 & \frac{1}{2} & \frac{1}{2} \\
+      0 & 0 & 0 & \frac{1}{2} & \frac{1}{2}
+    \end{bmatrix};
+  \end{equation*}
+  \item \begin{equation*}
+      P =
+      \begin{bmatrix}
+        0 & 0 & 0 & \frac{1}{2} & \frac{1}{2} \\
+        0 & \frac{1}{2} & \frac{1}{2} & 0 & 0 \\
+        0 & 1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 & 0
+      \end{bmatrix}.
+  \end{equation*}
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item $ \pi = \left( \pi_1, \pi_2, \pi_3 \right) $.
+
+  Инвариантное распределение можно найти из условия $ \pi P = \pi $.
+
+  Получим систему уравнений
+  \begin{equation*}
+    \begin{cases}
+      \frac{ \pi_3}{4} = \pi_1, \\
+      \frac{ \pi_2}{3} + \frac{ \pi_3}{4} = \pi_2, \\
+      \frac{ \pi_1}{3} + \frac{ \pi_2}{3} + \frac{ \pi_3}{4} = \pi_3, \\
+      \frac{ \pi_1}{3} + \frac{ \pi_2}{3} + \frac{ \pi_3}{4} + \frac{ \pi_4}{2} + \frac{ \pi_2}{5} =
+      \pi_4, \\
+      \frac{ \pi_1}{3} + \frac{ \pi_4}{2} + \frac{ \pi_5}{2} = \pi_5, \\
+      \pi_1 + \pi_2 + \pi_3 + \pi_4 + \pi_5 = 1,
+    \end{cases}
+  \end{equation*}
+  где последнее уравнение возникло из-за того, что это распределение.
+
+  Это система однородных уравнений.
+
+  Решений не больше одного.
+  Теперь найдём это решение.
+
+  $ \pi_3 = 4 \pi_1$.
+  Подставим это во второе уравнение
+  \begin{equation*}
+    \frac{ \pi_2}{3} + \pi_1 = \pi_2 \Rightarrow
+    \frac{2 \pi_2}{3} = \pi_1 \Rightarrow
+    \pi_2 = \frac{3 \pi_1}{2}.
+  \end{equation*}
+
+  Получим уравнение для нахождения $ \pi_1$, то есть
+  \begin{equation*}
+    \frac{ \pi_1}{3} + \frac{ \pi_1}{2} + \pi_1 =
+    4 \pi_1.
+  \end{equation*}
+
+  Приведём подобные
+  \begin{equation*}
+    \frac{5 \pi_1}{6} = 3 \pi_1 \Rightarrow \pi_1 = 0.
+  \end{equation*}
+
+  Отсюда следует, что $ \pi_2 = 0, \, \pi_3 = 0$/
+
+  Остаётся 2 уравнения
+  \begin{equation*}
+    \begin{cases}
+      \frac{ \pi_4}{2} + \frac{ \pi_5}{2} = \pi_4 \Rightarrow \pi_4 = \pi_5, \\
+      \pi_4 + \pi_5 = 1.
+    \end{cases}
+  \end{equation*}
+
+  Отсюда
+  \begin{equation*}
+    \pi_4 =
+    \pi_5 =
+    \frac{1}{2}.
+  \end{equation*}
+
+  Ответ: инвариантное распределение
+  \begin{equation*}
+    \left( 0, 0, 0, \frac{1}{2}, \frac{1}{2} \right).
+  \end{equation*}
+  Почему так получается?
+  Посмотрим, какие есть переходы в этой цепи.
+  Есть 5 состояний (рис. \ref{fig:154}).
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=.4\textwidth]{./pictures/15_4.png}
+    \caption{Состояния и переходы цепи Маркова}
+    \label{fig:154}
+  \end{figure}
+
+  $4 \leftrightarrow 5$~---~существенные.
+
+  $1 \leftrightarrow 2 \leftrightarrow 3$~---~несущественные.
+
+  Инвариантное распределение не может иметь положительную вероятность на несущественном состоянии.
+  \item Найдём инвариантное распределение для такой матрицы (рис. \ref{fig:1541}).
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=.4\textwidth]{./pictures/15_4_1.png}
+    \caption{Состояния и переходы цепи Маркова}
+    \label{fig:1541}
+  \end{figure}
+
+$2 \leftrightarrow 3$.
+
+Состояния $1, 4, 5$~---~несущественные.
+
+Это значит, что
+\begin{equation*}
+  \pi \; : \;
+  \left( 0, \frac{1}{3}, \frac{2}{3}, 0, 0 \right).
+\end{equation*}
+
+Только 2 состояния существенные, значит, уравнения будут такими:
+\begin{equation*}
+  \begin{cases}
+    \frac{ \pi_2}{2} + \pi_3 = \pi_2, \\
+    \frac{ \pi_2}{2} = \pi_3, \\
+    \pi_2 + \pi_3 = 1.
+  \end{cases}
+\end{equation*}
+\end{enumerate}
