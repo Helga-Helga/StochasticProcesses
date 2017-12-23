@@ -38,3 +38,131 @@ $P \left( x_n - i_n \; \middle| \; x_0 = i_0 \right) =
 а остальные~---~несущественными.
 Поглощающее состояние является частным случаем эргодического класса.
 Тогда попав в такое состояние, процесс прекратится.
+
+\addcontentsline{toc}{section}{Аудиторные задачи}
+\section*{Аудиторные задачи}
+
+\subsubsection*{14.2}
+
+\textit{Задание.}
+Подбрасывается игральный кубик.
+Выясните
+образует ли последовательность $ \left\{ \xi_n \right\}_{n \geq 1}$ однородную цепь Маркова, если
+\begin{enumerate}[label=\alph*)]
+  \item $ \xi_n$~---~это наибольшее из чисел, которые выпали в первых $n$ подбрасываниях;
+  \item $ \xi_n$~---~это количество шестёрок, которые выпали в первых $n$ подбрасываниях.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item $ \xi_n = \max \left( x_1, \dotsc, x_n \right) $,
+  где $x_1, x_2, \dotsc, x_n$~---~это результаты подбрасываний кубика
+  (принимают значения $1, \dotsc, 6$).
+  Нужно проверить, что вероятность зависит только от $j$ и $i_n$.
+  Попробуем $ \xi_{n + 1}$ переписать через $ \xi_n$.
+  Напишем рекуррентное соотношение $ \xi_{n + 1} = \max \left( \xi_n, x_{n + 1} \right) $.
+  Подставим это в формулу
+  \begin{gather*}
+    P \left( \xi_{n + 1} = j \; \middle| \; \xi_1 = i_1, \dotsc, \xi_n = i_n \right) = \\
+    = P \left\{
+      \max \left( \xi_n, x_{n + 1} \right) = j \; \middle| \; \xi_1 = i_1, \dotsc, \xi_n = i_n
+    \right\} =
+  \end{gather*}
+  Знаем, что $ \xi_n = i_n$.
+  Тогда
+  \begin{equation*}
+    = P \left\{
+      \max \left( i_n, x_{n + 1} \right) = j \; \middle| \; \xi_1 = i_1, \dotsc, \xi_n = i_n
+    \right\} =
+  \end{equation*}
+  Случайная величина $ \max \left( i_n, x_{n + 1} \right) $ зависит только от $x_{n + 1}$.
+  Условие зависит только от $x_1, \dotsc, x_n$.
+  Событие и условие независимы.
+  Эта вероятность станосится безусловной
+  \begin{equation*}
+    = P \left\{ \max \left( i_n, x_{n + 1} \right) = j \right\} =
+  \end{equation*}
+  Вывод: вероятность зависит только от $i_n$ и $j$, так что это марковская цепь.
+  Посчитаем вероятность
+  \begin{equation*}
+    = \begin{cases}
+      0, \qquad i_n > j, \\
+      P \left( x_1 \leq j \right), \qquad i_n = j, \\
+      P \left( x_1 = j \right), \qquad i_n < j
+  \end{cases} =
+  \end{equation*}
+  Случайная величина $x_1$ принимает значения с вероятностями $6^{-1}$.
+  Таким образом, получаем
+  \begin{equation*}
+    = \begin{cases}
+        0, \qquad i_n > j, \\
+        \frac{j}{6}, \qquad i_n = j, \\
+        \frac{1}{6}, \qquad i_n < j.
+      \end{cases}
+  \end{equation*}
+
+  Значит, можно теперь нарисовать матрицу переходных вероятностей
+  \begin{equation*}
+    \bordermatrix{i_n \ j & 1 & 2 & 3 & 4 & 5 & 6 \cr
+                  1 & \frac{1}{6} & \frac{1}{6} & \frac{1}{6} & \frac{1}{6} & \frac{1}{6} & \frac{1}{6}\cr
+                  2 & 0 & \frac{2}{6} & \frac{1}{6} & \frac{1}{6} & \frac{1}{6} & \frac{1}{6} \cr
+                  3 & 0 & 0 & \frac{3}{6} & \frac{1}{6} & \frac{1}{6} & \frac{1}{6} \cr
+                  4 & 0 & 0 & 0 & \frac{4}{6} & \frac{1}{6} & \frac{1}{6} \cr
+                  5 & 0 & 0 & 0 & 0 & \frac{5}{6} & \frac{1}{6} \cr
+                  6 & 0 & 0 & 0 & 0 & 0 & 1 \cr}
+  \end{equation*}
+
+  Получилая верхнедиагональная матрица.
+  В каждой строчке сумма~---~единица.
+  \item Нужно начинать с того, что написать формулу для $ \xi_n$, чтобы представить его через $x$.
+
+  \begin{equation*}
+    \xi_n =
+    \sum \limits_{i = 1}^n \mathbbm{1} \left\{ x_i = 6 \right\} =
+  \end{equation*}
+  Видели, что удобно иметь рекурентное соотношение
+  \begin{equation*}
+    = \sum \limits_{i = 1}^{n - 1} \mathbbm{1} \left\{ x_i = 6 \right\} +
+    \mathbbm{1} \left\{ x_n = 6 \right\} =
+    \xi_{n - 1} + \mathbbm{1} \left\{ \xi_n = 6 \right\}.
+  \end{equation*}
+  Проверим, что это марковская цепь.
+
+  Подставим в вероятность выражение для $ \xi_n$ через $ \xi_{n - 1}$, то есть
+  \begin{gather*}
+    P \left( \xi_n = j \; \middle| \; \xi_{n - 1} = i_{n - 1}, \dotsc, \xi_1 = i_1 \right) = \\
+    = P \left(
+      \xi_{n - 1} + \mathbbm{1} \left\{ x_n = 6 \right\} = j \; \middle| \;
+      \xi_{n - 1} = i_{n - 1}, \dotsc, \xi_1 = i_1
+    \right) = \\
+    = P \left(
+      i_{n - 1} + \mathbbm{1} \left\{ x_n = 6 \right\} = j  \; \middle| \;
+      \xi_{n - 1} = i_{n - 1}, \dotsc, \xi_1 = i_1
+    \right) =
+  \end{gather*}
+  Событие и условие независимы, опять вероятность безусловная
+  \begin{equation*}
+    = P \left( i_{n - 1} + \mathbbm{1} \left\{ x_n = 6 \right\} = j \right) =
+  \end{equation*}
+  Из этого уже следует, что это марковская цепь
+  \begin{equation*}
+    = P \left( \mathbbm{1} \left\{ x_1 = 6 \right\} = j - i_{n - 1} \right) =
+    \begin{cases}
+      \frac{1}{6}, \qquad j = i_{n - 1} + 1, \\
+      \frac{5}{6}, \qquad j = i_{n - 1}, \\
+      0, \qquad in \, all \, other \, cases.
+    \end{cases}
+  \end{equation*}
+
+  У нас получилась марковская цепь с такими переходными вероятностями
+  \begin{equation*}
+    \bordermatrix{~ & 0 & 1 & 2 & 3 & \dotsc \cr
+                  0 & \frac{5}{6} & \frac{1}{6} & 0 & 0 & \dotsc \cr
+                  1 & 0 & \frac{5}{6} & \frac{1}{6} & 0 & \dotsc \cr
+                  2 & 0 & 0 & \frac{5}{6} & \frac{1}{6} & \dotsc \cr
+                  3 & 0 & 0 & 0 & \frac{5}{6} & \dotsc \cr
+                  \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \dotsc \cr}
+  \end{equation*}
+
+  Сейчас матрица бесконечна.
+\end{enumerate}
