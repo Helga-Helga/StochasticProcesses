@@ -166,3 +166,59 @@ $P \left( x_n - i_n \; \middle| \; x_0 = i_0 \right) =
 
   Сейчас матрица бесконечна.
 \end{enumerate}
+
+\subsubsection*{14.5}
+
+\textit{Задание.}
+Пусть $ \left\{ X_n, \, n \geq 0 \right\} $~---~однородная цепь Маркова с множеством состояний
+$E = \left\{ 1, 2, 3 \right\} $, матрицей переходных вероятностей
+\begin{equation*}
+  P =
+  \begin{bmatrix}
+    0 & \frac{1}{3} & \frac{2}{3} \\
+    \frac{1}{4} & \frac{3}{4} & 0 \\
+    \frac{2}{5} & 0 & \frac{3}{5}
+  \end{bmatrix}
+\end{equation*}
+и начальным распределением
+\begin{equation*}
+  p_0 =
+  \left( \frac{2}{5}, \frac{1}{5}, \frac{2}{5} \right).
+\end{equation*}
+Вычислите:
+\begin{enumerate}[label=\alph*)]
+  \item $P \left( X_1 = 2, X_2 = 2, X_3 = 2, X_4 = 1, X_5 = 3 \right) $;
+  \item $P \left( X_5 = 2, X_6 = 2 \; \middle| \; X_2 = 2 \right) $;
+  \item $P \left( X_2 = 3 \right) $.
+\end{enumerate}
+
+\textit{Решение.}
+У такой цепи есть 3 состояния и переходы (рис. \ref{fig:145}).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/14_5.png}
+  \caption{Состояния и переходы цепи Маркова}
+  \label{fig:145}
+\end{figure}
+
+Посчитаем вероятность того, что
+\begin{enumerate}[label=\alph*)]
+  \item \begin{gather*}
+    P \left( X_1 = 2, X_2 = 2, X_3 = 2, X_4 = 1, X_5 = 3 \right) = \\
+    = \frac{2}{5} \cdot \frac{1}{3} \cdot \frac{3}{4} \cdot \frac{3}{4} \cdot \frac{1}{4} \cdot
+    \frac{2}{3} +
+    \frac{1}{5} \cdot \frac{3}{4} \cdot \frac{3}{4} \cdot \frac{1}{4} \cdot \frac{2}{3} +
+    \frac{2}{5} \cdot 0;
+  \end{gather*}
+  \item \begin{equation*}
+    P \left( X_5 = 2, X_6 = 2 \; \middle| \; X_2 = 2 \right) =
+    P \left( 2 \to \to \to 2 \to 2 \right) =
+  \end{equation*}
+  Надо перебрать все возможные варианты
+  \begin{gather*}
+    = P \left( 2 \to 2 \to 2 \to 2 \to 2 \right) + P \left( 2 \to 2 \to 1 \to 2 \to 2 \right) + \\
+    + P \left( 2 \to 1 \to 2 \to 2 \to 2 \right).
+  \end{gather*}
+  Для каждого слагаемого нужно поперемножать вероятности.
+\end{enumerate}
