@@ -247,7 +247,7 @@ $ \left\{ 0, N \right\} $.
     1 & 0 & 0 & 0 & \dotsc & 0 \\
     \frac{1}{2} & 0 & \frac{1}{2} & 0 & \dotsc & 0 \\
     \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \\
-    0 & 0 & 0 & 0 & \dotsc & 0
+    0 & 0 & 0 & 0 & \dotsc & 1
   \end{bmatrix}.
 \end{equation*}
 
@@ -265,10 +265,13 @@ $ \left\{ 0, N \right\} $.
   \end{cases}
 \end{equation*}
 
-Это означает. что у нас только одно уравнение на эти вероятности.
+Это означает, что у нас только одно уравнение на эти вероятности.
 
 Тут инвариантных распределений бесконечно много.
-Любое инвариантное распредеелние имеет вид $ \left( \pi_1, 0, 0, 0, \dotsc, 0, 1 - \pi_1 \right) $.
+Любое инвариантное распределение имеет вид $ \left( \pi_1, 0, 0, 0, \dotsc, 0, 1 - \pi_1 \right) $.
+
+\addcontentsline{toc}{section}{Домашнее задание}
+\section*{Домашнее задание}
 
 \subsubsection*{15.12}
 
@@ -368,3 +371,142 @@ $1 \leftrightarrow 3 \leftrightarrow 4$~---~существенные.
 $2, 5$~---~несущественные.
 
 Инвариантное распределение не может иметь положительную вероятность на несущественном состоянии.
+
+\subsubsection*{15.13}
+
+\textit{Задание.}
+Найдите инвариантное распределение симметрического блуждания на $ \left[ 0, N \right] $
+\begin{enumerate}[label=\alph*)]
+  \item с отражением на концах;
+  \item с отражением на одном из концов и поглощением на другом.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item $ \left\{ X_n \right\} $~---~симметрическое блуждание с отражением в точках
+  $ \left\{ 0, N \right\} $.
+
+  Представим себе, как такая цепь движется.
+  Цепь принимает значения в отрезке (рис. \ref{fig:1513}).
+
+  \begin{figure}[h]
+    \centering
+    \includestandalone[mode=buildnew, width=.9\textwidth]{./pictures/15_13}
+    \caption{Состояния и переходы цепи Маркова}
+    \label{fig:1513}
+  \end{figure}
+
+  Напишем матрицу переходных вероятностей
+  \begin{equation*}
+    P =
+    \begin{bmatrix}
+      0 & 1 & 0 & 0 & \dotsc & 0 \\
+      \frac{1}{2} & 0 & \frac{1}{2} & 0 & \dotsc & 0 \\
+      0 & \frac{1}{2} & 0 & \frac{1}{2} & \dotsc & 0 \\
+      \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \dotsc \\
+      0 & 0 & 0 & 0 & \dotsc & 0
+    \end{bmatrix}.
+  \end{equation*}
+
+  Как тут будет выглядеть инвариантное распределение?
+
+  Получается система уравнений
+  \begin{equation*}
+    \begin{cases}
+      \frac{1}{2} \cdot \pi_1 = \pi_0, \\
+      \pi_0 + \frac{1}{2} \cdot \pi_2 = \pi_1, \\
+      \frac{1}{2} \cdot \pi_1 + \frac{1}{2} \cdot \pi_3 = \pi_2, \\
+      \frac{1}{2} \cdot \pi_2 + \frac{1}{2} \cdot \pi_4 = \pi_3, \\
+      \dotsc, \\
+      \frac{1}{2} \cdot \pi_{N - 1} = \pi_N, \\
+      \pi_0 + \pi_1 + \dotsc + \pi_N = 1.
+    \end{cases}
+  \end{equation*}
+
+  Из первого уравнения $ \pi_1 = 2 \pi_0$.
+
+  Подставим это во второе уравнение
+  \begin{equation*}
+    \pi_0 + \frac{1}{2} \cdot \pi_2 = 2 \pi_0 \Rightarrow
+    \pi_0 = \frac{1}{2} \cdot \pi_2 \Rightarrow
+    \pi_2 = 2 \pi_0.
+  \end{equation*}
+
+  Подставим это в третье уравнение
+  \begin{equation*}
+    \pi_0 + \frac{1}{2} \cdot \pi_3 = 2 \pi_0 \Rightarrow
+    \pi_0 = \frac{1}{2} \cdot \pi_3 \Rightarrow
+    \pi_3 = 2 \pi_0.
+  \end{equation*}
+
+  Таким образом, $ \pi_1 = \pi_2 = \dotsc = \pi_{N - 1} = 2 \pi_0, \, \pi_N = \pi_0$.
+
+  Подставим это в последнее уравнение $ \pi_0 + 2 \pi_0 \left( N - 1 \right) + \pi_0 = 1$.
+
+  Приведём подобные
+  \begin{equation*}
+    N \pi_0 = \frac{1}{2}.
+  \end{equation*}
+
+  Отсюда находим, что
+  \begin{equation*}
+    \pi_0 =
+    \frac{1}{2N} =
+    \pi_N.
+  \end{equation*}
+
+  Значит,
+  \begin{equation*}
+    \pi_1 =
+    \dotsc =
+    \pi_{N - 1} =
+    \frac{1}{N}.
+  \end{equation*}
+
+  Инвариантное распределение имеет вид
+  \begin{equation*}
+    \left( \frac{1}{2N}, \frac{1}{N}, \dotsc, \frac{1}{N}, \frac{1}{2N} \right);
+  \end{equation*}
+  \item последовательность случайных величин
+  $ \left\{ X_n \right\}_{n \geq 0}$~---~симметричное случайное блуждание с поглощением в точке
+  $ \left\{ 0 \right\} $ и отражением в точке $ \left\{ N \right\} $.
+  Представим себе, как такая цепь движется.
+  Цепь принимает значения на отрезке (рис. \ref{fig:15131}).
+
+  \begin{figure}[h]
+    \centering
+    \includestandalone[mode=buildnew, width=.9\textwidth]{./pictures/15_13_1}
+    \caption{Состояния и переходы цепи Маркова}
+    \label{fig:15131}
+  \end{figure}
+
+  Напишем матрицу переходных вероятностей
+  \begin{equation*}
+    P =
+    \begin{bmatrix}
+      1 & 0 & 0 & 0 & \dotsc & 0 \\
+      \frac{1}{2} & 0 & \frac{1}{2} & 0 & \dotsc & 0 \\
+      \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \dotsc \\
+      0 & 0 & 0 & 0 & \dotsc & 0
+    \end{bmatrix}.
+  \end{equation*}
+
+  Как тут будет выглядеть инвариантное распределение?
+
+  Все состояния кроме $ \left\{ 0 \right\} $ несущественные.
+  Это означает, что
+  \begin{equation*}
+    \pi_i = 0, \,
+    i \neq 0.
+  \end{equation*}
+
+  Получаем систему уравнений
+  \begin{equation*}
+    \begin{cases}
+      \pi_1 = \pi_1, \\
+      \pi_1 = 1.
+  \end{cases}
+  \end{equation*}
+
+  Тут инвариантное распределение имеет вид $ \left( 1, 0, 0, 0, \dotsc, 0, 0 \right) $.
+\end{enumerate}
