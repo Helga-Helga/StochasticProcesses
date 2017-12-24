@@ -370,3 +370,40 @@ $ \left\{ 2 \right\}, \, \left\{ 5 \right\} $.
   \right) = \\
   = C_n^{ \frac{n - k}{2}} \left( 1 - p \right)^{ \frac{n - k}{2}} p^{k + \frac{n - k}{2}}.
 \end{gather*}
+
+\subsubsection*{14.14}
+
+\textit{Задание.}
+Пусть $ \left\{ \xi_n, \, n \geq 0 \right\} $~---~последовательность независимых одинаково
+распределённых случайных величин,
+\begin{equation*}
+  P \left( \xi_n = 1 \right) =
+  P \left( \xi_n = -1 \right) =
+  \frac{1}{2}.
+\end{equation*}
+Докажите, что последовательность
+\begin{equation*}
+  \eta_n = \frac{ \xi_n + \xi_{n + 1}}{2}, \,
+  n \geq 0
+\end{equation*}
+не образует цепь Маркова.
+
+\textit{Решение.}
+Для произвольных $i, j \in \mathbb{Z}$ и произвольного $n \geq 0$ имеем:
+\begin{gather*}
+  P \left( \eta_n = j \; \middle| \; \eta_{n - 1} = i \right) =
+  P \left(
+    \frac{ \xi_n + \xi_{n + 1}}{2} = j \; \middle| \; \frac{ \xi_{n - 1} + \xi_n}{2} = i
+  \right) = \\
+  = P \left( \xi_n + \xi_{n + 1} = 2j \; \middle| \; \xi_{n - 1} + \xi_n = 2i \right) =
+  P \left( \xi_n = 2j - \xi_{n + 1} \; \middle| \; \xi_n = 2i - \xi_{n - 1} \right) = \\
+  = P \left( 2j - \xi_{n + 1} = 2i - \xi_{n - 1} \right) =
+  P \left( \xi_{n + 1} = 2j - 2i + \xi_{n - 1} \right) = \\
+  = \frac{1}{2} \cdot \mathbbm{1} \left\{ 2j - 2i + \xi_{n - 1} = 1 \right\} +
+  \frac{1}{2} \cdot \mathbbm{1} \left\{ 2j - 2i + \xi_{n - 1} = -1 \right\} = \\
+  = \frac{1}{2} \cdot \mathbbm{1} \left\{ \xi_{n - 1} = 1 - 2j + 2i \right\} +
+  \frac{1}{2} \cdot \mathbbm{1} \left\{ \xi_{n - 1} = -1 - 2j + 2i \right\}.
+\end{gather*}
+
+Таким образом, следующее значение последовательности зависит от предыдущего.
+Есть зависимость от прошлого, значит, последовательность не образует цепь Маркова.
