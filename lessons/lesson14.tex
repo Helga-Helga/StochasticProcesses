@@ -259,3 +259,114 @@ $i \leftrightarrow j$~---~сообщающиеся, если есть путь �
 
 Существенные: $ \left\{ 1, 3, 4 \right\} $, несущественные:
 $ \left\{ 2 \right\}, \, \left\{ 5 \right\} $.
+
+\addcontentsline{toc}{section}{Домашнее задание}
+\section*{Домашнее задание}
+
+\subsubsection*{14.10}
+
+\textit{Задание.}
+Пусть $ \left\{ Y_i \right\}_{i \geq 1}$
+является последовательностью независимых одинаково распределённых дискретных случайных величин,
+\begin{equation*}
+  P \left( Y_1 = k \right) = p_k, \,
+  k = 0, 1, 2, \dotsc.
+\end{equation*}
+Положим $X_0 = 0, \, X_n = Y_1 + \dotsc + Y_n, \, n \geq 1$.
+Докажите, что последовательность $ \left\{ X_n \right\}_{n \geq 0}$ образует цепь Маркова.
+Найдите его переходные вероятностии начальное распределение.
+
+\textit{Решение.}
+Убедимся, что последовательность $ \left\{ X_n \right\}_{n \geq 0}$ образует цепь Маркова.
+Действительно,
+для произвольного $n \geq 1$ и произвольных целых чисел $i_0, i_1, \dotsc, i_n \geq 0$ имеем:
+\begin{equation*}
+  P \left( X_0 = i_0, X_1 = i_1, \dotsc, X_n = i_n \right) =
+\end{equation*}
+Выразим через случайные величины $Y_i$ и получим
+\begin{equation*}
+  = P \left( X_0 = i_0, Y_1 = i_1 - i_0, \dotsc, Y_n = i_n - i_{n - 1} \right) =
+\end{equation*}
+Все события независимы
+\begin{gather*}
+  = P \left( X_0 = i_0 \right) \cdot P \left( Y_1 = i_1 - i_0 \right) \cdot \dotsc \cdot
+  P \left( Y_n = i_n - i_{n - 1} \right) = \\
+  = \begin{cases}
+    p_{i_1 - i_0} \cdot \dotsc \cdot p_{i_n - i_{n - 1}}, \qquad
+    i_0 = 0, \, i_1 - i_0, \dotsc, i_n - i_{n - 1} \in \mathbb{N} \cup \left\{ 0 \right\}, \\
+    0, \qquad otherwise.
+  \end{cases}
+\end{gather*}
+
+Таким образом,
+\begin{gather*}
+  P \left( X_0 = i_0, X_1 = i_1, \dotsc, X_{n + 1} = i_{n + 1} \right) = \\
+  = P \left( X_0 = i _0, X_1 = i_1, \dotsc, X_n = i_n \right) \cdot p_{i_n i_{n + 1}},
+\end{gather*}
+где
+\begin{equation*}
+  p_{ij} =
+  P \left( X_{n + 1} = j \; \middle| \; X_n = i \right) =
+  \begin{cases}
+    p_{j - i}, \qquad j - i \in \mathbb{N} \cup \left\{ 0 \right\}, \\
+    0, \qquad otherwise,
+  \end{cases}, \, i \in \mathbb{Z}, \, i \geq 0.
+\end{equation*}
+
+Значит, $ \left\{ X_n, \, n \geq 0 \right\} $
+образует цепь Маркова с матрицей переходных вероятностей
+\begin{equation*}
+  P =
+  \begin{bmatrix}
+    p_0 & p_1 & p_2 & p_3 & \dotsc \\
+    0 & p_0 & p_1 & p_2 & \dotsc \\
+    0 & 0 & p_0 & p_1 & \dotsc \\
+    \dotsc & \dotsc & \dotsc & \dotsc & \dotsc
+  \end{bmatrix}
+\end{equation*}
+
+Начальное распределение $p_0 = \left( 1, 0, 0, 0, \dotsc \right) $.
+
+\subsubsection*{14.12}
+
+\textit{Задание.}
+Пусть $ \left\{ \xi_n, \, n \geq 0 \right\} $~---~простое случайное блуждание на $ \mathbb{Z}$,
+то есть цепь Маркова с переходными вероятностями $p_{i, i + 1} = p, \, p_{i, i - 1} = 1 - p$.
+Найдите вероятности перехода за $n$ шагов.
+
+\textit{Решение.}
+Есть случайное блуждание с вероятностями
+\begin{equation*}
+  P \left( \xi_{n + 1} = \xi_n + 1 \right) = p, \,
+  P \left( \xi_{n = 1} = \xi_n - 1 \right) = 1 - p.
+\end{equation*}
+
+Имеем переходные верояности
+\begin{equation*}
+  p_{ij} =
+  \begin{cases}
+    p, \qquad j = i + 1, \\
+    1 - p, \qquad j = i - 1, \\
+    0, \qquad otherwise.
+  \end{cases}
+\end{equation*}
+
+За 2 шага переходные вероятности равны
+\begin{equation*}
+  p_{ij}^{ \left( 2 \right) } =
+  \begin{cases}
+    p^2, \qquad j = i + 2, \\
+    \left( 1 - p \right)^2, \qquad j = i - 2, \\
+    2p \left( 1 - p \right), \qquad i = j, \\
+    0, \qquad otherwise.
+  \end{cases}
+\end{equation*}
+
+Нужно найти переходные вероятности за $n$ шагов
+\begin{gather*}
+  P \left( \xi_n = k \right) =
+  P \left(
+    there \, are \, k + \frac{n - k}{2} steps \, up, \frac{n - k}{2} steps \, down
+  \right) = \\
+  = C_n^{ \frac{n - k}{2}} \left( 1 - p \right)^{ \frac{n - k}{2}} p^{k + \frac{n - k}{2}}.
+\end{gather*}
