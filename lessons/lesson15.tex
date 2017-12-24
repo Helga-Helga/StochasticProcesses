@@ -113,7 +113,7 @@ $ \left( i \leftrightarrow j \right) \Rightarrow \left( d \left( i \right) =
 
 \textit{Решение.}
 \begin{enumerate}[label=\alph*)]
-  \item $ \pi = \left( \pi_1, \pi_2, \pi_3 \right) $.
+  \item $ \pi = \left( \pi_1, \pi_2, \pi_3, \pi_4, \pi_5 \right) $.
 
   Инвариантное распределение можно найти из условия $ \pi P = \pi $.
 
@@ -155,7 +155,7 @@ $ \left( i \leftrightarrow j \right) \Rightarrow \left( d \left( i \right) =
     \frac{5 \pi_1}{6} = 3 \pi_1 \Rightarrow \pi_1 = 0.
   \end{equation*}
 
-  Отсюда следует, что $ \pi_2 = 0, \, \pi_3 = 0$/
+  Отсюда следует, что $ \pi_2 = 0, \, \pi_3 = 0$.
 
   Остаётся 2 уравнения
   \begin{equation*}
@@ -269,3 +269,102 @@ $ \left\{ 0, N \right\} $.
 
 Тут инвариантных распределений бесконечно много.
 Любое инвариантное распредеелние имеет вид $ \left( \pi_1, 0, 0, 0, \dotsc, 0, 1 - \pi_1 \right) $.
+
+\subsubsection*{15.12}
+
+\textit{Задание.}
+По виду матрицы переходных вероятностей проведите классификацию состояний соответственной цепи
+Маркова и найдите его инвариантное распределение.
+\begin{equation*}
+  P =
+  \begin{bmatrix}
+    \frac{1}{2} & 0 & \frac{1}{2} & 0 & 0 \\
+    0 & \frac{1}{2} & 0 & 0 & \frac{1}{2} \\
+    0 & 0 & 0 & 1 & 0 \\
+    \frac{1}{3} & 0 & \frac{1}{3} & \frac{1}{3} & 0 \\
+    \frac{1}{2} & 0 & 0 & 0 & \frac{1}{2}
+  \end{bmatrix}.
+\end{equation*}
+
+\textit{Решение.}
+$ \pi = \left( \pi_1, \pi_2, \pi_3, \pi_4, \pi_5 \right) $.
+
+Инвариантное распределение можно найти из условия $ \pi P = \pi $.
+
+Получим систему уравнений
+\begin{equation*}
+  \begin{cases}
+    \frac{ \pi_1}{2} + \frac{ \pi_4}{3} + \frac{ \pi_5}{2} = \pi_1, \\
+    \frac{ \pi_2}{2} = \pi_2, \\
+    \frac{ \pi_1}{2} + \frac{ \pi_4}{3} = \pi_3, \\
+    \pi_3 + \frac{ \pi_4}{3} = \pi_4, \\
+    \frac{ \pi_2}{2} + \frac{ \pi_5}{2} = \pi_5, \\
+    \pi_1 + \pi_2 + \pi_3 + \pi_4 + \pi_5 = 1,
+  \end{cases}
+\end{equation*}
+где последнее уравнение возникло из-за того, что это распределение.
+
+Это система однородных уравнений.
+
+Решений не больше одного.
+Теперь найдём это решение.
+
+$ \pi_2 = 0$.
+Подставим это в пятое уравнение
+\begin{equation*}
+  \frac{ \pi_5}{2} = \pi_5, \Rightarrow
+  \pi_5 = 0.
+\end{equation*}
+
+Остаются уравнения
+\begin{equation*}
+  \begin{cases}
+    \frac{ \pi_1}{2} + \frac{ \pi_4}{3} = \pi_1, \\
+    \frac{ \pi_1}{2} + \frac{ \pi_4}{3} = \pi_3, \\
+    \pi_3 + \frac{\pi_4}{3} = \pi_4, \\
+    \pi_1 + \pi_3 + \pi_4 = 1.
+  \end{cases}
+\end{equation*}
+
+Из первого уравнения получаем
+\begin{equation*}
+  \frac{ \pi_4}{3} = \pi_1 - \frac{ \pi_1}{2} = \frac{ \pi_1}{2} \Rightarrow
+  \pi_4 = \frac{3 \pi_1}{2}.
+\end{equation*}
+Подставим во второе уравнение
+\begin{equation*}
+  \frac{ \pi_1}{2} + \frac{ \pi_1}{2} =
+  \pi_3 = \pi_1.
+\end{equation*}
+
+Подставим в последонее уравнение
+\begin{equation*}
+  \pi_1 + \pi_1 + \frac{3 \pi_1}{2} = 1 \Rightarrow
+  2 \pi_1 + \frac{3 \pi_1}{2} = 1 \Rightarrow
+  \frac{7 \pi_1}{2} = 1 \Rightarrow
+  \pi_1 = \frac{2}{7} \Rightarrow
+  \pi_4 = \frac{3}{2} \cdot \frac{2}{7} = \frac{3}{7}.
+\end{equation*}
+
+Ответ: инвариантное распределение:
+\begin{equation*}
+  \left( \frac{2}{7}, 0, \frac{2}{7}, \frac{3}{7}, 0 \right).
+\end{equation*}
+
+Почему так получилось?
+Посмотрим, какие есть переходы в этой цепи?
+
+Есть 5 состояний (рис. \ref{fig:1512}).
+
+\begin{figure}[h]
+  \centering
+  \includestandalone[mode=buildnew]{./pictures/15_12}
+  \caption{Состояния и переходы цепи Маркова}
+  \label{fig:1512}
+\end{figure}
+
+$1 \leftrightarrow 3 \leftrightarrow 4$~---~существенные.
+
+$2, 5$~---~несущественные.
+
+Инвариантное распределение не может иметь положительную вероятность на несущественном состоянии.
