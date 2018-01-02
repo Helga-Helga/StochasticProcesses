@@ -1,0 +1,133 @@
+\addcontentsline{toc}{chapter}{Занятие 1. Основные понятия теории вероятностей}
+\chapter*{Занятие 1. Основные понятия теории вероятностей}
+
+\addcontentsline{toc}{section}{Аудиторные задачи}
+\section*{Аудиторные задачи}
+
+\subsubsection*{1.1}
+
+\textit{Задание.}
+Случайная величина $ \xi $ имеет плотность распределения
+\begin{equation*}
+  p_{ \xi } \left( x \right) =
+  \begin{cases}
+    3e^{-Cx}, \qquad x > 0, \\
+    0, \qquad x \leq 0,
+  \end{cases}
+\end{equation*}
+где $C > 0$~---~неизвестный параметр.
+Найдите:
+\begin{enumerate}[label=\alph*)]
+  \item неизвестный параметр $C$;
+  \item условную вероятность
+  $P \left( \xi > t \; \middle| \; \xi > s \right), \, t > s$,
+  \item функцию распределения случайной величины $ \xi $;
+  \item плотность распределения случайной величины $ \eta = e^{ \xi }$.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item Находим неизвестный параметр $C$, который входит в плотность,
+  из условия нормировки.
+
+  Плотность определена, когда $x > 0$.
+
+  Условие нормировки выполняется для всякой плотности
+  \begin{equation*}
+    1 =
+    \int \limits_{-\infty }^{+\infty } p_{ \xi } \left( x \right) dx =
+    \int \limits_0^{+\infty } 3e^{-Cx} dx =
+    \left. -\frac{3}{C} \cdot e^{-Cx} \right|_0^{+\infty } =
+    \frac{3}{C}.
+  \end{equation*}
+
+  Отсюда следует, что $C = 3$;
+  \item по определению условной вероятности
+  \begin{equation*}
+    P \left( \xi > t \; \middle| \; \xi > s \right) =
+    \frac{P \left( \xi > t, \xi > s \right) }{P \left( \xi > s \right) } =
+  \end{equation*}
+  По условию $t > s$, поэтому в числителе одно из уловий лишнее
+  \begin{equation*}
+    = \frac{P \left( \xi > t \right) }{P \left( \xi > s \right) } =
+    \frac{ \int \limits_t^{+\infty } 3xe^{-3x} \cdot \mathbbm{1} \left\{ x > 0 \right) dx}{ \int \limits_s^{+\infty } 3xe^{-3x} \cdot \mathbbm{1} \left\{ x > 0 \right\} } =
+  \end{equation*}
+  Пусть $t, s > 0$.
+  Тогда
+  \begin{equation*}
+    = \frac{ \int \limits_t^{+\infty } xe^{-3x} dx}{ \int \limits_s^{+\infty } xe^{-3x} dx}.
+  \end{equation*}
+  Возьмём интеграл по частям.
+  Пусть
+  \begin{equation*}
+    u = x, \,
+    dv = e^{-3x} dx, \,
+    v = \int e^{-3x} dx = - \frac{1}{3} e^{-3x}, \,
+    du = dx.
+  \end{equation*}
+  Тогда
+  \begin{equation*}
+    \int xe^{-3x} dx =
+    -\frac{1}{3} \cdot xe^{-3x} + \frac{1}{3} \int e^{-3x} dx =
+    -\frac{1}{3} \cdot xe^{-3x} - \frac{1}{9} \cdot e^{-3x}.
+  \end{equation*}
+  Подставим полученное выражение в дробь
+  \begin{equation*}
+    = \left( \left. -\frac{1}{3} \cdot xe^{-3x} \right|_t^{+\infty } - \left. \frac{1}{9} \cdot e^{-3x} \right|_t^{+\infty } \right) \cdot
+    \frac{1}{ \left. -\frac{1}{3} \cdot xe^{-3x} \right|_s^{+\infty } - \left. \frac{1}{9} \cdot e^{-3x} \right|_s^{+\infty }} =
+  \end{equation*}
+  Подставим пределы интегрирования
+  \begin{equation*}
+    = \frac{ \frac{1}{3} \cdot te^{-3t} + \frac{1}{9} \cdot e^{-3t}}{ \frac{1}{3} \cdot se^{-3s} + \frac{1}{9} \cdot e^{-3s}} =
+    \frac{e^{-3t} \left(3t + 1 \right) }{e^{-3s} \left( 3s + 1 \right) } =
+    e^{3 \left( s - t \right) } \cdot \frac{3t + 1}{3s + 1};
+  \end{equation*}
+  \item найдём функцию распределения
+  \begin{equation*}
+    F_{ \xi } \left( t \right) =
+    P \left( \xi \leq t \right) =
+    \int \limits_0^t 3e^{-3x} dx =
+    \left. -e^{-3x} \right|_0^t =
+    -e^{-3t} + 1 =
+    1 - e^{-3t}, \,
+    t > 0.
+  \end{equation*}
+  Учтём все случаи для параметра
+  \begin{equation*}
+    F_{ \xi } \left( t \right) =
+    \begin{cases}
+      1 - e^{-3t}, \qquad t > 0, \\
+      0, \qquad t \leq 0;
+    \end{cases}
+  \end{equation*}
+  \item найдём функцию распределения случайной величины $ \eta = e^{ \xi }$
+  по определению
+  \begin{equation*}
+    F_{ \eta } \left( x \right) =
+    P \left( \eta \leq x \right) =
+    P \left( e^{ \xi } \leq x \right) =
+    P \left( \xi \leq ln \, x \right) =
+    F_{ \xi } \left( ln \, x \right) =
+  \end{equation*}
+  Из предыдущего пункта
+  \begin{equation*}
+    = \begin{cases}
+      1 - e^{-3 ln \, x}, \qquad ln \, x > 0, \\
+      0, \qquad ln \, x \leq 0
+    \end{cases} =
+    \begin{cases}
+      1 - x^{-3}, \qquad x > 1, \\
+      0, \qquad x \leq 1.
+    \end{cases}
+  \end{equation*}
+
+  Продифференцируем функцию распределения
+  \begin{equation*}
+    p_{ \eta } \left( x \right) =
+    \frac{dF_{ \eta } \left( x \right) }{dx} =
+    \begin{cases}
+      3x^{-4}, \qquad x > 1, \\
+      0, \qquad x \leq 1.
+    \end{cases}
+  \end{equation*}
+\end{enumerate}
