@@ -131,3 +131,123 @@
     \end{cases}
   \end{equation*}
 \end{enumerate}
+
+\subsubsection*{1.2}
+
+\textit{Задание.}
+Пусть $ \xi $ и $ \eta $~---~независимые случайные величины,
+причём $ \xi $ имеет дискретное распределение:
+\begin{equation*}
+  P \left( \xi = 0 \right) = 0.3, \,
+  P \left( \xi = 1 \right) = 0.2, \,
+  P \left( \xi = 2 \right) = 0.5,
+\end{equation*}
+а случайная величина $ \eta $ имеет показательное распределение с параметром
+$ \lambda =
+ 2$.
+Вычислите:
+\begin{enumerate}[label=\alph*)]
+  \item $M \xi \eta $;
+  \item $M \left( 5 \xi^2 + 2 \eta^2 \right) $;
+  \item $D \left( \sqrt{5} \xi + \sqrt{2} \eta \right) $;
+  \item $D \xi \eta $.
+\end{enumerate}
+Запишите характеристические функции случайных величин $ \xi $ и $ \eta $
+и характеристическую функцию случайной величины $ \xi + \eta $.
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item $ \xi, \, \eta $~---~независимы, поэтому
+  \begin{equation*}
+    M \left( \xi \eta \right) =
+    M \xi \cdot M \eta =
+    \left( 0 \cdot 0.3 + 1 \cdot 0.2 + 2 \cdot 0.5 \right) \cdot \frac{1}{2} =
+    \left( 0.2 + 1 \right) \cdot \frac{1}{2} =
+    1.2 \cdot \frac{1}{2}
+    0.6;
+  \end{equation*}
+  \item вычислим
+  \begin{equation*}
+    M \left( 5 \xi^2 + 2 \eta^2 \right) =
+    5M \xi^2 + 2M \eta^2 =
+  \end{equation*}
+  Посчитаем отдельно
+  $M \xi^2 =
+   0 \cdot 0.3 + 1 \cdot 0.2 + 4 \cdot 0.5 =
+   0.2 + 2 =
+   2.2$.
+  Так как $D \eta = M \eta^2 - \left( M \eta \right)^2$, то
+  \begin{equation*}
+    M \eta^2 =
+    D \eta + \left( M \eta \right)^2 =
+    \frac{1}{4} + \frac{1}{4} =
+    \frac{1}{2}.
+  \end{equation*}
+  Подставим полученные значения
+  \begin{equation*}
+    = 5 \cdot 2.2 + 2 \cdot \frac{1}{2} =
+    11 + 1 =
+    12;
+  \end{equation*}
+  \item из независимости случайных величин следует, что
+  \begin{equation*}
+    D \left( \sqrt{5} \xi + \sqrt{2} \eta \right) =
+    5D \xi + 2D \eta =
+  \end{equation*}
+  Вычислим отдельно
+  $D \xi =
+   M \xi^2 - \left( M \xi \right)^2 =
+   2.2 - \left( 1.2 \right)^2 =
+   2.2 - 1.44 =
+   0.76$.
+  Подставим это значение
+  \begin{equation*}
+    = 5 \cdot 0.76 + 2 \cdot \frac{1}{4} =
+    3.8 + 0.5 =
+    4.3;
+  \end{equation*}
+  \item дисперсия произведения независимых случайных величин записывается по
+  формуле
+  \begin{equation*}
+    D \left( \xi \eta \right) =
+    D \xi \cdot D \eta + \left( M \xi \right)^2 \cdot D \eta +
+    \left( M \eta \right)^2 \cdot D \xi =
+  \end{equation*}
+  Подставим значения
+  \begin{equation*}
+    = 0.76 \cdot 0.25 + 1.44 \cdot 0.25 + 0.25 \cdot 0.76 =
+    0.19 + 0.36 + 0.19 =
+    0.38 + 0.36 =
+    0.54.
+  \end{equation*}
+\end{enumerate}
+
+Запишем характеристическую функцию
+\begin{equation*}
+  \varphi_{ \xi } \left( t \right) =
+  Me^{it \xi } =
+  e^{it \cdot 0} \cdot 0.3 + e^{it \cdot 1} \cdot 0.2 +
+  e^{it \cdot 2} \cdot 0.5 =
+  0.3 + 0.2 e^{it} + 0.5 e^{2it}.
+\end{equation*}
+
+Запишем характеристическую функцию для $ \eta $ (непрерывной случайной величины)
+\begin{equation*}
+  \varphi_{ \eta } \left( t \right) =
+  Me^{it \eta } =
+  \int \limits_{-\infty }^{+\infty } e^{itx} p_{ \eta } \left( x \right) dx =
+  \int \limits_0^{+\infty } e^{itx} \cdot 2 e^{-2x} dx =
+  2 \int \limits_0^{+\infty } e^{-x \left( 2 - it \right) } dx =
+\end{equation*}
+Возьмём интеграл
+\begin{equation*}
+  = \left. -\frac{2}{2 - it} \right|_0^{+\infty } =
+  \frac{2}{2 - it}.
+\end{equation*}
+
+Так как случайные величины независимы, то
+\begin{equation*}
+  \varphi_{ \xi + \eta } \left( t \right) =
+  \varphi_{ \xi } \left( t \right) \cdot \varphi_{ \eta } \left( t \right) =
+  \left( 0.3 + 0.2 e^{it} + 0.5 e^{2it} \right) \cdot \frac{2}{2 - it}.
+\end{equation*}
