@@ -432,3 +432,412 @@ $cov \left( \xi + \eta, \xi - \eta \right) =
 \end{equation*}
 так как $D \xi = D \eta = 1$.
 Следовательно, случайные величины $ \xi + \eta $ и $ \xi - \eta $ независимы.
+
+\subsubsection*{1.5}
+
+\textit{Задание.}
+Пусть
+$ \xi = \left( \xi_1, \xi_2 \right)^T$~---~гауссовский вектор с математическим
+ожиданием $m = \left( 0, 1 \right)^T$ и матрицей ковариаций
+\begin{equation*}
+  K =
+  \begin{bmatrix}
+    1 & 1 \\
+    1 & 4
+  \end{bmatrix}.
+\end{equation*}
+\begin{enumerate}[label=\alph*)]
+  \item Выпишите плотность распределения для $ \xi, \xi_1, \xi_2$.
+  \item Найдите матрицу ковариаций и математическое ожидание вектора
+  $ \eta = \left( \eta_1, \eta_2, \eta_3 \right)^T$,
+  где $ \eta_1 = \xi_1 - \xi_2, \, \eta_1 = \xi_1 + \xi_2, \, \eta_3 = \xi_2$.
+  \item Вычислите $M \eta_2^2, \, M \eta_2^3, \, M \eta_2^4$.
+  \item Выясните, являются ли случайные величины $ \eta_1 $ и $ \eta_2 $
+  независимыми.
+  \item Найдите условное математическое ожидание
+  $M \left( \eta_1 \; \middle| \; \left( \eta_2, \eta_3 \right) \right) $.
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item По определению
+  \begin{equation*}
+    p_{ \vec{ \xi }} \left( \vec{x} \right) =
+    \frac{1}{ \left( \sqrt{2 \pi } \right)^2} \cdot
+    \frac{1}{ \sqrt{\det{A}}} \cdot
+    e^{-\frac{1}{2} \left( \left( \left( K^{-1} \left( \vec{x} - \vec{m} \right) \right)^T, \vec{x} - \vec{m} \right) \right) } =
+  \end{equation*}
+  Найдём определитель матрицы ковариаций
+  \begin{equation*}
+    \det{K} =
+    \begin{vmatrix}
+      1 & 1 \\
+      1 & 4
+    \end{vmatrix} =
+    4 - 1 =
+    3.
+  \end{equation*}
+  Найдём обратную матрицу
+  \begin{equation*}
+    K^{-1} =
+    \frac{1}{3} \begin{bmatrix}
+      4 & -1 \\
+      -1 & 1
+    \end{bmatrix} =
+    \begin{bmatrix}
+      \frac{4}{3} & -\frac{1}{3} \\
+      -\frac{1}{3} & \frac{1}{3}
+    \end{bmatrix}.
+  \end{equation*}
+  Так же найдём
+  \begin{equation*}
+    \vec{x} - \vec{m} =
+    \begin{bmatrix}
+      x - 0 \\
+      y - 1
+    \end{bmatrix} =
+    \begin{bmatrix}
+      x \\
+      y - 1
+    \end{bmatrix}.
+  \end{equation*}
+  Умножим обратную матрицу на центрированный вектор
+  \begin{equation*}
+    K^{-1} \left( \vec{x} - \vec{m} \right) =
+    \begin{bmatrix}
+      \frac{4}{3} & -\frac{1}{3} \\
+      -\frac{1}{3} & \frac{1}{3}
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      x \\
+      y - 1
+    \end{bmatrix} =
+    \begin{bmatrix}
+      \frac{4}{3} \cdot x - \frac{1}{3} \left( y - 1 \right) \\
+      -\frac{1}{3} \cdot x + \frac{1}{3} \left( y - 1 \right)
+    \end{bmatrix}.
+  \end{equation*}
+  Найдём скалярное произведение
+  \begin{gather*}
+    \left[
+      \left( K^{-1} \left( \vec{x} - \vec{m} \right) \right)^T,
+      \vec{x} - \vec{m}
+    \right] = \\
+    = \begin{bmatrix}
+      \frac{4}{3} \cdot x - \frac{1}{3} \left( y - 1 \right) &
+      -\frac{1}{3} \cdot x + \frac{1}{3} \left( y - 1 \right)
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      x \\
+      y - 1
+    \end{bmatrix} = \\
+    = \frac{4}{3} \cdot x^2 - \frac{1}{3} \cdot x \left( y - 1 \right) -
+    \frac{1}{3} \cdot x \left( y - 1 \right) +
+    \frac{1}{3} \cdot \left( y - 1 \right)^2 = \\
+    = \frac{4}{3} \cdot x^2 - \frac{2}{3} \cdot x \left( y - 1 \right)^2 +
+    \frac{1}{3} \cdot \left( y - 1 \right)^2.
+  \end{gather*}
+  Подставим полученные выражения в формулу для плотности вектора
+  \begin{equation*}
+    = \frac{1}{2 \pi } \cdot \frac{1}{3} \cdot
+    e^{-\frac{1}{2} \left[ \frac{4}{3} \cdot x^2 - \frac{2}{3} \cdot x \left( y - 1 \right) + \frac{1}{3} \left( y - 1 \right)^2 \right] } =
+    \frac{1}{6 \pi } \cdot
+    e^{-\frac{1}{6} \left[ 4x^2 - 2x \left( y - 1 \right) + \left( y - 1 \right)^2 \right] }.
+  \end{equation*}
+
+  Находим плотность первой компоненты вектора
+  \begin{gather*}
+    p_{ \xi_1} \left( x \right) =
+    \int \limits_{ \mathbb{R}} p \left( x, y \right) dy =
+    \int \limits_{ \mathbb{R}} \frac{1}{6 \pi } \cdot
+      e^{-\frac{1}{6} \left[ 4x^2 - 2x \left( y - 1 \right) + \left( y - 1 \right)^2 \right] }
+    dy = \\
+    = \frac{1}{6 \pi } \cdot e^{-\frac{x \left( 2x + 1 \right) }{3}}
+    \int \limits_{ \mathbb{R}} e^{ \frac{2xy - \left( y - 1 \right)^2}{6}} dy =
+  \end{gather*}
+  Поделим числитель на знаменатель в степени экспоненты под интегралом
+  \begin{equation*}
+    = \frac{1}{6 \pi } \cdot e^{-\frac{x \left( 2x + 1 \right) }{3}}
+    \int \limits_{ \mathbb{R}}
+      e^{ \frac{xy}{3} - \frac{ \left( y - 1 \right)^2}{6}}
+    dy =
+  \end{equation*}
+  Выделим полный квадрат
+  \begin{equation*}
+    = \frac{1}{6 \pi } \cdot e^{-\frac{x \left( 2x + 1 \right) }{3}}
+    \int \limits_{ \mathbb{R}}
+      e^{-\left[ \frac{y}{ \sqrt{6}} - \frac{ \sqrt{6} \left( \frac{x}{3} + \frac{1}{3} \right) }{2} \right]^2 + \frac{3 \left( \frac{x}{3} + \frac{1}{3} \right)^2}{2} - \frac{1}{6}}
+    dy =
+  \end{equation*}
+  Сделаем замену
+  \begin{equation*}
+    u = \frac{y - x - 1}{ \sqrt{6}} \rightarrow
+    dy = \sqrt{6} du.
+  \end{equation*}
+  Получим
+  \begin{gather*}
+    = \frac{1}{6} \cdot e^{-\frac{x \left( 2x + 1 \right) }{3}} \cdot
+    \frac{ \sqrt{6} \cdot \sqrt{ \pi } \cdot e^{ \frac{ \left( x + 1 \right)^2}{6} - \frac{1}{6}}}{2}
+    \int \limits_{ \mathbb{R}} \frac{2e^{-u^2}}{ \sqrt{ \pi }} du = \\
+    = \frac{1}{ \sqrt{6 \pi } \cdot 2} \cdot
+    e^{-\frac{2x^2}{3} - \frac{x}{3} + \frac{x^2}{6} + \frac{2x}{6} + \frac{1}{6} - \frac{1}{6}} \cdot
+    \frac{2}{ \sqrt{ \pi }} \cdot \sqrt{ \pi } =
+    \frac{1}{ \sqrt{6 \pi }} \cdot e^{-\frac{x^2}{2}}.
+  \end{gather*}
+
+  Аналогично
+  \begin{gather*}
+    p_{ \xi_2} \left( y \right) =
+    \int \limits_{ \mathbb{R}} p \left( x, y \right) dx =
+    \int \limits_{ \mathbb{R}}
+      \frac{1}{6 \pi } \cdot
+      e^{-\frac{1}{6} \left[ 4x^2 - 2x \left( y - 1 \right) + \left( y - 1 \right)^2 \right] }
+    dy = \\
+    = \frac{1}{6 \pi } \cdot e^{-\frac{ \left( y - 1 \right)^2}{6}}
+    \int \limits_{ \mathbb{R}}
+      e^{-\frac{4x^2 - 2 \left( y - 1 \right) x}{6}}
+    dx =
+  \end{gather*}
+  Поделим числитель на знаменатель в степени экспоненты под интегралом
+  \begin{equation*}
+    = \frac{1}{6 \pi } \cdot e^{-\frac{ \left( y - 1 \right)^2}{6}}
+    \int \limits_{ \mathbb{R}}
+      e^{-\frac{2x^2}{3} + \frac{yx}{3} - \frac{x}{3}}
+    dx =
+  \end{equation*}
+  Выделим полный квадрат
+  \begin{equation*}
+    = \frac{1}{6 \pi } \cdot e^{-\frac{ \left( y - 1 \right)^2}{6}}
+    \int \limits_{ \mathbb{R}}
+      e^{ \frac{3 \left( \frac{y}{3} - \frac{1}{3} \right)^2}{8} - \left[ \frac{ \sqrt{2} \cdot x}{ \sqrt{3}} - \frac{ \sqrt{3} \left( \frac{y}{3} - \frac{1}{3} \right) }{2^{ \frac{3}{2}}} \right]^2}
+    dx =
+  \end{equation*}
+  Сделаем замену
+  \begin{equation*}
+    u = \frac{4x - y + 1}{2 \sqrt{6}} \Rightarrow
+    dx = \frac{ \sqrt{6}}{2} \cdot du.
+  \end{equation*}
+  Получим
+  \begin{gather*}
+    = \frac{1}{6 \pi } \cdot e^{-\frac{ \left( y - 1 \right)^2}{6}} \cdot
+    \frac{ \sqrt{6} \cdot \sqrt{ \pi } \cdot e^{ \frac{ \left( y - 1 \right)^2}{24}}}{4}
+    \int \limits_{ \mathbb{R}} \frac{2e^{-u^2}}{ \sqrt{ \pi }} \cdot du = \\
+    = \frac{1}{ \sqrt{6 \pi } \cdot 4} \cdot
+    e^{-\frac{3}{24} \left( y - 1 \right)^2} \cdot \frac{2}{ \sqrt{ \pi }} \cdot
+    \sqrt{ \pi } =
+    \frac{1}{ \sqrt{6 \pi } \cdot 2} \cdot
+    e^{-\frac{3}{24} \left( y - 1 \right)^2}.
+  \end{gather*}
+  \item Случайный вектор $ \vec{ \eta }$~---~гауссовский, так как
+  \begin{gather*}
+    \lambda_1 \eta_1 + \lambda_2 \eta_2 + \lambda_3 \eta_3 =
+    \lambda_1 \left( \xi_1 - \xi_2 \right) +
+    \lambda_2 \left( \xi_1 + \xi_2 \right) + \lambda_3 \xi_2 = \\
+    = \lambda_1 \xi_1 - \lambda_1 \xi_2 + \lambda_2 \xi_1 + \lambda_2 \xi_2 +
+    \lambda_3 \xi_2 =
+    \xi_1 \left( \lambda_1 + \lambda_2 \right) +
+    \xi_2 \left( \lambda_2 - \lambda_1 + \lambda_3 \right).
+  \end{gather*}
+  Это линейная комбинация координат гауссовского вектора.
+
+  \begin{equation*}
+    \vec{ \eta } =
+    \begin{bmatrix}
+      \eta_1 \\
+      \eta_2 \\
+      \eta_3
+    \end{bmatrix} =
+    \begin{bmatrix}
+      1 & -1 \\
+      1 & 1 \\
+      0 & 1
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      \xi_1 \\
+      \xi_2
+    \end{bmatrix} =
+    A \vec{ \xi }.
+  \end{equation*}
+
+  Матрицей $A$
+  действуем на вектор математических ожиданий и на ковариационную матрицу
+  \begin{gather*}
+    \vec{m}_{ \vec{ \eta }} =
+    A \vec{m} =
+    \begin{bmatrix}
+      1 & -1 \\
+      1 & 1 \\
+      0 & 1
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      0 \\
+      1
+    \end{bmatrix} =
+    \begin{bmatrix}
+      -1 \\
+      1 \\
+      1
+    \end{bmatrix}, \\
+    K_{ \vec{ \eta }} =
+    AKA^T =
+    \begin{bmatrix}
+      1 & -1 \\
+      1 & 1 \\
+      0 & 1
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      1 & 1 \\
+      1 & 4
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      1 & 1 & 0 \\
+      -1 & 1 & 1
+    \end{bmatrix} = \\
+    = \begin{bmatrix}
+      0 & -3 \\
+      2 & 5 \\
+      1 & 4
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      1 & 1 & 0 \\
+      -1 & 1 & 1
+    \end{bmatrix} =
+    \begin{bmatrix}
+      3 & -3 & -3 \\
+      -3 & 7 & 5 \\
+      -3 & 5 & 4
+    \end{bmatrix}.
+  \end{gather*}
+  Это матрица ковариаций, симметричная матрица.
+  \item Случайная величина $ \eta_2$
+  имеет гауссовское распределение как компонента гауссовского вектора.
+  Нужно узнать параметры, то есть её математическое ожидание и дисперсию:
+  $ \eta_2 \sim
+    N \left( 1, 7 \right) $.
+  У нас смещённая случайная величина.
+
+  Значит, $ \eta_2 - 1 \sim N \left( 0, 7 \right) $.
+  Поэтому $M \left( \eta_2 - 1 \right)^2 = 7$, потому что это её дисперсия.
+
+  Раскроем скобки слева,
+  пользуемся линейностью математического ожидания и находим второй момент
+  $M \eta_2^2 - 2M \eta_2 + 1 =
+    7$.
+
+  Математическое ожидание $ \eta_2$ мы знаем, выражаем второй момент
+  $M \eta_2^2 =
+    6 + 2 \cdot 1 =
+    6 + 2 =
+    8$.
+
+  Третий момент этой случайной величины $M \left( \eta_2 - 1 \right)^3 = 0$.
+
+  Так же раскрываем скобки слева $M \eta_2^3 - 3M \eta_2^2 + 3M \eta_2 - 1 = 0$,
+  откуда $M \eta_2^3 = 1 + 3 \cdot 8 - 3 \cdot 1 = 1 + 24 - 3 = 25 - 3 = 22$.
+
+  Четвёртый момент находим аналогично
+  \begin{equation*}
+    M \left( \eta_2 - 1 \right)^4 =
+    M \eta_2^4 - 4M \eta_2^3 + 6M \eta_2^2 - 4M \eta_2 + 1 =
+  \end{equation*}
+  Подставим известные значения моментов
+  \begin{equation*}
+    = M \eta_2^4 - 4 \cdot 22 + 6 \cdot 8 - 4 \cdot 1 + 1 =
+  \end{equation*}
+  Перемножим и сложим константы
+  \begin{equation*}
+    = M \eta_2^4 - 88 + 48 - 1 + 1 =
+    M \eta_2^4 - 40 - 3 =
+    M \eta_2^4 - 43 =
+    7^2 \cdot 3! =
+    49 \cdot 6 =
+    294,
+  \end{equation*}
+  откуда $M \eta_2^4 = 294 + 43 = 337$.
+  \item Случайные величины независимы, если они некоррелируемы:
+  \begin{gather*}
+    cov \left( \eta_1, \eta_2 \right) =
+    cov \left( \xi_1 - \xi_2, \xi_1 + \xi_2 \right) = \\
+    = cov \left( \xi_1, \xi_1 \right) + cv \left( \xi_1, \xi_2 \right) -
+    cov \left( \xi_2, \xi_1 \right) - cov \left( \xi_2, \xi_2 \right) =
+    1 + 1 - 1 - 4 = \\
+    = -3 \neq
+    0,
+  \end{gather*}
+  следовательно, случайные величины не независимы.
+  \item Пользуемся теоремой о нормальной корреляции
+  \begin{gather*}
+    M \left( \eta_1 \; \middle| \; \left( \eta_2, \eta_3 \right) \right) = \\
+    = M \eta_1 + cov \left[ \eta_1, \left( \eta_2, \eta_3 \right) \right] \cdot
+    \left\{
+      cov \left[
+        \left( \eta_2, \eta_3 \right), \left( \eta_2, \eta_3 \right)
+      \right]
+    \right\}^{-1} \times \\
+    \times \left[
+      \left( \eta_2, \eta_3 \right) - M \left( \eta_2, \eta_3 \right)
+    \right]^T =
+  \end{gather*}
+  Подставим
+  \begin{equation*}
+    = -1 +
+    \begin{bmatrix}
+      -3 & -3
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      7 & 5 \\
+      5 & 4
+    \end{bmatrix}^{-1} \cdot
+    \begin{bmatrix}
+      \eta_2 - 1 \\
+      \eta_3 - 1
+    \end{bmatrix} =
+  \end{equation*}
+  Найдём определитель матрицы
+  \begin{equation*}
+    \begin{vmatrix}
+      7 & 5 \\
+      5 & 4
+    \end{vmatrix} =
+    28 - 25 =
+    3.
+  \end{equation*}
+  Подставим
+  \begin{gather*}
+    = -1 +
+    \begin{bmatrix}
+      -3 & -3
+    \end{bmatrix} \cdot \frac{1}{3} \cdot
+    \begin{bmatrix}
+      4 & -5 \\
+      -5 & 7
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      \eta_2 - 1 \\
+      \eta_3 - 1
+    \end{bmatrix} = \\
+    = -1 -
+    \begin{bmatrix}
+      1 & 1
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      4 & -5 \\
+      -5 & 7
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      \eta_2 - 1 \\
+      \eta_3 - 1
+    \end{bmatrix} =
+    -1 -
+    \begin{bmatrix}
+      -1 & 2
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      \eta_2 - 1 \\
+      \eta_3 - 1
+    \end{bmatrix} = \\
+    = -1 + \eta_2 - 1 - 2 \eta_3 + 2 =
+    \eta_2 - 2 \eta_3.
+  \end{gather*}
+  Получили оценку $ \eta_1 $ по вектору $ \left( \eta_2, \eta_3 \right) $.
+\end{enumerate}
