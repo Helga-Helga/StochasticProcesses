@@ -383,3 +383,52 @@ $ \lambda =
 $p \left( x, y \right) \neq
  p_{ \xi_1} \left( x \right) \cdot p_{ \xi_2} \left( y \right) $,
 то $ \xi_1$ и $ \xi_2$ не могут быть независимыми.
+
+\subsubsection*{1.4}
+
+\textit{Задание.}
+Пусть $ \xi $ и
+$ \eta $~---~независимые стандартные гауссовские случайные величины.
+Докажите, что $ \xi + \eta $ и $ \xi - \eta $
+являются независимыми случайными величинами.
+
+\textit{Решение.}
+$ \xi, \eta \sim N \left( 0, 1 \right) $.
+
+Вектор $ \left( \xi, \eta \right) $~---~гауссовский вектор с вектором средних
+$ \left( 0, 0 \right) $ и ковариационной матрицей
+\begin{equation*}
+  \begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+  \end{bmatrix}.
+\end{equation*}
+
+Сначала нужно показать,
+что $ \left( \xi + \eta, \xi - \eta \right) $ является гауссовским вектором.
+Берём какую-то комбинацию и группируем
+\begin{equation*}
+  \lambda_1 \left( \xi + \eta \right) + \lambda_2 \left( \xi - \eta \right) =
+  \lambda_1 \xi + \lambda_1 \eta + \lambda_2 \xi - \lambda_2 \eta =
+  \xi \left( \lambda_1 + \lambda_2 \right) +
+  \eta \left( \lambda_1 - \lambda_2 \right).
+\end{equation*}
+
+Видим, что это линейная комбинация координат гауссовского вектора,
+который имеет нормальное распределение.
+
+Значит, вектор гауссовский.
+Тогда независимость координат эквивалентна их некоррелируемости
+$cov \left( \xi + \eta, \xi - \eta \right) =
+ 0$.
+
+Воспользуемся линейностью ковариации
+\begin{equation*}
+  cov \left( \xi + \eta, \xi - \eta \right) =
+  cov \left( \xi, \xi \right) - cov \left( \xi, \eta \right) +
+  cov \left( \eta, \xi \right) - cov \left( \eta, \eta \right) =
+  D \xi - D \eta =
+  0,
+\end{equation*}
+так как $D \xi = D \eta = 1$.
+Следовательно, случайные величины $ \xi + \eta $ и $ \xi - \eta $ независимы.
