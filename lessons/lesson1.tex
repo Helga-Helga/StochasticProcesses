@@ -251,3 +251,135 @@ $ \lambda =
   \varphi_{ \xi } \left( t \right) \cdot \varphi_{ \eta } \left( t \right) =
   \left( 0.3 + 0.2 e^{it} + 0.5 e^{2it} \right) \cdot \frac{2}{2 - it}.
 \end{equation*}
+
+\subsubsection*{1.3}
+
+\textit{Задание.}
+Плотность распределения случайного вектора $ \left( \xi_1, \xi_2 \right) $
+равна:
+\begin{equation*}
+  p \left( x, y \right) =
+  \begin{cases}
+    \frac{1 + 9x^2 y^2}{8} \qquad at \, -1 \leq x, y \leq 1, \\
+    0, \qquad otherwise.
+  \end{cases}
+\end{equation*}
+Найдите:
+\begin{enumerate}[label=\alph*)]
+  \item $P \left( \xi_1 < \xi_2 \right) $;
+  \item $M \xi_1 \xi_2$;
+  \item плотности распределений случайных величин $ \xi_1$ и $ \xi_2$.
+\end{enumerate}
+Являются ли случайные величины $ \xi_1$ и $ \xi_2$ независимыми?
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item Найдём Вероятность
+  \begin{equation*}
+    P \left( \xi_1 < \xi_2 \right) =
+    \iint \limits_{ \mathbb{R}^2}
+      \mathbbm{1} \left\{ x < y \right\} \cdot p \left( x, y \right)
+    dxdy =
+    \iint \limits_{x < y} p \left( x, y \right) dxdy =
+  \end{equation*}
+  Подставим плотность распределения
+  \begin{equation*}
+    = \iint \limits_{x < y}
+      \frac{1 + 9x^2 y^2}{8} \cdot
+      \mathbbm{1} \left\{
+        x \in \left[ -1, 1 \right], y \in \left[ -1, 1 \right]
+      \right\}
+    dxdy =
+  \end{equation*}
+  Поменяем пределы интегрирования за счёт индикатора
+  \begin{equation*}
+    = \frac{1}{8}
+    \int \limits_{-1}^1 \int \limits_{-1}^y \left( 1 + 9x^2 y^2 \right) dxdy =
+    \frac{1}{8} \int \limits_{-1}^1
+      \left. \left( x + \frac{9x^3 y^2}{3} \right) \right|_{-1}^y
+    dy =
+  \end{equation*}
+  Сократим константы
+  \begin{equation*}
+    = \frac{1}{8}
+    \int \limits_{-1}^1 \left. \left(x + 3x^3 y^2 \right) \right|_{-1}^y dy =
+    \frac{1}{8} \int \limits_{-1}^1 \left( y + 3y^3 y^2 + 1 + 3y^2 \right) dy =
+  \end{equation*}
+  Упростим
+  \begin{equation*}
+    = \frac{1}{8} \int \limits_{-1}^1 \left( y + 3y^5 + 1 + 3y^2 \right) dy =
+    \frac{1}{8} \left.
+      \left( \frac{y^2}{2} + \frac{3y^6}{6} + y + \frac{3y^3}{3} \right)
+    \right|_{-1}^1 =
+  \end{equation*}
+  Сократим константы
+  \begin{equation*}
+    = \frac{1}{8} \left.
+      \left( \frac{y^2}{2} + \frac{y^6}{2} + y + y^3 \right)
+    \right|_{-1}^1 =
+    \frac{1}{8} \left(
+      \frac{1}{2} + \frac{1}{2} + 1 + 1 - \frac{1}{2} - \frac{1}{2} + 1 + 1
+    \right) =
+  \end{equation*}
+  Некоторые слагаемые уничтожаются
+  \begin{equation*}
+    = \frac{1}{8} \cdot 4 =
+    \frac{1}{2};
+  \end{equation*}
+  \item вычислим математическое ожидание
+  \begin{equation*}
+    M \xi_1 \xi_2 =
+    \iint \limits_{ \mathbb{R}^2} xyp \left( x, y \right) dxdy =
+  \end{equation*}
+  Подставим вид $p \left( x, y \right) $.
+  Получим
+  \begin{equation*}
+    = \int \limits_{-1}^1
+      \int \limits_{-1}^1 \frac{1 + 9x^2 y^2}{8} \cdot dx
+    dy =
+    \frac{1}{8}
+    \int \limits_{-1}^1 \int \limits_{-1}^1 \left( xy + 9x^3 y^3 \right) dxdy =
+  \end{equation*}
+  Возьмём внутренний интеграл
+  \begin{equation*}
+    = \frac{1}{8} \int \limits_{-1}^1
+      \left. \left( \frac{x^2 y}{2} + \frac{9x^4 y^3}{4} \right) \right|_{-1}^1
+    dy =
+    \frac{1}{8} \int \limits_{-1}^1
+      \left( \frac{y}{2} + \frac{9y^3}{4} - \frac{y}{2} - \frac{9y^3}{4} \right)
+    dy =
+    0;
+  \end{equation*}
+  \item находим плотность
+  каждой из случайных величин как плотность компонент вектора
+  \begin{equation*}
+    p_{ \xi_1} \left( x \right) =
+    \int \limits_{ \mathbb{R}} p \left( x, y \right) dy =
+    \int \limits_{-1}^1 \frac{1 + 9x^2 y^2}{8} \cdot dy =
+    \frac{1}{8} \int \limits_{-1}^1 \left( 1 + 9x^2 y^2 \right) dy =
+  \end{equation*}
+  Возьмём интеграл
+  \begin{equation*}
+    = \frac{1}{8} \left. \left( y + \frac{9x^2 y^3}{3} \right) \right|_{-1}^1 =
+    \frac{1}{8} \left. \left( y + 3x^2 y^3 \right) \right|_{-1}^1 =
+    \frac{1}{8} \left( 1 + 3x^2 + 1 + 3x^2 \right) =
+  \end{equation*}
+  Приведём подобные
+  \begin{equation*}
+    = \frac{1}{8} \left( 2 + 6x^2 \right) =
+    \frac{1 + 3x^2}{4}.
+  \end{equation*}
+
+  Теперь ищем плотность $ \xi_2$ аналогичным образом
+  \begin{equation*}
+    p_{ \xi_2} \left( y \right) =
+    \int \limits_{ \mathbb{R}} p \left( x, y \right) dx =
+    \int \limits_{-1}^1 \frac{1 + 9x^2 y^2}{8} \cdot dx =
+    \frac{1 + 3y^2}{4}.
+  \end{equation*}
+\end{enumerate}
+
+Поскольку плотность
+$p \left( x, y \right) \neq
+ p_{ \xi_1} \left( x \right) \cdot p_{ \xi_2} \left( y \right) $,
+то $ \xi_1$ и $ \xi_2$ не могут быть независимыми.
