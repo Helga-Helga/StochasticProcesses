@@ -136,6 +136,48 @@ $P \left(
 Так получилось, потому что траектории возрастают,
 а математическое ожидание~---~непрерывная функция.
 
+\subsubsection*{6.3}
+
+\textit{Задание.}
+Пусть $X = \left\{ X \left( t \right), \, t \in T \right\} $~---~процесс с
+независимыми приращениями и нулевым математическим ожиданием.
+Докажите,
+что если функция $D \left[ X \left( t \right) \right] $ непрерывна по $t$,
+то процесс $X$ стохастически непрерывен.
+
+\textit{Решение.}
+$X \left( t_1 \right), X \left( t_2 \right) - X \left( t_1 \right),
+  X \left( t_3 \right) - X \left( t_2 \right), \dotsc $~---~независимы.
+
+Процессы с такими свойствами: винеровский и пуассоновский.
+
+Сказано, что $MX \left( t \right) = 0$.
+
+Нужно доказать, что процесс стохастически непрерывен.
+Воспользуемся неравенством Чебышева.
+Пусть $t > s$.
+Тогда
+\begin{equation*}
+  P \left\{
+    \left| X \left( t \right) - X \left( s \right) \right| > \varepsilon
+  \right\} \leq
+  \frac{M \left[ X \left( t \right) - X \left( s \right) \right]^2}{ \varepsilon^2} =
+\end{equation*}
+Случайные величины $X \left( s \right) $ и
+$X \left( t \right) - X \left( s \right) $~---~независимы.
+
+$D \left[ X \left( t \right) \right] =
+  D \left\{ X \left( s \right) +
+  \left[ X \left( t \right) - X \left( s \right) \right] \right\} =
+  D \left[ X \left( t \right) - X \left( s \right) \right] +
+  DX \left( s \right) $.
+Тогда
+\begin{equation*}
+  = \frac{DX \left( t \right) - DX \left( s \right) }{ \varepsilon^2} \to
+  0, \,
+  t \to s.
+\end{equation*}
+
 \subsubsection*{6.4}
 
 \textit{Задание.}
