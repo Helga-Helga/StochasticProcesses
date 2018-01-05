@@ -29,6 +29,113 @@ $$ \exists \alpha, \beta, C > 0: \qquad
 \addcontentsline{toc}{section}{Аудиторные задачи}
 \section*{Аудиторные задачи}
 
+\subsubsection*{6.2}
+
+\textit{Задание.}
+В лаборатории есть 2 компьютера.
+Длительности безотказной работы компьютеров являются независимыми случайными
+величинами $ \xi_1, \xi_2$,
+каждая из которых имеет показательное распределение с параметром $ \lambda = 2$.
+В момент $t_0 = 0$ начал работать первый компьютер, а когда он вышел из строя,
+его немедленно заменили другим.
+Пусть $ \xi \left( t \right) $~---~количество компьютеров,
+которые вышли из строя до момента времени $t$.
+Найдите одномерные распределения процесса
+$ \left\{ \xi \left( t \right),\ , t \geq 0 \right\}$.
+Выясните, является ли этот процесс стохастически непрерывным.
+
+\textit{Решение.}
+$ \xi \left( t \right) $~---~количество сломавшихся компьютеров в момент времени
+$t$ (рис \ref{fig:62}).
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.4\textwidth]{./pictures/6_2.png}
+  \caption{График функции $ \xi \left( t \right) $}
+  \label{fig:62}
+\end{figure}
+
+\begin{equation*}
+  \xi \left( t \right) =
+  \begin{cases}
+    0, \qquad t < \xi_1, \\
+    1, \qquad \xi_1 \leq t < \xi_1 + \xi_2, \\
+    2, \qquad t \geq \xi_1 + \xi_2.
+  \end{cases}
+\end{equation*}
+
+Очевидно, что у этого процесса траектории разрывны.
+Найдём одномерные распределения.
+
+$ \xi $~---~дискретная величина.
+
+\begin{gather*}
+  P \left\{ \xi \left( t \right) = 0 \right\} =
+  P \left( t < \xi_1 \right) =
+  P \left( \xi_1 > t \right) =
+  1 - P \left( \xi_1 \leq t \right) =
+  1 - F_{ \xi_1} \left( t \right) = \\
+  = \int \limits_t^{ \infty } 2e^{-2x} dx =
+  e^{-2t}.
+\end{gather*}
+
+Аналогично находим
+\begin{gather*}
+  P \left\{ \xi \left( t \right) = 1 \right\} =
+  P \left( \xi_1 \leq t < \xi_1 + \xi_2 \right) =
+  \int \limits_0^t \int \limits_{t - x}^{ \infty } 4e^{-2x - 2y} dydx = \\
+  = \int \limits_0^t 4e^{-2x} \int \limits_{t - x}^{ \infty } e^{-2y} dydx =
+  \left.
+    -4 \int \limits_0^t e^{-2x} \cdot \frac{1}{2} \cdot e^{-2y}
+  \right|_{t - x}^{+\infty } dx
+  2 \int \limits_0^t e^{-2x} e^{-2 \left( t - x \right) } dx = \\
+  = 2e^{-2t} \int \limits+-^t e^{-2x + 2x} dx =
+  2e^{-2t} \int \limits_0^t dx =
+  2e^{-2t}t.
+\end{gather*}
+
+Третья вероятность~---~это единица минус эти две.
+
+Значит, одномерные распределения имеют следующий вид
+\begin{equation*}
+  \xi \left( t \right) =
+  \begin{cases}
+    0, \qquad e^{-2t}, \\
+    1, \qquad 2te^{-2t}, \\
+    2, \qquad 1 - \left( 1 + 2t \right) e^{-2t}.
+  \end{cases}
+\end{equation*}
+
+Будет ли этот процесс стохастически непрерывным?
+Стохастическая непрерывность означает следующее:
+$P \left(
+    \left| \xi \left( t \right) - \xi \left( s \right) \right| > \varepsilon
+  \right) \to 0$,
+когда $t \to s$ или $s \to t$.
+
+Процесс возрастает, то есть при $s < t$ вероятность
+\begin{equation*}
+  P \left(
+    \left| \xi \left( t \right) - \xi \left( s \right) \right| > \varepsilon
+  \right) =
+  P \left( \xi \left( t \right) - \xi \left( s \right) > \varepsilon \right) =
+\end{equation*}
+Между $t$ и $s$ должен произойти скачок
+\begin{equation*}
+  = P \left\{ \xi \left( t \right) - \xi \left( s \right) \geq 1 \right\} \leq
+\end{equation*}
+Используем неравенство Чебышева
+\begin{gather*}
+  \leq M \xi \left( t \right) - M \xi \left( s \right) = \\
+  = 2te^{-2t} + 2 \left( 1 - \left( 1 + 2t \right) e^{-2t} \right) -2se^{-2s} -
+  2 \left( 1 - \left( 1 + 2s \right) e^{-2s} \right) \to
+  0,
+\end{gather*}
+когда $t \to s$ или $s \to t$.
+Вывод такой, что этот процесс стохастически непрерывен.
+Так получилось, потому что траектории возрастают,
+а математическое ожидание~---~непрерывная функция.
+
 \subsubsection*{6.4}
 
 \textit{Задание.}
