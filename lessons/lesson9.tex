@@ -222,7 +222,11 @@ $f$~---~непрерывная функция с компактным носит
 Получим
 \begin{equation*}
   = \int \limits_{-\infty }^{+\infty }
-    f \left( x \right) f \left( y \right) \cdot k_{ \xi } \left( t - x + y - s \right) dxdy.
+    \int \limits_{-\infty }^{+\infty }
+      f \left( x \right) f \left( y \right) \cdot
+      k_{ \xi } \left( t - x + y - s \right)
+    dx
+  dy.
 \end{equation*}
 
 Интеграл зависит от разности $t - s$.
@@ -258,6 +262,109 @@ $f$~---~непрерывная функция с компактным носит
   \int \limits_{-\infty }^{+\infty } f \left( t - s \right) \xi \left( s \right) ds =
   \int \limits_{-\infty }^{+\infty } f \left( s \right) \xi \left( t + s \right) ds.
 \end{equation*}
+
+\subsubsection*{9.4}
+
+\textit{Задание.}
+Найдите ковариационную функцию процессов $ \eta, \zeta $
+и совместную ковариационную функцию $ \eta, \zeta $, если
+\begin{equation*}
+  \eta \left( t \right) =
+  \xi \left( t \right) + \xi' \left( t \right) + \xi'' \left( t \right); \,
+  \zeta \left( t \right) =
+  3 \xi'' \left( t \right) -2 \xi \left( t \right);
+\end{equation*}
+а $ \xi $~---~стационарный в широком смысле процесс с ковариационной функцией
+$K \left( t \right) =
+  e^{-\frac{t^2}{2}}$.
+
+\textit{Решение.}
+\begin{equation*}
+  K_{ \eta } \left( t, s \right) =
+  cov \left[ \eta \left( t \right), \eta \left( s \right) \right] =
+\end{equation*}
+
+Напишем отдельно
+\begin{gather*}
+  cov \left[ \xi \left( t \right), \xi \left( s \right) \right] =
+  k \left( t - s \right), \,
+  cov \left[ \xi \left( t \right), \xi' \left( s \right) \right] =
+  -k' \left( t - s \right), \, \\
+  cov \left[ \xi' \left( t \right), \xi \left( s \right) \right] =
+  k' \left( t - s \right), \,
+  cov \left[ \xi' \left( t \right), \xi' \left( s \right) \right] =
+  -k'' \left( t - s \right).
+\end{gather*}
+Ещё нужно
+\begin{gather*}
+  cov \left[ \xi \left( t \right), \xi'' \left( s \right) \right] =
+  k'' \left( t - s \right), \,
+  cov \left[ \xi'' \left( t \right), \xi \left( s \right) \right] =
+  k'' \left( t - s \right), \, \\
+  cov \left[ \xi' \left( t \right), \xi'' \left( s \right) \right] =
+  k''' \left( t - s \right), \,
+  cov \left[ \xi'' \left( t \right), \xi' \left( s \right) \right] =
+  -k''' \left( t - s \right), \, \\
+  cov \left[ \xi'' \left( t \right), \xi'' \left( s \right) \right] =
+  k^{ \left( 4 \right) } \left( t - s \right).
+\end{gather*}
+Подставим в ковариацию выражение для процесса
+\begin{equation*}
+  = cov \left[
+    \xi \left( t \right) + \xi' \left( t \right) + \xi'' \left( t \right),
+    \xi \left( s \right) + \xi' \left( s \right) + \xi'' \left( s \right)
+  \right] =
+\end{equation*}
+Слагаемые с нечётными производными сокращаются
+\begin{equation*}
+  = k \left( t - s \right) + k'' \left( t - s \right) +
+  k^{ \left( 4 \right) } \left( t - s \right) =
+\end{equation*}
+Посчитаем производные
+\begin{gather*}
+  k' \left( t \right) =
+  \left( e^{-\frac{t^2}{2}} \right) =
+  -\frac{1}{2} \cdot 2te^{-\frac{t^2}{2}} =
+  -te^{-\frac{t^2}{2}} =
+  -tk \left( t \right), \,
+  k'' \left( t \right) = -k \left( t \right) + t^2 k \left( t \right), \, \\
+  k''' \left( t \right) =
+  tk \left( t \right) + 2tk \left( t \right) + t^2 k \left( t \right).
+\end{gather*}
+Подставим производные в ковариацию
+\begin{gather*}
+  = k \left( t - s \right) - k \left( t - s \right) +
+  \left( t - s \right)^2 k \left( t - s \right) + 3k \left( t - s \right) -
+  6 \left( t - s \right)^2 k \left( t - s \right) + \\
+  + \left( t - s \right)^4 k \left( t - s \right) =
+  3k \left( t - s \right) - 5 \left( t - s \right)^2 k \left( t - s \right) +
+  \left( t - s \right)^4 k \left( t - s \right) = \\
+  = k \left( t - s \right)
+  \left[ 3 - 5 \left( t - s \right)^2 + \left( t - s \right)^4 \right] =
+  e^{-\frac{ \left( t - s \right)^2}{2}}
+  \left[ 3 - 5 \left( t - s \right)^2 + \left( t - s \right)^4 \right] = \\
+  = k_{ \eta } \left( t - s \right).
+\end{gather*}
+
+Для другого процесса~---~аналогично.
+
+Видно, что ковариационная функция меняется сложно.
+
+Как меняется спектральная плотность при действии дифференцирования?
+Оператор, действующий на $ \xi $~---~это
+\begin{equation*}
+  \eta \left( t \right) =
+  \xi \left( t \right) + \xi' \left( t \right) + \xi'' \left( t \right) =
+  P \left( \frac{d}{dt} \right) \xi, \,
+  P \left( x \right) = 1 + x + x^2.
+\end{equation*}
+
+Тогда спектральная плотность
+$f_{ \eta } \left( \lambda \right) =
+  \left| P \left( i \lambda \right) \right|^2
+  f_{ \xi } \left( \lambda \right) $.
+
+Спектральная плотность меняется гораздо проще чем ковариационная функция.
 
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
