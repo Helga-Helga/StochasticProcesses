@@ -461,3 +461,56 @@ $f_{ \varepsilon } = 1$, потому что $ \varepsilon $~---~это белы
   = \frac{4 \left| \sin \lambda \right| }{4 - 4 \cos \lambda + \cos^2 \lambda + \sin^2 \lambda } =
   \frac{4 \left| \sin \lambda \right| }{5 - 4 \cos \lambda }.
 \end{gather*}
+
+\addcontentsline{toc}{section}{Домашнее задание}
+\section*{Домашнее задание}
+
+\subsubsection*{11.17}
+
+\textit{Задание.}
+Пусть
+$ \left\{ \varepsilon_n \right\}_{n \in \mathbb{Z}}$~---~последовательность
+белого шума.
+Найдите спектральную плотность стационарного решения уравнения
+\begin{equation*}
+  \xi_{n + 1} =
+  \frac{1}{2} \cdot \xi_n + \varepsilon_{n + 1}.
+\end{equation*}
+
+\textit{Решение.}
+Известно, что $f_{ \varepsilon } \left( \lambda \right) = 1$.
+Выразим $ \xi_n$ через сумму
+\begin{gather*}
+  \xi_n =
+  \frac{1}{2} \cdot \xi_{n - 1} + \varepsilon_n =
+  \frac{1}{2} \left(
+    \frac{1}{2} \cdot \xi_{n - 2} + \varepsilon_{n - 1}
+  \right) + \varepsilon_n =
+  \frac{1}{2^2} \cdot \xi_{n - 2} + \frac{1}{2} \cdot \varepsilon_{n - 1} +
+  \varepsilon_{n - 2} = \\
+  = \dotsc =
+  \sum \limits_{k = 0}^{n - 1} \frac{1}{2^k} \cdot \varepsilon_{n - k}.
+\end{gather*}
+
+Тогда спектральная плотность равна
+\begin{equation*}
+  f_{ \xi } \left( \lambda \right) =
+  \left|
+    \sum \limits_{k = 0}^{n - 1} e^{i \lambda k} \cdot \frac{1}{2^k}
+  \right|^2 \cdot f_{ \varepsilon } \left( \lambda \right) =
+\end{equation*}
+Вычислим отдельно сумму геометрической прогрессии
+\begin{equation*}
+  \sum \limits_{k = 0}^{n - 1} e^{i \lambda k} \cdot \frac{1}{2^k} =
+  \frac{b_0 \left( 1 - q^n \right) }{1 - q} =
+  \frac{1 \left[ 1 - \left( \frac{e^{i \lambda }}{2} \right)^n \right] }{1 - \frac{e^{i \lambda }}{2}} =
+  \frac{2 - e^{i \lambda n}}{2 - e^{i \lambda }}.
+\end{equation*}
+Подставим полученное выражение в плотность
+\begin{gather*}
+  = \left| \frac{2 - e^{i \lambda n}}{2 - e^{i \lambda }} \right|^2 \cdot 1 =
+  \frac{ \left| 2 - e^{i \lambda n} \right|^2}{ \left| 2 - e^{i \lambda} \right| } =
+  \frac{ \left| 2 - \cos \left( \lambda n \right) - i \sin \left( \lambda n \right) \right|^2}{ \left| 2 - \cos \lambda - i \sin \lambda \right|^2 } = \\
+  = \frac{4 - 4 \cos \left( \lambda n \right) + \cos^2 \left( \lambda n \right) + \sin^2 \left( \lambda n \right) }{4 - 4 \cos \lambda + \cos^2 \lambda + \sin^2 \lambda } =
+  \frac{5 - 4 \cos \left( \lambda n \right) }{5 - 4 \cos \lambda }.
+\end{gather*}
