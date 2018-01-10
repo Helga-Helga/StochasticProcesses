@@ -422,3 +422,42 @@ $f_{ \varepsilon } = 1$, потому что $ \varepsilon $~---~это белы
   \int \limits_{-\pi }^{ \pi } e^{i \lambda n} \cdot \frac{9}{10 - 6 \cos \lambda} \cdot d \lambda =
   \frac{9}{8 \cdot 3^{ \left| n \right| }}.
 \end{equation*}
+
+\subsubsection*{11.7}
+
+\textit{Задание.}
+Найдите спектральную меру последовательности
+\begin{equation*}
+  \xi_n =
+  \sum \limits_{k = 0}^{ \infty } \frac{1}{2^k} \cdot \eta_{n - k},
+\end{equation*}
+если последовательность $ \left\{ \eta_n \right\}_{n \in \mathbb{Z}}$
+имеет спектральную плотность
+\begin{equation*}
+  f_{ \eta } \left( \lambda \right) =
+  \left| \sin \lambda \right|.
+\end{equation*}
+
+\textit{Решение.}
+\begin{equation*}
+  f_{ \xi } \left( \lambda \right) =
+  \left|
+    \sum \limits_{k = 0}^{ \infty } \frac{1}{2^k} \cdot e^{i \lambda k}
+  \right|^2 f_{ \eta } \left( \lambda \right) =
+\end{equation*}
+Под суммой стоит геометрическая прогрессия
+\begin{equation*}
+  \sum \limits_{k = 0}^{ \infty } \frac{1}{2^k} \cdot e^{i \lambda k} =
+  \frac{b_0}{1 - q} =
+  \frac{1}{1 - \frac{e^{i \lambda }}{2}} =
+  \frac{2}{2 - e^{i \lambda }}.
+\end{equation*}
+Подставим полученное выражение
+\begin{gather*}
+  = \left| \frac{2}{2 - e^{i \lambda }} \right|^2 \cdot
+  \left| \sin \lambda \right| =
+  \left| \frac{2}{2 - \cos \lambda - i \sin \lambda } \right|^2 \cdot
+  \left| \sin \lambda \right| = \\
+  = \frac{4 \left| \sin \lambda \right| }{4 - 4 \cos \lambda + \cos^2 \lambda + \sin^2 \lambda } =
+  \frac{4 \left| \sin \lambda \right| }{5 - 4 \cos \lambda }.
+\end{gather*}
