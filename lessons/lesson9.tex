@@ -402,6 +402,42 @@ $f_{ \eta } \left( \lambda \right) =
   \mathbbm{1}_{ \left[ 0, 1 \right] } \left( \lambda \right).
 \end{equation*}
 
+\subsubsection*{9.6}
+
+\textit{Задание.}
+Найдите спектральную плотность стационарного решения уравнения
+$ \xi' \left( t \right) =
+  \eta \left( t \right) $,
+если спектральная плотность стационарного процесса $ \eta $ равна
+$f_{ \eta } \left( \lambda \right) =
+  \lambda^2 \mathbbm{1}_{ \left[ 1, 2 \right] } \left( \lambda \right) $.
+
+\textit{Решение.}
+Перепишем равенство в дифференциальном виде, то есть через многочлен
+\begin{equation*}
+  P \left( \frac{d}{dt} \right) \xi \left( t \right) =
+  \eta \left( t \right).
+\end{equation*}
+
+Тогда $P \left( x \right) = x$.
+Теперь $f_{ \eta }$ будет записываться как
+$f_{ \eta } \left( \lambda \right) =
+  \left| P \left( i \lambda \right) \right|^2
+  f_{ \xi } \left( \lambda \right) $.
+Теперь отсюда можно найти
+\begin{equation*}
+  f_{ \xi } \left( \lambda \right) =
+  \frac{f_{ \eta } \left( \lambda \right) }{ \left| P \left( i \lambda \right) \right|^2} =
+  \frac{f_{ \eta } \left( \lambda \right) }{ \left| i \lambda \right|^2} =
+  \frac{f_{ \eta } \left( \lambda \right) }{ \lambda^2} =
+\end{equation*}
+Подставим $f_{ \eta }$.
+Получим
+\begin{equation*}
+  = \frac{ \lambda^2 \mathbbm{1}_{ \left[ 1, 2 \right] } \left( \lambda \right) }{ \lambda^2 } =
+  \mathbbm{1}_{ \left[ 1, 2 \right] } \left( \lambda \right).
+\end{equation*}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
