@@ -473,6 +473,86 @@ $f_{ \eta } \left( \lambda \right) =
   \mathbbm{1}_{ \left[ 1, 2 \right] } \left( \lambda \right).
 \end{equation*}
 
+\subsubsection*{9.8}
+
+\textit{Задание.}
+Работа дифференцирующей RC-цепи описывается уравнением
+$RC \eta' \left( t \right) + \eta \left( t \right) =
+  RC \xi' \left( t \right), \,
+  t \in \left[ 0, \infty \right) $.
+Найдите математическое ожидание и дисперсию процесса $ \eta $, если
+$M \xi \left( t \right) = 0, \,
+  k_{ \xi } \left( t \right) = \sigma^2 \cos \left( \beta t \right) $.
+
+\textit{Решение.}
+$ \xi $~---~стационарный процесс, $m_{ \xi } = 0$.
+Нужно найти ковариационную функцию для процесса $ \eta $.
+
+Найдём спектральную функцию для $k_{ \xi }$.
+Найдём представление $k_{ \xi }$ в виде интеграла
+\begin{equation*}
+  k_{ \xi } \left( t \right) =
+  \int \limits_{-\infty }^{+\infty }
+    e^{i \lambda t} F_{ \xi } \left( d \lambda \right).
+\end{equation*}
+
+Запишем косинус через экспоненты по формулам Эйлера
+\begin{equation*}
+  \sigma^2 \cos \left( \beta t \right) =
+  \sigma^2 \left( e^{i \beta t} + e^{-i \beta t} \right) =
+\end{equation*}
+Первая экспонента отвечает $ \delta $-мере в точке $ \beta $,
+вторая~---~$ \delta $-мере в точке $-\beta $.
+Получим
+\begin{equation*}
+  = \int \limits_{-\infty }^{+\infty }
+    e^{i \lambda t} \cdot \frac{ \sigma^2}{2} \left[
+      \delta_{ \beta } \left( d \lambda \right) +
+      \delta_{-\beta } \left( d \lambda \right)
+    \right].
+\end{equation*}
+Всё, что стоит после экспоненты,~---~это $F_{ \xi } \left( d \lambda \right) $.
+
+Уравнение можем переписать в таком виде
+\begin{equation*}
+  P \left( \frac{d}{dt} \right) \eta =
+  Q \left( \frac{d}{dt} \right) \xi.
+\end{equation*}
+
+Сейчас $P \left( x \right) = RCx + 1$~---~это левая часть, правая часть~---~это
+\begin{equation*}
+  Q \left( x \right) =
+  RCx.
+\end{equation*}
+Тогда спектральная функция
+\begin{equation*}
+  F_{ \eta } \left( d \lambda \right) =
+  \frac{ \left| Q \left( i \lambda \right) \right|^2}{ \left| P \left( i \lambda \right) \right|^2} \cdot
+  F_{ \xi } \left( d \lambda \right) =
+  \frac{R^2 C^2 \lambda^2}{1 + R^2 C^2 \lambda^2} \cdot
+  F_{ \xi } \left( d \lambda \right).
+\end{equation*}
+
+Тогда ковариационная функция равна
+\begin{gather*}
+  k_{ \eta } \left( t \right) =
+  \int \limits_{-\infty }^{+\infty }
+    e^{i \lambda t} \cdot \frac{R^2 C^2 \lambda^2}{1 + R^2 C^2 \lambda^2} \cdot
+    \frac{ \sigma^2}{2} \left[
+      \delta_{ \beta } \left( d \lambda \right) +
+      \delta_{-\beta } \left( d \lambda \right)
+    \right] = \\
+  = e^{i \beta t} \cdot \frac{R^2 C^2 \beta^2}{1 + R^2 C^2 \beta^2} \cdot
+  \frac{ \sigma^2}{2} +
+  e^{-i \beta t} \cdot \frac{R^2 C^2 \beta^2}{1 + R^2 C^2 \beta^2} \cdot
+  \frac{ \sigma^2}{2} =
+\end{gather*}
+Вынесем общий множитель, экспоненту складываем обратно в косинус
+\begin{equation*}
+  = \frac{R^2 C^2 \beta^2}{1 + R^2 C^2 \beta^2} \cdot \frac{ \sigma^2}{2} \cdot
+  \cos \left( \beta t \right).
+\end{equation*}
+
 \addcontentsline{toc}{section}{Домашнее задание}
 \section*{Домашнее задание}
 
