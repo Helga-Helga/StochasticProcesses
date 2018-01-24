@@ -191,8 +191,75 @@ $0, 1, 2, \dotsc, \infty $, называется моментом останов
   \end{equation*}
 \end{enumerate}
 
-Критерий рекуррентности: $i$ рекурентное тогда и только тогда, когда
+Критерий рекуррентности: $i$ рекуррентное тогда и только тогда, когда
 \begin{equation*}
   \sum \limits_{n = 1}^{ \infty } p_{ii}^{ \left( n \right) } =
   \infty.
 \end{equation*}
+
+\subsubsection*{16.4}
+
+\textit{Задание.}
+Докажите,
+что нессиметричное блуждание на прямой является нерекуррентной цепью Маркова.
+
+\textit{Решение.}
+$ \left\{ x_n \; : \: x \geq 0 \right\} $~---~несимметричное случайное
+блуждание.
+Это значит, что из каждого состояния $i$ идём в $i + 1$ и $i - 1$
+с вероятностями $p$ и $q, \, p \neq q, \, p + q = 1$ (рис. \ref{fig:164}).
+
+\begin{figure}[h]
+  \centering
+  \includestandalone[mode=buildnew]{./pictures/16_4}
+  \caption{Состояния и переходы цепи Маркова}
+  \label{fig:164}
+\end{figure}
+
+Матрица перехода за 1 шаг имеет вид
+\begin{equation*}
+  P =
+  \begin{bmatrix}
+    \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \dotsc \\
+    \dotsc & 0      & q      & 0      & p      & 0      & 0      & 0      & \dotsc \\
+    \dotsc & 0      & 0      & q      & 0      & p      & 0      & 0      & \dotsc \\
+    \dotsc & 0      & 0      & 0      & q      & 0      & p      & 0      & \dotsc \\
+    \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \dotsc & \dotsc
+  \end{bmatrix}
+\end{equation*}
+
+Вероятность $P \left( \tau_0 < \infty \; \middle| \; x_0 = 0 \right) $
+равна единице или меньше единицы?
+
+$p_{00}^{ \left( 2n \right) } = C_{2n}^n p^n q^n$.
+
+Ряд из таких вероятностей (сумма таких вероятностей) сходится или расходится?
+
+\begin{equation*}
+  \sum \limits_{n = 1}^{ \infty } C_{2n}^n \left( pq \right)^n =
+\end{equation*}
+Распишем биномиальный коэффициент
+\begin{equation*}
+  = \sum \limits_{n = 1}^{ \infty }
+    \frac{ \left( 2n \right)!}{n! n!} \cdot \left( pq \right)^n =
+  \sum \limits_{n = 1}^{ \infty }
+    \frac{ \left( n + 1 \right) \cdot \dotsc \cdot 2n}{n!} \cdot
+    \left( pq \right)^n.
+\end{equation*}
+
+Посчитаем отношение $ \left( n + 1 \right) $-го элемента к $n$-му
+\begin{equation*}
+  \frac{ \left( 2n + 2 \right)! n! n!}{ \left( 2n \right)! \left( n + 1 \right)! \left( n + 1 \right)!} \cdot
+  pq =
+  \frac{ \left( 2n + 1 \right) \left( 2n + 2 \right) }{ \left( n + 1 \right)^2} \cdot
+  pq \to
+  4pq <
+  1
+\end{equation*}
+(если $p \neq q$).
+
+Признак д'Аламбера говорит, что такой ряд из вероятностей сходится,
+и состояние невозвратное.
+
+Симметричное случайное блуждание возвратно,
+а несимметричное случайное блуждание невозвратно.

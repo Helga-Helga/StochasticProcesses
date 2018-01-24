@@ -1,0 +1,27 @@
+\documentclass{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\begin{document}
+\pagestyle{empty}
+
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=11em, sibling distance=10ex]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [rectangle, draw, text width=10em, text centered, thick]
+
+\begin{tikzpicture}[->,shorten >=1pt,auto,node distance=2.8cm]
+  \tikzstyle{every state}=[fill=red,draw=none,text=white]
+
+  \node (C) [] {$i - 1$};
+  \node (D) [right of=C] {$i$};
+  \node (E) [right of=D] {$i + 1$};
+
+  \path (D) edge              node {$q$} (C)
+            edge              node {$p$} (E);
+\end{tikzpicture}
+
+\end{document}
