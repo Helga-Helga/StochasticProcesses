@@ -125,3 +125,74 @@ $0, 1, 2, \dotsc, \infty $, называется моментом останов
 если событие $ \left\{ T = n \right\} $
 описывается только в терминах случайных величин $x_1, \dotsc, x_n$
 без привлечения величин $x_{n + 1}, x_{n + 2}, \dotsc $.
+
+\addcontentsline{toc}{section}{Аудиторные задачи}
+\section*{Аудиторные задачи}
+
+\subsubsection*{16.2}
+
+\textit{Задание.}
+Докажите, что все состояния цепи Маркова с матрицей переходных вероятностей $P$
+рекуррентны, если:
+\begin{enumerate}[label=\alph*)]
+  \item \begin{equation*}
+    P =
+    \begin{bmatrix}
+      1 & 0 \\
+      0 & 1
+    \end{bmatrix};
+  \end{equation*}
+  \item \begin{equation*}
+    P =
+    \begin{bmatrix}
+      \frac{1}{2} & 0 & \frac{1}{2} & 0 \\
+      0 & \frac{1}{2} & 0 & \frac{1}{2} \\
+      \frac{1}{2} & 0 & \frac{1}{2} & 0 \\
+      0 & \frac{1}{2} & 0 & \frac{1}{2}
+    \end{bmatrix}.
+  \end{equation*}
+\end{enumerate}
+
+\textit{Решение.}
+\begin{enumerate}[label=\alph*)]
+  \item Тут 2 состояния.
+  Нужно нарисовать, как ведёт себя цепь (рис. \ref{fig:162}).
+
+  \begin{figure}[h]
+    \centering
+    \includestandalone[mode=buildnew]{./pictures/16_2}
+    \caption{Состояния и переходы цепи Маркова}
+    \label{fig:162}
+  \end{figure}
+
+  $i = 1, 2, \, P \left( \tau_i = 1 \; \middle| \; x_0 = 1 \right) = 1$.
+
+  За 1 шаг возвращаемся в состояние $i$;
+  \item нужно нарисовать, как ведёт себя цепь (рис. \ref{fig:1621}).
+
+  \begin{figure}[h]
+    \centering
+    \includestandalone[mode=buildnew]{./pictures/16_2_1}
+    \caption{Состояния и переходы цепи Маркова}
+    \label{fig:1621}
+  \end{figure}
+
+  Получили 2 класса эквивалентности.
+  То есть нас интересует
+  \begin{equation*}
+    P \left( \tau_1 < \infty \; \middle| \; x_0 = 1 \right) =
+    \sum \limits_{n = 1}^{ \infty }
+      P \left( \tau_1 = n \; \middle| \; x_0 = 1 \right) =
+  \end{equation*}
+  Это событие означает, что мы в первый раз вернулись на $n$-м шаге
+  \begin{equation*}
+    = \sum \limits_{n = 1}^{ \infty } \frac{1}{2^n} =
+    1.
+  \end{equation*}
+\end{enumerate}
+
+Критерий рекуррентности: $i$ рекурентное тогда и только тогда, когда
+\begin{equation*}
+  \sum \limits_{n = 1}^{ \infty } p_{ii}^{ \left( n \right) } =
+  \infty.
+\end{equation*}
