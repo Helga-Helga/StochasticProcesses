@@ -14,18 +14,17 @@
 % Define styles for bags and leafs
 \tikzstyle{bag} = [rectangle, draw, text width=10em, text centered, thick]
 
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
-                    semithick]
+\begin{tikzpicture}[->,shorten >=1pt,auto,node distance=2.8cm]
   \tikzstyle{every state}=[fill=red,draw=none,text=white]
 
-  \node[state] (A)              {$0$};
-  \node[state] (B) [right of=A] {$1$};
-  \node[state] (C) [right of=B] {$2$};
-  \node[state] (D) [right of=C] {};
-  \node[state] (E) [right of=D] {};
-  \node[state] (F) [right of=E] {};
-  \node[state] (G) [right of=F] {};
-  \node[state] (H) [right of=G] {$N$};
+  \node (A)              {$0$};
+  \node (B) [right of=A] {$1$};
+  \node (C) [right of=B] {$2$};
+  \node (D) [right of=C] {};
+  \node (E) [right of=D] {};
+  \node (F) [right of=E] {};
+  \node (G) [right of=F] {};
+  \node (H) [right of=G] {$N$};
 
   \path (A) edge [above]            node {1} (B)
         (D) edge [bend left, above] node {1/2} (C)
