@@ -263,3 +263,87 @@ $p_{00}^{ \left( 2n \right) } = C_{2n}^n p^n q^n$.
 
 Симметричное случайное блуждание возвратно,
 а несимметричное случайное блуждание невозвратно.
+
+\subsubsection*{16.6}
+
+\textit{Задание.}
+Рассмотрим цепь Маркова со значениями $0, 1, 2, \dotsc $
+и матрицей вероятностей перехода за один шаг
+\begin{equation*}
+  P =
+  \begin{bmatrix}
+    p_0  & 1 - p_0 & 0       & 0       & 0    & \dotsc \\
+    p_1  & 0       & 1 - p_1 & 0       & 0    & \dotsc \\
+    p_2  & 0       & 0       & 1 - p_2 & 0    & \dotsc \\
+    \dotsc & \dotsc    & \dotsc    & \dotsc    & \dotsc & \dotsc
+  \end{bmatrix}.
+\end{equation*}
+Установите условия рекуррентности состояния 0.
+
+\textit{Решение.}
+Цепь ведёт себя следующим образом (рис. \ref{fig:166}).
+
+При каких условиях состояние 0 будет возвратным?
+
+Посчитаем вероятность вернуться ровно за $n$ шагов
+\begin{equation*}
+  P \left( \tau_0 = n \; \middle| \; x_0 = 0 \right) =
+  \prod \limits_{k = 1}^{n - 1} \left( 1 - p_k \right) \cdot p_{n - 1}.
+\end{equation*}
+
+Тогда
+\begin{equation*}
+  \sum \limits_{n = 1}^{ \infty }
+    p_{n - 1} \prod \limits_{k = 0}^{n - 2} \left( 1 - p_k \right) =
+  1.
+\end{equation*}
+
+\subsubsection*{16.7}
+
+\textit{Задание.}
+Пусть $ \left\{ \xi_n, \, n \geq 1 \right\} $~---~цепь Маркова с матрицей
+вероятностей перехода за один шаг
+\begin{equation*}
+  P =
+  \begin{bmatrix}
+    \frac{1}{2} & \frac{1}{2} \\
+    1           & 0
+  \end{bmatrix}.
+\end{equation*}
+Вычислите:
+\begin{enumerate}[label=\alph*)]
+  \item \begin{equation*}
+    \lim \limits_{n \to \infty }
+      \frac{1}{n} \sum \limits_{k = 1}^n \mathbbm{1} \left\{ \xi_k = j \right\},
+    \, j = 1, 2;
+  \end{equation*}
+  \item \begin{equation*}
+    \lim \limits_{n \to \infty } \frac{1}{n} \sum \limits_{k = 1}^n 2^{ \xi_k}.
+  \end{equation*}
+\end{enumerate}
+
+\textit{Решение.}
+Цепь состоит из двух состояний (рис. \ref{fig:167}).
+
+\begin{figure}[h]
+  \centering
+  \includestandalone[mode=buildnew]{./pictures/16_7}
+  \caption{Состояния и переходы цепи Маркова}
+  \label{fig:167}
+\end{figure}
+
+Попробуем найти пределы переходных вероятностей за $n$ шагов
+$p_{ij}^{ \left( n \right) } \overset{?}{ \to }$.
+
+Найдём собственные числа и собственные вектора
+\begin{equation*}
+  det \left( P - \lambda I \right) =
+  \begin{vmatrix}
+    \frac{1}{2} - \lambda & \frac{1}{2} \\
+    1                     & -\lambda
+  \end{vmatrix} =
+  - \left( \frac{1}{2} - \lambda \right) \lambda - \frac{1}{2} =
+  -\frac{1}{2} \cdot \lambda + \lambda^2 - \frac{1}{2} =
+  \lambda^2 - \frac{ \lambda }{2} - \frac{1}{2} =
+  0.
+\end{equation*}

@@ -16,12 +16,12 @@
 \begin{tikzpicture}[->,shorten >=1pt,auto,node distance=2.8cm]
   \tikzstyle{every state}=[fill=red,draw=none,text=white]
 
-  \node (C) []           {$i - 1$};
-  \node (D) [right of=C] {$i$};
-  \node (E) [right of=D] {$i + 1$};
+  \node (A) []           {$ \cdot $};
+  \node (B) [right of=A] {$ \cdot $};
 
-  \path (D) edge node {$q$} (C)
-            edge node {$p$} (E);
+  \path (A) edge [loop above] node {} (A)
+            edge              node {} (B)
+        (B) edge              node {} (A);
 \end{tikzpicture}
 
 \end{document}
